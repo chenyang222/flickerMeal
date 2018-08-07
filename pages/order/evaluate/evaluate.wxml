@@ -1,0 +1,52 @@
+<!--index.wxml-->
+<view class="container">
+  <view class='center-ctn'>
+    <view class='car-title'>
+      <image class='goback' src='{{imgdata}}/go_back.png'></image>
+      <text>评价</text>
+    </view>
+    <view style='margin-top:200rpx;'></view>
+    <view class='compa-title'>
+      <view class='compa-wrap'>
+        <image class='compa-icon' src='{{imgdata}}/evaluate.png'></image>
+        <text class='compa-name'>DC000AXN(北京照明公司)</text>
+      </view>
+      <view class='xings'>
+        <image class='xing-list' src='{{imgdata}}/blXing.png'></image>
+        <image class='xing-list' src='{{imgdata}}/blXing.png'></image>
+        <image class='xing-list' src='{{imgdata}}/blXing.png'></image>
+        <image class='xing-list' src='{{imgdata}}/blXing.png'></image>
+        <image class='xing-list' src='{{imgdata}}/blXing.png'></image>
+      </view>
+    </view>
+    <view class='evaluate-list'>
+      <view class='evaluate-list1'>
+        <view class='meal-name'>春卷大饼卷</view>
+        <view class='xings'>
+          <image class='xing-list' src='{{imgdata}}/blXing.png'></image>
+          <image class='xing-list' src='{{imgdata}}/blXing.png'></image>
+          <image class='xing-list' src='{{imgdata}}/blXing.png'></image>
+          <image class='xing-list' src='{{imgdata}}/blXing.png'></image>
+          <image class='xing-list' src='{{imgdata}}/blXing.png'></image>
+        </view>
+      </view>
+      <view class='evaluate-list2'>
+        <view class='evaluate-img-wrap'>
+          <image class='evaluate-img' src='{{imgdata}}/evaluateImg.png'></image>
+          <image class='del-img' src='{{imgdata}}/evaluateImgDel.png'></image>
+        </view>
+        <view class='evaluate-img-wrap'>
+          <image class='evaluate-img' src='{{imgdata}}/evaluateImg.png'></image>
+          <image class='del-img' src='{{imgdata}}/evaluateImgDel.png'></image>
+        </view>
+        <text class='upload-img'></text>
+      </view>
+      <view class='evaluate-txt-wrap'>
+        <view class='evaluate-name'>评价</view>
+        <view class='evaluate-input-txt'><input value=''/></view>
+      </view>
+    </view>
+  </view>
+   <view class='submit-btn'>提交</view> 
+</view>
+<view class='pop' style='display:none;'></view>

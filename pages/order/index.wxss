@@ -1,0 +1,209 @@
+/* pages/order/index.wxss */
+@import "../../style/public.wxss";
+.order-container {
+  /* background-color:  */
+}
+
+.order-title {
+  font-size: 36rpx;
+  font-family: MicrosoftYaHei;
+  color: rgba(51, 51, 51, 1);
+  line-height: 21rpx;
+  padding: 40rpx;
+  border-bottom: 2px solid #e3e3e3;
+  text-align: center;
+}
+
+.swiper-tab {
+  width: 100%;
+  border-bottom: 1rpx solid #b3b3b3;
+  text-align: center;
+  line-height: 80rpx;
+}
+
+.swiper-tab-list {
+  display: inline-block;
+  width: 20%;
+  font-size: 28rpx;
+  font-family: SourceHanSansCN-Normal;
+  color: rgba(179, 179, 179, 1);
+}
+
+.on {
+  color: #ffc240;
+  border-bottom: 5rpx solid #ff9e35;
+}
+
+.swiper-box {
+  display: block;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  background-color: #f8f8f8;
+}
+
+.order-list-title{
+  padding: 25rpx;
+  border-bottom: 1rpx solid #b3b3b3;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.order-list-icon{
+  width:23rpx;
+  height:26rpx; 
+}
+.order-list-name{
+  font-size:30rpx;
+  font-family:SourceHanSansCN-Medium;
+  color:rgba(45,45,45,1);
+  margin: 0 25rpx;
+}
+.order-list-more{
+  width:12rpx;
+  height:22rpx; 
+}
+.shengTime{
+  font-size:24rpx;
+  font-family:SourceHanSansCN-Medium;
+  color:rgba(102,102,102,1);
+  margin-top: 10rpx;
+}
+.order-list-time-title{
+  margin-right: 10rpx;
+}
+.order-list-ctninfo{
+  padding: 25rpx;
+  border-bottom: 1px dashed #e5e5e5;
+}
+.order-list-ctninfo .row{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-bottom: 10rpx;
+  font-size:22rpx;
+  font-family:SourceHanSansCN-Medium;
+  color:rgba(102,102,102,1);
+}
+.zongjiWrap{
+  padding: 25rpx;
+  font-size:22rpx;
+  font-family:SourceHanSansCN-Normal;
+  color:rgba(45,45,45,1);
+  overflow: hidden;
+}
+.zongjiWrap .zongji{
+  display: flex;
+  justify-content: space-between;
+}
+.zongjiWrap .zongji .fukuan{
+  margin-left: 75rpx;
+  border-radius: 23rpx;
+  color: #fff;
+  padding: 10rpx 20rpx;
+  background: -webkit-linear-gradient(left top, #FF7E19 , #FFB72D); /* Safari 5.1 - 6.0 */
+  background: -o-linear-gradient(bottom right, #FF7E19, #FFB72D); /* Opera 11.1 - 12.0 */
+  background: -moz-linear-gradient(bottom right, #FF7E19, #FFB72D); /* Firefox 3.6 - 15 */
+  background: linear-gradient(to bottom right, #FF7E19 , #FFB72D); 
+}
+.order-list-waimaiIcon{
+  width:79rpx;
+  height:35rpx; 
+  margin-right: 5rpx;
+}
+.order-list-yyddIcon{
+  width:121rpx;
+  height:35rpx; 
+}
+.all-order{
+  overflow-y:auto; 
+}
+.zongjiNum{
+  margin-top: 10rpx;
+}
+.order-list-ctl{
+  overflow: hidden;
+  font-size:22rpx;
+  font-family:SourceHanSansCN-Normal;
+  color:rgba(255,255,255,1);
+}
+.order-list-ctl .zailai{
+  background-color: #66adf5;
+}
+.order-list-ctl .applic-fapiao{
+  background-color: #999999;
+}
+.order-list-ctl .pingjia{
+  background-color: #86dc47;
+}
+.ctl-btn-fapiao{
+  border-radius: 45rpx;
+  width: 190rpx;
+  height: 40rpx;
+  line-height: 45rpx;
+  text-align: center;
+}
+.ctl-btn-hou{
+  border-radius: 45rpx;
+  width: 125rpx;
+  height: 45rpx;
+  line-height: 45rpx;
+  text-align: center;
+  margin-left: 40rpx;
+  margin-right: 25rpx;
+}
+
+.pop {
+  background-color: #000;
+  opacity: 0.5;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  bottom: 0;
+  z-index: 999;
+}
+/* 确认收货 */
+.qingkong-car{
+  width:591rpx;
+  /* height:297rpx;  */
+  background:rgba(255,255,255,1);
+  border-radius: 30rpx ;
+  z-index: 999;
+  position: fixed;
+  bottom:420rpx;
+  left: 0;
+  right: 0;
+  margin: auto;
+}
+.qingkong-tips{
+  text-align: center;
+  font-size:38rpx;
+  font-family:SourceHanSansCN-Medium;
+  color:rgba(51,51,51,1);
+  padding: 65rpx 0;
+  border-bottom: 1px solid #f2a437;
+}
+.qingkong-btn{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.qingkong-btn view{
+  height: 108rpx;
+  width: 49%;
+  line-height: 108rpx;
+  text-align: center;
+  font-size:38rpx;
+  font-family:SourceHanSansCN-Medium;
+  color:rgba(242,164,55,1);
+}
+.comfirm-title{
+  font-size:38rpx;
+  font-family:SourceHanSansCN-Medium;
+  color:rgba(51,51,51,1);
+}
+.comfirm-ask{
+  font-size:30rpx;
+  font-family:SourceHanSansCN-Normal;
+  color:rgba(102,102,102,1);
+}

@@ -1,0 +1,13 @@
+<!--pages/mine/unablephone/unablephone.wxml-->
+<!-- <text>pages/mine/unablephone/unablephone.wxml</text> -->
+<view class='invisephone'>
+  <!-- <view class='car-title'>
+    <image class='goback' src='{{imgdata}}/go_back.png'></image>
+    <text>修改手机号</text>
+  </view> -->
+
+  <view class='oldphone'>该页面用于您就手机号无法接受短信时的紧急处理页面，您
+可以在该页面联系闪餐的</view>
+    <navigator class='recharge' bindtap="changePay" url='../kefu/kefu'>下一步</navigator>
+
+</view>

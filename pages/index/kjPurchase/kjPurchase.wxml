@@ -1,0 +1,85 @@
+<view class='car-container'>
+  <view class='car-title'>
+    <image bindtap='goIndex' class='goback' src='{{imgdata}}/go_back.png'></image>
+    <text>砍价购买</text>
+  </view>
+  <view style='margin-top:80px;'></view>
+  <view class='info-wrap'>
+    <view class='touxiang-wrap'>
+      <image class='touxiang' src='{{imgdata}}/plTouXiang.png'></image>
+    </view>
+    <view class='phone-num'>
+      152＊＊＊＊3386
+    </view>
+    <view class='info-tips'>我发现一份很好吃的餐品，快来帮我砍价吧</view>
+  </view>
+  <!-- 列表 -->
+  <view class="hotPush">
+    <view class='big-list'>
+      <view class='small-list'>
+        <view class="hotPushL fl">
+          <image class="hotPushImg" src="/images/hotPushImg.png"></image>
+          <image class="hotPushIcon" src="/images/hotPushIcon.png"></image>
+        </view>
+        <view class="hotPushR fl">
+          <view class="dianNamePosi">
+            <text>麻辣香锅加酸辣粉土豆丝加米</text>
+            <!-- <image src="/images/blFly.png" class="fly fr"></image> -->
+          </view>
+          <!-- <view class="psTime">
+            <text>仅剩2份</text>
+          </view> -->
+          <!-- <view class="manjian">
+            <text class='mark-name'>新品</text>
+            <text class="manjianTxt">5折优惠</text>
+          </view> -->
+          <view class='price-ctl'>
+            <view class='price'>
+              <view class='price-wrap'>
+                <text class='zuidijia'>最低价</text>
+                <text class='real-price'>
+                <text>￥</text>
+                <text>19.5</text>
+                </text>
+              </view>
+            </view>
+            <view class='ctl-btn'>
+              <text>100</text>
+              <text>人已买到手</text>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class='share-mai'>
+    <view class='share-mai-list1'>
+      已砍<text>3.25</text>元，还差<text>6.75</text>元
+    </view>
+    <view class='share-mai-list2'>
+      <view class='share'>分享给好友，参与砍价</view>
+      <view class='mai'>马上买</view>
+    </view>
+    <view class='share-mai-list3'>
+      还剩<text>01:26:40</text>结束，快来砍价吧
+    </view>
+  </view>
+  <view class='kanjiabang'>
+    <view class='kanjiabang-title'>砍价帮</view>
+    <view class='kanjia-info'>
+      <view class='kanjia-img-wrap'>
+        <view class='kanjia-img'>
+          <image class='bang-img fl' src='{{imgdata}}/plTouXiang.png'></image>
+        </view>
+        <view class='bang-img-right'>
+          <view class='fl'>152＊＊＊＊3386</view>
+          <view>快来帮我砍价吧</view>
+        </view>
+      </view>
+      <view class='kanjiaC'>
+        <image class='jiandao-icon' src='{{imgdata}}/jiaoDaoIcon.png'></image>
+        <text>砍掉3.25元</text>
+      </view>
+    </view>
+  </view>
+</view>

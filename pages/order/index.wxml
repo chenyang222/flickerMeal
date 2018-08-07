@@ -1,0 +1,482 @@
+<!--pages/order/index.wxml-->
+<!-- <text>pages/order/index.wxml</text> -->
+
+<view class='order-container'>
+  <!-- 订单标题 -->
+  <view class='order-title'>
+    <text>订单</text>
+  </view>
+  <!-- 切换 -->
+  <view class="swiper-tab">
+    <view class="swiper-tab-list {{currentTab==0 ? 'on' : ''}}" data-current="0" bindtap="swichNav">全部订单</view>
+    <view class="swiper-tab-list {{currentTab==1 ? 'on' : ''}}" data-current="1" bindtap="swichNav">待支付</view>
+    <view class="swiper-tab-list {{currentTab==2 ? 'on' : ''}}" data-current="2" bindtap="swichNav">待取餐</view>
+    <view class="swiper-tab-list {{currentTab==3 ? 'on' : ''}}" data-current="3" bindtap="swichNav">已完成</view>
+    <view class="swiper-tab-list {{currentTab==4 ? 'on' : ''}}" data-current="4" bindtap="swichNav">售后</view>
+  </view>
+
+  <swiper current="{{currentTab}}" class="swiper-box" duration="300" style="height:{{winHeight - 96}}px" bindchange="bindChange">
+    <!-- <swiper current="{{currentTab}}" class="swiper-box" duration="300" style="height:{{winHeight - 31}}px" bindchange="bindChange"> -->
+    <!-- 全部订单 -->
+    <swiper-item>
+      <view class='all-order' style="height:{{winHeight - 96}}px">
+        <!-- 去付款 -->
+        <view class='order-list'>
+          <view class='order-list-title'>
+            <view class='dian-info'>
+              <image class='order-list-icon' src='{{imgdata}}/upload/orderTitleIcon.png'></image>
+              <text class='order-list-name'>DC000AXN(北京照明公司)</text>
+              <image class='order-list-more' src='{{imgdata}}/upload/cf_goright.png'></image>
+            </view>
+            <!-- 剩余时间、去付款  -->
+            <view class='shengTime'>
+              <text class='order-list-time-title'>剩余支付时间</text>
+              <text class='time'>14:21</text>
+            </view>
+          </view>
+          <view class='order-list-ctninfo'>
+            <view class='row'>
+              <text class='fl'>剁椒鸡蛋盖饭</text>
+              <text class='fr'>X1</text>
+            </view>
+            <view class='row'>
+              <text class='fl'>剁椒鸡蛋盖饭</text>
+              <text class='fr'>X1</text>
+            </view>
+            <view class='row'>
+              <text class='fl'>剁椒鸡蛋盖饭</text>
+              <text class='fr'>X1</text>
+            </view>
+          </view>
+          <view class='zongjiWrap'>
+            <view class='zongji fr'>
+              <view class='zongjiNum'>共<text>3</text>件商品，实付<text>58.8</text></view>
+              <view class='fukuan'>去付款</view>
+            </view>
+          </view>
+        </view>
+        <!-- 确认收货 -->
+        <view class='order-list'>
+          <view class='order-list-title'>
+            <view class='dian-info'>
+              <image class='order-list-icon' src='{{imgdata}}/upload/orderTitleIcon.png'></image>
+              <text class='order-list-name'>DC000AXN(北京照明公司)</text>
+              <image class='order-list-more' src='{{imgdata}}/upload/cf_goright.png'></image>
+            </view>
+            <!-- 订单待取餐 -->
+            <view class='shengTime'>
+              <image class='order-list-waimaiIcon fl' src='{{imgdata}}/upload/orderWaimaiIcon.png'></image>
+              <text class='time'>订单待取餐</text>
+            </view>
+          </view>
+          <view class='order-list-ctninfo'>
+            <view class='row'>
+              <text class='fl'>剁椒鸡蛋盖饭</text>
+              <text class='fr'>X1</text>
+            </view>
+            <view class='row'>
+              <text class='fl'>剁椒鸡蛋盖饭</text>
+              <text class='fr'>X1</text>
+            </view>
+            <view class='row'>
+              <text class='fl'>剁椒鸡蛋盖饭</text>
+              <text class='fr'>X1</text>
+            </view>
+          </view>
+          <view class='zongjiWrap'>
+            <view class='zongji fr'>
+              <view class='zongjiNum'>共<text>3</text>件商品，实付<text>58.8</text></view>
+              <view class='fukuan'>确认收货</view>
+            </view>
+          </view>
+        </view>
+        <!-- 去付款 -->
+        <view class='order-list'>
+          <view class='order-list-title'>
+            <view class='dian-info'>
+              <image class='order-list-icon' src='{{imgdata}}/upload/orderTitleIcon.png'></image>
+              <text class='order-list-name'>DC000AXN(北京照明公司)</text>
+              <image class='order-list-more' src='{{imgdata}}/upload/cf_goright.png'></image>
+            </view>
+            <!-- 剩余时间、去付款  -->
+            <view class='shengTime'>
+              <image class='order-list-yyddIcon' src='{{imgdata}}/upload/yyddIcon.png'></image>
+            </view>
+          </view>
+          <view class='order-list-ctninfo'>
+            <view class='row'>
+              <text class='fl'>剁椒鸡蛋盖饭</text>
+              <text class='fr'>X1</text>
+            </view>
+            <view class='row'>
+              <text class='fl'>剁椒鸡蛋盖饭</text>
+              <text class='fr'>X1</text>
+            </view>
+            <view class='row'>
+              <text class='fl'>剁椒鸡蛋盖饭</text>
+              <text class='fr'>X1</text>
+            </view>
+          </view>
+          <view class='zongjiWrap'>
+            <view class='zongji fr'>
+              <view class='zongjiNum'>共<text>3</text>件商品，实付<text>58.8</text></view>
+              <text class='fukuan'>去付款</text>
+            </view>
+          </view>
+        </view>
+      </view>
+    </swiper-item>
+    <!-- 待支付 -->
+    <swiper-item>
+      <view class='all-order' style="height:{{winHeight - 96}}px">
+        <!-- 去付款 -->
+        <view class='order-list'>
+          <view class='order-list-title'>
+            <view class='dian-info'>
+              <image class='order-list-icon' src='{{imgdata}}/upload/orderTitleIcon.png'></image>
+              <text class='order-list-name'>DC000AXN(北京照明公司)</text>
+              <image class='order-list-more' src='{{imgdata}}/upload/cf_goright.png'></image>
+            </view>
+            <!-- 剩余时间、去付款  -->
+            <view class='shengTime'>
+              <text class='order-list-time-title'>剩余支付时间</text>
+              <text class='time'>14:21</text>
+            </view>
+          </view>
+          <view class='order-list-ctninfo'>
+            <view class='row'>
+              <text class='fl'>剁椒鸡蛋盖饭</text>
+              <text class='fr'>X1</text>
+            </view>
+            <view class='row'>
+              <text class='fl'>剁椒鸡蛋盖饭</text>
+              <text class='fr'>X1</text>
+            </view>
+            <view class='row'>
+              <text class='fl'>剁椒鸡蛋盖饭</text>
+              <text class='fr'>X1</text>
+            </view>
+          </view>
+          <view class='zongjiWrap'>
+            <view class='zongji fr'>
+              <view class='zongjiNum'>共<text>3</text>件商品，实付<text>58.8</text></view>
+              <view class='fukuan'>去付款</view>
+            </view>
+          </view>
+        </view>
+        <!-- 去付款 -->
+        <view class='order-list'>
+          <view class='order-list-title'>
+            <view class='dian-info'>
+              <image class='order-list-icon' src='{{imgdata}}/upload/orderTitleIcon.png'></image>
+              <text class='order-list-name'>DC000AXN(北京照明公司)</text>
+              <image class='order-list-more' src='{{imgdata}}/upload/cf_goright.png'></image>
+            </view>
+            <!-- 剩余时间、去付款  -->
+            <view class='shengTime'>
+              <text class='order-list-time-title'>剩余支付时间</text>
+              <text class='time'>14:21</text>
+            </view>
+          </view>
+          <view class='order-list-ctninfo'>
+            <view class='row'>
+              <text class='fl'>剁椒鸡蛋盖饭</text>
+              <text class='fr'>X1</text>
+            </view>
+            <view class='row'>
+              <text class='fl'>剁椒鸡蛋盖饭</text>
+              <text class='fr'>X1</text>
+            </view>
+            <view class='row'>
+              <text class='fl'>剁椒鸡蛋盖饭</text>
+              <text class='fr'>X1</text>
+            </view>
+          </view>
+          <view class='zongjiWrap'>
+            <view class='zongji fr'>
+              <view class='zongjiNum'>共<text>3</text>件商品，实付<text>58.8</text></view>
+              <view class='fukuan'>去付款</view>
+            </view>
+          </view>
+        </view>
+        <!-- 去付款 -->
+        <view class='order-list'>
+          <view class='order-list-title'>
+            <view class='dian-info'>
+              <image class='order-list-icon' src='{{imgdata}}/upload/orderTitleIcon.png'></image>
+              <text class='order-list-name'>DC000AXN(北京照明公司)</text>
+              <image class='order-list-more' src='{{imgdata}}/upload/cf_goright.png'></image>
+            </view>
+            <!-- 剩余时间、去付款  -->
+            <view class='shengTime'>
+              <text class='order-list-time-title'>剩余支付时间</text>
+              <text class='time'>14:21</text>
+            </view>
+          </view>
+          <view class='order-list-ctninfo'>
+            <view class='row'>
+              <text class='fl'>剁椒鸡蛋盖饭</text>
+              <text class='fr'>X1</text>
+            </view>
+            <view class='row'>
+              <text class='fl'>剁椒鸡蛋盖饭</text>
+              <text class='fr'>X1</text>
+            </view>
+            <view class='row'>
+              <text class='fl'>剁椒鸡蛋盖饭</text>
+              <text class='fr'>X1</text>
+            </view>
+          </view>
+          <view class='zongjiWrap'>
+            <view class='zongji fr'>
+              <view class='zongjiNum'>共<text>3</text>件商品，实付<text>58.8</text></view>
+              <view class='fukuan'>去付款</view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </swiper-item>
+    <!-- 待取餐 -->
+    <swiper-item>
+      <view class='all-order' style="height:{{winHeight - 96}}px">
+        <!-- 确认收货 -->
+        <view class='order-list'>
+          <view class='order-list-title'>
+            <view class='dian-info'>
+              <image class='order-list-icon' src='{{imgdata}}/upload/orderTitleIcon.png'></image>
+              <text class='order-list-name'>DC000AXN(北京照明公司)</text>
+              <image class='order-list-more' src='{{imgdata}}/upload/cf_goright.png'></image>
+            </view>
+            <!-- 订单待取餐 -->
+            <view class='shengTime'>
+              <image class='order-list-waimaiIcon fl' src='{{imgdata}}/upload/orderWaimaiIcon.png'></image>
+              <text class='time'>订单待取餐</text>
+            </view>
+          </view>
+          <view class='order-list-ctninfo'>
+            <view class='row'>
+              <text class='fl'>剁椒鸡蛋盖饭</text>
+              <text class='fr'>X1</text>
+            </view>
+            <view class='row'>
+              <text class='fl'>剁椒鸡蛋盖饭</text>
+              <text class='fr'>X1</text>
+            </view>
+            <view class='row'>
+              <text class='fl'>剁椒鸡蛋盖饭</text>
+              <text class='fr'>X1</text>
+            </view>
+          </view>
+          <view class='zongjiWrap'>
+            <view class='zongji fr'>
+              <view class='zongjiNum'>共<text>3</text>件商品，实付<text>58.8</text></view>
+              <view class='fukuan'>确认收货</view>
+            </view>
+          </view>
+        </view>
+        <!-- 确认收货 -->
+        <view class='order-list'>
+          <view class='order-list-title'>
+            <view class='dian-info'>
+              <image class='order-list-icon' src='{{imgdata}}/upload/orderTitleIcon.png'></image>
+              <text class='order-list-name'>DC000AXN(北京照明公司)</text>
+              <image class='order-list-more' src='{{imgdata}}/upload/cf_goright.png'></image>
+            </view>
+            <!-- 订单待取餐 -->
+            <view class='shengTime'>
+              <image class='order-list-waimaiIcon fl' src='{{imgdata}}/upload/orderWaimaiIcon.png'></image>
+              <text class='time'>订单待取餐</text>
+            </view>
+          </view>
+          <view class='order-list-ctninfo'>
+            <view class='row'>
+              <text class='fl'>剁椒鸡蛋盖饭</text>
+              <text class='fr'>X1</text>
+            </view>
+            <view class='row'>
+              <text class='fl'>剁椒鸡蛋盖饭</text>
+              <text class='fr'>X1</text>
+            </view>
+            <view class='row'>
+              <text class='fl'>剁椒鸡蛋盖饭</text>
+              <text class='fr'>X1</text>
+            </view>
+          </view>
+          <view class='zongjiWrap'>
+            <view class='zongji fr'>
+              <view class='zongjiNum'>共<text>3</text>件商品，实付<text>58.8</text></view>
+              <view class='fukuan'>确认收货</view>
+            </view>
+          </view>
+        </view>
+        <!-- 确认收货 -->
+        <view class='order-list'>
+          <view class='order-list-title'>
+            <view class='dian-info'>
+              <image class='order-list-icon' src='{{imgdata}}/upload/orderTitleIcon.png'></image>
+              <text class='order-list-name'>DC000AXN(北京照明公司)</text>
+              <image class='order-list-more' src='{{imgdata}}/upload/cf_goright.png'></image>
+            </view>
+            <!-- 订单待取餐 -->
+            <view class='shengTime'>
+              <image class='order-list-waimaiIcon fl' src='{{imgdata}}/upload/orderWaimaiIcon.png'></image>
+              <text class='time'>订单待取餐</text>
+            </view>
+          </view>
+          <view class='order-list-ctninfo'>
+            <view class='row'>
+              <text class='fl'>剁椒鸡蛋盖饭</text>
+              <text class='fr'>X1</text>
+            </view>
+            <view class='row'>
+              <text class='fl'>剁椒鸡蛋盖饭</text>
+              <text class='fr'>X1</text>
+            </view>
+            <view class='row'>
+              <text class='fl'>剁椒鸡蛋盖饭</text>
+              <text class='fr'>X1</text>
+            </view>
+          </view>
+          <view class='zongjiWrap'>
+            <view class='zongji fr'>
+              <view class='zongjiNum'>共<text>3</text>件商品，实付<text>58.8</text></view>
+              <view class='fukuan'>确认收货</view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </swiper-item>
+    <!-- 已完成 -->
+    <swiper-item>
+      <view class='all-order' style="height:{{winHeight - 96}}px">
+        <!-- 确认收货 -->
+        <view class='order-list'>
+          <view class='order-list-title'>
+            <view class='dian-info'>
+              <image class='order-list-icon' src='{{imgdata}}/upload/orderLou.png'></image>
+              <text class='order-list-name'>DC000AXN(北京照明公司)</text>
+              <image class='order-list-more' src='{{imgdata}}/upload/cf_goright.png'></image>
+            </view>
+            <!-- 订单待取餐 -->
+            <view class='shengTime'>
+              <text class='time'>订单待取餐</text>
+            </view>
+          </view>
+          <view class='order-list-ctninfo'>
+            <view class='row'>
+              <text class='fl'>剁椒鸡蛋盖饭</text>
+              <text class='fr'>X1</text>
+            </view>
+            <view class='row'>
+              <text class='fl'>剁椒鸡蛋盖饭</text>
+              <text class='fr'>X1</text>
+            </view>
+            <view class='row'>
+              <text class='fl'>剁椒鸡蛋盖饭</text>
+              <text class='fr'>X1</text>
+            </view>
+          </view>
+          <view class='zongjiWrap'>
+            <view class='zongji fr'>
+              <view class='zongjiNum'>共<text>3</text>件商品，实付<text>58.8</text></view>
+            </view>
+          </view>
+          <view class='order-list-ctl'>
+            <view class='zailai fr ctl-btn-hou'>再来一单</view>
+            <view class='applic-fapiao fr ctl-btn-fapiao'>申请电子发票</view>
+            <!-- <view class='pingjia'>评价</view> -->
+          </view>
+        </view>
+        <!-- 确认收货 -->
+        <view class='order-list'>
+          <view class='order-list-title'>
+            <view class='dian-info'>
+              <image class='order-list-icon' src='{{imgdata}}/upload/orderLou.png'></image>
+              <text class='order-list-name'>DC000AXN(北京照明公司)</text>
+              <image class='order-list-more' src='{{imgdata}}/upload/cf_goright.png'></image>
+            </view>
+            <!-- 订单待取餐 -->
+            <view class='shengTime'>
+              <text class='time'>订单待取餐</text>
+            </view>
+          </view>
+          <view class='order-list-ctninfo'>
+            <view class='row'>
+              <text class='fl'>剁椒鸡蛋盖饭</text>
+              <text class='fr'>X1</text>
+            </view>
+            <view class='row'>
+              <text class='fl'>剁椒鸡蛋盖饭</text>
+              <text class='fr'>X1</text>
+            </view>
+            <view class='row'>
+              <text class='fl'>剁椒鸡蛋盖饭</text>
+              <text class='fr'>X1</text>
+            </view>
+          </view>
+          <view class='zongjiWrap'>
+            <view class='zongji fr'>
+              <view class='zongjiNum'>共<text>3</text>件商品，实付<text>58.8</text></view>
+            </view>
+          </view>
+          <view class='order-list-ctl'>
+            <view class='pingjia fr ctl-btn-hou'>评价</view> 
+             <view class='applic-fapiao fr ctl-btn-fapiao'>申请电子发票</view> 
+            <!-- <view class='zailai'>再来一单</view> -->
+          </view>
+        </view>
+      </view>
+    </swiper-item>
+    <!-- 售后 -->
+    <swiper-item>
+      <view class='all-order' style="height:{{winHeight - 96}}px">
+        <!-- 确认收货 -->
+        <view class='order-list'>
+          <view class='order-list-title'>
+            <view class='dian-info'>
+              <image class='order-list-icon' src='{{imgdata}}/upload/orderTitleIcon.png'></image>
+              <text class='order-list-name'>DC000AXN(北京照明公司)</text>
+              <image class='order-list-more' src='{{imgdata}}/upload/cf_goright.png'></image>
+            </view>
+            <!-- 订单待取餐 -->
+            <view class='shengTime'>
+              <text class='time'>订单待取餐</text>
+            </view>
+          </view>
+          <view class='order-list-ctninfo'>
+            <view class='row'>
+              <text class='fl'>剁椒鸡蛋盖饭</text>
+              <text class='fr'>X1</text>
+            </view>
+            <view class='row'>
+              <text class='fl'>剁椒鸡蛋盖饭</text>
+              <text class='fr'>X1</text>
+            </view>
+            <view class='row'>
+              <text class='fl'>剁椒鸡蛋盖饭</text>
+              <text class='fr'>X1</text>
+            </view>
+          </view>
+          <view class='zongjiWrap'>
+            <view class='zongji fr'>
+              <view class='zongjiNum'>共<text>3</text>件商品，实付<text>58.8</text></view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </swiper-item>
+  </swiper>
+</view>
+
+<view class='pop' style='display:none;'></view>
+<!-- 抢购结算-》清空购物车弹窗 -->
+<view class='qingkong-car' style='display:none;'>
+  <view class='qingkong-tips'>
+    <view class='comfirm-title'>确认收货</view>
+    <view class='comfirm-ask'>是否确认收货？</view>
+  </view>
+  <view class='qingkong-btn'>
+    <view style='border-right:1px solid #f2a437'>清空</view>
+    <view>取消</view>
+  </view>
+</view>

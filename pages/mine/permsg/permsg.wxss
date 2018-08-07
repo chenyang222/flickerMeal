@@ -1,0 +1,133 @@
+/* pages/mine/permsg/permsg.wxss */
+.permsg{
+  width: 100%;
+  height: 1180rpx; 
+  background-color: #f8f8f8;
+  /* margin-top: 120rpx; */
+}
+.car-title {
+  padding: 25rpx;
+  /* position: relative; */
+  background-color: #fff;
+  margin-bottom: 1rpx;
+  /* position: fixed;
+  top: 0; */
+  z-index: 999;
+  width: 93%;
+  border-bottom: 1px solid #f7f7f7;
+}
+
+.goback {
+  width: 20rpx;
+  height: 34rpx;
+  position: absolute;
+  left: 25rpx;
+  top: 35rpx;
+}
+
+.car-title text {
+  display: inline-block;
+  width: 100%;
+  text-align: center;
+}
+
+
+/*列表  */
+.revisemsg{
+  width: 100%;
+}
+.reviselist{
+  width: 100%;
+}
+.reviseitem{
+  width: 726rpx;
+  float: right;
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1rpx solid #d4d7dd;
+  height: 99rpx;
+  line-height: 99rpx;
+  position: relative;
+}
+.itemfirst{
+  height: 137rpx;
+  line-height: 137rpx;
+}
+.reviseitem view:first-child{
+  color: #000000;
+  font-size: 28rpx;
+}
+.reviseitem view:last-child{
+  margin-right: 30rpx;
+  /* height: 100%;
+  line-height: 100%; */
+}
+.reviseitem view:last-child image:first-child{
+    width: 113rpx;
+    height: 113rpx;
+    border-radius: 50%;
+    position: absolute;
+    top: 12rpx;
+    right: 73rpx;
+}
+.reviseitem view:last-child image:last-child{
+    width: 13rpx;
+    height: 22rpx;
+    margin-left: 30rpx;
+}
+.reviseitem  text{
+  color: #000000;
+  font-size: 28rpx;
+}
+
+
+/*昵称遮罩  */
+.nickname_center{
+  width: 591rpx;
+  height: 349rpx;
+  background-color: #fff;
+  border-radius:30rpx;
+}
+.nicktitle{
+  width: 100%;
+  height: 141rpx;
+  line-height: 141rpx;
+  color: #333333;
+  font-size: 38rpx;
+  text-align: center;
+  font-weight: bold;
+  display: block;
+}
+.nickinput{
+  width: 464rpx;
+  height: 60rpx;
+  margin:auto;
+  border:1rpx solid #E1E1E1;
+  border-radius:10rpx;
+}
+.confirmbtns{
+  width: 100%;
+  height: 126rpx;
+  line-height: 126rpx;
+  border-radius: 0 0 30rpx 30rpx;
+  display: flex;
+  font-size: 38rpx;
+   font-weight: 500; 
+  border-top: 2rpx solid #F2A437;
+  margin-top: 20rpx;
+}
+.confirmbtns text{
+  flex: 1;
+  text-align: center;
+}
+.confirmbtns text:first-child{
+  color: #666666;
+  border-right: 2rpx solid #F2A437;
+}
+.confirmbtns text:last-child{
+  color: #F2A437;
+}
+.phcolor{
+  font-size: 30rpx;
+  color: #666666;
+}

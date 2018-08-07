@@ -1,0 +1,42 @@
+<view class='search-title'>
+  <view class='search-kuang fl'>
+    <image class='search-img fl' src='{{imgdata}}/searchIcon.png'></image>
+    <input bindinput="bindKeyInput" value="{{inputVal}}" class='search-input' placeholder='搜索机器/餐品'/>
+  </view>
+  <view wx:if="{{!isSearch}}" class='cancel-btn fr' bindtap='goIndex'><text>取消</text></view>
+  <view wx:if="{{isSearch}}" class='cancel-btn fr' bindtap='searchGoods'><text>搜索</text></view>
+</view>
+<view class='history-search'>
+  <view class='history-search-title'>
+    <text class='title-txt fl'>历史搜索</text>
+    <image bindtap='clearHistory' class='del-img fr' src='{{imgdata}}/delIcon.png'></image>
+  </view>
+  <view class='history-list-wrap'>
+    <block wx:if="{{searchListArr.length>0}}">
+      <block wx:for="{{searchListArr}}" wx:key="{{index}}">
+        <text bindtap='clickSearchHistory' data-id="{{item.id}}" data-name="{{item.findDetail}}" class='history-list'>{{item.findDetail}}</text>  
+      </block> 
+    </block> 
+    <block wx:else>
+      <text class='history-list'>暂无搜索记录</text>  
+    </block> 
+  </view>
+</view>
+<view class='history-search'>
+  <view class='history-search-title'>
+    <text class='title-txt fl'>热门搜索</text>
+    <!-- <image class='del-img fr' src='{{imgdata}}/delIcon.png'></image> -->
+  </view>
+  <view class='history-list-wrap'>
+    <block wx:if="{{HotSearch.length>0}}">
+      <block wx:for="{{HotSearch}}" wx:key="{{index}}">
+        <text class='history-list' bindtap='clickHotSearch' data-name="{{item.hotwordName}}" data-id="{{item.id}}">{{item.hotwordName}}</text>
+      </block>
+
+      <!-- <text class='history-list active'>口口香土豆粉</text>  -->
+    </block>
+    <block wx:else>
+      <text class='history-list'>暂无热门搜索记录</text>  
+    </block>
+  </view>
+</view>

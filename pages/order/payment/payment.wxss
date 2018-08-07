@@ -1,0 +1,274 @@
+/* pages/shopCar/index.wxss */
+@import "../../../style/public.wxss";
+/* @import "../../../style/weui.wxss"; */
+
+page {
+  padding-bottom: 100rpx;
+  font-family: "microsoft yahei";
+}
+
+.car-title {
+  padding: 25rpx;
+  /* position: relative; */
+  background-color: #fff;
+  margin-bottom: 1rpx;
+  position: fixed;
+  top: 0;
+  z-index: 999;
+  width: 93%;
+  border-bottom: 1px solid #f7f7f7;
+}
+
+.goback {
+  width: 20rpx;
+  height: 34rpx;
+  position: absolute;
+  left: 25rpx;
+  top: 35rpx;
+}
+
+.car-title text {
+  display: inline-block;
+  width: 100%;
+  text-align: center;
+}
+
+.order-detail-address-wrap{
+  background-color: #fff;
+}
+.order-address-icon-title{
+  width:23rpx;
+  height:28rpx; 
+}
+.order-detail-address-icon{
+  width:23rpx;
+  height:32rpx;
+  display: inline-block;
+  background-size: 100% 100%;
+  background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABcAAAAgCAYAAAD5VeO1AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyhpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNi1jMTM4IDc5LjE1OTgyNCwgMjAxNi8wOS8xNC0wMTowOTowMSAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIDIwMTcgKE1hY2ludG9zaCkiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6NUQ3NTU0NUUyQTVBMTFFODhEMTlDNDY2NUMwNUIxN0EiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6NUQ3NTU0NUYyQTVBMTFFODhEMTlDNDY2NUMwNUIxN0EiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo1RDc1NTQ1QzJBNUExMUU4OEQxOUM0NjY1QzA1QjE3QSIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo1RDc1NTQ1RDJBNUExMUU4OEQxOUM0NjY1QzA1QjE3QSIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PpYFATcAAAJwSURBVHjarNZLaBNBGMDxmTWKByFiiAoVFfFxUKEWbMCCoAVRSNWLKIjQ4KFQ0INQpQcFwZOPg8UgFXzVg6AeQj0oSsHEWCVVPEiFnrRiaRFzslqpmPU/zUa2m53ZbdKFH032m/k6+81jI+1b24XmWoyDSKIZa7EQf/AZBfQjI1KFab8E0r5dlXwBOnAWK0XwNYHzuCHaCyV3wPI0jOM50iETC6fddTwTd5pjs5NLKRxx5LHLdW8uWvFC3E3EXclVcailpHZSbHS+12oLHom+RMSd/BR21Jm4YidOlif0XiLK31FEA2r7CeNYhdUBbYtqdamRH0HUMJJBNGEdWrAGCbwz9InhkEqeNDTKgQkW7z33C87jvzX0bYsIS24zPF4npjWxXziB15p4kxp5g+Y/j2A4YPLeYEITa7AMHb+HXB26djLCwlczG/N5rPXODi4ZyrbIOXN8V4xF9+GZFNVWYL8mVnEYSzSxD5az5XVbuhebNLFG9Bj6vlIjzxhGthxDOIetWIZGXMAglhr69ks706LKP4INYv6uj+JAfrNaLTbS83SuVKTLB1f5EW6iGDB5Yak8fe7zfBKXazzHvS6KZH7SPXLlKsbqHPUoevzeRFPoqnPUXWLfy9/eN1HFfTytcRIfi725h553aFWjDvycY+If6PSuR2pOdLYv6Pa5b3Ja7Ml9rU7uP5JreBK6HFL0+u0kXXK1sdoxHpB4DCnRmrU1ybUz/w3HUNLE/+Ko2J0t6s4AK2BkA+jWxM4gazpgrBA1vYQHPkv2ysxnc/LAjUH9ZQpDznd+asjj/+PG5OEu9aZvw4Dzs3oqTKd/AgwAA/F6WSgakDIAAAAASUVORK5CYII=);
+}
+.order-address-icon-title-wrap{
+  font-size:26rpx;
+  font-family:PingFangSC-Regular;
+  color:rgba(255,255,255,1);
+  width: 215rpx;
+  height: 34rpx;
+  background-size: 100% 100%;
+  background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAANcAAAAiCAMAAAD7/LwtAAAAllBMVEUAAAD/njX/njX/njX/njX/njX/njX/njX/njX/njX/njX/njX/njX/njX/njX/njX/njX/njX/njX/njX/njX/////7uH/rV7/9Ov/tG//1bT/z6f/wo3/4sv/+vb/pUv/u37/27//zJT/6Nb/4sL/yJr/p0f/+fL/rlX/0aD/tGL/pEH///7/587/3Lf/2a//yY//xongxv2RAAAAFHRSTlMAzwUWDvbt3KiBS8WZYyogtm88Na/x/V4AAAP1SURBVFjD5ZnZupsgEIDTfd9nYNixNkl7Ttf3f7kiJICin7UnN03/i8hHRPkNM5px9+AeXAevdyOuRQsePRx5wdXw5P6S1+3Pb0c8fvt5C/8kTxe8bggTdAMLaAEXIx/KOyg4DhmuORS4qPbz2kHDs1mvw/Hrj5tbuL358fV4WJgK0qRDFzxM2DMOyzA8DeCIru4ugxQqKBjU9W4CWp7Pef3C75D4jr9glg4VjJBYIJjQo/UAjo05O3ik1Oywgwt5wZuJ1+dPFsfYT5+hgouAt+jFiXR2LRn2UsoOUXaUyZcBPXAcw8s1MWkNWNd4OSP/yutxTopJ64gtx1qM4QSWZ6fiWiIQ7S+nolhCYR+3EGUGmBKBHqUIjL04si1ehRcjr0/46QAf8QtEQusjHELfyKs3Ff2MF/A0c2GphJj1xdFUcdoglr34Bi94WXtZPMDECw5oYfE4Ys7LDR9RDzIc5r1IRhDTlha9hIw9xUsxPeNVeFV5IULjBYh/5mVUICpRjBQ/ygO1VzucaHR4rRShUjp7MXsKyehupNTpQrZehQ8X8ioxZeJOCvfpDhPw27wYRtjg5bSxQ1vS4EWYkNnLp2BtefRgk5eRFaby6nQAKRv1aY4UZ7jkZVkEMW1tGqNksOikCl4WB7qoxONVYii1FtkrR2XDk/srXtvyIYBHk6MMYvZf9EKKlG0dX2I4m+10yhs0iq/sZSkgYI63ldeE1kvpCjXr5axNcic4sg3rsHhppCofEsGcl4Blnq14bcmH6dQeOtzf1ctxfjcveH4BL2KB5KXROGvdH3iRiFibtst5Hpz9C69XF/CyFEhejmyefvG6231ZINvs9XLDOiRWQfPrEBQi+nUvJ08gnltu3sszi91Wrxdb8oalCrvg5Sz2sOpVIIKa1sshGrfR6/H93QXzBt+L6NVNvLibejmeISptdz6RJJG94vDs5bv+D7we7C7kxb3EgAYwzToUpKdeEmeRcQiFlh3lQ6DhGycYBti61/td8Zpn3Yv7HsniAJMcFNo9Up0PvUU19VIsg1jaClw3WDHlhpGlDmAJOEvnUHzV693uAl49DpCRp+cN1GDq+3JQlhvii9B2fhqZLrSdRTJ7txJfuXhz57yx77u9d6e84aOEo6SSPK2GDV5a5CtCpXMY6Pm5nmLiAymhmq2p3Lu/yWv5+bDMQ2PKGaJaeownwb3WDLs1r4KzyEyit7gHWAhNausAzf/KEe3/Ss8rfOtV6i/+nOudGk1HrHoVtMVMX3XLCU3dpq0DjJjWAaThIw8jocYZA6AnBcECVwEBLWHYAk6c4bBCU2dbrdv8Y8S66Gqd7Z/Tevo/vHe41vdEV/pe7zfWIUwmATgAdwAAAABJRU5ErkJggg==)
+}
+.order-detail-address-name{
+  font-size:30rpx;
+  font-family:SourceHanSansCN-Medium;
+  color:rgba(45,45,45,1);
+  margin-left: 10rpx;
+  margin-right: 25rpx;
+}
+.order-juli{
+  font-size:22rpx;
+  font-family:SourceHanSansCN-Medium;
+  color:rgba(102,102,102,1);
+}
+.name-phone{
+  font-size:22rpx;
+  font-family:SourceHanSansCN-Medium;
+  color:rgba(102,102,102,1);
+  margin-left: 35rpx;
+}
+.order-detail-address-wrap{
+  padding: 15rpx 24rpx;
+}
+.address-fenge{
+  height: 4rpx;
+  width: 100%;
+  /* background-size: 100% 100%; */
+  background-repeat: repeat-x;
+  background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAAADBAMAAADRixQvAAAAG1BMVEUAAABCu/j/njVCu/j/njVCu/j/njVCu/j/njXdONp5AAAAB3RSTlMA19dzcxwcvMG97wAAACpJREFUCNdjYOtABi0MDKzlyKCYgQlFgQIDAyOKAgEGDxQFCQwM5igKAgADmSk+8rt+VwAAAABJRU5ErkJggg==)
+}
+.fan-img-wrap {
+  /* display: inline-block; */
+  float: left;
+}
+
+.fan-list {
+  background-color: #fff;
+  /* padding: 25rpx; */
+  margin-bottom: 1px;
+  overflow: hidden;
+}
+
+.fan-name-price {
+  /* display: inline-block; */
+  float: left;
+  width: 70%;
+  margin-left: 30rpx;
+}
+
+.fan-img {
+  width: 176rpx;
+  height: 136rpx;
+  border-radius: 10rpx;
+}
+
+.fan-name-price-list1 {
+  font-size: 28rpx;
+  font-family: SourceHanSansCN-Normal;
+  color: rgba(124, 124, 124, 1);
+  margin-bottom: 30rpx;
+}
+
+.fan-name-price-list2 {
+  font-size: 38rpx;
+  font-family: SourceHanSansCN-Medium;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.fan-ctl{
+  font-size:28rpx;
+  font-family:SourceHanSansCN-Normal;
+  color:rgba(45,45,45,1);
+}
+.fan-price {
+  color: rgba(245, 65, 60, 1);
+}
+
+.jia {
+  width: 41rpx;
+  height: 41rpx;
+  float: left;
+}
+
+.jian {
+  width: 41rpx;
+  height: 41rpx;
+  float: left;
+}
+
+.jiajian-num {
+  font-size: 30rpx;
+  font-family: SourceHanSansCN-Normal;
+  color: rgba(45, 45, 45, 1);
+  margin-top: -10rpx;
+  float: left;
+  margin: 0 25rpx;
+  margin-top: 1rpx;
+}
+.fan-list-wrap{
+  border-bottom: 1px solid #f8f8f8;
+  padding:15rpx 24rpx;
+  background-color: #fff;
+}
+.canpin-list-wrap{
+  margin: 10rpx 0 15rpx 0;
+}
+.order-daifu{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  background-color: rgba(255,158,53,1);
+  height: 60rpx;
+  line-height: 60rpx;
+  padding:0 24rpx;
+}
+.jian-name{
+  font-size:24rpx;
+  font-family:SourceHanSansCN-Regular;
+  color:rgba(255,255,255,1);
+}
+.jian-ming{
+  display: inline-block;
+  width:50rpx;
+  height:28rpx; 
+  background:rgba(253,87,146,1);
+  padding: 2rpx;
+  line-height: 28rpx;
+  margin:0 15rpx;
+}
+.jian-price{
+  font-size:30rpx;
+  font-family:SourceHanSansCN-Medium;
+  color:rgba(255,255,255,1);
+}
+.coupon{
+  height: 85rpx;
+  line-height: 85rpx;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  font-size:30rpx;
+  font-family:SourceHanSansCN-Regular;
+  color:rgba(45,45,45,1);
+  padding: 0 24rpx;
+  background-color: #fff;
+  margin: 6rpx 0;
+}
+.zhankai{
+  width:20rpx;
+  height:34rpx; 
+  margin-top: 26rpx;
+  margin-left: 30rpx;
+}
+.peisong{
+  height: 85rpx;
+  line-height: 85rpx;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  font-size:30rpx;
+  font-family:SourceHanSansCN-Regular;
+  color:rgba(45,45,45,1);
+  padding: 0 24rpx;
+  background-color: #fff;
+}
+
+.heji {
+  position: fixed;
+  bottom: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+  border-top: 1px solid #d9d9d9;
+  box-shadow: 0rpx -5rpx 5rpx #dedede;
+}
+
+.heji-left {
+  width: 67%;
+  padding-left: 24rpx;
+  line-height: 98rpx;
+}
+
+.heji-left text {
+  font-size: 30rpx;
+  color: rgba(102, 102, 102, 1);
+  display: inline-block;
+}
+
+.heji-left view {
+  font-size: 38rpx;
+  color: rgba(245, 65, 60, 1);
+  display: inline-block;
+  margin: 0 25rpx;
+  line-height: 98rpx;
+}
+
+ .heji-left view text {
+  font-size: 38rpx;
+  color: rgba(245, 65, 60, 1);
+} 
+
+.del-icon {
+  width: 27rpx;
+  height: 29rpx;
+}
+
+.jiesuan-btn {
+  display: block;
+  background-color: #f5413c;
+  color: #fff;
+  font-size: 30rpx;
+  line-height: 98rpx;
+  text-align: center;
+  width: 246rpx;
+  height: 98rpx;
+}

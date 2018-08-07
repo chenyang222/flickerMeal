@@ -1,0 +1,30 @@
+<!--login.wxml-->
+<view class="container">
+  <view class="top">
+    <image src="{{imgdata}}/login_bg.png"></image>
+    <view class="btn">
+      <navigator url = "/pages/login/login" class="tab_btn" open-type = "redirect" hover-class="none"><text class="left_btn">账号登录</text></navigator>
+      <text class="right_btn tab_btn tab_btn_active">手机短信登录</text>
+    </view>
+  </view>
+  <view class="my_ipt">
+    <view class="phone_ipt">
+      <image class="fl" src="{{imgdata}}/phone.png"></image>
+      <input class="fl" placeholder="请输入手机号码" type="text" bindinput='phoneVal' value="{{phoneNum}}"></input>
+    </view>
+    <view>
+      <image class="fl" src="{{imgdata}}/pass.png"></image>
+      <input class="fl" placeholder="请输入验证码" type="text" value='{{validateCode}}' bindinput='vlidataVal'></input>
+     <text class="yzm fr {{is_show?'show':'hide'}}" bindtap="getIdentifyingCode">获取验证码</text>
+      <text class="yzm fr {{is_show?'hide':'show'}}" style='border:1px solid #ccc;color:#ccc'>{{last_time}}</text>
+    </view>
+  </view>
+  <view class="lg_btn">
+    <view class="sub_lg" bindtap='comfirmRegist'></view>
+    <view class="oh">
+      <navigator url = "/pages/login/regist/regist" class="" open-type = "navigate" hover-class="none"><text class="fl">手机注册</text></navigator>
+    </view>
+  </view>
+  <view class="line"></view>
+  <view class="wc_login"></view>
+</view>

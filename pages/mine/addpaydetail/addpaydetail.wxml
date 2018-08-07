@@ -1,0 +1,40 @@
+<!--pages/mine/addpaydetail/addpaydetail.wxml-->
+<!-- <text>pages/mine/addpaydetail/addpaydetail.wxml</text> -->
+<view class='addpaydetail'>
+    <!-- <view class='car-title'>
+      <image class='goback' src='{{imgdata}}/go_back.png'></image>
+      <text>充值明细</text>
+    </view> -->
+
+    <view class='fulllist'>
+        <view class='fullitem'>
+            <view class='itemleft'>
+                <text>微信充值</text>
+            </view>
+            <view class='itemright'>
+                <image src='{{imgdata}}/yh_addmoney.png'></image>
+                <text>100</text>
+            </view>
+        </view>
+    </view>
+
+    <view class='detaillist'>
+        <view class='detailitem'>
+            <text>充值时间：</text>
+            <text>2018-03-08  09:09:23</text>
+        </view>
+        <view class='detailitem'>
+            <text>充值单号：</text>
+            <text>2018012020345678765435678</text>
+        </view>
+        <view class='detailitem'>
+            <text>账户余额：</text>
+            <text>2000：89</text>
+        </view>
+        <view class='detailitem'>
+            <text>备注：</text>
+            <text>微信充值</text>
+        </view>
+    </view>
+
+</view>

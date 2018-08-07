@@ -1,0 +1,147 @@
+<!--mine.wxml-->
+<view class="container">
+  <view class="top">
+    <view class="header">
+      <navigator url="../mine/msgnotification/msgnotification"><image src="{{imgdata}}/upload/cf_msg.png"></image></navigator>
+      <view class="topTitle">我的</view>
+      <navigator url="../mine/setup/setup">
+        <image src="{{imgdata}}/upload/cf_setting.png"></image>
+      </navigator>
+      
+    </view>
+    <view class='topMsg'>
+        <view class='img'>
+          <image src='{{imgdata}}/upload/cf_nologin.png'></image>
+        </view>
+        <view class='right'>
+          <view class='name'>餐厅001</view>
+          <view class='money'>
+            <view class='money'>
+              <image src='{{imgdata}}/upload/cf_qiandai.png'></image>
+              <text> 余  额：¥ 200</text>
+            </view>
+            <view class='jifen'>
+              <image src='{{imgdata}}/upload/cf_jifen.png'></image>
+              <text> 积 分：2000</text>
+            </view>
+          </view>
+          <navigator url="../mine/permsg/permsg">
+            <view class='msg' url="../mine/permsg/permsg">个人信息
+              <image src='{{imgdata}}/upload/cf_go.png'></image>
+            </view>
+          </navigator>
+        </view>
+        
+    </view>
+  </view>
+  <view class='center'>
+      <view class='list'>
+        <!-- <view class='item'> -->
+        <navigator class='item' url="../mine/address/address">
+          <view class='item_left'>
+            <image src='{{imgdata}}/upload/cf_address.png'></image>
+          </view>
+          <view class='item_center'>我的收货地址</view>
+          <view class='item_right'>
+            <image src='{{imgdata}}/upload/cf_goright.png'></image>
+          </view>
+          </navigator>
+        <!-- </view> -->
+        <!-- <view class='item'> -->
+        <navigator class='item' url="../mine/pay/pay">
+          <view class='item_left'>
+            <image src='{{imgdata}}/upload/cf_chong.png'></image>
+          </view>
+          <view class='item_center'>我的充值</view>
+          <view class='item_right'>
+            <image src='{{imgdata}}/upload/cf_goright.png'></image>
+          </view>
+        <!-- </view> -->
+        </navigator>
+        <navigator class='item' url="../mine/coupon/coupon">
+            <view class='item_left'>
+            <image src='{{imgdata}}/upload/cf_youhuiquan.png'></image>
+          </view>
+          <view class='item_center'>我的优惠券</view>
+          <view class='item_right'>
+            <image src='{{imgdata}}/upload/cf_goright.png'></image>
+          </view>
+        </navigator>
+      <navigator class='item' url="../mine/recommend/recommend">
+              <view class='item_left'>
+            <image src='{{imgdata}}/upload/cf_tuijian.png'></image>
+          </view>
+          <view class='item_center'>推荐有礼</view>
+          <view class='item_right'>
+            <image src='{{imgdata}}/upload/cf_goright.png'></image>
+          </view>
+        </navigator>
+      <navigator class='item' url="../mine/store/store">
+              <view class='item_left'>
+            <image src='{{imgdata}}/upload/cf_shangcheng.png'></image>
+          </view>
+          <view class='item_center'>商 城</view>
+          <view class='item_right'>
+            <image src='{{imgdata}}/upload/cf_goright.png'></image>
+          </view>
+        </navigator>
+        <navigator class='item' url="../mine/kefu/kefu">
+            <view class='item_left'>
+                <image src='{{imgdata}}/upload/cf_kefu.png'></image>
+            </view>
+            <view class='item_center'>客服管理</view>
+            <view class='item_right'>
+              <image src='{{imgdata}}/upload/cf_goright.png'></image>
+            </view>
+        </navigator>
+        <navigator class='item' url="../mine/join/join">
+            <view class='item_left'>
+            <image src='{{imgdata}}/upload/cf_jiameng.png'></image>
+          </view>
+          <view class='item_center'>加盟</view>
+          <view class='item_right'>
+            <image src='{{imgdata}}/upload/cf_goright.png'></image>
+          </view>
+        </navigator>  
+    
+      <navigator class='item' url="../mine/feedBack/feedBack" id='theid'>
+            <view class='item_left'>
+            <image src='{{imgdata}}/upload/cf_fankui.png'></image>
+          </view>
+          <view class='item_center'>反馈</view>
+          <view class='item_right'>
+            <image src='{{imgdata}}/upload/cf_goright.png'></image>
+          </view>
+        </navigator>
+      </view>
+  </view>
+
+  <!-- <view class='footer'>
+    <view class='list'>
+        <view class='footer_item'>
+          <view class='footer_img'>
+            <image src='../../images/cf_nav1.png'></image>
+          </view>
+          <view class='footer_title'>点餐</view>       
+        </view>
+        <view class='footer_item'>
+          <view class='footer_img'>
+            <image src='../../images/cf_nav2.png'></image>
+          </view>
+          <view class='footer_title'>订单</view>       
+        </view>
+        <view class='footer_item'>
+          <view class='footer_img'>
+            <image src='../../images/cf_nav3.png'></image>
+          </view>
+          <view class='footer_title'>购物车</view>       
+        </view>
+        <view class='footer_item'>
+          <view class='footer_img'>
+            <image src='../../images/cf_nav4on.png'></image>
+          </view>
+          <view class='footer_title on'>我的</view>       
+        </view>
+    </view>
+  </view> -->
+</view>

@@ -1,0 +1,20 @@
+<!--pages/mine/confirmpaypsd/confirmpaypsd.wxml-->
+<!-- <text>pages/mine/confirmpaypsd/confirmpaypsd.wxml</text> -->
+<view class='invisephone'>
+  <!-- <view class='car-title'>
+    <image class='goback' src='{{imgdata}}/go_back.png'></image>
+    <text>支付密码</text>
+  </view> -->
+
+  <view class='oldphone'>请输入原支付密码验证身份</view>
+  <view class='import'>
+      <input></input>
+      <input></input>
+      <input></input>
+      <input></input>
+      <input></input>
+      <input></input>
+  </view>
+    <navigator class='recharge' >下一步</navigator>
+    <navigator class='rechargerule' >忘记支付密码？</navigator>
+</view>

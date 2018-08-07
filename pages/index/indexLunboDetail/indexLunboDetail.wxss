@@ -1,0 +1,64 @@
+/* pages/index/shancanStory/shancanStory.wxss */
+@import "../../../style/public.wxss";
+page{
+  background-color: #f8f8f8;
+}
+.car-container{
+ 
+}
+.car-title{
+  padding: 25rpx;
+  /* position: relative; */
+  background-color: #fff;
+  margin-bottom: 1rpx;
+  position: fixed;
+  top: 0;
+  z-index: 999;
+  width: 93%;
+  border-bottom: 1px solid #f7f7f7;
+}
+.goback{
+  width:20rpx;
+  height:34rpx;  
+  position: absolute;
+  left: 25rpx;
+  top: 35rpx;
+}
+.car-title text{
+  display: inline-block;
+  width: 100%;
+  text-align: center;
+}
+.story-title{
+  border-bottom: 1px dashed #666666;
+  padding: 25rpx;
+  background-color: #fff;
+}
+.story-title-name{
+  text-align: center;
+  font-size:30rpx;
+  font-family:SourceHanSansCN-Medium;
+  color:rgba(61,61,61,1);
+  margin:15rpx 0rpx;
+}
+.story-title-time{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  font-size:24rpx;
+  font-family:HiraginoSansGB-W3;
+  color:rgba(158,158,158,1);
+  margin:15rpx 0rpx;
+}
+.story-ctn {
+  padding: 25rpx;
+  background-color: #fff;
+}
+.story-ctn text{
+  font-size:28rpx;
+  font-family:SourceHanSansCN-Regular;
+  color:rgba(102,102,102,1);
+}
+.story-ctn image{
+  width: 100%;
+}

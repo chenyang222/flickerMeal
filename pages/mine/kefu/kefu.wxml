@@ -1,0 +1,76 @@
+<!--pages/mine/feedBack/feedBack.wxml-->
+<!-- <text>pages/mine/feedBack/feedBack.wxml</text> -->
+<view class='kefu'>
+    <!-- <view class='car-title'>
+      <image class='goback' src='/images/go_back.png'></image>
+      <text>我的客服</text>
+    </view> -->
+
+    <view class='kefulist'>
+
+        <view class='listbox' wx:for="{{items}}" wx:key="" wx:for-index="index" wx:for-item="item">
+            <view class='listleft'>
+                <text>陈芳</text>
+                <text>闪客1</text>
+            </view>
+            <view class='listright' bindtap='telphone' id="{{item}}">
+                <text id="{{item}}">{{item}}</text>
+                <image src='{{imgdata}}/yh_phone.png' id="{{item}}"></image>
+            </view>
+        </view>
+
+         <!-- <view class='listbox'>
+            <view class='listleft'>
+                <text>陈芳</text>
+                <text>闪客1</text>
+            </view>
+            <view class='listright'>
+                <text>010-5648979</text>
+                <image src='{{imgdata}}/yh_phone.png'></image>
+            </view>
+        </view>
+         <view class='listbox'>
+            <view class='listleft'>
+                <text>陈芳</text>
+                <text>闪客1</text>
+            </view>
+            <view class='listright'>
+                <text>010-5648979</text>
+                <image src='{{imgdata}}/yh_phone.png'></image>
+            </view>
+        </view>
+         <view class='listbox'>
+            <view class='listleft'>
+                <text>陈芳</text>
+                <text>闪客1</text>
+            </view>
+            <view class='listright'>
+                <text>010-5648979</text>
+                <image src='{{imgdata}}/yh_phone.png'></image>
+            </view>
+        </view>
+         <view class='listbox'>
+            <view class='listleft'>
+                <text>陈芳</text>
+                <text>闪客1</text>
+            </view>
+            <view class='listright'>
+                <text>010-5648979</text>
+                <image src='{{imgdata}}/yh_phone.png'></image>
+            </view>
+        </view> -->
+
+    </view>
+
+    <view class='nickname public_shade' hidden="{{flag}}">
+        <view class='public_center nickname_center'>
+              <text class='nicktitle'>是否拨打电话</text>
+              <view class='nickinput'>{{nickinput}}</view>
+              <view class='confirmbtns'>
+                  <text bindtap='nichhide'>取消</text>
+                  <text bindtap='nickconfirm'>确认</text>
+              </view>
+        </view>
+    </view>
+
+</view>

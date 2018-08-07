@@ -1,0 +1,389 @@
+
+@import "../../../style/public.wxss";
+page{
+  background-color: #f8f8f8;
+}
+.car-container{
+ 
+}
+.car-title{
+  padding: 25rpx;
+  /* position: relative; */
+  background-color: #fff;
+  margin-bottom: 1rpx;
+  position: fixed;
+  top: 0;
+  z-index: 999;
+  width: 93%;
+  height: 55rpx;
+  border-bottom: 1px solid #f7f7f7;
+}
+.goback{
+  width:20rpx;
+  height:34rpx;  
+  position: absolute;
+  left: 25rpx;
+  top: 35rpx;
+}
+.search-kuang{
+  background: #f3f0f0;
+  width: 70%;
+  /* height: 30rpx; */
+  line-height: 30rpx;
+  border-radius: 50rpx;
+  padding: 0rpx 20rpx;
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: auto;
+}
+.search-img{
+  width:28rpx;
+  height:28rpx;
+  margin-top: 12rpx;
+  margin-right: 10rpx;
+}
+.search-input{
+  width: 90%;
+  display: inline-block;
+  font-size:24rpx;
+  font-family:SourceHanSansCN-Normal;
+  color:rgba(152,152,152,1);
+}
+.car-title text{
+  display: inline-block;
+  width: 100%;
+  text-align: center;
+}
+.order-name{
+  padding: 25rpx;
+  border-bottom: 1px dashed #cacaca;
+  background-color: #fff;
+  margin-top: 100rpx;
+}
+.goright{
+  width:12rpx;
+  height:22rpx; 
+}
+.goname{
+  font-size:30rpx;
+  font-family:SourceHanSansCN-Medium;
+  color:rgba(51,51,51,1);
+  margin-right: 30rpx;
+}
+.fan-img-wrap{
+  /* display: inline-block; */
+  float: left;
+}
+.fan-list{
+  background-color: #fff;
+  padding: 25rpx;
+  margin-bottom: 1px;
+  overflow: hidden;
+}
+.fan-name-price{
+  /* display: inline-block; */
+  float: left;
+  width: 70%;
+  margin-left: 30rpx;
+}
+.fan-img{
+  width:176rpx;
+  height:136rpx; 
+}
+.fan-name-price-list1{
+  font-size:28rpx;
+  font-family:SourceHanSansCN-Normal;
+  color:rgba(124,124,124,1);
+  margin-bottom: 30rpx;
+}
+.fan-name-price-list2{
+  font-size:38rpx;
+  font-family:SourceHanSansCN-Medium;
+  color:rgba(245,65,60,1);
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.fan-price{
+  font-size:38rpx;
+  font-family:SourceHanSansCN-Medium;
+  color:rgba(245,65,60,1);
+}
+.jia{
+  width:41rpx;
+  height:41rpx; 
+  float: left;
+}
+.jian{
+  width:41rpx;
+  height:41rpx;
+  float: left
+}
+.jiajian-num{
+  font-size:30rpx;
+  font-family:SourceHanSansCN-Normal;
+  color:rgba(45,45,45,1);
+  margin-top: -10rpx;
+  float: left;
+  margin:0 25rpx;
+  margin-top: 1rpx;
+}
+.heji{
+  position: fixed;
+  bottom: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+  border-top: 1px solid #d9d9d9;
+  box-shadow: 0rpx -5rpx 5rpx #dedede;
+}
+.heji-left{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.heji-left text{
+  margin: 0 25rpx;
+  font-size:30rpx;
+  font-family:SourceHanSansCN-Regular;
+  color:rgba(102,102,102,1);
+  margin-top: 7rpx;
+}
+.heji-left view{
+  font-size:38rpx;
+  font-family:SourceHanSansCN-Medium;
+  color:rgba(245,65,60,1);
+}
+.heji-left view text{
+  font-size:38rpx;
+  font-family:SourceHanSansCN-Medium;
+  color:rgba(245,65,60,1);
+}
+.del-icon{
+  width:27rpx;
+  height:29rpx;
+}
+.jiesuan-btn{
+  padding: 30rpx 80rpx;
+  background-color: #f5413c;
+  color: #fff;
+  display: inline-block;
+  margin-left: 30rpx;
+  font-size:30rpx;
+  font-family:SourceHanSansCN-Regular;
+  color:rgba(255,255,255,1);
+}
+
+
+
+
+
+
+
+
+.hotPush{
+  overflow: hidden;
+}
+.hotPushL{
+  position: relative;
+  width:23%;
+}
+.hotPushImg{
+  width:140rpx;
+  height:140rpx;
+}
+.hotPushL .hotPushIcon{
+  position: absolute;
+  top: 5rpx;
+  left: 0;
+  width:35rpx;
+  height:18rpx;
+}
+.hotPushR{
+  width: 77%;
+}
+.dianNamePosi{
+  font-size:30rpx;
+  font-family:SourceHanSansCN-Medium;
+  color:rgba(61,61,61,1);
+}
+.xingSale image{
+  width:18rpx;
+  height:17rpx;
+}
+.xingSale text{
+  font-size:22rpx;
+  font-family:SourceHanSansCN-Medium;
+  color:rgba(102,102,102,1);
+}
+.psTime text{
+  font-size:22rpx;
+  font-family:PingFangSC-Regular;
+  color:rgba(151,151,151,1);
+}
+.psTime image{
+  width:32rpx;
+  height:27rpx;
+}
+.fly{
+   margin-top: 10rpx; 
+  width: 35rpx;
+  height: 30rpx;
+}
+.manjian{
+  overflow: hidden;
+}
+.manjianIcon{
+  width:50rpx;
+  height:30rpx;
+  margin-right: 15rpx;
+}
+.manjianTxt{
+  font-size:22rpx;
+  font-family:PingFangSC-Regular;
+  color:rgba(93,93,93,1);
+}
+.youhuixiala{
+  width:16rpx;
+  height:9rpx;
+}
+.youhuiNum{
+  font-size:21rpx;
+  font-family:SourceHanSansCN-Regular;
+  color:rgba(93,93,93,1);
+  margin-top: 15rpx;
+}
+.youhuixiala{
+  margin-top: 15rpx;
+  margin-left: 10rpx;
+}
+.dingWeiIcon{
+  width:50rpx;
+  height:30rpx;
+}
+.otherJiQiTxt{
+  font-size:22rpx;
+  font-family:SourceHanSansCN-Regular;
+  color:rgba(150,145,150,1);
+  margin-left: 15rpx;
+}
+.otherJiQixiala{
+   width:16rpx;
+   height:9rpx;
+   margin-top: 10rpx;
+}
+.pingfen{
+  margin-left: 20rpx;
+}
+.new-product-title{
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  font-size:30rpx;
+  font-family:SourceHanSansCN-Regular;
+  color:rgba(45,45,45,1);
+  padding: 25rpx;
+  border-bottom: 1px solid #b3b3b3;
+  background-color: #fff;
+}
+.kefu-icon{
+  width:34rpx;
+  height:30rpx;
+  margin-right: 10rpx;
+}
+.small-list{
+  padding: 25rpx;
+  margin-bottom:1px; 
+  background-color: #fff;
+}
+.mark-name{
+  background:rgba(253,87,146,1);
+  border-radius: 2px ;
+  color: #fff;
+  font-size:22rpx;
+  font-family:SourceHanSansCN-Normal;
+  padding: 2rpx;
+  margin-right: 10rpx;
+}
+.price{
+  padding-top: 10rpx;
+}
+.price-ctl{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.price-wrap{
+  display: flex;
+  flex-direction: row;
+}
+.real-price{
+  font-size:28rpx;
+  font-family:SourceHanSansCN-Medium;
+  color:rgba(255,158,53,1);
+}
+.yuan-price{
+  font-size:24rpx;
+  font-family:SourceHanSansCN-Regular;
+  color:rgba(102,102,102,1);
+  text-decoration: line-through;
+  padding-top: 3rpx;
+  margin-left: 10rpx;
+}
+.ctl-btn{
+  font-size:22rpx;
+  font-family:SourceHanSansCN-Normal;
+  color:rgba(255,255,255,1);
+  padding: 10rpx 30rpx;
+  background-color: #ff9e35;
+  border-radius: 50rpx;
+}
+.xuxian{
+  border-bottom: 1rpx  dashed #c6c6c6;
+}
+.big-list,.small-list{
+  overflow: hidden;
+}
+.hui-back{
+  background:rgba(102,102,102,1);
+}
+.big-list{
+  margin-bottom: 20rpx;
+}
+.fengefu{
+  width:1px;
+  height:24rpx; 
+  margin: 0 10rpx;
+  }
+.peisong-price{
+  font-size:20rpx;
+  font-family:SourceHanSansCN-Regular;
+  color:rgba(102,102,102,1);
+}
+.jinfu-tiao{
+  width:350rpx;
+  height:17rpx; 
+  border-radius: 9px;
+  overflow: hidden;
+}
+.qiang-num{
+  position: fixed;
+  bottom: 0;
+  padding: 30rpx 0;
+  background:rgba(0,0,0,.5);
+  width: 100%;
+  text-align: center;
+  color: #fff;
+  font-size:30rpx;
+}
+
+.huoicon{
+  width:35rpx;
+  height:41rpx;
+  margin-right: 25rpx;
+  vertical-align: middle;
+  margin-top: -15rpx;
+}

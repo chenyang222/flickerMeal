@@ -1,0 +1,90 @@
+<!--pages/index/newProductRecom/newProductRecom.wxml-->
+<!-- <text>pages/index/newProductRecom/newProductRecom.wxml</text> -->
+<view class='car-container'>
+  <view class='car-title'>
+    <image bindtap='goBack' class='goback' src='{{imgdata}}/go_back.png'></image>
+    <text>每周菜谱</text>
+  </view>
+  <view style='margin-top:50px;'></view>
+  <view class='week-date'>
+    <view class='active'>周一</view>
+    <view>周二</view>
+    <view>周三</view>
+    <view>周四</view>
+    <view>周五</view>
+    <view>周六</view> 
+    <view>周日</view>
+  </view>
+  <!-- 列表 -->
+  <view class="hotPush">
+    <view class='big-list'>
+      <view class='small-list'>
+        <view class="hotPushL fl">
+          <image class="hotPushImg" src="/images/hotPushImg.png"></image>
+          <image class="hotPushIcon" src="/images/hotPushIcon.png"></image>
+        </view>
+        <view class="hotPushR fl">
+          <view class="dianNamePosi">
+            <text>麻辣香锅加酸辣土豆丝加米</text>
+            <!-- <image src="/images/blFly.png" class="fly fr"></image> -->
+          </view>
+          <view class="psTime">
+            <text>麻辣香锅加酸辣土豆粉加米</text>
+          </view>
+          <view class="manjian">
+            <text class='mark-name'>新品</text>
+            <text class="manjianTxt">新品推荐</text>
+          </view>
+          <view class='price-ctl'>
+            <view class='price'>
+              <view class='price-wrap'>
+                <text class='real-price'>
+                  <text>￥</text>
+                  <text>19.5</text>
+                </text>
+                <text class='yuan-price'>
+                  <text>￥</text><text>29.5</text>
+                </text>
+              </view>            
+            </view>
+          </view>
+        </view>
+      </view>
+      <view class='xuxian'></view>
+      <!-- 已售完  -->
+      <view class='small-list'>
+        <view class="hotPushL fl">
+          <image class="hotPushImg" src="/images/hotPushImg.png"></image>
+          <image class="hotPushIcon" src="/images/hotPushIcon.png"></image>
+        </view>
+        <view class="hotPushR fl">
+          <view class="dianNamePosi">
+            <text>麻辣香锅加酸辣土豆丝加米</text>
+            <!-- <image src="/images/blFly.png" class="fly fr"></image> -->
+          </view>
+          <view class="psTime">
+            <text>麻辣香锅加酸辣土豆粉加米</text>
+          </view>
+          <view class="manjian">
+            <text class='mark-name'>新品</text>
+            <text class="manjianTxt">新品推荐</text>
+          </view>
+          <view class='price-ctl'>
+            <view class='price'>
+              <view class='price-wrap'>
+                <text class='real-price'>
+                  <text>￥</text>
+                  <text>19.5</text>
+                </text>
+                <text class='yuan-price'>
+                  <text>￥</text><text>29.5</text>
+                </text>
+              </view>            
+            </view>
+          </view>
+        </view>
+      </view>
+      <view class='xuxian'></view>
+    </view>
+  </view>
+</view>

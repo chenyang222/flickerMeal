@@ -1,0 +1,81 @@
+/* pages/index/search/search.wxss */
+@import '../../../style/public.wxss';
+page{
+  background-color: #f8f8f8;
+}
+.search-title{
+  background-color: #fff;
+  padding: 15rpx 20rpx;
+  margin-bottom: 20rpx;
+  overflow: hidden;
+}
+.search-kuang{
+  background: #f3f0f0;
+  width: 78.6%;
+  /* height: 30rpx; */
+  line-height: 30rpx;
+  border-radius: 50rpx;
+  padding: 15rpx 20rpx;
+}
+.cancel-btn{
+  font-size:30rpx;
+  font-family:SourceHanSansCN-Regular;
+  color:rgba(102,102,102,1);
+  margin-top: 20rpx;
+}
+.search-img{
+  width:28rpx;
+  height:28rpx;
+  margin-top: 12rpx;
+  margin-right: 10rpx;
+}
+.search-input{
+  width: 90%;
+  display: inline-block;
+  font-size:24rpx;
+  font-family:SourceHanSansCN-Normal;
+  color:rgba(152,152,152,1);
+}
+.history-search{
+  margin-bottom: 20rpx;
+}
+.history-search-title{
+  border-bottom: 1px solid #b3b3b3;
+  overflow: hidden;
+  background-color: #fff;
+  padding: 25rpx;
+}
+.title-txt{
+  font-size:30rpx;
+  font-family:SourceHanSansCN-Regular;
+  color:rgba(45,45,45,1);
+}
+.del-img{
+  width:27rpx;
+  height:27rpx;
+  margin-top: 10rpx;
+}
+.history-list-wrap{
+  display: flex;
+  flex-direction: row;
+   /* justify-content: space-around;  */
+  flex-wrap: wrap;
+  padding: 35rpx 24rpx;
+  background-color: #fff;
+}
+.history-list-wrap text{
+  background-color: #f5f5f5;
+  padding: 20rpx 35rpx;
+  font-size:24rpx;
+  font-family:SourceHanSansCN-Regular;
+  color:rgba(102,102,102,1);
+  margin: 10rpx 0; margin-right:15rpx;
+  max-width: 260rpx;
+  overflow: hidden;
+  text-overflow:ellipsis;
+  white-space: nowrap;
+}
+.active{
+  color: #fff!important;
+  background:rgba(254,177,126,1)!important;
+}

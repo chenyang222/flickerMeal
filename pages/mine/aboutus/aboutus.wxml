@@ -1,0 +1,15 @@
+<!--pages/mine/aboutus/aboutus.wxml-->
+<!-- <text>pages/mine/aboutus/aboutus.wxml</text> -->
+<view class='aboutus'>
+    <!-- <view class='car-title'>
+      <image class='goback' src='{{imgdata}}/go_back.png'></image>
+      <text>关于我们</text>
+    </view> -->
+  
+    <view class='aboutusbox'>
+        <view class='aboutuslogo'><image src='{{imgdata}}/yh_aboutlogo.png'></image><text>关于我们</text></view>
+        <image src='{{imgdata}}/yh_aboutus.png' class='imgdata'></image>
+        <view class='content'>     作为涵盖创业观察，分析和咨询的知识性媒体，创业早报每日提供精品的行业内新鲜咨询，直击热点的创业动态，入木三分的创业分析以及为读者来信提供热且专业 到位的创业解疑。此外，创业早报还为创业者提供专业的项目鉴定，并有甄选大量真实可靠前景优秀的创业商机供创业者参考和选择。并有甄选大量真实可靠前景优秀的创业商机供创业者参考和选择。机供创业者参考。
+</view>
+    </view>
+</view>

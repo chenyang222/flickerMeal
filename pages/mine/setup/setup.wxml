@@ -1,0 +1,50 @@
+<!--pages/mine/setup/setup.wxml-->
+<!-- <text>pages/mine/setup/setup.wxml</text> -->
+<view class='permsg'>
+    <!-- <view class='car-title'>
+      <image class='goback' src='{{imgdata}}/go_back.png'></image>
+      <text>设置</text>
+    </view> -->
+    
+    <view class='revisemsg'>
+        <view class='reviselist'>
+
+             <view class='reviseitem'>
+                <view>清除缓存</view>
+                <view>
+                     <text >3.78MB</text> 
+                      <image src='{{imgdata}}/cf_goright.png'></image>  
+                </view>
+            </view>
+            <navigator class='reviseitem' url="../passwordpay/passwordpay">
+                <view>免密支付</view>
+                <view>
+                     <image src='{{imgdata}}/cf_goright.png'></image> 
+                </view>
+            </navigator>
+            <navigator class='reviseitem' url="../msgsetup/msgsetup">
+                <view>消息设置</view>
+                <view>
+                     <image src='{{imgdata}}/cf_goright.png'></image> 
+                </view>
+            </navigator>
+            <navigator class='reviseitem' url='../softupdate/softupdate'>
+                <view>软件更新</view>
+                <view>
+                     <image src='{{imgdata}}/cf_goright.png'></image> 
+                </view>
+            </navigator>
+            <!-- <view class='reviseitem'> -->
+              <navigator url="../aboutus/aboutus"  class='reviseitem'>
+                <view>关于我们</view>
+                <view>
+                     <image src='{{imgdata}}/cf_goright.png'></image> 
+                </view>
+              </navigator>
+            <!-- </view> -->
+            
+
+        </view>
+    </view>
+
+</view>

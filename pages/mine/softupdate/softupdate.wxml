@@ -1,0 +1,17 @@
+<!--pages/mine/softupdate/softupdate.wxml-->
+<!-- <text>pages/mine/softupdate/softupdate.wxml</text> -->
+<view class='softupdate'>
+    <!-- <view class='car-title'>
+      <image class='goback' src='{{imgdata}}/go_back.png'></image>
+      <text>软件升级</text>
+    </view> -->
+  
+    <view class='aboutusbox'>
+        <view class='aboutuslogo'><image src='{{imgdata}}/yh_banben.png'></image><text>当前版本</text><text style='float:right;margin-right:31rpx;font-size:28rpx;'>12.01.22</text></view>
+        <view class='content'>
+        <text>如果有新版本可更新时，android版本手机自动跳转到应用商店进行下载更新</text>
+        <text>ios版本因为官方原因，软件更新模块去掉 </text>
+</view>
+    </view>
+</view>
+

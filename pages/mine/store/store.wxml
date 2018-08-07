@@ -1,0 +1,63 @@
+<!--pages/mine/store/store.wxml-->
+<!-- <text>pages/mine/store/store.wxml</text> -->
+<view class='store'>
+    <!-- <view class='car-title'>
+      <image class='goback' src='{{imgdata}}/go_back.png'></image>
+      <text>商城</text>
+    </view> -->
+
+    <view class='integrate'>
+        <text>当前可用积分</text>
+        <text>50</text>
+    </view>
+
+    <view class='exchange'>
+        <text>余额兑换</text>
+        <text>优惠券兑换</text>
+    </view>
+
+    <view class='ticketlist'>
+
+        <view class='ticketbox'>
+            <view class='ticketleft'>
+                <view>
+                    <text class='first'>￥</text>
+                    <text class="second">20</text>
+                </view>
+                <view>
+                    <text class='first'>无门槛</text>
+                    <text class="second">20元优惠券</text>
+                </view>
+            </view>
+            <view class='ticketcenter'>
+                  <text>5元闪餐优惠券</text>
+                  <text>100积分</text>
+            </view>
+            <view class='ticketright'>
+                  兑换
+            </view>
+        </view>
+
+        <view class='ticketbox'>
+            <view class='ticketleft'>
+                <view>
+                    <text class='first'>￥</text>
+                    <text class="second">20</text>
+                </view>
+                <view>
+                    <text class='first'>无门槛</text>
+                    <text class="second">20元优惠券</text>
+                </view>
+            </view>
+            <view class='ticketcenter'>
+                  <text>5元闪餐优惠券</text>
+                  <text>100积分</text>
+            </view>
+            <view class='ticketright'>
+                  兑换
+            </view>
+        </view>
+
+    </view>
+
+</view>

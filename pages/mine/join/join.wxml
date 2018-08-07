@@ -1,0 +1,75 @@
+<!--pages/mine/join/join.wxml-->
+<!-- <text>pages/mine/join/join.wxml</text> -->
+<view class='join'>
+    <view class='invite'>
+        100+城市邀您报名
+    </view>
+    <text class='transter'>1000+ city invited you to sign up</text>
+    <text class='slogan'>真诚经营、资源互补、共同发展、资源共享</text>
+</view>
+<view class='joinbg'>
+    <view class='joinus'>
+      <text>加入我们</text>
+      <text>Join our store</text>
+    </view>
+     <view class='jointext' >
+        闪餐邀请您一起关注科技,引领行业,影响世界,您可以填写下表或拨打我们的加盟热线：300-011098
+    </view> 
+
+
+    <view class='joinuslist'>
+        <text class="{{selected?'red':'default'}}" bindtap="selected">个人加盟</text>
+        <text class="{{selected1?'red':'default'}}" bindtap="selected1">公司加盟</text>
+    </view>
+
+    <view class="{{selected?'show':'hidden'}}">
+        <!-- <text>个人加盟</text> -->
+        <view class='joinlist'>
+          <image  src='{{imgdata}}/yh_joinname.png' style='width:34rpx;height:34rpx;'></image>
+          <input placeholder='请输入您的姓名' bindinput="pername"/>
+        </view>
+
+        <view class='joinlist'>
+          <image  src='{{imgdata}}/yh_joinphone.png' style='width:28rpx;height:36rpx;'></image>
+          <input placeholder='请输入您的电话'  bindinput="perphone"/>
+        </view>
+
+        <view class='joinlist'>
+          <image  src='{{imgdata}}/yh_joinaddress.png'  style='width:34rpx;height:30rpx;'></image>
+          <input placeholder='请输入您所在地区'bindinput="peraddress" />
+        </view>
+
+        <view class='recharge' bindtap="perchangePay" >提交</view>
+    </view>
+
+    <view class="{{selected1?'show':'hidden'}}">
+        <!-- <text>公司加盟</text> -->
+        <view class='joinlist'>
+          <image  src='{{imgdata}}/yh_joinname.png' style='width:34rpx;height:34rpx;'></image>
+          <input placeholder='请输入您的姓名' bindinput="companyname" />
+        </view>
+
+        <view class='joinlist'>
+          <image  src='{{imgdata}}/yh_joinphone.png' style='width:28rpx;height:36rpx;'></image>
+          <input placeholder='请输入公司电话' bindinput="companyphone" />
+        </view>
+
+        <view class='joinlist'>
+          <image  src='{{imgdata}}/yh_joincompany.png' style='width:23rpx;height:32rpx;'></image>
+          <input placeholder='请输入公司职位' bindinput="companyjob" />
+        </view>
+        <view class='joinlist'>
+          <image  src='{{imgdata}}/yh_joinchmpanyname.png' style='width:33rpx;height:32rpx;'></image>
+          <input placeholder='请输入公司名称' bindinput="company"/>
+        </view>
+
+        <view class='joinlist'>
+          <image  src='{{imgdata}}/yh_joinaddress.png' style='width:34rpx;height:30rpx;'></image>
+          <input placeholder='请输入公司地址' bindinput="companyaddress"/>
+        </view>
+
+        <view class='recharge' bindtap="compchangePay" >提交</view>
+    </view>
+
+
+</view>

@@ -1,0 +1,124 @@
+<!--index.wxml-->
+<view class="container">
+  <view class='car-title'>
+    <image class='goback' src='{{imgdata}}/upload/go_back.png'></image>
+    <text>提交订单</text>
+  </view>
+  <view style='margin-top:105rpx;'></view>
+  <view class='order-detail-address-wrap'>
+    <view class='order-address-icon-title-wrap'></view>
+    <view class='' style='margin:15rpx 0;'>
+      <view class='order-detail-address-icon'></view>
+      <text class='order-detail-address-name'>海淀区建材中路12号院1126号楼东</text>
+      <text class='order-juli'>5.0km</text>
+    </view>
+    <view class='name-phone'><text style='margin-right:150rpx;'>张某某（先生）</text><text>13001133876</text></view>
+  </view>
+  <view class='address-fenge'></view>
+  <view class='canpin-list-wrap'>
+    <!-- 列表 -->
+    <view class='fan-list-wrap'>
+      <!-- list -->
+      <view class='fan-list'>
+        <view class='fan-img-wrap'>
+          <image class='fan-img' src='{{imgdata}}/upload/carFanImg.png'></image>
+        </view>
+        <view class='fan-name-price'>
+          <view class='fan-name-price-list1'>
+            <text class='fan-name'>鸡蛋炒饭套餐</text>
+          </view>
+          <view class='fan-name-price-list2'>
+            <view class='fan-ctl'>
+              <text>X</text><text>1</text>
+            </view>
+            <view class='fan-price'>￥
+              <text>15.5</text>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>   
+    <!-- 列表 -->
+    <view class='fan-list-wrap'>
+      <!-- list -->
+      <view class='fan-list'>
+        <view class='fan-img-wrap'>
+          <image class='fan-img' src='{{imgdata}}/upload/carFanImg.png'></image>
+        </view>
+        <view class='fan-name-price'>
+          <view class='fan-name-price-list1'>
+            <text class='fan-name'>鸡蛋炒饭套餐</text>
+          </view>
+          <view class='fan-name-price-list2'>
+            <view class='fan-ctl'>
+              <text>X</text><text>1</text>
+            </view>
+            <view class='fan-price'>￥
+              <text>15.5</text>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>   
+    <!-- 列表 -->
+    <view class='fan-list-wrap'>
+      <!-- list -->
+      <view class='fan-list'>
+        <view class='fan-img-wrap'>
+          <image class='fan-img' src='{{imgdata}}/upload/carFanImg.png'></image>
+        </view>
+        <view class='fan-name-price'>
+          <view class='fan-name-price-list1'>
+            <text class='fan-name'>鸡蛋炒饭套餐</text>
+          </view>
+          <view class='fan-name-price-list2'>
+            <view class='fan-ctl'>
+              <text>X</text><text>1</text>
+            </view>
+            <view class='fan-price'>￥
+              <text>15.5</text>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>    
+  </view>
+  <view class='order-daifu'>
+    <view class='jian-name'>
+      <text class='jian-ming'>满减</text>
+      <text>在线支付立减优惠</text>
+    </view>
+    <view class='jian-price'>
+      <text>-</text>
+      <text>￥</text>
+      <text>10</text>
+    </view>
+  </view>
+  <view class='coupon'>
+    <view>优惠券</view>
+    <view>
+      <text class='coupon-num'>6</text>
+      <text>张可用</text>
+      <image class='zhankai fr' src='{{imgdata}}/upload/cf_goright.png'></image>
+    </view>
+  </view>
+   <view class='peisong'>
+    <view>选择配送</view>
+    <view>
+      <radio class='wx-radio-input' value="" checked=""/>
+    </view>
+  </view> 
+  <view class='heji'>
+    <view class='heji-left'>
+      <text>合计</text>
+      <view>￥
+        <text>107.5</text>
+      </view>
+      <text>已优惠10元</text>
+    </view>
+    <view class='heji-right'>
+      <!-- <image class='del-icon' src='{{imgdata}}/upload/delIcon.png'></image> -->
+      <text class='jiesuan-btn'>确认支付</text>
+    </view>
+  </view>
+</view>

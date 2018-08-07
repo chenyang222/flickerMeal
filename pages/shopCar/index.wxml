@@ -1,0 +1,76 @@
+<!--index.wxml-->
+<!-- <view wx:if="{{carListDataArr.length > 0}}"> -->
+<view class="container" wx:if="{{carListDataArr.length > 0}}">
+
+  <!-- <view class='car-title'>
+    <image class='goback' src='{{imgdata}}/upload/go_back.png'></image>
+    <text>购物车</text>
+  </view> -->
+  <view class='order-name' bindtap='goIndex'>
+    <text class='goname'>{{madichInfo.mName}}</text>
+    <image class='goright' src='{{imgdata}}/upload/cf_goright.png'></image>
+  </view>
+  <view class="{{item.isTouchMove ? 'item-active' : 'item'}}" bindtouchstart='touchstart' bindtouchmove='touchmove' wx:for="{{carListDataArr}}" wx:key='index' data-index="{{index}}">
+    <view class='txt'>
+      <!-- 列表 -->
+      <view class='fan-list-wrap'>
+        <!-- list -->
+        <view class='fan-list'>
+          <view class='fan-img-wrap'>
+            <image class='fan-img' src='{{imgdata}}{{item.food.list.url}}'></image>
+          </view>
+          <view class='fan-name-price'>
+            <view class='fan-name-price-list1'>
+              <text class='fan-name'>{{item.food.name}}</text>
+            </view>
+            <view class='fan-name-price-list2'>
+              <view class='fan-ctl'>
+                <image class='jian' data-foodid="{{item.foodId}}" data-foodnum="{{item.foodCount}}" src='{{imgdata}}/upload/jian.png' bindtap='jian'></image>
+                <text class='jiajian-num'>{{item.foodCount}}</text>
+                <image class='jia' src='{{imgdata}}/upload/jia.png' data-foodid="{{item.foodId}}" bindtap='jia'></image>
+              </view>
+              <view class='fan-price'>￥
+                <text>{{item.food.selling}}</text>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class='del' bindtap="del" data-index="{{index}}" data-id="{{item.id}}">删除</view>
+  </view>
+  <view class='heji'>
+    <view class='heji-left'>
+      <text>合计</text>
+      <view>￥
+        <text>{{totalMoney}}</text>
+      </view>
+    </view>
+    <view class='heji-right'>
+      <image class='del-icon' src='{{imgdata}}/upload/delIcon.png' bindtap="delAll"></image>
+      <text class='jiesuan-btn' bindtap='toPay'>去结算</text>
+    </view>
+  </view>
+</view>
+<view wx:else class='car-kong' style='display:none;'>
+  <view class='wujiesuan-wrap'>
+    <image class='wujiesuan' src='{{imgdata}}/upload/kongCar.png'></image>
+  </view>
+  <!-- <view class='wujiesuan-txt'>
+    <text>暂无可结算的餐品</text>
+  </view> -->
+</view>
+<view class='pop' style='display:none;'></view>
+<!-- 抢购结算-》清空购物车弹窗 -->
+<view class='qingkong-car' style='display:none;'>
+  <view class='qingkong-tips'>
+    <text>删除餐品</text>
+    <view>
+      <text class='comfirm-del-all'>确认删除所有的餐品?</text>
+    </view>
+  </view>
+  <view class='qingkong-btn'>
+    <view style='border-right:1px solid #f2a437'>取消</view>
+    <view>删除</view>
+  </view>
+</view>

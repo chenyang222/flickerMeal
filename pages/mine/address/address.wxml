@@ -1,0 +1,84 @@
+<!--pages/mine/address/address.wxml-->
+<view class="container">
+  <!-- <view class="header">
+      <navigator class='back'><image src='{{imgdata}}/go_back.png'></image></navigator>
+      <view class="topTitle">收货地址</view>
+      <navigator class='add' url='../../mine/addAddress/addAddress?state=0'><image src='{{imgdata}}/cf_addAddress.png'></image></navigator>
+  </view> -->
+
+  <!-- <view class="list">
+
+    <view class="item">
+      <view class='itemLeft'>
+        <image src='{{imgdata}}/cf_ditu.png'></image>
+      </view>
+      <view class='itemCenter'>
+        <view class="itemCenterAddress"><text  >北京市昌平区回龙观国风美唐10号楼5单元爱仕达多撒所大所大所</text></view>
+        <view class='itemCenterName'><text>冯瑄淇（先生）  </text><text>17374829192</text></view>
+        <view class='itemCenterDefalut'>
+          <view><image src='{{imgdata}}/cf_defalut.png'></image></view>
+          <view style='margin-left:8rpx;'><text>设为默认收货地址</text></view>
+        </view>
+      </view> 
+
+      <view class='itemRight'>
+        <image src='{{imgdata}}/cf_editAddress.png'></image>
+      </view> 
+
+    </view> -->
+    <!--不是默认地址  -->
+    <!-- <view class="item">
+      <view class='itemLeft'>
+        <image src='{{imgdata}}/cf_noDitu.png'></image>
+      </view>
+      <view class='itemCenter'>
+        <view class="itemCenterAddress"><text>北京市昌平区回龙观国风美唐10号楼5单元</text></view>
+        <view class='itemCenterName'><text>冯瑄淇（先生）  </text><text>17374829192</text></view>
+        <view class='itemCenterDefalut'>
+          <view><image src='{{imgdata}}/cf_noDefalut.png'></image></view>
+          <view style='margin-left:8rpx;'><text>设为默认收货地址</text></view>
+        </view>
+      </view> 
+      <view class='itemRight'>
+        <image src='{{imgdata}}/cf_editAddress.png'></image>
+      </view>   
+    </view> -->
+
+  <!-- </view> -->
+
+<!--地址列表  -->
+ <view class="touch-item {{item.isTouchMove ? 'touch-move-active' : ''}}" data-index="{{index}}" bindtouchstart="touchstart" bindtouchmove="touchmove" wx:for="{{items}}" wx:key="" wx:for-index="index" wx:for-item="item">
+  <view class="content" >
+      <view class="item">
+      <view class='itemLeft'>
+        <image wx:if="{{item.isDefault == 1}}" src='{{imgdata}}/cf_ditu.png'></image>
+        <image wx:if="{{item.isDefault == 0}}" src='{{imgdata}}/cf_noDitu.png'></image>
+      </view>
+      <view class='itemCenter'>
+        <view class="itemCenterAddress"><text  >{{item.address}}</text></view>
+        <view class='itemCenterName'><text>{{item.name}}  </text><text>{{ item.phone }}</text></view>
+        <view class='itemCenterDefalut'>
+          <view>
+                <image wx:if="{{item.isDefault == 1}}" src='{{imgdata}}/cf_defalut.png' ></image>
+                <image wx:if="{{item.isDefault == 0}}" bindtap="setDef" src='{{imgdata}}/cf_noDefalut.png' id="{{item.id}}"></image>
+          </view>
+          <view style='margin-left:8rpx;'><text>设为默认收货地址</text></view>
+        </view>
+      </view> 
+
+      <view class='itemRight'>
+        <!-- <navigator class='add' url='../../mine/addAddress/addAddress?state=1'> -->
+          <image id="{{item.id}},{{item.address}},{{item.name}},{{ item.phone }},{{item.isDefault}}" src='{{imgdata}}/cf_editAddress.png' bindtap='editAddress' ></image>
+        <!-- </navigator> -->
+      </view> 
+
+    </view>
+  </view>
+  <view class="del" catchtap="del" id="{{item.id}}" >删除</view>
+ </view>
+<!--地址列表END  -->
+
+  <navigator class='recharge' url='../../mine/addAddress/addAddress?state=0'>新建地址</navigator>
+
+
+</view>

@@ -1,0 +1,26 @@
+<!--pages/mine/invisepaypsd/invisepaypsd.wxml-->
+<!-- <text>pages/mine/invisepaypsd/invisepaypsd.wxml</text> -->
+<view class='invisephone'>
+  <!-- <view class='car-title'>
+    <image class='goback' src='{{imgdata}}/go_back.png'></image>
+    <text>修改手机号</text>
+  </view> -->
+
+  <view class='oldphone'><text style='color:#FFA738'>*</text>请验证手机号：{{usertel}}</view>
+  <view class='import'>
+      <input placeholder='请输入验证码'  bindinput="bindReplaceInput" maxlength="6"></input>
+      <button bindtap='getcode' class=" {{is_show?'show':'hide'}}">获取验证码</button>
+      <button class="{{is_show?'hide':'show'}}" style='border:1px solid #ccc;color:#ccc'>{{last_time}}</button>
+  </view>
+  <navigator class='rechargerule' url='../unablephone/unablephone'><image src='{{imgdata}}/cf_danger.png'></image>无法收到验证码</navigator>
+    <view class="recharge"  bindtap="changePay">下一步</view>
+    <!-- <view  class=" rechargebts {{is_shownxt?'shownxt':'hidenxt'}}" >下一步</view> -->
+    
+    <!--解绑手机号成功  -->
+     <view class='public_shade' wx-if="{{hiddenwx}}">
+        <view class='public_center remove_tel'>
+            <!-- <image src='{{imgdata}}/yh_removephone.png'></image> -->
+        </view>
+    </view> 
+
+</view>

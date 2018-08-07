@@ -1,0 +1,102 @@
+<!--pages/mine/permsg/permsg.wxml-->
+<!-- <text>pages/mine/permsg/permsg.wxml</text> -->
+<view class='permsg'>
+    <!-- <view class='car-title'>
+      <image class='goback' src='{{imgdata}}/go_back.png'></image>
+      <text>个人信息</text>
+    </view> -->
+    
+    <view class='revisemsg'>
+        <view class='reviselist'>
+
+            <view class='reviseitem itemfirst' bindtap="chooseimage" >
+                <view>头像</view>
+                <view>
+                     <image src='{{imgdata}}{{userimg}}'></image> 
+                    <!-- <image src="{{tempFilePaths }}" catchTap="chooseImageTap" mode="aspectFit"  /> -->
+                    <image src='{{imgdata}}/cf_goright.png'></image>
+                </view>
+            </view>
+             <!-- <view class='reviseitem'>
+                <view>用户ID</view>
+                <view>
+                     <text style='margin-right:30rpx;'> {{ userid }} </text> 
+                </view>
+            </view> -->
+            <view class='reviseitem' bindtap="nichshow">
+                <view>昵称</view>
+                <view>
+                     <text> {{ usernickname }} </text> 
+                     <image src='{{imgdata}}/cf_goright.png'></image> 
+                </view>
+            </view>
+            <view class='reviseitem' bindtap="actionSheetTap">
+                <view>性别</view>
+                <view>
+                     <text> {{ usersex }} </text> 
+                     <image src='{{imgdata}}/cf_goright.png'></image> 
+                </view>
+            </view>
+            
+            <!--性别弹出层  -->
+            <action-sheet hidden="{{actionSheetHidden}}" bindchange="actionSheetbindchange">
+                <block wx:for-items="{{actionSheetItems}}">
+                    <action-sheet-item bindtap="bind{{item.bindtap}}">{{item.txt}}</action-sheet-item>
+                </block>
+                <action-sheet-cancel class="cancel">取消</action-sheet-cancel>
+            </action-sheet>
+
+            <view class='reviseitem' bindtap='invisetel'>
+                <view>手机号码</view>
+                <view>
+                     <text> {{ userphone }} </text> 
+                     <image src='{{imgdata}}/cf_goright.png'></image> 
+                </view>
+            </view>
+            <view class='reviseitem'>
+                <view>微信号码</view>
+                <view>
+                     <text>已绑定</text> 
+                     <image src='{{imgdata}}/cf_goright.png'></image> 
+                </view>
+            </view>
+            <view class='reviseitem'>
+                <view>支付宝号码</view>
+                <view>
+                     <text>已绑定</text> 
+                     <image src='{{imgdata}}/cf_goright.png'></image> 
+                </view>
+            </view>
+            <view class='reviseitem' bindtap='setserect' >
+                <view>修改密码</view>
+                <view>
+                     <text>修改</text> 
+                     <image src='{{imgdata}}/cf_goright.png'></image> 
+                </view>
+            </view>
+            <view class='reviseitem' bindtap='invisepaypsd'>
+                <view>修改支付密码</view>
+                <view>
+                     <text>修改</text> 
+                     <image src='{{imgdata}}/cf_goright.png'></image> 
+                </view>
+            </view>
+            
+
+        </view>
+    </view>
+
+
+    <view class='nickname public_shade' hidden="{{flag}}">
+        <view class='public_center nickname_center'>
+              <text class='nicktitle'>修改昵称</text>
+              <input value="{{searchinput}}" placeholder-class="phcolor" bindinput="bindReplaceInput" class='nickinput' placeholder='请输入昵称'></input>
+              <view class='confirmbtns'>
+                  <text bindtap='nichhide'>取消</text>
+                  <text bindtap='nickconfirm'>确认</text>
+              </view>
+        </view>
+    </view>
+
+
+</view>

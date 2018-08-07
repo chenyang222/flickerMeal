@@ -1,12 +1,105 @@
 {
-  "pages":[
-    "pages/index/index",
+  "pages": [
+    "pages/index/shouye/shouye",
+    "pages/login/login",
+    
+    "pages/index/hotWords/hotWords",
+    "pages/index/newProductRecom/newProductRecom",
+    "pages/index/search/search",
+    "pages/index/recmandMeal/recmandMeal",
+    "pages/index/shancanStoryList/shancanStoryList",
+    "pages/index/shancanStory/shancanStory",
+    "pages/index/positionSele/positionSele",
+    "pages/index/indexLunboDetail/indexLunboDetail",
+    "pages/index/kanMealDetail/kanMealDetail",
+    "pages/index/kjPurchase/kjPurchase",
+    "pages/index/kanyidao/kanyidao",
+    "pages/index/discount/discount",
+    "pages/index/mealDetail/mealDetail",
+    "pages/index/weekMenu/weekMenu",
+    "pages/index/machine/machine",
+    "pages/login/phoneLogin/phoneLogin",
+    "pages/login/resetPassword/resetPassword",
+    "pages/login/regist/regist",
+    "pages/mine/mine",
+    "pages/mine/newphone/newphone",
+    "pages/mine/address/address",
+    "pages/mine/pay/pay",
+    "pages/mine/coupon/coupon",
+    "pages/mine/recommend/recommend",
+    "pages/mine/store/store",
+    "pages/mine/kefu/kefu",
+    "pages/mine/join/join",
+    "pages/mine/balance/balance",
+    "pages/mine/feedBack/feedBack",
+    "pages/mine/permsg/permsg",
+    "pages/mine/map/map",
+    "pages/mine/setup/setup",
+    "pages/mine/addAddress/addAddress",
+    "pages/mine/setsecret/setsecret",
+    "pages/order/index",
+    "pages/order/orderPayment/orderPayment",
+    "pages/order/ziquOrderComplate/ziquOrderComplate",
+    "pages/order/peiOrderComplate/peiOrderComplate",
+    "pages/order/evaluate/evaluate",
+    "pages/order/ziquDaiqu/ziquDaiqu",
+    "pages/order/ziqudaizhifu/ziqudaizhifu",
+    "pages/order/peidaizhifu/peidaizhifu",
+    "pages/order/waimaiPayment/waimaiPayment",
+    "pages/order/payment/payment",
+    "pages/shopCar/index",
+    "pages/mine/aboutus/aboutus",
+    "pages/mine/softupdate/softupdate",
+    "pages/mine/invisephone/invisephone",
+    "pages/mine/unablephone/unablephone",
+    "pages/mine/passwordpay/passwordpay",
+    "pages/mine/msgsetup/msgsetup",
+    "pages/mine/msgnotification/msgnotification",
+    "pages/mine/authorize/authorize",
+    "pages/mine/invisepsd/invisepsd",
+    "pages/mine/invisepad/invisepad",
+    "pages/mine/invisepaypsd/invisepaypsd",
+    "pages/mine/confirmpaypsd/confirmpaypsd",
+    "pages/mine/fullvaluedetail/fullvaluedetail",
+    "pages/mine/addpaydetail/addpaydetail",
     "pages/logs/logs"
   ],
-  "window":{
-    "backgroundTextStyle":"light",
-    "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "WeChat",
-    "navigationBarTextStyle":"black"
+  "window": {
+    "navigationBarBackgroundColor": "#ffffff",
+    "navigationBarTextStyle": "black",
+    "backgroundColor": "#eeeeee",
+    "backgroundTextStyle": "light"
+  },
+  "tabBar": {
+    "color": "rgba(124,124,124,1)",
+    "selectedColor": "#FF9E35",
+    "backgroundColor": "#fff",
+    "borderStyle": "white",
+    "list": [
+      {
+        "text": "点餐",
+        "pagePath": "pages/index/shouye/shouye",
+        "iconPath": "images/cf_nav1.png",
+        "selectedIconPath": "images/cf_nav1on.png"
+      },
+      {
+        "text": "订单",
+        "pagePath": "pages/order/index",
+        "iconPath": "images/cf_nav2.png",
+        "selectedIconPath": "images/cf_nav2on.png"
+      },
+      {
+        "text": "购物车",
+        "pagePath": "pages/shopCar/index",
+        "iconPath": "images/cf_nav3.png",
+        "selectedIconPath": "images/cf_nav3on.png"
+      },
+      {
+        "text": "我的",
+        "pagePath": "pages/mine/mine",
+        "iconPath": "images/cf_nav4.png",
+        "selectedIconPath": "images/cf_nav4on.png"
+      }
+    ]
   }
 }

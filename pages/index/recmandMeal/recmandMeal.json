@@ -1,0 +1,6 @@
+{
+  "component": true,
+  "usingComponents": {},
+  "navigationBarBackgroundColor":"#333333",
+  "navigationBarTitleText": "推荐餐品"
+}

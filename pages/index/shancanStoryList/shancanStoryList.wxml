@@ -1,0 +1,28 @@
+<!--pages/index/shancanStoryList/shancanStoryList.wxml-->
+<!-- <text>pages/index/shancanStoryList/shancanStoryList.wxml</text> -->
+<view class='container'>
+  <navigator class='storyList' url='/pages/index/shancanStory/shancanStory'>
+    <view class='listL'><span>闪餐storyxxxxx</span></view>
+    <view class='listR'>
+      <span>2018-04-01</span>
+      <span>11:00</span>
+      <span>></span>
+    </view>
+  </navigator>
+   <navigator class='storyList' url='/pages/index/shancanStory/shancanStory'>
+    <view class='listL'><span>闪餐storyxxxxx</span></view>
+    <view class='listR'>
+      <span>2018-04-01</span>
+      <span>11:00</span>
+      <span>></span>
+    </view>
+  </navigator>
+   <navigator class='storyList' url='/pages/index/shancanStory/shancanStory'>
+    <view class='listL'><span>闪餐storyxxxxx</span></view>
+    <view class='listR'>
+      <span>2018-04-01</span>
+      <span>11:00</span>
+      <span>></span>
+    </view>
+  </navigator>
+</view>

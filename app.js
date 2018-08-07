@@ -10,6 +10,7 @@ App({
     wx.login({
       success: res => {
         // 发送 res.code 到后台换取 openId, sessionKey, unionId
+        // console.log(res.code);
       }
     })
     // 获取用户信息
@@ -34,6 +35,18 @@ App({
     })
   },
   globalData: {
-    userInfo: null
+    userInfo: null,
+    imgdataFan: 'https://sc.jergavin.com',//接口返回图片的地址
+    imgdata: 'http://192.168.1.188:8580',//正常图片展示的地址
+    baseUrl: 'https://sc.jergavin.com/mini/',//请求地址公共的url前段
+    addre: null,
+    madichid:null,
+    indexmodelstyle: 'display: block;',
+  },
+  //跳转登录页
+  jumpLogin:function(){
+    wx.redirectTo({
+      url: '/pages/login/login'
+    })
   }
 })

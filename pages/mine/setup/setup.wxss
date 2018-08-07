@@ -1,0 +1,69 @@
+/* pages/mine/setup/setup.wxss */
+.permsg{
+  width: 100%;
+  height: 1180rpx; 
+  background-color: #f8f8f8;
+  /* margin-top: 120rpx; */
+}
+.car-title {
+  padding: 25rpx;
+  /* position: relative; */
+  background-color: #fff;
+  margin-bottom: 1rpx;
+  /* position: fixed;
+  top: 0; */
+  z-index: 999;
+  width: 93%;
+  border-bottom: 1px solid #f7f7f7;
+}
+
+.goback {
+  width: 20rpx;
+  height: 34rpx;
+  position: absolute;
+  left: 25rpx;
+  top: 35rpx;
+}
+
+.car-title text {
+  display: inline-block;
+  width: 100%;
+  text-align: center;
+}
+
+
+/*列表  */
+.revisemsg{
+  width: 100%;
+}
+.reviselist{
+  width: 100%;
+}
+.reviseitem{
+  width: 726rpx;
+  float: right;
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1rpx solid #d4d7dd;
+  height: 99rpx;
+  line-height: 99rpx;
+  position: relative;
+}
+.reviseitem view:first-child{
+  color: #000000;
+  font-size: 28rpx;
+}
+.reviseitem view:last-child{
+  margin-right: 30rpx;
+  /* height: 100%;
+  line-height: 100%; */
+}
+.reviseitem view:last-child image:last-child{
+    width: 13rpx;
+    height: 22rpx;
+    margin-left: 30rpx;
+}
+.reviseitem  text{
+  color: #000000;
+  font-size: 28rpx;
+}

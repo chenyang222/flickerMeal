@@ -1,0 +1,29 @@
+<!--login.wxml-->
+<view class="container">
+  <view class="top">
+    <image src="{{imgdata}}/login_bg.png"></image>
+    <view class="btn">
+      <text class="left_btn tab_btn tab_btn_active">账号登录</text>
+      <navigator url = "/pages/login/phoneLogin/phoneLogin" class="tab_btn" open-type = "redirect" hover-class="none"><text class="right_btn">手机短信登录</text></navigator>
+    </view>
+  </view>
+  <view class="my_ipt">
+    <view class="phone_ipt">
+      <image class="fl" src="{{imgdata}}/phone.png"></image>
+      <input class="fl" placeholder="请输入手机号码" type="text" value='{{phoneNum}}' bindinput='getPhoneNum'/>
+    </view>
+    <view>
+      <image class="fl" src="{{imgdata}}/pass.png"></image>
+      <input class="fl" type="password" placeholder="请输入密码" value='{{pass}}' bindinput='getPass' />
+    </view>
+  </view>
+  <view class="lg_btn">
+    <view class="sub_lg" bindtap='loginBtn'></view>
+    <view class="oh">
+      <navigator url = "/pages/login/regist/regist" class="" open-type = "navigate" hover-class="none"><text class="fl">手机注册</text></navigator>
+      <navigator url = "/pages/login/resetPassword/resetPassword" class="" open-type = "navigate" hover-class="none"><text class="fr">忘记密码</text></navigator>
+    </view>
+  </view>
+  <view class="line"></view>
+  <view class="wc_login"></view>
+</view>

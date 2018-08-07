@@ -1,0 +1,64 @@
+<!--pages/mine/aboutus/aboutus.wxml-->
+<!-- <text>pages/mine/aboutus/aboutus.wxml</text> -->
+<view class='aboutus'>
+    <!-- <view class='car-title'>
+      <image class='goback' src='{{imgdata}}/go_back.png'></image>
+      <text>余额</text>
+    </view> -->
+
+    <view class='choosepay'>请选择充值方式</view>
+    <view class='wechartpay'>
+    <radio-group bindchange="radioChange" style="display:flex;">
+            <label  wx:for="{{items}}" style="flex:1;text-align:center;">
+                <checkbox value="{{index}}" style='font-size:30rpx;' checked="{{item.checked}}">{{item.value}}</checkbox>
+                <!-- <view>{{item.name}}</view>  -->
+            </label>   
+        </radio-group>
+    </view>
+
+    <view class='choosepay'>请选择充值金额</view>
+
+    <!-- <view class='moneylist tab'> -->
+       <!-- <view class="{{selected?'red':'default'}}" bindtap="selected">短信修改</view>
+       <view class="{{selected1?'red':'default'}}" bindtap="selected1">密码修改</view> -->
+       <!-- <view class="{{selected?'red':'default'}}"  bindtap="selected">20元</view>
+       <view class="{{selected1?'red':'default'}}" bindtap="selected1">30元</view>
+       <view class="{{selected2?'red':'default'}}" bindtap="selected2">50元</view>
+       <view class="{{selected3?'red':'default'}}" bindtap="selected3">100元</view>
+       <view class="{{selected4?'red':'default'}}" bindtap="selected4">150元</view>
+       <view class="{{selected5?'red':'default'}}" bindtap="selected5">200元</view>  -->
+       
+      <view class="tab">  
+        <view class="moneylist tab-left" bindtap="tabFun">  
+
+          <view class="{{tabArr.curHdIndex=='0'? 'active' : ''}}" id="tab-hd01" data-id="0">20元</view>  
+          <view class="{{tabArr.curHdIndex=='1'? 'active' : ''}}" id="tab-hd02" data-id="1">30元</view>  
+          <view class="{{tabArr.curHdIndex=='2'? 'active' : ''}}" id="tab-hd03" data-id="2">50元</view>  
+          <view class="{{tabArr.curHdIndex=='3'? 'active' : ''}}" id="tab-hd04" data-id="3">100元</view>  
+          <view class="{{tabArr.curHdIndex=='4'? 'active' : ''}}" id="tab-hd05" data-id="4">150元</view>  
+          <view class="{{tabArr.curHdIndex=='5'? 'active' : ''}}" id="tab-hd06" data-id="5">200元</view>  
+
+
+          
+        </view>  
+        
+
+      </view>
+
+    <!-- </view> -->
+
+    <view class='othermoney'>
+        <text>其他金额</text>
+        <input placeholder='请输入金额'></input>
+    </view>
+
+    <view class='prompt'>温馨提示：充值金额不能低于5元</view>
+
+    <view class="recharge"  bindtap='pay'>立即充值</view>
+
+    <view class='public_shade' wx-if="{{hiddensuccess}}">
+        <view class='public_center paysuccess'>
+              充值成功
+        </view>
+    </view>
+</view>

@@ -1,0 +1,23 @@
+<view class='car-container'>
+  <view class='car-title'>
+    <image bindtap='goBack' class='goback' src='{{imgdata}}/go_back.png'></image>
+    <text>闪餐story</text>
+  </view>
+  <view style='margin-top:50px;'></view>
+  <view class='story-title'>
+    <view class='story-title-name'>闪餐storyxxxxxxxxx</view>
+    <view class='story-title-time'>
+      <text>2018-04-01</text><text>15:00</text>
+    </view>
+  </view>
+  <view class='story-ctn'>
+    <text>
+            我们的身边有许多的故事，有床上的故事，学校里的故事，桌上的故事……不过，大家可千万别忘了“饭桌上的故事”哟！
+      “开饭了！香喷喷的……”听了奶奶的喊声，我和两个双胞胎妹妹“三步并作两步”来到了餐桌前。哇！什锦炒饭，鸡肉汤……全都是我爱吃的菜！
+
+      <image src='{{imgdata}}/storyCtnImg.png'></image>
+      我没等家人坐下，便迫不及待地拿起筷子，一只手荡在桌子下，并且还边吃饭边说话，把米饭喷得满桌都是……妈妈见了，皱起了眉头：“当当，你这样吃饭非常没礼貌，并且还影响了我们大家吃饭……”“但……但是我……我饿极了！”我委屈地说。“你应该细嚼慢咽。”妈妈笑容可掬地说，“当勺子和筷子碰到碗时，绝不能发出任何声音！并且你的左手也必须扶住碗！世博会到了，我们要做好一个‘有礼貌’的小小东道主！”我听了妈妈的话，便照着她的要求去做。但是到了喝汤的时候，我的嘴里又发出了“咕噜，咕噜……”的响声。这时，吃饭从不说话的爸爸表情严肃地发话了：“当当，你难道不知道喝汤时发出响声是很不礼貌的吗？”“我知道，但是我没办法呀！”“我来教你一个方法，你喝的时候用勺子一点一点的舀，这样，肯定没有声音了！”妈妈微笑着说。于是，我照着她的要求去做，果然，我喝的时候没有一点声音！最后，我吃完了，便拿着碗、筷子和勺子转身准备走。“等等！”一个声音叫住了我。“你忘说了……”“哦！我吃完了，大家慢慢吃！”“对了！”
+    </text>
+    <image src='{{imgdata}}/storyCtnImg.png'></image>
+  </view>
+</view>

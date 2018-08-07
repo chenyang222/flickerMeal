@@ -1,0 +1,48 @@
+<!--pages/mine/address/address.wxml-->
+<view class="container">
+  <!-- <view class="header">
+      <navigator class='back'><image src='{{imgdata}}/cf_leftBack.png'></image></navigator>
+      <view class="topTitle">优惠券</view>
+      <navigator class='add'></navigator>
+  </view> -->
+
+  <view class="list">
+    <view class="item">
+      <view class='itemLeft'>
+        <view><text style='font-size:40rpx;color:#FFFFFF;'>¥</text><text style='font-size:71rpx;color:#FFFFFF;'>25</text></view>  
+      </view>
+      <view class='itemRight'>
+        <view class='itemRightTitle'>通用红包25元代金券</view>
+        <view class='term'>
+          <view class='imgs'><image src='{{imgdata}}/cf_defalut.png'></image></view>
+          <view class='termTitle'>满40元可用</view>
+        </view>
+        <view class='term'>
+          <view class='imgs'><image src='{{imgdata}}/cf_defalut.png'></image></view>
+          <view class='termTitle'>2018-02-03至2018-03-02</view>
+        </view>
+        <view class="state">未使用</view>
+      </view>   
+    </view>
+
+    <view class="item">
+      <view class='itemLeft'>
+        <view><text style='font-size:40rpx;color:#FFFFFF;'>¥</text><text style='font-size:71rpx;color:#FFFFFF;'>25</text></view>  
+      </view>
+      <view class='itemRight'>
+        <view class='itemRightTitle'>通用红包25元代金券</view>
+        <view class='term'>
+          <view class='imgs'><image src='{{imgdata}}/cf_defalut.png'></image></view>
+          <view class='termTitle'>满40元可用</view>
+        </view>
+        <view class='term'>
+          <view class='imgs'><image src='{{imgdata}}/cf_defalut.png'></image></view>
+          <view class='termTitle'>2018-02-03至2018-03-02</view>
+        </view>
+        <view class="state">未使用</view>
+      </view>   
+    </view>
+
+  
+  </view>
+</view>

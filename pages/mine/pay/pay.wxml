@@ -1,0 +1,31 @@
+<!--pages/mine/pay/pay.wxml-->
+<!-- <text>pages/mine/pay/pay.wxml</text> -->
+<view class='join'>
+    <!-- <view class='joinhead'>
+      <image class='goback' src='{{imgdata}}/go_back.png'></image>
+      <text>余额</text>
+    </view> -->
+    <!-- <view class='yue'>
+        <text>账户余额</text>
+        <view><text>￥</text>578.0</view>
+    </view> -->
+    <view class='yueimg'><image src='{{imgdata}}/yh_yue.png'></image></view>
+    <view class='rechargerule'>账户余额</view>
+    <view class='rechargerule'>0.0</view>
+    <navigator class='recharge' url="../balance/balance">充值</navigator>
+    <!-- <view class='recharge' bindtap="changePay">充值</view> -->
+    <view class='rechargerule'>余额明细</view>
+
+    <view class='public_shade' wx:if="{{iftrue}}">
+        <view class='public_center payshade'>
+            <view class='headtitle'>
+                充值
+            </view>
+            <view class='payinput'><input placeholder='请输入充值码'></input></view>
+            <view class='paybtn'>
+               <text>取消</text>
+               <text>确定</text>
+            </view>
+        </view>
+    </view>
+</view>

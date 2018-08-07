@@ -1,0 +1,175 @@
+<!--index.wxml-->
+<view class="container">
+  <view class='center-ctn'>
+    <view class='car-title'>
+      <image class='goback' src='{{imgdata}}/go_back.png'></image>
+      <text></text>
+    </view>
+    <view style='margin-top:200rpx;'></view>
+    <view class='head'>
+      <view class='daizhifu-wrap'>
+        <image class='daizhifu-icon fl' src='{{imgdata}}/ziquTitleIcon.png'></image>
+        <text class='daizhifu-name fl'>待支付</text>
+      </view>
+      <!-- <view class='daizhifu-shengtime'>
+        剩余支付时间
+        <text>:</text>14:00
+      </view> -->
+    </view>
+    <view class='three-ctl'>
+      <view>待取餐</view>
+      <view>联系客服</view>
+      <view>分享</view>
+    </view>
+    <view class='canpin-list-wrap'>
+      <!-- 列表 -->
+      <view class='fan-list-wrap'>
+        <!-- list -->
+        <view class='fan-list'>
+          <view class='fan-img-wrap'>
+            <image class='fan-img' src='{{imgdata}}/carFanImg.png'></image>
+          </view>
+          <view class='fan-name-price'>
+            <view class='fan-name-price-list1'>
+              <text class='fan-name'>鸡蛋炒饭套餐</text>
+            </view>
+            <view class='fan-name-price-list2'>
+              <view class='fan-ctl'>
+                <text>X</text>
+                <text>1</text>
+              </view>
+              <view class='fan-price'>￥
+                <text>15.5</text>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+      <!-- 列表 -->
+      <view class='fan-list-wrap'>
+        <!-- list -->
+        <view class='fan-list'>
+          <view class='fan-img-wrap'>
+            <image class='fan-img' src='{{imgdata}}/carFanImg.png'></image>
+          </view>
+          <view class='fan-name-price'>
+            <view class='fan-name-price-list1'>
+              <text class='fan-name'>鸡蛋炒饭套餐</text>
+            </view>
+            <view class='fan-name-price-list2'>
+              <view class='fan-ctl'>
+                <text>X</text>
+                <text>1</text>
+              </view>
+              <view class='fan-price'>￥
+                <text>15.5</text>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+      <!-- 列表 -->
+      <view class='fan-list-wrap'>
+        <!-- list -->
+        <view class='fan-list'>
+          <view class='fan-img-wrap'>
+            <image class='fan-img' src='{{imgdata}}/carFanImg.png'></image>
+          </view>
+          <view class='fan-name-price'>
+            <view class='fan-name-price-list1'>
+              <text class='fan-name'>鸡蛋炒饭套餐</text>
+            </view>
+            <view class='fan-name-price-list2'>
+              <view class='fan-ctl'>
+                <text>X</text>
+                <text>1</text>
+              </view>
+              <view class='fan-price'>￥
+                <text>15.5</text>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class='pei-service'>
+      <view class='hope-time'>
+        <view class='time-name'>自取时间：</view>
+        <view class='hope-type'>
+          <text>2018-01-13 </text>
+          <text>24:00</text>
+          <text>之前</text>
+        </view>
+      </view>
+      <view class='hope-time'>
+        <view class='time-name'>自取地址：</view>
+        <view class='hope-type'>
+          <view>张某某（先生）18600786363 </view>
+          <view>
+            <text>霍营小区（8号楼9单元101）</text>
+            <!-- <image class='dingwei fr' src='{{imgdata}}/dingweiHui.png'></image> -->
+          </view>
+        </view>
+      </view>
+      <view class='hope-time'>
+        <view class='time-name'>优惠券：</view>
+        <view class='hope-type' style='float:right'>
+          <text>-</text>
+          <text>￥</text>
+          <text>2</text>
+        </view>
+      </view>
+      <view class='hope-time'>
+        <view class='time-name'></view>
+        <view class='hope-type' style='float:right'>
+          <text class='youhui-num'>
+            <text>已优惠</text>
+            <text>2</text>
+            <text>元</text>
+          </text>
+          <text class='heji-num'>
+            <text class='heji-name'>合计</text>
+            <text>￥</text>
+            <text>2</text>
+          </text>
+        </view>
+      </view>
+    </view>
+    <view class='pei-service' style='margin-top:20rpx;'>
+      <view class='hope-time'>
+        <view class='time-name'>订单号码：</view>
+        <view class='hope-type'>1749 6703 6509 0001</view>
+      </view>
+      <view class='hope-time'>
+        <view class='time-name'>订单时间：</view>
+        <view class='hope-type'>
+          <view>2018-01-13 14:45:55</view>
+        </view>
+      </view>
+      <view class='hope-time'>
+        <view class='time-name'>发票信息：</view>
+        <view class='hope-type'>公司</view>
+      </view>
+      <view class='hope-time'>
+        <view class='time-name'>支付方式：</view>
+        <view class='hope-type'>支付宝支付</view>
+      </view>
+      <view class='hope-time'>
+        <view class='time-name'>支付方式：</view>
+        <view class='hope-type'>支付宝支付</view>
+      </view>
+      <view class='hope-time'>
+        <view class='time-name'>取餐码：</view>
+        <view class='hope-type'>703650</view>
+      </view>
+      <view class='hope-time'>
+        <view class='time-name'>取餐二维码：</view>
+        <view class='hope-type'>
+          <image class='erweima' src='{{imgdata}}/ziquErweima.png'></image>
+        </view>
+      </view>
+    </view>
+  </view>
+  <!-- <view class='zhifu-btn'>支付</view> -->
+</view>
+<view class='pop' style='display:none;'></view>

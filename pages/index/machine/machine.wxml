@@ -1,0 +1,157 @@
+<!--pages/index/machine/machine.wxml-->
+<!-- <text>pages/index/machine/machine.wxml</text> -->
+<view class='car-container'>
+  <view class='car-title'>
+    <image bindtap='goIndex' class='goback' src='{{imgdata}}/go_back.png'></image>
+    <text>机器推荐</text>
+  </view>
+  <view style='margin-top:60px;'></view>
+  <!-- 列表 -->
+  <view class="hotPush">
+    <view class="hotPushL fl">
+      <image class="hotPushImg" src="/images/hotPushImg.png"></image>
+      <image class="hotPushIcon" src="/images/hotPushIcon.png"></image>
+    </view>
+    <view class="hotPushR fl">
+      <view class="dianNamePosi">
+        <text>闪餐机器001（霍营店）</text>
+        <image src="/images/blFly.png" class="fly fr"></image>
+      </view>
+      <view class="xingSale">
+        <image src="/images/blXing.png"></image>
+        <image src="/images/blXing.png"></image>
+        <image src="/images/blXing.png"></image>
+        <image src="/images/blXing.png"></image>
+        <image src="/images/blXing.png"></image>
+        <text class='pingfen'>4.6</text>
+      </view>
+      <view class="psTime">
+        <text>配送时间约：<text>23分钟</text></text>
+        <text class='fr' style='margin-top:15rpx;'>距离<text>13</text>km</text>
+      </view>
+      <view class="manjian">
+        <image class="manjianIcon fl" src="/images/blmanjian.png"></image>
+        <text class="manjianTxt fl">满49减2，满60减12</text>
+        <image class="youhuixiala fr" src="/images/youhuixiala.png"></image>
+         <!-- <text class="youhuiNum fr">8个优惠</text> -->
+      </view>
+      <view class="otherJiQi">
+        <image class="dingWeiIcon fl" src="/images/blmanjian.png"></image>
+        <text class="otherJiQiTxt fl">附近还有5家闪餐机器</text>
+        <!-- <image class="otherJiQixiala fr" src="/images/youhuixiala.png"></image> -->
+        <!-- <text class='youhuiNum fr'>8个优惠</text> -->
+      </view>
+    </view>
+  </view>
+  <!-- 列表 -->
+  <view class="hotPush">
+    <view class="hotPushL fl">
+      <image class="hotPushImg" src="/images/hotPushImg.png"></image>
+      <image class="hotPushIcon" src="/images/hotPushIcon.png"></image>
+    </view>
+    <view class="hotPushR fl">
+      <view class="dianNamePosi">
+        <text>闪餐机器001（霍营店）</text>
+        <image src="/images/blFly.png" class="fly fr"></image>
+      </view>
+      <view class="xingSale">
+        <image src="/images/blXing.png"></image>
+        <image src="/images/blXing.png"></image>
+        <image src="/images/blXing.png"></image>
+        <image src="/images/blXing.png"></image>
+        <image src="/images/blXing.png"></image>
+        <text class='pingfen'>4.6</text>
+      </view>
+      <view class="psTime">
+        <text>配送时间约：<text>23分钟</text></text>
+        <text class='fr' style='margin-top:15rpx;'>距离<text>13</text>km</text>
+      </view>
+      <view class="manjian">
+        <image class="manjianIcon fl" src="/images/blmanjian.png"></image>
+        <text class="manjianTxt fl">满49减2，满60减12</text>
+        <image class="youhuixiala fr" src="/images/youhuixiala.png"></image>
+         <!-- <text class="youhuiNum fr">8个优惠</text> -->
+      </view>
+      <view class="otherJiQi">
+        <image class="dingWeiIcon fl" src="/images/blmanjian.png"></image>
+        <text class="otherJiQiTxt fl">附近还有5家闪餐机器</text>
+        <!-- <image class="otherJiQixiala fr" src="/images/youhuixiala.png"></image> -->
+        <!-- <text class='youhuiNum fr'>8个优惠</text> -->
+      </view>
+    </view>
+  </view>
+  <!-- 列表 -->
+  <view class="hotPush">
+    <view class="hotPushL fl">
+      <image class="hotPushImg" src="/images/hotPushImg.png"></image>
+      <image class="hotPushIcon" src="/images/hotPushIcon.png"></image>
+    </view>
+    <view class="hotPushR fl">
+      <view class="dianNamePosi">
+        <text>闪餐机器001（霍营店）</text>
+        <image src="/images/blFly.png" class="fly fr"></image>
+      </view>
+      <view class="xingSale">
+        <image src="/images/blXing.png"></image>
+        <image src="/images/blXing.png"></image>
+        <image src="/images/blXing.png"></image>
+        <image src="/images/blXing.png"></image>
+        <image src="/images/blXing.png"></image>
+        <text class='pingfen'>4.6</text>
+      </view>
+      <view class="psTime">
+        <text>配送时间约：<text>23分钟</text></text>
+        <text class='fr' style='margin-top:15rpx;'>距离<text>13</text>km</text>
+      </view>
+      <view class="manjian">
+        <image class="manjianIcon fl" src="/images/blmanjian.png"></image>
+        <text class="manjianTxt fl">满49减2，满60减12</text>
+        <image class="youhuixiala fr" src="/images/youhuixiala.png"></image>
+         <!-- <text class="youhuiNum fr">8个优惠</text> -->
+      </view>
+      <view class="otherJiQi">
+        <image class="dingWeiIcon fl" src="/images/blmanjian.png"></image>
+        <text class="otherJiQiTxt fl">附近还有5家闪餐机器</text>
+        <!-- <image class="otherJiQixiala fr" src="/images/youhuixiala.png"></image> -->
+        <!-- <text class='youhuiNum fr'>8个优惠</text> -->
+      </view>
+    </view>
+  </view>
+  <!-- 列表 -->
+  <view class="hotPush">
+    <view class="hotPushL fl">
+      <image class="hotPushImg" src="/images/hotPushImg.png"></image>
+      <image class="hotPushIcon" src="/images/hotPushIcon.png"></image>
+    </view>
+    <view class="hotPushR fl">
+      <view class="dianNamePosi">
+        <text>闪餐机器001（霍营店）</text>
+        <image src="/images/blFly.png" class="fly fr"></image>
+      </view>
+      <view class="xingSale">
+        <image src="/images/blXing.png"></image>
+        <image src="/images/blXing.png"></image>
+        <image src="/images/blXing.png"></image>
+        <image src="/images/blXing.png"></image>
+        <image src="/images/blXing.png"></image>
+        <text class='pingfen'>4.6</text>
+      </view>
+      <view class="psTime">
+        <text>配送时间约：<text>23分钟</text></text>
+        <text class='fr' style='margin-top:15rpx;'>距离<text>13</text>km</text>
+      </view>
+      <view class="manjian">
+        <image class="manjianIcon fl" src="/images/blmanjian.png"></image>
+        <text class="manjianTxt fl">满49减2，满60减12</text>
+        <image class="youhuixiala fr" src="/images/youhuixiala.png"></image>
+         <!-- <text class="youhuiNum fr">8个优惠</text> -->
+      </view>
+      <view class="otherJiQi">
+        <image class="dingWeiIcon fl" src="/images/blmanjian.png"></image>
+        <text class="otherJiQiTxt fl">附近还有5家闪餐机器</text>
+        <!-- <image class="otherJiQixiala fr" src="/images/youhuixiala.png"></image> -->
+        <!-- <text class='youhuiNum fr'>8个优惠</text> -->
+      </view>
+    </view>
+  </view>
+</view>

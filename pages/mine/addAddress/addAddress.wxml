@@ -1,0 +1,86 @@
+ <!-- pages/mine/addAddress/addAddress.wxml  -->
+<!-- <text>pages/mine/addAddress/addAddress.wxml</text> -->
+<view class='feedBack'>
+    <!-- <view class='car-title'>
+      <image class='goback' src='{{imgdata}}/go_back.png'></image>
+      <text>新增地址</text>
+    </view> -->
+    <view class='container'>
+
+      <view class='linkman first'>
+          <text>联系人：</text>
+          <view class='linkinput'>
+            <input placeholder='姓名' bindinput="bindReplaceInput" wx-if="{{state == 0}}"></input>
+            <input value='{{editname}}' bindinput="bindReplaceInput" wx-else></input>
+          </view>
+      </view>
+
+      <view class='radio'>
+        <view class='choose'>
+         <radio-group bindchange="radioChange" style="transform:scale(.7);">
+            <label  wx:for="{{items}}" wx:key="index" style="margin-right: 10rpx;">
+                <checkbox value="{{index}}" style='font-size:30rpx;' checked="{{item.checked}}">{{item.value}}</checkbox>
+                <!-- <view>{{item.name}}</view>  -->
+            </label>   
+        </radio-group>
+         
+            <!-- <view>
+                <image bindtap="selectleft" wx-if="{{noselectleft}}" src='{{imgdata}}/cf_noDefalut.png'></image>
+                <image bindtap="selectleft" wx-if="{{selectleft}}" src='{{imgdata}}/cf_defalut.png'></image>
+                <text>先生</text>
+            </view>
+            <view>
+                <image bindtap="selectright" wx-if="{{noselect}}" src='{{imgdata}}/cf_noDefalut.png'></image>
+                <image bindtap="selectright" wx-if="{{select}}" src='{{imgdata}}/cf_defalut.png'></image>
+                <text>女士</text>
+            </view> -->
+        </view>
+      </view>
+      
+      <view class='linkman insert'>
+          <text>电话：</text>
+          <view class='linkinput'>
+            <input type="number" placeholder='手机号码' bindinput="bindPhoneInput" wx-if="{{state == 0}}"></input>
+            <input type="number" value='{{editphone}}' bindinput="bindPhoneInput" wx-else></input>
+          </view>
+      </view>
+
+      <view class='linkman insert'>
+          <text>地址：</text>
+          <view class='linkinput'>
+           
+            <view class="section" style="height:80rpx;">
+            <!-- <view class="section__title">省市区选择器</view> --> 
+            <picker mode="region" bindchange="bindRegionChange" value="{{region}}" custom-item="{{customItem}}" style="height:80rpx;">
+             <input id='chooseads'  value='{{region[0]}}  {{region[1]}}  {{region[2]}}'  style="height:80rpx;"></input>
+            <image class='chooseaddress' src='{{imgdata}}/cf_goright.png'></image>
+              <view class="picker">
+                <!-- 当前选择：value='{{region[0]}}，{{region[1]}}，{{region[2]}}'-->
+              </view>
+            </picker>
+          </view>
+          </view>
+      </view>
+
+      <view class='linkman insert' style='border:0;' wx-if="{{state == 0}}">
+          <text>门牌号：</text>
+          <view class='linkinput'>
+            <input placeholder='例子：5号楼203室' bindinput="HouseNumber" ></input>
+          </view>
+      </view>
+
+      <view class='default'>
+        <!-- <image src='{{imgdata}}/cf_noDefalut.png'></image> -->
+        <radio-group bindchange="radioDefault" style="transform:scale(.7);" >
+            <label  wx:for="{{itemdef}}" wx:key="index">
+                <checkbox value="{{index}}" style='font-size:30rpx;' checked="{{item.checked}}">{{item.value}}</checkbox>
+            </label>   
+        </radio-group> 
+        <!-- 设为默认地址 -->
+      </view>
+    </view>
+    <view class='recharge' bindtap='submitbtn'>确定</view>
+
+</view>
+
+

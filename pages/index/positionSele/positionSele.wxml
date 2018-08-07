@@ -1,0 +1,51 @@
+
+<view class='car-container'>
+  <view class='head-wrap'>
+    <view class='car-title'>
+      <image class='goback' src='{{imgdata}}/positionClose.png' bindtap='goback'></image>
+      <text class='sele-city-txt'>选择所在城市</text>
+    </view>
+    <view style='margin-top:50px;'></view>
+    <view class='city-sele'>
+      <view class='seleted-city'>
+        <text class='area-name fl'>{{city}}</text>
+        <image class='xiasanjiao fl' src='{{imgdata}}/upSanjiao.png'></image>
+      </view>
+      <view class='search-wrap'>
+        <image class='search-icon fl' src='{{imgdata}}/searchIcon.png'></image>
+        <input class='input-city fl' value='' placeholder='输入需要查询的城市' />
+      </view>
+    </view>
+  </view>
+  
+  <view class='current-city-txt'>当前定位城市</view>
+  <view class='position-ctl-wrap' markers="{{markers}}" bindmarkertap="makertap"> 
+    <view class='current-city-name'>{{address}}</view>
+    <view class='posiClickWrap' bindtap='repeatPosi'>
+      <image class='position-ctl-icon fl' src='{{imgdata}}/relocationIcon.png'></image>
+      <text class='relocation-txt fr'>重新定位</text>
+    </view>
+  </view>
+  <view class='cityListCtn'>
+    <view class="searchLetter touchClass">
+      <view class="thishotText" bindtap="hotCity">
+        <view style="margin-top:0;color:#9f9f9f;font-size:20rpx;">#</view>
+        <!-- <view style="margin-top:0;">热门</view> -->
+      </view>
+      <view wx:for="{{searchLetter}}" style="color:#9f9f9f;font-size:20rpx;" wx:key="index" data-letter="{{item.name}}" catchtouchend="clickLetter">{{item.name}}</view>
+    </view>
+    <block wx:if="{{isShowLetter}}">
+      <view class="showSlectedLetter">
+        {{showLetter}}
+      </view>
+    </block>
+    <scroll-view scroll-y="true" style="height:{{winHeight}}px" bindscroll="bindScroll" scroll-into-view="{{scrollTopId}}" scroll-top="{{scrollTop}}">
+      <view class="selection" wx:for="{{cityList}}" wx:key="{{item.initial}}">
+        <view class="item_letter" id="{{item.initial}}">{{item.initial}}</view>
+        <view class="item_city" wx:for="{{item.cityInfo}}" wx:for-item="ct" wx:key="{{ct.id}}" data-cityCode="{{ct.code}}" data-city="{{ct.city}}" bindtap="bindCity">
+          {{ct.city}}
+        </view>
+      </view>
+    </scroll-view>
+  </view>
+</view>

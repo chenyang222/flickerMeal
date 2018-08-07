@@ -1,0 +1,165 @@
+/* pages/mine/aboutus/aboutus.wxss */
+.aboutus{
+  width: 100%;
+  height: 1180rpx; 
+  background-color: #f8f8f8;
+  /* margin-top: 120rpx; */
+}
+.car-title {
+  padding: 25rpx;
+  /* position: relative; */
+  background-color: #fff;
+  margin-bottom: 1rpx;
+  /* position: fixed;
+  top: 0; */
+  z-index: 999;
+  width: 93%;
+  border-bottom: 1px solid #f7f7f7;
+}
+
+.goback {
+  width: 20rpx;
+  height: 34rpx;
+  position: absolute;
+  left: 25rpx;
+  top: 35rpx;
+}
+
+.car-title text {
+  display: inline-block;
+  width: 100%;
+  text-align: center;
+}
+.choosepay{
+  width: 100%;
+  height: 124rpx;
+  line-height: 124rpx;
+  background-color: #f8f8f8;
+  font-size: 28rpx;
+  padding-left: 22rpx;
+  color: #333333;
+  font-weight:bold;
+}
+.wechartpay{
+  width: 100%;
+  height: 124rpx;
+  line-height: 124rpx;
+  background-color: #ffffff;
+  color: #333333;
+}
+ .moneylist{
+  width: 700rpx;
+  margin: auto;
+  display: flex;
+  flex-wrap: wrap;
+   justify-content: space-between; 
+}
+.moneylist view{
+  width: 28%;
+  text-align: center;
+  height: 124rpx;
+  line-height: 124rpx;
+  background-color: #ffffff;
+  margin-bottom: 20rpx;
+  border-radius: 10rpx;
+  font-size: 28rpx;
+} 
+.activebts{
+  background-color: #f98311 !important;
+  color: #ffffff;
+}
+.othermoney{
+  width: 700rpx;
+  height: 88rpx;
+  font-size: 28rpx;
+  display: flex;
+  margin: 20rpx auto;
+}
+.othermoney text{
+  display: inline-block;
+  width: 160rpx;
+  text-align: left;
+  line-height: 88rpx;
+}
+.othermoney input{
+  width: 540rpx;
+  height: 100%;
+  border: none;
+  background-color: #ffffff;
+  font-size: 28rpx;
+  padding-left: 20rpx;
+}
+.prompt{
+  width: 700rpx;
+  margin: auto;
+  height: 100rpx;
+  line-height: 100rpx;
+  font-size: 30rpx;
+  color: #f98311;
+}
+.recharge{
+  width: 700rpx;
+  margin-left: 25rpx;
+  height: 89rpx;
+  line-height: 89rpx;
+  background-image: url("data:image/png;base64,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");
+  background-size: 100% 100%;
+  margin-top: 50rpx;
+  font-size: 36rpx;
+  color: #ffffff;
+  text-align: center;
+}
+
+/* .tab{  
+    display: flex;  
+    flex-direction: row;  
+}   */
+/* .tab-left{  
+    width: 200rpx;  
+    line-height: 160%;  
+    border-right: solid 1px gray;  
+}  
+.tab-left view{  
+    border-bottom: solid 1px red;  
+}   */
+.tab-left .active{  
+    background-color: #f98311 !important;
+    color: #ffffff;
+}  
+.paysuccess{
+  width: 600rpx;
+  height: 300rpx;
+  line-height: 300rpx;
+  border-radius: 10rpx;
+  background-color: #fff;
+  color: #f98311;
+  font-size: 36rpx;
+  text-align: center;
+}
+
+
+/*  重写 checkbox 样式  */
+/* 未选中的 背景样式 */
+checkbox .wx-checkbox-input{
+   border-radius: 50%;/* 圆角 */
+   width: 40rpx; /* 背景的宽 */
+   height: 40rpx; /* 背景的高 */
+}
+/* 选中后的 背景样式 （红色背景 无边框 可根据UI需求自己修改） */
+checkbox .wx-checkbox-input.wx-checkbox-input-checked{
+   border: none;
+   background: orangered;
+}
+/* 选中后的 对勾样式 （白色对勾 可根据UI需求自己修改） */
+checkbox .wx-checkbox-input.wx-checkbox-input-checked::before{
+   border-radius: 50%;/* 圆角 */
+   width: 40rpx;/* 选中后对勾大小，不要超过背景的尺寸 */
+   height: 40rpx;/* 选中后对勾大小，不要超过背景的尺寸 */
+   line-height: 40rpx;
+   text-align: center;
+   font-size:30rpx; /* 对勾大小 30rpx */
+   color:#fff; /* 对勾颜色 白色 */
+   background: transparent;
+   transform:translate(-50%, -50%) scale(1);
+   -webkit-transform:translate(-50%, -50%) scale(1);
+}

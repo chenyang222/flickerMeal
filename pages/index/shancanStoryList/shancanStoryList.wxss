@@ -1,0 +1,21 @@
+/* pages/index/shancanStoryList/shancanStoryList.wxss */
+.storyList{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 55rpx 25rpx;
+  background-color: #fff;
+  border-bottom: 1rpx solid #dcdcdc;
+}
+.listL{
+  color:#3e3e3e;
+  font-size: 30rpx;
+}
+.listR{
+  color: #9e9e9e;
+  margin-top: 10rpx;
+  font-size: 24rpx
+}
+.listR span{
+  margin-right: 10rpx;
+}

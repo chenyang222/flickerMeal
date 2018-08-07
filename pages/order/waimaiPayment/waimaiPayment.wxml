@@ -1,0 +1,200 @@
+<!--index.wxml-->
+<view class="container">
+  <view class='center-ctn' style='overflow-y:scroll;padding-bottom:100rpx;height:100;'>
+    <view class='car-title'>
+      <image class='goback' src='{{imgdata}}/upload/go_back.png'></image>
+      <text>提交订单</text>
+    </view>
+    <view style='margin-top:105rpx;'></view>
+    <view class='order-detail-address-wrap'>
+      <view class='order-address-icon-title-wrap'></view>
+      <view class='' style='margin:15rpx 0;'>
+        <view class='order-detail-address-icon'></view>
+        <text class='order-detail-address-name'>海淀区建材中路12号院1126号楼东</text>
+        <text class='order-juli fr'></text>
+      </view>
+      <view class='name-phone'>
+        <text style='margin-right:150rpx;'>张某某（先生）</text>
+        <text>13001133876</text>
+      </view>
+    </view>
+    <view class='address-fenge'></view>
+    <view class='canpin-list-wrap'>
+      <!-- 列表 -->
+      <view class='fan-list-wrap'>
+        <!-- list -->
+        <view class='fan-list'>
+          <view class='fan-img-wrap'>
+            <image class='fan-img' src='{{imgdata}}/upload/carFanImg.png'></image>
+          </view>
+          <view class='fan-name-price'>
+            <view class='fan-name-price-list1'>
+              <text class='fan-name'>鸡蛋炒饭套餐</text>
+            </view>
+            <view class='fan-name-price-list2'>
+              <view class='fan-ctl'>
+                <text>X</text>
+                <text>1</text>
+              </view>
+              <view class='fan-price'>￥
+                <text>15.5</text>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+      <!-- 列表 -->
+      <view class='fan-list-wrap'>
+        <!-- list -->
+        <view class='fan-list'>
+          <view class='fan-img-wrap'>
+            <image class='fan-img' src='{{imgdata}}/upload/carFanImg.png'></image>
+          </view>
+          <view class='fan-name-price'>
+            <view class='fan-name-price-list1'>
+              <text class='fan-name'>鸡蛋炒饭套餐</text>
+            </view>
+            <view class='fan-name-price-list2'>
+              <view class='fan-ctl'>
+                <text>X</text>
+                <text>1</text>
+              </view>
+              <view class='fan-price'>￥
+                <text>15.5</text>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+      <!-- 列表 -->
+      <view class='fan-list-wrap'>
+        <!-- list -->
+        <view class='fan-list'>
+          <view class='fan-img-wrap'>
+            <image class='fan-img' src='{{imgdata}}/upload/carFanImg.png'></image>
+          </view>
+          <view class='fan-name-price'>
+            <view class='fan-name-price-list1'>
+              <text class='fan-name'>鸡蛋炒饭套餐</text>
+            </view>
+            <view class='fan-name-price-list2'>
+              <view class='fan-ctl'>
+                <text>X</text>
+                <text>1</text>
+              </view>
+              <view class='fan-price'>￥
+                <text>15.5</text>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class='zifei'>
+      <view class='baozhuangfei'>
+        <view class='bao-name'>包装费</view>
+        <view>
+          <text>￥</text>
+          <text>2</text>
+        </view>
+      </view>
+      <view class='peisongfei'>
+        <view class='pei-name'>配送费</view>
+        <view>
+          <text>￥</text>
+          <text>2</text>
+        </view>
+      </view>
+    </view>
+    <view class='order-daifu'>
+      <view class='jian-name'>
+        <text class='jian-ming'>满减</text>
+        <text>在线支付立减优惠</text>
+      </view>
+      <view class='jian-price'>
+        <text>-</text>
+        <text>￥</text>
+        <text>10</text>
+      </view>
+    </view>
+    <view class='coupon'>
+      <view>配送时间</view>
+      <view>
+        <text class='daifu-right'>立即配送</text>
+        <image class='zhankai fr' src='{{imgdata}}/upload/cf_goright.png'></image>
+      </view>
+    </view>
+    <view class='coupon'>
+      <view>优惠券</view>
+      <view>
+        <text class='coupon-num daifu-right'>6</text>
+        <text class='daifu-right'>张可用</text>
+        <image class='zhankai fr' src='{{imgdata}}/upload/cf_goright.png'></image>
+      </view>
+    </view>
+    <view class='peisong'>
+      <view>选择配送</view>
+      <view>
+        <radio class='wx-radio-input' value="" checked="" />
+      </view>
+    </view>
+    <view class='coupon'>
+      <view>发票信息</view>
+      <view>
+        <text class='daifu-right'>未选择</text>
+        <image class='zhankai fr' src='{{imgdata}}/upload/cf_goright.png'></image>
+      </view>
+    </view>
+    <view class='heji'>
+    <view class='heji-left'>
+      <text>合计</text>
+      <view>￥
+        <text>107.5</text>
+      </view>
+      <text>已优惠10元</text>
+    </view>
+    <view class='heji-right'>
+      <!-- <image class='del-icon' src='{{imgdata}}/upload/delIcon.png'></image> -->
+      <text class='jiesuan-btn'>确认支付</text>
+    </view>
+  </view>
+  </view>
+  <!-- <view style='margin-bttom:162rpx;'></view> -->
+  
+</view>
+<view class='pop' style='display:none;'></view>
+ <!-- 选择送达时间弹窗 -->
+ <view class='service-time' style='display:none;'>
+  <view class='sele-time'>选择送达时间</view>
+  <view class='date-ctn'>
+    <view class='today-zhou'>
+      <view class='today'>
+        <text>今日</text>(<text>周五</text>)
+      </view>
+    </view>
+    <view class='time'>
+      <view class='time-list'>
+        <text>尽快到达</text>
+        <text>预计<text>17.29</text>(<text>0</text>元配送费)</text>
+        <image class='sele-icon' src='{{imgdata}}/upload/waimaiTimeSeleGou.png'></image>
+      </view>
+      <view class='time-list'>
+        <view><text class='songda-time'>17:45</text><text>(<text>0</text>元配送费)</text></view>
+        <image class='sele-icon' src='{{imgdata}}/upload/waimaiTimeSeleGou.png' style='display:none'></image>
+      </view>
+      <view class='time-list'>
+        <view><text class='songda-time'>17:45</text><text>(<text>0</text>元配送费)</text></view>
+        <image class='sele-icon' src='{{imgdata}}/upload/waimaiTimeSeleGou.png' style='display:none'></image>
+      </view>
+
+      <view class='time-list'>
+        <view><text class='songda-time'>17:45</text><text>(<text>0</text>元配送费)</text></view>
+        <image class='sele-icon' src='{{imgdata}}/upload/waimaiTimeSeleGou.png' style='display:none'></image>
+      </view>
+      <view class='time-list'>
+        <view><text class='songda-time'>17:45</text><text>(<text>0</text>元配送费)</text></view>
+        <image class='sele-icon' src='{{imgdata}}/upload/waimaiTimeSeleGou.png' style='display:none'></image>
+      </view>
+    </view>
+  </view>
+ </view>
