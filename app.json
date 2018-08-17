@@ -1,8 +1,7 @@
 {
   "pages": [
-    "pages/index/shouye/shouye",
     "pages/login/login",
-    
+    "pages/index/shouye/shouye",
     "pages/index/hotWords/hotWords",
     "pages/index/newProductRecom/newProductRecom",
     "pages/index/search/search",
@@ -18,9 +17,6 @@
     "pages/index/mealDetail/mealDetail",
     "pages/index/weekMenu/weekMenu",
     "pages/index/machine/machine",
-    "pages/login/phoneLogin/phoneLogin",
-    "pages/login/resetPassword/resetPassword",
-    "pages/login/regist/regist",
     "pages/mine/mine",
     "pages/mine/newphone/newphone",
     "pages/mine/address/address",

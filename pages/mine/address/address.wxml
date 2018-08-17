@@ -41,7 +41,7 @@
       </view> 
       <view class='itemRight'>
         <image src='{{imgdata}}/cf_editAddress.png'></image>
-      </view>   
+      </view>
     </view> -->
 
   <!-- </view> -->

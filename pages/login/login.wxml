@@ -3,27 +3,28 @@
   <view class="top">
     <image src="{{imgdata}}/login_bg.png"></image>
     <view class="btn">
-      <text class="left_btn tab_btn tab_btn_active">账号登录</text>
-      <navigator url = "/pages/login/phoneLogin/phoneLogin" class="tab_btn" open-type = "redirect" hover-class="none"><text class="right_btn">手机短信登录</text></navigator>
+      <text class="right_btn tab_btn tab_btn_active">手机短信登录</text>
     </view>
   </view>
   <view class="my_ipt">
     <view class="phone_ipt">
       <image class="fl" src="{{imgdata}}/phone.png"></image>
-      <input class="fl" placeholder="请输入手机号码" type="text" value='{{phoneNum}}' bindinput='getPhoneNum'/>
+      <input class="fl" placeholder="请输入手机号码" type="text" bindinput='phoneVal' value="{{phoneNum}}"></input>
     </view>
     <view>
       <image class="fl" src="{{imgdata}}/pass.png"></image>
-      <input class="fl" type="password" placeholder="请输入密码" value='{{pass}}' bindinput='getPass' />
+      <input class="fl" placeholder="请输入验证码" type="text" value='{{validateCode}}' bindinput='vlidataVal'></input>
+     <text class="yzm fr {{is_show?'show':'hide'}}" bindtap="getIdentifyingCode">获取验证码</text>
+      <text class="yzm fr {{is_show?'hide':'show'}}" style='border:1px solid #ccc;color:#ccc'>{{last_time}}</text>
+    </view>
+    <view>
+      <image class="fl" src="{{imgdata}}/yqm.png"></image>
+      <input class="fl" placeholder="请输入邀请码（选填）" type="text" value='{{invitationCode}}' bindinput='yaoqingCodeVal'></input>
     </view>
   </view>
   <view class="lg_btn">
-    <view class="sub_lg" bindtap='loginBtn'></view>
-    <view class="oh">
-      <navigator url = "/pages/login/regist/regist" class="" open-type = "navigate" hover-class="none"><text class="fl">手机注册</text></navigator>
-      <navigator url = "/pages/login/resetPassword/resetPassword" class="" open-type = "navigate" hover-class="none"><text class="fr">忘记密码</text></navigator>
-    </view>
+    <view class="sub_lg" bindtap='comfirmRegist'></view>
   </view>
   <view class="line"></view>
-  <view class="wc_login"></view>
+  <!-- <view class="wc_login"></view> -->
 </view>

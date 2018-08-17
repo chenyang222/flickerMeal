@@ -1,18 +1,18 @@
 //index.js
 //获取应用实例
 const app = getApp()
-var bmap = require('../../../utils/bmap-wx.min.js');
-var util = require('../../../utils/util.js');
-var todayListArr = [];
-
+var bmap = require('../../../utils/bmap-wx.min.js'); // 引入百度地图js
 var wxMarkerData = []; //定位成功回调对象  
+// var util = require('../../../utils/util.js');
+// var todayListArr = [];
+
+// var wxMarkerData = []; 
 Page({
   data: {
-    //百度地图的参数
-    ak: "FWcsLOiPpo7fh8r0iUf34dj9VVzCYS3m", //填写申请到的ak
-    markers: [],
-    longitude: '', //经度
-    latitude: '', //纬度
+    ak: 'NPfvQSlaxLvtuBWm4YDVwecQNoTACuUY', // 填写申请到的ak
+    latitude: '', // 纬度
+    longitude: '',// 经度
+
     address: '', //地址
     newddata: '',
     currentCity: '',
@@ -171,78 +171,44 @@ Page({
     })
   },
   onLoad: function (option) {
-    this.setData({
-      fixedFlag: false,
-      boxTop: 0
-    });
-    // 获取当前城市
-    this.posiAddress();
-    if (app.globalData.userInfo) {
-      this.setData({
-        userInfo: app.globalData.userInfo,
-        hasUserInfo: true
-      })
-    } else if (this.data.canIUse){
-      // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
-      // 所以此处加入 callback 以防止这种情况
-      app.userInfoReadyCallback = res => {
-        this.setData({
-          userInfo: res.userInfo,
-          hasUserInfo: true
-        })
-      }
-    }
-    wx.getUserInfo({
-      success: res => {
-        app.globalData.userInfo = res.userInfo
-        this.setData({
-          userInfo: res.userInfo,
-          hasUserInfo: true
-        })
-      }
-    })
-    //附近近期人
-    this.nearbyRoboData();
-    //热词（搜索下方热门餐品）
-    this.hotwords();
-    //今日够
-    // this.todayBuy();
-    // 菜单
-    this.getMenuClass();
-    //广告轮播
-    // this.getAllTCarouselFigureList();
-  },
-  // 自动定位 
-  posiAddress: function () {
     var that = this;
-    /* 获取定位地理位置 */
-    // 新建bmap对象
+    // 新建百度地图对象 
     var BMap = new bmap.BMapWX({
       ak: that.data.ak
     });
     var fail = function (data) {
-      console.log(data);
+      console.log(data)
     };
-    var newddata = '';
     var success = function (data) {
-      //返回数据内，已经包含经纬度
-      //使用wxMarkerData获取数据
+      console.info(data)
       wxMarkerData = data.wxMarkerData;
-      //把所有数据放在初始化data内
       that.setData({
-        markers: wxMarkerData,
-        latitude: wxMarkerData[0].latitude,
-        longitude: wxMarkerData[0].longitude,
-        address: wxMarkerData[0].address,
-        currentCity: wxMarkerData[0].address
+        latitude: wxMarkerData[0].latitude
+      });
+      that.setData({
+        longitude: wxMarkerData[0].longitude
       });
     }
-   
-    // 发起regeocoding检索请求
-    BMap.regeocoding({
+    // 发起POI检索请求 
+    BMap.search({
       fail: fail,
       success: success
     });
+    
+    // this.setData({
+    //   fixedFlag: false,
+    //   boxTop: 0
+    // });
+    // //附近近期人
+    // this.nearbyRoboData();
+    // //热词（搜索下方热门餐品）
+    // this.hotwords();
+    // //今日够
+    // // this.todayBuy();
+    // // 菜单
+    // this.getMenuClass();
+    // //广告轮播
+    // // this.getAllTCarouselFigureList();
   },
   goSearch: function(e){//跳转到搜索列表
     wx.navigateTo({

@@ -1,99 +1,137 @@
-//login.js
-//获取应用实例
-const app = getApp()
-
+const app = getApp();
+var interval = null // 倒计时函数
+var countdown = 60; // 60秒设置
+// 倒计时计时
+var settime = function (that) {
+  if (countdown < 0) {
+    that.setData({
+      is_show: true
+    })
+    countdown = 60;
+    return;
+  } else {
+    that.setData({
+      is_show: false,
+      last_time: countdown
+    })
+    countdown--;
+  }
+  setTimeout(function () {
+    settime(that)
+  }, 1000)
+}
 Page({
   data: {
-    imgdata: app.globalData.imgdata,
-    motto: 'Hello World',
-    userInfo: {},
-    hasUserInfo: false,
-    canIUse: wx.canIUse('button.open-type.getUserInfo'),
-    phoneNum:'',
-    pass:'',
-    name_focus:''
-  },
-  //事件处理函数
-  bindViewTap: function() {
-    wx.navigateTo({
-      url: '../logs/logs'
-    })
+    imgdata: app.globalData.imgdata, // 图片
+    phoneNum: '', // 手机号码
+    validateCode: '', // 验证码
+    invitationCode: '', // 邀请码
+    last_time: '', // 倒计时秒数
+    is_show: true, // 显示倒计时或者获取验证码
+    code: '' // 登陆获取code
   },
   onLoad: function () {
-    if (app.globalData.userInfo) {
-      this.setData({
-        userInfo: app.globalData.userInfo,
-        hasUserInfo: true
+    var that = this;
+    // 设置微信小程序title
+    wx.setNavigationBarTitle({ 
+      title: '登陆'
+    })
+  },
+  // 获取验证码
+  getIdentifyingCode: function () {
+    var that = this;
+    // 手机号判断拦截
+    if (this.data.phoneNum == '') {
+      wx.showToast({
+        title: '手机号不能为空',
+        icon: 'none',
+        duration: 2000
       })
-    } else if (this.data.canIUse){
-      // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
-      // 所以此处加入 callback 以防止这种情况
-      app.userInfoReadyCallback = res => {
-        this.setData({
-          userInfo: res.userInfo,
-          hasUserInfo: true
+      return false
+    }
+    // 后台获取验证码
+    wx.request({
+      url: "https://shanchan.jergavin.com/sms/send?mobile=" + that.data.phoneNum + "&app=true",
+      success: function (res) {
+        wx.showToast({
+          title: '获取验证码成功,请稍后',
+          icon: 'none',
+          duration: 1000,
+          mask: true
         })
-      }
-    } 
-    // 在没有 open-type=getUserInfo 版本的兼容处理
-    wx.getUserInfo({
-      success: res => {
-        app.globalData.userInfo = res.userInfo
-        this.setData({
-          userInfo: res.userInfo,
-          hasUserInfo: true
+        // 将获取验证码按钮隐藏60s，60s后再次显示
+        that.setData({
+          is_show: (!that.data.is_show)  //false
         })
+        // 倒计时
+        settime(that);
       }
     })
-    
   },
-  //获取手机号
-  getPhoneNum:function(e){
+  // 获取手机号
+  phoneVal: function (e) {
     this.setData({
       phoneNum: e.detail.value
     })
   },
-  //获取密码
-  getPass: function (e) {
+  // 获取验证码
+  vlidataVal: function (e) {
     this.setData({
-      pass: e.detail.value
+      validateCode: e.detail.value
     })
   },
-  //登录确认
-  loginBtn: function () {
+  // 获取邀请码
+  yaoqingCodeVal: function (e) {
+    this.setData({
+      invitationCode: e.detail.value
+    })
+  },
+  // 确定注册
+  comfirmRegist: function () {
+    console.info(app.globalData.openid)
+    // 手机号判断拦截
+    if (this.data.phoneNum == '') {
+      wx.showToast({
+        title: '手机号不能为空',
+        icon: 'none',
+        duration: 1000,
+        mask: true
+      })
+      return false;
+    }
+    // 验证码判断拦截
+    if (this.data.validateCode == '') {
+      wx.showToast({
+        title: '验证码不能为空',
+        icon: 'none',
+        duration: 1000,
+        mask: true
+      })
+      return false;
+    }
+    const that = this;
+    // 注册绑定
     wx.request({
-      url: app.globalData.baseUrl + 'loginAndRegister/userLogin.action',
-      method: "POST",
+      url: "https://shanchan.jergavin.com/oauth2/token/wechatApp/register",
       data: {
-        phone: this.data.phoneNum,
-        password: this.data.pass
-      },
-      header: {
-        'content-type': 'application/x-www-form-urlencoded'
+        mobile: that.data.phoneNum,
+        vfcode: that.data.validateCode,
+        openid: app.globalData.openid
       },
       success: function (res) {
-        // console.log(res, 'DENGLU')
-        if(res.data.code == 0){
-          wx.setStorage({
-            key: "token",
-            data: res.data.sessionId
+        if (res.data.errcode == 0) {
+          // token data 处理
+          app.handleToken(res.data)
+          wx.reLaunch({
+            url: '/pages/index/shouye/shouye'
           })
-          wx.setStorage({
-            key: "shancanuserid",
-            data: res.data.userId
-          })
-          
+        } else {
           wx.showToast({
-            title: res.data.msg,
+            title: res.data.errmsg,
             icon: 'none',
             duration: 1000,
             mask: true
           })
-          setTimeout(function(){
-            wx.switchTab ({  
-              url: "/pages/index/shouye/shouye"
-            })
-          },1500);
         }
       }
     })

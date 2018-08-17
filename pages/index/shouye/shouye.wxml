@@ -857,12 +857,14 @@
     <view class='contDetail recomondgoods'>
       <view class='title'>品质生活，推荐美味</view>
       <view class='cont'>
-        <block wx:for="{{recomTC}}" wx:key="{{index}}">
+        <view>{{latitude}}</view>
+        <view>{{longitude}}</view>
+        <!-- <block wx:for="{{recomTC}}" wx:key="{{index}}">
           <view class='contItem' bindtap='goMealDetail' data-id="{{item.id}}" data-machineid="{{item.machineId}}">
             <image src="{{imgdata}}/upload/{{item.url}}"/> 
             <view class='goodsName'>{{item.foodName}}</view>
           </view>
-        </block>
+        </block> -->
       </view>
     </view> 
     <!-- <view class='contDetail redPacket'>

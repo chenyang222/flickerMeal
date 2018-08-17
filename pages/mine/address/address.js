@@ -14,23 +14,12 @@ const app = getApp();
     },
     addlist:function(){
       var that = this;
-      wx.request({
-        url: app.globalData.baseUrl + 'userInfo/queryUserAddressList.action',
-        method: "GET",
-        data:{
-          userId:1,
-        },
-        header: {
-          "Content-Type": "application/x-www-form-urlencoded"
-        },
-        success: function (res) {
-          if (res.data.code == 0) {
-           
-            that.setData({
-              items: res.data.data
-            })
-          }
-        }
+      app.fetch({
+        url: '/account/address/list'
+      }).then((response) => {
+        that.setData({
+          items: response.list
+        })
       })
     },
     setDef: function (e) {
