@@ -5,26 +5,6 @@
   background-color: #f8f8f8;
   /* margin-top: 120rpx; */
 }
-.car-title {
-  padding: 25rpx;
-  /* position: relative; */
-  background-color: #fff;
-  margin-bottom: 1rpx;
-  /* position: fixed;
-  top: 0; */
-  z-index: 999;
-  width: 93%;
-  border-bottom: 1px solid #f7f7f7;
-}
-
-.goback {
-  width: 20rpx;
-  height: 34rpx;
-  position: absolute;
-  left: 25rpx;
-  top: 35rpx;
-}
-
 .car-title text {
   display: inline-block;
   width: 100%;

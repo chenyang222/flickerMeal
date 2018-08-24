@@ -9,6 +9,7 @@ App({
         url: '/pages/index/shouye/shouye'
       })
     } else {
+      console.info(11)
       const that = this;
       wx.login({
         success: function (res) {
@@ -21,16 +22,23 @@ App({
               },
               success: function (res) {
                 console.info(res)
-                if (res.data.errcode == 40004) {
+                if (res.data.errcode == 0) {
+                  // 正常进入
+                  that.handleToken(res.data)
+                  wx.reLaunch({
+                    url: '/pages/index/shouye/shouye'
+                  })
+                } else if (res.data.errcode == 40004) {
                   // 此账号当前尚未注册
                   that.globalData.openid = res.data.data;
                 } else if (res.data.errcode == 40001) {
                   // 需要重新授权
                 } else {
-                  // 正常进入
-                  that.handleToken(res.data)
-                  wx.reLaunch({
-                    url: '/pages/index/shouye/shouye'
+                  wx.showToast({
+                    title: res.data.errmsg,
+                    icon: 'none',
+                    duration: 1000,
+                    mask: true
                   })
                 }
               }
@@ -46,7 +54,7 @@ App({
   globalData: {
     userInfo: null,
     imgdataFan: 'https://sc.jergavin.com',//接口返回图片的地址
-    imgdata: 'http://192.168.1.188:8580',//正常图片展示的地址
+    imgdata: '/images/img',//正常图片展示的地址
     baseUrl: 'https://sc.jergavin.com/mini/',//请求地址公共的url前段
     api: 'https://shanchan.jergavin.com', // 接口请求api
     addre: null,
@@ -118,6 +126,18 @@ App({
           // 接口返回 errcode 统一处理
           if (response.data.errcode == 0) {
             resolve(response.data.data)
+          } else if (response.data.errcode == 10003) {
+            wx.showToast({
+              title: '登陆信息已过期，将自动重新登陆',
+              icon: 'none',
+              duration: 1000,
+              mask: true
+            })
+            setTimeout(() => {
+              wx.reLaunch({
+                url: '/pages/login/login'
+              })
+            },1000)
           } else {
             wx.showToast({
               title: response.data.errmsg,

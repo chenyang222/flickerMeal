@@ -9,12 +9,18 @@
         <text>账户余额</text>
         <view><text>￥</text>578.0</view>
     </view> -->
-    <view class='yueimg'><image src='{{imgdata}}/yh_yue.png'></image></view>
-    <view class='rechargerule'>账户余额</view>
-    <view class='rechargerule'>0.0</view>
+    <view class='yueimg'>
+      <image mode='widthFix' src='{{imgdata}}/mine/pay/yh_yue.png'></image>
+      <view class='rechargeBox'>
+        <view class='title'>账户余额</view>
+        <view class='rechargerule'>
+          ￥<text>578.0</text>
+        </view>
+      </view>
+    </view>
     <navigator class='recharge' url="../balance/balance">充值</navigator>
     <!-- <view class='recharge' bindtap="changePay">充值</view> -->
-    <view class='rechargerule'>余额明细</view>
+    <!-- <view class='rechargerule'>余额明细</view> -->
 
     <view class='public_shade' wx:if="{{iftrue}}">
         <view class='public_center payshade'>

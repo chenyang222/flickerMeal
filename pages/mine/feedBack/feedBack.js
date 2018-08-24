@@ -5,12 +5,6 @@ Page({
       str:'',
       ceshi:'',
   },
-  // bindTextAreaBlur: function (e) {
-  //   this.setData({
-  //     ceshi: e.detail.value
-  //   })
-    
-  // }, 
   bindvalue: function (e) {
     var that = this;
     if (e.detail.value != " ") {

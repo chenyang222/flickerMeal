@@ -1,10 +1,6 @@
 <!--pages/mine/feedBack/feedBack.wxml-->
 <!-- <text>pages/mine/feedBack/feedBack.wxml</text> -->
 <view class='feedBack'>
-    <!-- <view class='car-title'>
-      <image class='goback' src='{{imgdata}}/go_back.png'></image>
-      <text>反馈</text>
-    </view> -->
     <view class='comment'>
         <textarea bindinput = 'bindvalue' value='{{ceshi}}' class='textarea'  placeholder="请输入您的意见或者你想吃的餐品" >
         </textarea> 

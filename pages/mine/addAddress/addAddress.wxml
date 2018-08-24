@@ -12,7 +12,7 @@
       <view class='radio'>
         <view class='choose'>
          <radio-group bindchange="radioChange" style="transform:scale(.7);">
-            <label  wx:for="{{items}}" wx:key="index" style="margin-right: 10rpx;">
+            <label wx:for="{{items}}" wx:key="index" style="margin-right: 10rpx;">
                 <checkbox value="{{index}}" style='font-size:30rpx;' checked="{{item.checked}}">{{item.value}}</checkbox>
                 <!-- <view>{{item.name}}</view>  -->
             </label>
@@ -33,7 +33,7 @@
             <!-- <view class="section__title">省市区选择器</view> --> 
             <picker mode="region" bindchange="bindRegionChange" value="{{region}}" custom-item="{{customItem}}" style="height:80rpx;">
              <input id='chooseads'  value='{{region[0]}}  {{region[1]}}  {{region[2]}}'  style="height:80rpx;"></input>
-            <image class='chooseaddress' src='{{imgdata}}/cf_goright.png'></image>
+            <image class='chooseaddress' src='{{imgdata}}/mine/addAddress/cf_goright.png'></image>
               <view class="picker">
                 <!-- 当前选择：value='{{region[0]}}，{{region[1]}}，{{region[2]}}'-->
               </view>

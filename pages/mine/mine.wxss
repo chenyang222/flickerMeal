@@ -56,6 +56,7 @@
   margin: 1rpx 0;
   height: 25rpx;
   width: 25rpx;
+  vertical-align: middle;
 }
 .top .topMsg .msg{
   font-size: 22rpx;
@@ -64,6 +65,7 @@
   margin-left: 30rpx;
   width: 12rpx;
   height: 20rpx;
+  vertical-align: middle;
 }
 .jifen{
   padding: 5rpx 0;

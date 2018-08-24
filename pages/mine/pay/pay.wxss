@@ -7,48 +7,30 @@
   background-size:cover;
   /* position: relative; */
 }
-.yueimg image{
-  width: 148rpx;
-  height: 148rpx;
-  margin-top: 125rpx;
-}
-.joinhead{
-  /* position: absolute; */
-  width: 100%;
-  height: 88rpx;
-  line-height: 88rpx;
+.yueimg{
   position: relative;
 }
-.joinhead image{
-  width: 20rpx;
-  height: 34rpx;
+.yueimg image{
+  width: 100%;
+}
+.rechargeBox{
   position: absolute;
-  top: 27rpx;
+  top: 0rpx;
   left: 30rpx;
 }
-.joinhead text{
-  font-size: 36rpx;
-  color: #333333;
-}
-.yue{
-  width: 100%;
-  height: 300rpx;
-  padding-left: 39rpx;
+.rechargeBox .title{
+  font-size: 35rpx;
+  line-height: 100rpx;
   color: #ffffff;
-  text-align:left;
-  position: relative;
 }
-.yue>text{
-  font-size: 28rpx;
- 
+.rechargeBox .rechargerule{
+  width: 100%;
+  font-size: 30rpx;
+  color: #ffffff;
+  margin-top: 30rpx;
 }
-.yue>view{
-  position: absolute;
-  bottom: 39rpx;
-  font-size: 80rpx;
-}
-.yue>view text{
-  font-size: 50rpx;
+.rechargeBox .rechargerule text{
+  font-size: 60rpx;
 }
 .recharge{
   width: 700rpx;
@@ -60,13 +42,6 @@
   margin-top: 50rpx;
   font-size: 36rpx;
   color: #ffffff;
-}
-.rechargerule{
-  width: 100%;
-  /* text-align: right; */
-  font-size: 30rpx;
-  color: #999999;
-  margin-top: 30rpx;
 }
 .payshade{
   width: 591rpx;
