@@ -12,7 +12,7 @@
 	},
 	"compileType": "miniprogram",
 	"libVersion": "1.9.91",
-	"appid": "wx15a343c46d0e3590",
+	"appid": "wx36026a32912a3c66",
 	"projectname": "sc",
 	"svr": "",
 	"client": "",
@@ -37,11 +37,17 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 0,
+			"current": 1,
 			"list": [
 				{
 					"id": -1,
 					"name": "addAddress",
+					"pathName": "pages/mine/addAddress/addAddress",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "1",
 					"pathName": "pages/mine/addAddress/addAddress"
 				}
 			]

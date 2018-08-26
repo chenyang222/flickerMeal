@@ -14,6 +14,15 @@ const formatNumber = n => {
   return n[1] ? n : '0' + n
 }
 
+//将数字转换成金额显示
+const toMoney = num => {
+  num = num.toFixed(2);
+  num = parseFloat(num)
+  num = num.toLocaleString();
+  return num;
+}
+
 module.exports = {
-  formatTime: formatTime
+  formatTime: formatTime,
+  toMoney: toMoney
 }

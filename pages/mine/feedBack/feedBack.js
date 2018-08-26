@@ -21,8 +21,6 @@ Page({
         value: '',
       })
     }
-
-
   },
   onLoad: function (options) {
     wx.setNavigationBarTitle({
@@ -31,8 +29,6 @@ Page({
   },
   submitbtn:function(){
     var that = this;
-    console.log("hao");
-    console.log(that.data.value);
     if (that.data.value == '' || that.data.value == undefined){
       wx.showToast({
         title: '反馈内容不能为空',
@@ -41,25 +37,20 @@ Page({
       });
       return;
     }
-    wx.request({
-      url: app.globalData.baseUrl + 'userInfo/addFk.action',
+    console.info(that.data.value)
+    app.fetch({
+      url: '/account/userfeedback/save',
+      method: 'get',
       data: {
         content: that.data.value
-      },
-      method: "GET",
-      header: {
-        "Content-Type": "application/x-www-form-urlencoded"
-      },
-      success: function (res) {
-        if (res.data.code == 0) {
-          console.log(res);
-          wx.showToast({
-            title: '信息反馈成功',
-            image: false,
-            duration: 1500
-          })
-        }
       }
     })
+      .then((response) => {
+        wx.showToast({
+          title: '信息反馈成功',
+          image: false,
+          duration: 1500
+        })
+      })
   }
 })

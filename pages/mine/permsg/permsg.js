@@ -15,7 +15,6 @@ Page({
     tempFilePaths: '',
     flag: true,//昵称遮罩
     searchinput:'',//昵称框
-
     actionSheetHidden: true,
     actionSheetItems: [
       { bindtap: 'Menu1', txt: '男' },
@@ -29,10 +28,30 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.loadmsg();
+    var that = this;
     wx.setNavigationBarTitle({
       title: '个人信息'
     })
+    app.fetch({
+      url: '/account/user/info'
+    })
+      .then((response) => {
+        console.info(response)
+        this.setData({
+          userimg: response.headimgurl,
+          userphone: response.mobile,
+          usernickname: response.nickname ? response.nickname : '闪客' + (Math.random() * 1000).toFixed(0)
+        })
+        if (response.sex == 1) {
+          that.setData({
+            usersex: '男',
+          })
+        } else if (response.sex == 2) {
+          that.setData({
+            usersex: '女',
+          })
+        }
+      })
   },
   loadmsg:function(){
     var that = this;

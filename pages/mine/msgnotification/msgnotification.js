@@ -7,6 +7,7 @@ Page({
    */
   data: {
     imgdata: app.globalData.imgdata,
+    msgArr: []
   },
 
   /**
@@ -15,6 +16,15 @@ Page({
   onLoad: function (options) {
     wx.setNavigationBarTitle({
       title: '消息通知'
+    })
+    var that = this;
+    app.fetch({
+      url: '/account/inform/list'
+    }).then((response) => {
+      console.info(response)
+      that.setData({
+        msgArr: response
+      })
     })
   },
 

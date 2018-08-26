@@ -4,7 +4,6 @@
     <view class='comment'>
         <textarea bindinput = 'bindvalue' value='{{ceshi}}' class='textarea'  placeholder="请输入您的意见或者你想吃的餐品" >
         </textarea> 
-        <!-- </textarea> -->
     </view>
     <text>{{ ceshi }}</text>
     <view class="submitDo" bindtap="submitbtn">提交</view>

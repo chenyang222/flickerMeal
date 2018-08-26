@@ -15,7 +15,6 @@ Page({
     itemdef: [
       { name: 'sir', value: '设为默认地址' }
     ]
-    // customItem: '全部'
   },
 
   /**
@@ -26,31 +25,24 @@ Page({
     var currentPage = pages[pages.length - 1]    //获取当前页面的对象
     var state = currentPage.options.state
     console.log(state);
-    // console.log(currentPage);
-    // console.log(editsds);
-    // console.log(editname);
-    
     if (state == 1){
       wx.setNavigationBarTitle({
         title: '修改地址'
       })
-      var editname = currentPage.options.editname
+      console.info(currentPage.options)
+      var editid = currentPage.options.editid
+      var editConsignee = currentPage.options.editConsignee
       var editphone = currentPage.options.editphone
-      var editsds = currentPage.options.editsds
+      var addlist = currentPage.options.editAreaCode.split(',')
+      var editAddress = currentPage.options.editAddress
       var isdefault = currentPage.options.isdefault
-      // console.log(editsds);
-      var addlist = editsds.split('  ');//地址已空格隔开
-      // console.log(ooo);
-      var ppp = editname.split('（');
-      // console.log(ppp);
       this.setData({
-        editname: ppp[0],//回显联系人姓名
+        editname: editConsignee,//回显联系人姓名
         editphone: editphone,//回显联系人手机号
-        // region: [addlist[0]],//回显地址
-        region: [addlist[0], addlist[1], addlist[2]]
+        region: [addlist[0], addlist[1], addlist[2]],
+        editAddress: editAddress
       })
       if (ppp[1] == "先生）"){
-        console.log("xiansheng");
         this.setData({
             items: [
               { name: 'sir', value: '先生', checked: 'true' },
@@ -58,7 +50,6 @@ Page({
             ],
         })
       }else{
-        console.log("nvshi");
         this.setData({
           items: [
             { name: 'sir', value: '先生', },
@@ -66,15 +57,14 @@ Page({
           ],
         })
       }//性别回显
-      console.log(isdefault);
       if (isdefault == 1){
+        console.info(111)
         this.setData({
           itemdef: [
             { name: 'sir', value: '设为默认地址', checked: 'true' }
           ]
         })
       }
-
     }else{
       wx.setNavigationBarTitle({
         title: '新增地址'
@@ -82,7 +72,6 @@ Page({
     }
   },
   bindRegionChange: function (e) {
-    console.log('picker发送选择改变，携带值为', e.detail.value)
     this.setData({
       region: e.detail.value
     })
@@ -108,39 +97,23 @@ Page({
   radioChange: function (e) {
     var that = this;
     that.setData({
-      sex: e.detail.value,
+      housenum: e.detail.value,
     })
-    console.log('radio发生change事件，携带value值为：', e.detail.value)
+  }, 
+  addressChange: function (e) {
+    var that = this;
+    that.setData({
+      editAddress: e.detail.value,
+    })
   },//选择性别
   radioDefault: function (e) {
     var that = this;
     that.setData({
       default: e.detail.value,
     })
-    console.log('radio默认地址：', e.detail.value)
   },//选择默认地址
   submitbtn: function () {
     var that = this;
-    console.log(that.data.name);
-    console.log(that.data.phone);
-    console.log(that.data.region[0]);
-    console.log(that.data.housenum);
-    console.log(that.data.sex);
-    console.log(that.data.default);
-    if (that.data.sex == 0) {
-      that.setData({
-        sexname: '（先生）',
-      })
-    } else if (that.data.sex == 1) {
-      that.setData({
-        sexname: '（女士）',
-      })
-    } else {
-      that.setData({
-        sexname: '',
-      })
-    }
-
     if (that.data.default == 0) {
       that.setData({
         adssdefault: '1',
@@ -150,7 +123,26 @@ Page({
         adssdefault: '0',
       })
     }
-    console.log(that.data.sexname);
+
+    var sex;
+    for (let i = 0; i < this.data.items.length; i++) {
+      if (this.data.items[i].checked && this.data.items[i].name == 'sir') {
+        console.info(11)
+        sex = 0;
+        break;
+      } else {
+        console.info(22)
+        sex = 1;
+      }
+    }
+    if (!sex) {
+      wx.showToast({
+        title: '请选择性别',
+        icon: 'none',
+        duration: 1500
+      })
+      return
+    }
     if (that.data.name == '' || that.data.name == undefined) {
       wx.showToast({
         title: '姓名不能为空',
@@ -174,41 +166,37 @@ Page({
         duration: 1500
       })
       return;
-    } 
-    // if (that.data.housenum == '' || that.data.housenum == undefined) {
-    //   wx.showToast({
-    //     title: '详细地址不能为空',
-    //     icon: "none",
-    //     duration: 1500
-    //   })
-    //   return;
-    // } 
-      wx.request({
-        url: app.globalData.baseUrl + 'userInfo/addAddress.action',
-        data: {
-          userId: 1,
-          name: that.data.name + '' + that.data.sexname,
-          address: that.data.region[0] + '  ' + that.data.region[1] + '  ' + that.data.region[2],
-          phone: that.data.phone,
-          // detailAddress: that.data.housenum,
-          isDefault: that.data.adssdefault
-        },
-        method: "GET",
-        header: {
-          "Content-Type": "application/x-www-form-urlencoded"
-        },
-        success: function (res) {
-          if (res.data.code == 0) {
-            console.log(res);
-            wx.showToast({
-              title: '新增地址成功',
-              icon:"none",
-              duration: 1500
-            })
-          }
-        }
+    }
+    const data = {
+      defaultFlag: this.data.adssdefault,
+      consignee: this.data.name,
+      mobile: this.data.phone,
+      areaCode: this.data.region.join(','),
+      pos: '',
+      address: this.data.housenum,
+      name: this.data.housenum,
+      sex: sex
+    }
+    console.info(data)
+    app.fetch({
+      url: '/account/address/save',
+      method: 'post',
+      data: data
+    })
+      .then((response) => {
+        console.info(response)
+        wx.showToast({
+          title: '新增地址成功',
+          icon: "none",
+          duration: 1500
+        })
+        setTimeout(()=>{
+          wx.navigateBack({
+            delta: 1
+          })
+        },500)
       })
-    
+
   },
   /**
    * 生命周期函数--监听页面初次渲染完成

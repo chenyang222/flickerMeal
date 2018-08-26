@@ -7,7 +7,6 @@ const app = getApp();
       startY: 0
     },
     onLoad: function () {
-      this.addlist();
       wx.setNavigationBarTitle({
         title: '收货地址'
       })
@@ -120,7 +119,6 @@ const app = getApp();
         },
         success: function (res) {
           if (res.data.code == 0) {
-           
             wx.showToast({
               title: '删除地址成功',
               image: false,
@@ -139,17 +137,64 @@ const app = getApp();
       })
     },//删除地址
     editAddress:function(e){
-        
-        var a = e.target.id;
-        var b = a.split(",");
-        var editid = b[0];
-        var editsds = b[1];
-        var editname = b[2];
-        var editphone = b[3];
-        var isdefault = b[4];
-       
-        wx.navigateTo({
-          url: '/pages/mine/addAddress/addAddress?state=1&editid=' + editid + '&editname= ' + editname + '&editsds=' + editsds + '&editphone=' + editphone + '&isdefault=' + isdefault
-        })
+      var a = e.target.id;
+      var b = a.split("-");
+      var editid = b[0];
+      var editConsignee = b[1]; 
+      var editphone = b[2]; 
+      var editAreaCode = b[3];
+      var editAddress= b[4];
+      var isdefault = b[5];
+      wx.navigateTo({
+        url: '/pages/mine/addAddress/addAddress?state=1&editid=' + editid + '&editConsignee= ' + editConsignee + '&editphone= ' + editphone + '&editAreaCode=' + editAreaCode + '&editAddress=' + editAddress + '&isdefault=' + isdefault
+      })
     },//跳到编辑
+    /**
+     * 生命周期函数--监听页面初次渲染完成
+     */
+    onReady: function () {
+
+    },
+
+    /**
+     * 生命周期函数--监听页面显示
+     */
+    onShow: function () {
+      this.addlist();
+    },
+
+    /**
+     * 生命周期函数--监听页面隐藏
+     */
+    onHide: function () {
+
+    },
+
+    /**
+     * 生命周期函数--监听页面卸载
+     */
+    onUnload: function () {
+
+    },
+
+    /**
+     * 页面相关事件处理函数--监听用户下拉动作
+     */
+    onPullDownRefresh: function () {
+
+    },
+
+    /**
+     * 页面上拉触底事件的处理函数
+     */
+    onReachBottom: function () {
+
+    },
+
+    /**
+     * 用户点击右上角分享
+     */
+    onShareAppMessage: function () {
+
+    }
   })
