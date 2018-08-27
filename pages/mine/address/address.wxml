@@ -20,7 +20,7 @@
         </view>
       </view> 
       <view class='itemRight'>
-          <image id="{{item.id}}-{{item.consignee}}-{{item.mobile}}-{{item.areaCode}}-{{ item.address }}-{{item.defaultFlag}}" src='{{imgdata}}/mine/address/cf_editAddress.png' bindtap='editAddress' ></image>
+          <image id="{{item.id}}-{{item.consignee}}-{{item.mobile}}-{{item.areaCode}}-{{ item.address }}-{{item.defaultFlag}}-{{item.sex}}" src='{{imgdata}}/mine/address/cf_editAddress.png' bindtap='editAddress' ></image>
       </view> 
     </view>
   </view>

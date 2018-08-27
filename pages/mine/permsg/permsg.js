@@ -7,14 +7,15 @@ Page({
    */
   data: {
     imgdata: app.globalData.imgdata,
-    userimg:'',//用户头像
+    userHeadImg: app.globalData.imgdata + '/mine/cf_nologin.png',//用户头像
     userid:'',//用户ID
     usernickname:'',//昵称
     usersex:'',//用户性别
     userphone:'',//用户手机号
     tempFilePaths: '',
     flag: true,//昵称遮罩
-    searchinput:'',//昵称框
+    nickname:'',//昵称框
+    searchinput: '',
     actionSheetHidden: true,
     actionSheetItems: [
       { bindtap: 'Menu1', txt: '男' },
@@ -28,19 +29,22 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    var that = this;
     wx.setNavigationBarTitle({
       title: '个人信息'
     })
+  },
+  // 页面数据加载
+  pageInit:function(){
+    var that = this;
     app.fetch({
       url: '/account/user/info'
     })
       .then((response) => {
         console.info(response)
         this.setData({
-          userimg: response.headimgurl,
+          userHeadImg: response.headimgurl ? response.headimgurl : this.data.userHeadImg,
           userphone: response.mobile,
-          usernickname: response.nickname ? response.nickname : '闪客' + (Math.random() * 1000).toFixed(0)
+          usernickname: response.nickname ? response.nickname : '闪餐' + response.userId
         })
         if (response.sex == 1) {
           that.setData({
@@ -50,50 +54,17 @@ Page({
           that.setData({
             usersex: '女',
           })
+        } else if (response.sex == 0) {
+          that.setData({
+            usersex: '暂未设置',
+          })
         }
       })
-  },
-  loadmsg:function(){
-    var that = this;
-    wx.request({
-      url: app.globalData.baseUrl + 'userInfo/getAppUserDetail.action',
-      method: "GET",
-      data: {
-        userId: 1
-      },
-      header: {
-        "Content-Type": "application/x-www-form-urlencoded"
-      },
-      success: function (res) {
-        if (res.data.code == 0) {
-          console.log(res);
-          that.setData({
-            userimg: res.data.data.photo,
-            usernickname: res.data.data.nickName,
-            userid: res.data.data.id,
-            
-            usersex: res.data.data.sex,
-            usertel: res.data.data.phone,//待到修改手机号页面
-            userphone: res.data.data.phone.substr(0, 3) + "****" + res.data.data.phone.substr(7)
-          })
-          if (res.data.data.sex == 1) {
-            that.setData({
-              usersex: '男',
-            })
-          } else if (res.data.data.sex == 2){
-            that.setData({
-              usersex: '女',
-            })
-          }
-        }
-      }
-    })
   },
   chooseimage: function () {
     var that = this;
     wx.showActionSheet({
       itemList: ['从相册中选择', '拍照'],
-      // itemColor: "#CED63A",
       success: function (res) {
         if (!res.cancel) {
           if (res.tapIndex == 0) {
@@ -107,9 +78,8 @@ Page({
   },
   chooseWxImage: function (type) {
     var that = this;
-
     wx.chooseImage({
-      count: 3,  //最多可以选择的图片总数  
+      count: 1,  //最多可以选择的图片总数
       sizeType: ['compressed'], // 可以指定是原图还是压缩图，默认二者都有  
       sourceType: ['album', 'camera'], // 可以指定来源是相册还是相机，默认二者都有  
       success: function (res) {
@@ -117,53 +87,12 @@ Page({
         var tempFilePaths = res.tempFilePaths;
         //启动上传等待中...  
         console.log(tempFilePaths[0])
-        wx.uploadFile({
-          url: `https://sc.jergavin.com/mini/uplodFile/uploadAttach.action`,
-          filePath: tempFilePaths[0],
-          name: 'file',
-          formData: {
-            filename: 1
-          }, success: function (res) {
-            // res.data = JSON.parse(res.data);
-            // if (res.statusCode != 200 || res.data.code != 0) {
-            //   wx.showModal({
-            //     title: '上传文件错误',
-            //     content: '上传错误:' + JSON.stringify(res),
-            //     showCancel: false,
-            //   });
-            //   return;
-            // }
-            var xxx = JSON.parse(res.data);
-            console.log(xxx[0].fileName);
-            wx.request({
-              url: app.globalData.baseUrl + 'userInfo/updateAppUser.action',
-              method: "POST",
-              data: {
-                flag: 1,
-                data: xxx[0].fileUrl,
-                userId: 1
-              },
-              header: {
-                "Content-Type": "application/x-www-form-urlencoded"
-              },
-              success: function (res) {
-                if (res.data.code == 0) {
-                  console.log(xxx[0].fileName);
-                  console.log(res);
-                  that.loadmsg();
-                }
-              }
-            })
-          },
-          fail: function (err) {
-            wx.hideLoading();
-            wx.showModal({
-              title: '上传文件错误',
-              content: err.message,
-              showCancel: false,
-            });
-          }
-        })
+        //     wx.hideLoading();
+        //     wx.showModal({
+        //       title: '上传文件错误',
+        //       content: err.message,
+        //       showCancel: false,
+        //     });
       }
     });  
   },
@@ -202,28 +131,27 @@ Page({
       var that = this;
       console.log(that.data.nickname);
       if (that.data.nickname) {
-        wx.request({
-          url: app.globalData.baseUrl + 'userInfo/updateAppUser.action',
-          method: "POST",
+        app.fetch({
+          url: '/account/user/modifyInfo',
+          method: 'post',
           data: {
-            flag: 2,
-            data: that.data.nickname,
-            userId: 1
-          },
-          header: {
-            "Content-Type": "application/x-www-form-urlencoded"
-          },
-          success: function (res) {
-            if (res.data.code == 0) {
-              that.setData({ 
-                flag: true,
-                searchinput:''
-              })
-              that.loadmsg();
-            }
+            nickname: that.data.nickname
           }
         })
-        
+          .then((response) => {
+            console.info(response)
+            that.setData({ 
+              flag: true,
+              nickname:'',
+              searchinput: ''
+            })
+            wx.showToast({
+              title: '修改成功',
+              icon: 'none',
+              duration: 2000
+            })
+            that.pageInit();
+          })
       }else{
         wx.showToast({
           title: '昵称不能为空',
@@ -248,24 +176,22 @@ Page({
       menu: 1,
       actionSheetHidden: !this.data.actionSheetHidden
     })
-    wx.request({
-      url: app.globalData.baseUrl + 'userInfo/updateAppUser.action',
-      method: "POST",
+    app.fetch({
+      url: '/account/user/modifyInfo',
+      method: 'post',
       data: {
-        flag: 3,
-        data: that.data.menu,
-        userId: 1
-      },
-      header: {
-        "Content-Type": "application/x-www-form-urlencoded"
-      },
-      success: function (res) {
-        if (res.data.code == 0) {
-          that.loadmsg();
-        }
+        sex: 1
       }
     })
-    console.log(that.data.menu)
+      .then((response) => {
+        console.info(response)
+        wx.showToast({
+          title: '修改成功',
+          icon: 'none',
+          duration: 2000
+        })
+        that.pageInit();
+      })
   },
   bindMenu2: function () {
     var that = this;
@@ -273,23 +199,22 @@ Page({
       menu: 2,
       actionSheetHidden: !this.data.actionSheetHidden
     })
-    wx.request({
-      url: app.globalData.baseUrl + 'userInfo/updateAppUser.action',
-      method: "POST",
+    app.fetch({
+      url: '/account/user/modifyInfo',
+      method: 'post',
       data: {
-        flag: 3,
-        data: that.data.menu,
-        userId: 1
-      },
-      header: {
-        "Content-Type": "application/x-www-form-urlencoded"
-      },
-      success: function (res) {
-        if (res.data.code == 0) {
-          that.loadmsg();
-        }
+        sex: 2
       }
     })
+      .then((response) => {
+        console.info(response)
+        wx.showToast({
+          title: '修改成功',
+          icon: 'none',
+          duration: 2000
+        })
+        that.pageInit();
+      })
   },
   invisetel:function(e){
     var that = this;
@@ -322,5 +247,53 @@ Page({
       })
     }
   },
+  /**
+ * 生命周期函数--监听页面初次渲染完成
+ */
+  onReady: function () {
+
+  },
+
+  /**
+   * 生命周期函数--监听页面显示
+   */
+  onShow: function () {
+    this.pageInit();
+  },
+
+  /**
+   * 生命周期函数--监听页面隐藏
+   */
+  onHide: function () {
+
+  },
+
+  /**
+   * 生命周期函数--监听页面卸载
+   */
+  onUnload: function () {
+
+  },
+
+  /**
+   * 页面相关事件处理函数--监听用户下拉动作
+   */
+  onPullDownRefresh: function () {
+
+  },
+
+  /**
+   * 页面上拉触底事件的处理函数
+   */
+  onReachBottom: function () {
+
+  },
+
+  /**
+   * 用户点击右上角分享
+   */
+  onShareAppMessage: function () {
+
+  }
 })
 

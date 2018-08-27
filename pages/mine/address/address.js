@@ -102,38 +102,19 @@ const app = getApp();
     //删除事件
     del: function (e) {
       var that = this;
-      
       var addId = e.target.id
       this.data.items.splice(e.currentTarget.dataset.index, 1)
-      // this.setData({
-      //   items: this.data.items
-      // })
-      wx.request({
-        url: app.globalData.baseUrl + 'userInfo/deleteAddress.action',
-        method: "GET",
-        data: {
-          id: addId
-        },
-        header: {
-          "Content-Type": "application/x-www-form-urlencoded"
-        },
-        success: function (res) {
-          if (res.data.code == 0) {
-            wx.showToast({
-              title: '删除地址成功',
-              image: false,
-              duration: 1500
-            });
-            that.items = [];
-            that.addlist();
-          }else{
-            wx.showToast({
-              title: '删除地址失败',
-              icon: 'none',
-              duration: 1500
-            });
-          }
-        }
+      app.fetch({
+        url: '/account/address/delete?id=' + addId
+      }).then((response) => {
+        console.info(response)
+        wx.showToast({
+          title: '删除地址成功',
+          image: false,
+          duration: 1500
+        });
+        that.items = [];
+        that.addlist();
       })
     },//删除地址
     editAddress:function(e){
@@ -145,8 +126,9 @@ const app = getApp();
       var editAreaCode = b[3];
       var editAddress= b[4];
       var isdefault = b[5];
+      var sex = b[6];
       wx.navigateTo({
-        url: '/pages/mine/addAddress/addAddress?state=1&editid=' + editid + '&editConsignee= ' + editConsignee + '&editphone= ' + editphone + '&editAreaCode=' + editAreaCode + '&editAddress=' + editAddress + '&isdefault=' + isdefault
+        url: '/pages/mine/addAddress/addAddress?state=1&editid=' + editid + '&editConsignee= ' + editConsignee + '&editphone= ' + editphone + '&editAreaCode=' + editAreaCode + '&editAddress=' + editAddress + '&isdefault=' + isdefault + '&sex=' + sex
       })
     },//跳到编辑
     /**

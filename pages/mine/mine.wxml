@@ -5,39 +5,37 @@
       <navigator url="../mine/msgnotification/msgnotification">
         <image src="{{imgdata}}/mine/cf_msg.png"></image>
       </navigator>
-      <view class="topTitle">我的</view>
+      <view class="topTitle">我 的</view>
       <navigator url="../mine/setup/setup">
         <image src="{{imgdata}}/mine/cf_setting.png"></image>
       </navigator>
     </view>
     <view class='topMsg'>
       <view class='img'>
-        <image src='{{imgdata}}/mine/cf_nologin.png'></image>
+        <image src='{{userHeadImg}}'></image>
       </view>
       <view class='right'>
-        <view class='name'>餐厅001</view>
+        <view class='name'>{{userName}}</view>
         <view class='money'>
-          <view class='money'>
-            <image src='{{imgdata}}/mine/cf_qiandai.png'></image>
-            <text> 余 额：¥ {{balance}}</text>
-          </view>
-          <view class='jifen'>
-            <image src='{{imgdata}}/mine/cf_jifen.png'></image>
-            <text> 积 分：{{score}}</text>
-          </view>
+          <image src='{{imgdata}}/mine/cf_qiandai.png'></image>
+          <text> 余 额：¥ {{balance}}</text>
         </view>
-        <navigator url="../mine/permsg/permsg">
-          <view class='msg' url="../mine/permsg/permsg">个人信息
-            <image src='{{imgdata}}/mine/cf_go.png'></image>
-          </view>
-        </navigator>
+        <view class='jifen'>
+          <image src='{{imgdata}}/mine/cf_jifen.png'></image>
+          <text> 积 分：{{score}}</text>
+        </view>
       </view>
-
+      <navigator class='mineMsg' url="../mine/permsg/permsg">
+        <view class='msg' url="../mine/permsg/permsg">
+          个人信息
+          <image src='{{imgdata}}/mine/cf_go.png'></image>
+        </view>
+      </navigator>
     </view>
   </view>
   <view class='center'>
     <view class='list'>
-      <!-- <view class='item'> -->
+
       <navigator class='item' url="../mine/address/address">
         <view class='item_left'>
           <image src='{{imgdata}}/mine/cf_address.png'></image>
@@ -47,8 +45,7 @@
           <image src='{{imgdata}}/mine/cf_goright.png'></image>
         </view>
       </navigator>
-      <!-- </view> -->
-      <!-- <view class='item'> -->
+
       <navigator class='item' url="../mine/pay/pay">
         <view class='item_left'>
           <image src='{{imgdata}}/mine/cf_chong.png'></image>
@@ -57,8 +54,8 @@
         <view class='item_right'>
           <image src='{{imgdata}}/mine/cf_goright.png'></image>
         </view>
-        <!-- </view> -->
       </navigator>
+
       <navigator class='item' url="../mine/coupon/coupon">
         <view class='item_left'>
           <image src='{{imgdata}}/mine/cf_youhuiquan.png'></image>
@@ -68,6 +65,7 @@
           <image src='{{imgdata}}/mine/cf_goright.png'></image>
         </view>
       </navigator>
+
       <navigator class='item' url="../mine/recommend/recommend">
         <view class='item_left'>
           <image src='{{imgdata}}/mine/cf_tuijian.png'></image>
@@ -77,6 +75,7 @@
           <image src='{{imgdata}}/mine/cf_goright.png'></image>
         </view>
       </navigator>
+
       <navigator class='item' url="../mine/store/store">
         <view class='item_left'>
           <image src='{{imgdata}}/mine/cf_shangcheng.png'></image>
@@ -86,6 +85,7 @@
           <image src='{{imgdata}}/mine/cf_goright.png'></image>
         </view>
       </navigator>
+
       <navigator class='item' url="../mine/kefu/kefu">
         <view class='item_left'>
           <image src='{{imgdata}}/mine/cf_kefu.png'></image>
@@ -95,6 +95,7 @@
           <image src='{{imgdata}}/mine/cf_goright.png'></image>
         </view>
       </navigator>
+
       <navigator class='item' url="../mine/join/join">
         <view class='item_left'>
           <image src='{{imgdata}}/mine/cf_jiameng.png'></image>

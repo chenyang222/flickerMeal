@@ -110,6 +110,9 @@ App({
         url: '/pages/login/login'
       })
     }
+    wx.showLoading({
+      title: '加载中',
+    })
     // header设置token
     const header = {}
     if (token) {
@@ -123,6 +126,7 @@ App({
         data: data,
         header: header,
         success: function (response) {
+          wx.hideLoading()
           // 接口返回 errcode 统一处理
           if (response.data.errcode == 0) {
             resolve(response.data.data)
@@ -148,6 +152,7 @@ App({
           }
         },
         fail: function (response) {
+          wx.hideLoading()
           reject(response)
         }
       })

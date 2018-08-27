@@ -36,13 +36,14 @@ Page({
       var addlist = currentPage.options.editAreaCode.split(',')
       var editAddress = currentPage.options.editAddress
       var isdefault = currentPage.options.isdefault
+      var sex = currentPage.options.sex
       this.setData({
         editname: editConsignee,//回显联系人姓名
         editphone: editphone,//回显联系人手机号
         region: [addlist[0], addlist[1], addlist[2]],
         editAddress: editAddress
       })
-      if (ppp[1] == "先生）"){
+      if (sex == 1){
         this.setData({
             items: [
               { name: 'sir', value: '先生', checked: 'true' },
@@ -127,12 +128,10 @@ Page({
     var sex;
     for (let i = 0; i < this.data.items.length; i++) {
       if (this.data.items[i].checked && this.data.items[i].name == 'sir') {
-        console.info(11)
-        sex = 0;
+        sex = 1;
         break;
       } else {
-        console.info(22)
-        sex = 1;
+        sex = 2;
       }
     }
     if (!sex) {

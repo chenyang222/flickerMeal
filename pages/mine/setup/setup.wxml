@@ -3,18 +3,18 @@
 <view class='permsg'>
     <view class='revisemsg'>
         <view class='reviselist'>
-            <navigator class='reviseitem' url="../msgsetup/msgsetup">
+            <!-- <navigator class='reviseitem' url="../msgsetup/msgsetup">
                 <view>消息设置</view>
                 <view>
                      <image src='{{imgdata}}/mine/cf_goright.png'></image> 
                 </view>
+            </navigator> -->
+            <navigator url="../aboutus/aboutus"  class='reviseitem'>
+              <view>关于我们</view>
+              <view>
+                    <image src='{{imgdata}}/mine/cf_goright.png'></image> 
+              </view>
             </navigator>
-              <navigator url="../aboutus/aboutus"  class='reviseitem'>
-                <view>关于我们</view>
-                <view>
-                     <image src='{{imgdata}}/mine/cf_goright.png'></image> 
-                </view>
-              </navigator>
         </view>
     </view>
 </view>

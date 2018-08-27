@@ -6,16 +6,15 @@
             <view class='reviseitem itemfirst' bindtap="chooseimage" >
                 <view>头像</view>
                 <view>
-                     <image src='{{imgdata}}{{userimg}}'></image> 
-                    <!-- <image src="{{tempFilePaths }}" catchTap="chooseImageTap" mode="aspectFit"  /> -->
+                    <image src='{{userHeadImg}}'></image> 
                     <image src='{{imgdata}}/mine/cf_goright.png'></image>
                 </view>
             </view>
             <view class='reviseitem' bindtap="nichshow">
                 <view>昵称</view>
                 <view>
-                     <text> {{ usernickname }} </text> 
-                     <image src='{{imgdata}}/mine/cf_goright.png'></image> 
+                  <text> {{ usernickname }} </text> 
+                  <image src='{{imgdata}}/mine/cf_goright.png'></image> 
                 </view>
             </view>
             <view class='reviseitem' bindtap="actionSheetTap">
@@ -37,16 +36,16 @@
                 <view>手机号码</view>
                 <view>
                      <text> {{ userphone }} </text> 
-                     <image src='{{imgdata}}/mine/cf_goright.png'></image> 
+                     <!-- <image src='{{imgdata}}/mine/cf_goright.png'></image> -->
                 </view>
             </view>
-            <view class='reviseitem'>
+            <!-- <view class='reviseitem'>
                 <view>微信号码</view>
                 <view>
                      <text>已绑定</text> 
                      <image src='{{imgdata}}/mine/cf_goright.png'></image> 
                 </view>
-            </view>
+            </view> -->
             <!-- <view class='reviseitem'>
                 <view>支付宝号码</view>
                 <view>
