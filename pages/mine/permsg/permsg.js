@@ -78,6 +78,7 @@ Page({
   },
   chooseWxImage: function (type) {
     var that = this;
+    const token = wx.getStorageSync("token");
     wx.chooseImage({
       count: 1,  //最多可以选择的图片总数
       sizeType: ['compressed'], // 可以指定是原图还是压缩图，默认二者都有  
@@ -85,14 +86,44 @@ Page({
       success: function (res) {
         // 返回选定照片的本地文件路径列表，tempFilePath可以作为img标签的src属性显示图片  
         var tempFilePaths = res.tempFilePaths;
-        //启动上传等待中...  
+        wx.showToast({
+          icon: "loading",
+          title: "正在上传"
+        }),
         console.log(tempFilePaths[0])
-        //     wx.hideLoading();
-        //     wx.showModal({
-        //       title: '上传文件错误',
-        //       content: err.message,
-        //       showCancel: false,
-        //     });
+        wx.uploadFile({
+          url: app.globalData.api + '/account/user/upload/headimgurl', //仅为示例，非真实的接口地址
+          filePath: tempFilePaths[0],
+          name: 'file',
+          header: { 
+            "Content-Type": "multipart/form-data",
+            "Authorization": token
+          },
+          success: function (res) {
+            var data = res.data
+            //do something
+            wx.hideToast();
+          },
+          fail: function () {
+            wx.hideToast();
+          }
+        })
+        // app.fetch({
+        //   url: '/account/user/upload/headimgurl',
+        //   method: 'post',
+        //   data: {
+        //     headimgurl: tempFilePaths[0]
+        //   }
+        // })
+        //   .then((response) => {
+        //     console.info(response)
+        //     // wx.showToast({
+        //     //   title: '修改成功',
+        //     //   icon: 'none',
+        //     //   duration: 2000
+        //     // })
+        //     // that.pageInit();
+        //   })
       }
     });  
   },

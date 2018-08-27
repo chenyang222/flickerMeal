@@ -24,30 +24,22 @@ const app = getApp();
     setDef: function (e) {
       // event.stopPropagation();//阻止事件冒泡
       var that = this;
-      var addId = e.target.id;
-      
-
-      wx.request({
-        url: app.globalData.baseUrl + 'userInfo/updateSetUpDefaultAddress.action',
-        method: "GET",
-        data: {
-          addressId: addId
-        },
-        header: {
-          "Content-Type": "application/x-www-form-urlencoded"
-        },
-        success: function (res) {
-          if (res.data.code == 0) {
-              
-              wx.showToast({
-                title: '设置默认地址成功',
-                icon: 'none',
-                duration: 1500
-              });
-              that.addlist();
-          }
-        }
+      let data = e.target.dataset.item;
+      data.defaultFlag = 0;
+      app.fetch({
+        url: '/account/address/update',
+        method: 'post',
+        data: data
       })
+        .then((response) => {
+          console.info(response)
+          wx.showToast({
+            title: '设置默认地址成功',
+            icon: "none",
+            duration: 1500
+          })
+          that.addlist();
+        })
     },//设置默认地址
     //手指触摸动作开始 记录起点X坐标
     touchstart: function (e) {

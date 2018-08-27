@@ -13,7 +13,7 @@
         <view class='choose'>
          <radio-group bindchange="radioChange" style="transform:scale(.7);">
             <label wx:for="{{items}}" wx:key="index" style="margin-right: 10rpx;">
-                <checkbox value="{{index}}" style='font-size:30rpx;' checked="{{item.checked}}">{{item.value}}</checkbox>
+                <radio value="{{index + 1}}" style='font-size:30rpx;' checked="{{item.checked}}">{{item.value}}</radio>
             </label>
         </radio-group>
         </view>
@@ -42,7 +42,7 @@
       <view class='linkman insert' style='border:0;'>
           <text>门牌号：</text>
           <view class='linkinput'>
-            <input wx-if="{{state == 0}}" placeholder='例子：5号楼203室' bindinput="HouseNumber"></input>
+            <input wx-if="{{state == 0}}" placeholder='例子：5号楼203室' bindinput="houseNumber"></input>
             <input wx-else value='{{editAddress}}' bindinput="addressChange" ></input>
           </view>
       </view>

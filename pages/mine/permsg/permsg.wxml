@@ -26,7 +26,7 @@
             </view>
             <!--性别弹出层  -->
             <action-sheet hidden="{{actionSheetHidden}}" bindchange="actionSheetbindchange">
-                <block wx:for-items="{{actionSheetItems}}">
+                <block wx:for-items="{{actionSheetItems}}" wx:key="">
                     <action-sheet-item bindtap="bind{{item.bindtap}}">{{item.txt}}</action-sheet-item>
                 </block>
                 <action-sheet-cancel class="cancel">取消</action-sheet-cancel>

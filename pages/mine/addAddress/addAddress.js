@@ -12,6 +12,7 @@ Page({
       { name: 'sir', value: '先生' },
       { name: 'ms', value: '女士', },
     ],
+    sex: '',
     itemdef: [
       { name: 'sir', value: '设为默认地址' }
     ]
@@ -39,9 +40,15 @@ Page({
       var sex = currentPage.options.sex
       this.setData({
         editname: editConsignee,//回显联系人姓名
+        name: editConsignee,
         editphone: editphone,//回显联系人手机号
+        phone: editphone,
         region: [addlist[0], addlist[1], addlist[2]],
-        editAddress: editAddress
+        editAddress: editAddress,
+        housenum: editAddress,
+        state: state,
+        editid: editid,
+        sex: sex
       })
       if (sex == 1){
         this.setData({
@@ -58,7 +65,7 @@ Page({
           ],
         })
       }//性别回显
-      if (isdefault == 1){
+      if (isdefault == 0){
         console.info(111)
         this.setData({
           itemdef: [
@@ -89,24 +96,25 @@ Page({
       phone: e.detail.value,
     })
   },//手机号
-  HouseNumber: function (e) {
+  houseNumber: function (e) {
     var that = this;
     that.setData({
       housenum: e.detail.value,
     })
+    console.info(e.detail.value)
   },//门牌号
   radioChange: function (e) {
     var that = this;
     that.setData({
-      housenum: e.detail.value,
+      sex: e.detail.value,
     })
-  }, 
+  }, //选择性别
   addressChange: function (e) {
     var that = this;
     that.setData({
       editAddress: e.detail.value,
     })
-  },//选择性别
+  },
   radioDefault: function (e) {
     var that = this;
     that.setData({
@@ -115,7 +123,7 @@ Page({
   },//选择默认地址
   submitbtn: function () {
     var that = this;
-    if (that.data.default == 0) {
+    if (that.data.default == 1) {
       that.setData({
         adssdefault: '1',
       })
@@ -125,16 +133,7 @@ Page({
       })
     }
 
-    var sex;
-    for (let i = 0; i < this.data.items.length; i++) {
-      if (this.data.items[i].checked && this.data.items[i].name == 'sir') {
-        sex = 1;
-        break;
-      } else {
-        sex = 2;
-      }
-    }
-    if (!sex) {
+    if (!that.data.sex) {
       wx.showToast({
         title: '请选择性别',
         icon: 'none',
@@ -174,28 +173,48 @@ Page({
       pos: '',
       address: this.data.housenum,
       name: this.data.housenum,
-      sex: sex
+      sex: that.data.sex
     }
     console.info(data)
-    app.fetch({
-      url: '/account/address/save',
-      method: 'post',
-      data: data
-    })
-      .then((response) => {
-        console.info(response)
-        wx.showToast({
-          title: '新增地址成功',
-          icon: "none",
-          duration: 1500
-        })
-        setTimeout(()=>{
-          wx.navigateBack({
-            delta: 1
-          })
-        },500)
-      })
 
+    if (this.data.state == 1) {
+      data.id = this.data.editid;
+      app.fetch({
+        url: '/account/address/update',
+        method: 'post',
+        data: data
+      })
+        .then((response) => {
+          wx.showToast({
+            title: '修改地址成功',
+            icon: "none",
+            duration: 1500
+          })
+          setTimeout(() => {
+            wx.navigateBack({
+              delta: 1
+            })
+          }, 500)
+        })
+    } else {
+      app.fetch({
+        url: '/account/address/save',
+        method: 'post',
+        data: data
+      })
+        .then((response) => {
+          wx.showToast({
+            title: '新增地址成功',
+            icon: "none",
+            duration: 1500
+          })
+          setTimeout(() => {
+            wx.navigateBack({
+              delta: 1
+            })
+          }, 500)
+        })
+    }
   },
   /**
    * 生命周期函数--监听页面初次渲染完成
