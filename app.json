@@ -32,6 +32,7 @@
     "pages/mine/map/map",
     "pages/mine/setup/setup",
     "pages/mine/addAddress/addAddress",
+    "pages/mine/editAddress/editAddress",
     "pages/mine/setsecret/setsecret",
     "pages/order/index",
     "pages/order/orderPayment/orderPayment",

@@ -9,7 +9,6 @@ App({
         url: '/pages/index/shouye/shouye'
       })
     } else {
-      console.info(11)
       const that = this;
       wx.login({
         success: function (res) {

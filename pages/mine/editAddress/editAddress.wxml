@@ -1,11 +1,10 @@
- <!-- pages/mine/addAddress/addAddress.wxml  -->
-<!-- <text>pages/mine/addAddress/addAddress.wxml</text> -->
+ <!-- pages/mine/editAddress/editAddress.wxml  -->
 <view class='feedBack'>
     <view class='container'>
       <view class='linkman first'>
           <text>联系人：</text>
           <view class='linkinput'>
-            <input placeholder='姓名' bindinput="bindReplaceInput"></input>
+            <input value='{{editConsignee}}' bindinput="bindReplaceInput"></input>
           </view>
       </view>
       <view class='radio'>
@@ -20,7 +19,7 @@
       <view class='linkman insert'>
           <text>电话：</text>
           <view class='linkinput'>
-            <input type="number" placeholder='手机号码' bindinput="bindPhoneInput"></input>
+            <input type="number" value='{{editphone}}' bindinput="bindPhoneInput"></input>
           </view>
       </view>
       <view class='linkman insert'>
@@ -40,7 +39,7 @@
       <view class='linkman insert' style='border:0;'>
           <text>门牌号：</text>
           <view class='linkinput'>
-            <input placeholder='例子：5号楼203室' bindinput="houseNumber"></input>
+            <input value='{{editAddress}}' bindinput="addressChange" ></input>
           </view>
       </view>
 

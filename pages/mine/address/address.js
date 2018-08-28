@@ -120,7 +120,7 @@ const app = getApp();
       var isdefault = b[5];
       var sex = b[6];
       wx.navigateTo({
-        url: '/pages/mine/addAddress/addAddress?state=1&editid=' + editid + '&editConsignee= ' + editConsignee + '&editphone= ' + editphone + '&editAreaCode=' + editAreaCode + '&editAddress=' + editAddress + '&isdefault=' + isdefault + '&sex=' + sex
+        url: '/pages/mine/editAddress/editAddress?editid=' + editid + '&editConsignee= ' + editConsignee + '&editphone= ' + editphone + '&editAreaCode=' + editAreaCode + '&editAddress=' + editAddress + '&isdefault=' + isdefault + '&sex=' + sex
       })
     },//跳到编辑
     /**
