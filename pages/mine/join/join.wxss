@@ -2,3 +2,6 @@
 .join{
   width: 100%;
 }
+.join image{
+  width: 100%;
+}
