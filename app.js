@@ -52,9 +52,7 @@ App({
   // 公共数据配置
   globalData: {
     userInfo: null,
-    imgdataFan: 'https://sc.jergavin.com',//接口返回图片的地址
     imgdata: '/images/img',//正常图片展示的地址
-    baseUrl: 'https://sc.jergavin.com/mini/',//请求地址公共的url前段
     api: 'https://shanchan.jergavin.com', // 接口请求api
     addre: null,
     madichid:null,

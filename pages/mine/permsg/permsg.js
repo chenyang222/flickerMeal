@@ -92,7 +92,7 @@ Page({
         }),
         console.log(tempFilePaths[0])
         wx.uploadFile({
-          url: app.globalData.api + '/account/user/upload/headimgurl', //仅为示例，非真实的接口地址
+          url: 'https://shanchan.jergavin.com/account/user/upload/headimgurl',
           filePath: tempFilePaths[0],
           name: 'file',
           header: { 
@@ -100,30 +100,30 @@ Page({
             "Authorization": token
           },
           success: function (res) {
-            var data = res.data
-            //do something
-            wx.hideToast();
+            var data = res.data;
+            console.info(JSON.parse(data))
+            if (JSON.parse(data).errcode == 0) {
+              console.info(11)
+              wx.showToast({
+                title: '头像上传成功',
+                icon: 'none',
+                duration: 2000
+              })
+              that.pageInit();
+              wx.hideToast();              
+            } else {
+              wx.showToast({
+                title: JSON.parse(data).errmsg,
+                icon: 'none',
+                duration: 2000
+              })             
+            }
           },
           fail: function () {
+            that.pageInit();
             wx.hideToast();
           }
         })
-        // app.fetch({
-        //   url: '/account/user/upload/headimgurl',
-        //   method: 'post',
-        //   data: {
-        //     headimgurl: tempFilePaths[0]
-        //   }
-        // })
-        //   .then((response) => {
-        //     console.info(response)
-        //     // wx.showToast({
-        //     //   title: '修改成功',
-        //     //   icon: 'none',
-        //     //   duration: 2000
-        //     // })
-        //     // that.pageInit();
-        //   })
       }
     });  
   },

@@ -4,19 +4,19 @@
   <view class="head">
     <view class="locationWrap">
       <view class="locaDetail fl" bindtap='posiIn'>
-        <image class="locaDetailIcon fl" src="{{imgdata}}/upload/zbl-dingwei.png"></image>
+        <image class="locaDetailIcon fl" src="{{imgdata}}/index/shouye/zbl-dingwei.png"></image>
         <text class="fl currentCity">{{currentCity}}</text>
-        <image class="locaDetailSeleIcon fl" src="{{imgdata}}/upload/zbl-indexHeaderSele.png"></image>
+        <image class="locaDetailSeleIcon fl" src="{{imgdata}}/index/shouye/zbl-indexHeaderSele.png"></image>
       </view>
       <view class="juli fr">
         <text class="juliCar fr">外卖距您还有1.3km</text>
-        <image class="juliCarIcon fr" src="{{imgdata}}/upload/zbl-waimaiCar.png"></image>
+        <image class="juliCarIcon fr" src="{{imgdata}}/index/shouye/zbl-waimaiCar.png"></image>
       </view>
     </view>
   </view>
   <!-- 搜索栏 -->
   <navigator url="/pages/index/search/search" hover-class="navigator-hover" class="search">
-    <image class="searchIcon fl" src="{{imgdata}}/upload/searchIcon.png"></image>
+    <image class="searchIcon fl" src="{{imgdata}}/index/shouye/searchIcon.png"></image>
     <input class="searchInputs" placeholder="搜索机器/餐品"></input>
   </navigator>
   <view class="searchList">
@@ -73,7 +73,7 @@
           </navigator>
         </view>
         <view class="huodong4ListRB">
-          <image src="{{imgdata}}/upload/canpin1.png"></image>
+          <image src="{{imgdata}}/index/shouye/canpin1.png"></image>
         </view>
       </navigator>
       <navigator class="huodong4List huodong4List2"  url="../discount/discount" open-type="redirect" hover-class="other-navigator-hover">
@@ -86,7 +86,7 @@
           </navigator>
         </view>
         <view class="huodong4ListRB">
-          <image src="{{imgdata}}/upload/canpin2.png"></image>
+          <image src="{{imgdata}}/index/shouye/canpin2.png"></image>
         </view>
       </navigator>
       <navigator class="huodong4List huodong4List3"  url="../discount/discount" open-type="redirect" hover-class="other-navigator-hover">
@@ -99,7 +99,7 @@
           </navigator>
         </view>
         <view class="huodong4ListRB">
-          <image src="{{imgdata}}/upload/canpin3.png"></image>
+          <image src="{{imgdata}}/index/shouye/canpin3.png"></image>
         </view>
       </navigator>
       <navigator class="huodong4List huodong4List3">
@@ -112,7 +112,7 @@
           </navigator>
         </view>
         <view class="huodong4ListRB">
-          <image src="{{imgdata}}/upload/canpin4.png"></image>
+          <image src="{{imgdata}}/index/shouye/canpin4.png"></image>
         </view>
       </navigator>
     </view>
@@ -150,7 +150,7 @@
     </view>
     <view class="keling">
       <text>有8张优惠券可领</text>
-      <image src="{{imgdata}}/upload/youhuixiala.png"></image>
+      <image src="{{imgdata}}/index/shouye/youhuixiala.png"></image>
     </view>
   </view>
   <!-- wrap -->
@@ -160,7 +160,7 @@
     <view class="hotPush">
       <view class="hotPushL fl">
         <image class="hotPushImg" src="{{imgdata}}/upload/{{nearbyRoto1.photoUrl}}"></image> 
-        <image class="hotPushIcon" src="{{imgdata}}/upload/hotPushIcon.png"></image>
+        <image class="hotPushIcon" src="{{imgdata}}/index/shouye/hotPushIcon.png"></image>
       </view>
       <view class="hotPushR fl">
         <view class="dianNamePosi">{{nearbyRoto1.mName}}（{{nearbyRoto1.road}}）</view>

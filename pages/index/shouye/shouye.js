@@ -3,10 +3,6 @@
 const app = getApp()
 var bmap = require('../../../utils/bmap-wx.min.js'); // 引入百度地图js
 var wxMarkerData = []; //定位成功回调对象  
-// var util = require('../../../utils/util.js');
-// var todayListArr = [];
-
-// var wxMarkerData = []; 
 Page({
   data: {
     ak: 'NPfvQSlaxLvtuBWm4YDVwecQNoTACuUY', // 填写申请到的ak
