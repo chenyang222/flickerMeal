@@ -173,7 +173,7 @@ Page({
     // // 菜单
     // this.getMenuClass();
     // 广告轮播
-    // this.getAllTCarouselFigureList();
+    this.getAllTCarouselFigureList();
   },
   goSearch: function(e){//跳转到搜索列表
     wx.navigateTo({
