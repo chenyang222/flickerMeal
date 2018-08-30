@@ -30,18 +30,12 @@
       style="height:245rpx;">
       <block wx:for="{{imgsDotBanner}}" wx:key="{{index}}">
         <swiper-item>
-          <navigator url="/pages/index/indexLunboDetail/indexLunboDetail?id={{item.id}}" hover-class="navigator-hover">
-            <image src="{{item.imgurl}}" class="slide-image" width="750" height="244" />
+          <navigator url="/pages/index/indexLunboDetail/indexLunboDetail?id={{item.advertId}}" hover-class="navigator-hover">
+            <image src="{{item.url}}" class="slide-image" width="750" height="244" />
           </navigator>
         </swiper-item>
       </block>
     </swiper>
-    <!-- 重置小圆点的样式 -->
-    <!-- <view class="dots">
-      <block wx:for="{{imgsDot}}">
-        <view class="dot{{index == currentSwiper ? ' active' : ''}}"></view>
-      </block>
-    </view> -->
   </view>
   <!-- 菜单导航 -->
   <view class="caidanNav">
@@ -159,35 +153,35 @@
     <view style="height:20rpx;background-color: #f8f8f8;"></view>
     <view class="hotPush">
       <view class="hotPushL fl">
-        <image class="hotPushImg" src="{{imgdata}}/upload/{{nearbyRoto1.photoUrl}}"></image> 
+        <image class="hotPushImg" src="{{imgdata}}/index/shouye/{{nearbyRoto1.photoUrl}}"></image> 
         <image class="hotPushIcon" src="{{imgdata}}/index/shouye/hotPushIcon.png"></image>
       </view>
       <view class="hotPushR fl">
         <view class="dianNamePosi">{{nearbyRoto1.mName}}（{{nearbyRoto1.road}}）</view>
         <view class="xingSale">
-          <!-- <image src="{{imgdata}}/upload/blXing.png"></image>
-          <image src="{{imgdata}}/upload/blXing.png"></image>
-          <image src="{{imgdata}}/upload/blXing.png"></image>
-          <image src="{{imgdata}}/upload/blXing.png"></image>
-          <image src="{{imgdata}}/upload/blXing.png"></image>
+          <!-- <image src="{{imgdata}}/index/shouye/blXing.png"></image>
+          <image src="{{imgdata}}/index/shouye/blXing.png"></image>
+          <image src="{{imgdata}}/index/shouye/blXing.png"></image>
+          <image src="{{imgdata}}/index/shouye/blXing.png"></image>
+          <image src="{{imgdata}}/index/shouye/blXing.png"></image>
           <text>4.6</text>
           <text>|</text> -->
           <text>月售：{{nearbyRoto1.salesCount}}</text>
         </view>
         <!-- <view class="psTime">
           <text>商家配送约23分钟</text>
-          <image src="{{imgdata}}/upload/blFly.png" class="fly fr"></image>
+          <image src="{{imgdata}}/index/shouye/blFly.png" class="fly fr"></image>
         </view> -->
         <view class="manjian">
-          <image class="manjianIcon" src="{{imgdata}}/upload/blmanjian.png"></image>
+          <image class="manjianIcon" src="{{imgdata}}/index/shouye/blmanjian.png"></image>
           <text class="manjianTxt">满49减2，满60减12</text>
-          <image class="youhuixiala fr" src="{{imgdata}}/upload/youhuixiala.png"></image>
+          <image class="youhuixiala fr" src="{{imgdata}}/index/shouye/youhuixiala.png"></image>
           <text class="youhuiNum fr">8个优惠</text>
         </view>
         <view class="otherJiQi" bindtap='nearbyRotoLa'>
-          <image class="dingWeiIcon fl" src="{{imgdata}}/upload/blDingwei.png"></image>
+          <image class="dingWeiIcon fl" src="{{imgdata}}/index/shouye/blDingwei.png"></image>
           <text class="otherJiQiTxt fl">附近还有{{nearbyRoto.length}}家闪餐机器</text>
-          <image class="otherJiQixiala fr" src="{{imgdata}}/upload/youhuixiala.png"></image>
+          <image class="otherJiQixiala fr" src="{{imgdata}}/index/shouye/youhuixiala.png"></image>
           <view style='clear:both;'></view>
         </view>
       </view>
@@ -209,9 +203,9 @@
     <view style="height:20rpx;background-color: #f8f8f8;"></view>
     <view class="recomendPack">
       <view class="taocanTitle">
-        <image class="recomendIcon fl" src="{{imgdata}}/upload/blRecomendIcon.png"></image>
+        <image class="recomendIcon fl" src="{{imgdata}}/index/shouye/blRecomendIcon.png"></image>
         <text class="recomendTxt fl">推荐套餐</text>
-        <image class="moreIcon fr" src="{{imgdata}}/upload/cf_goright.png"></image>
+        <image class="moreIcon fr" src="{{imgdata}}/index/shouye/cf_goright.png"></image>
         <navigator url="/pages/index/recmandMeal/recmandMeal" hover-class="navigator-hover"><text class="moreTxt fr">更多</text></navigator>
       </view>
       <view>
@@ -220,8 +214,8 @@
             <view class="listWrapWrap" wx:for="{{recomTC}}" wx:key="{{index}}">
               <view class="listWrap">
                 <view class="taocanListimgWrap" bindtap='goMealDetail' data-id="{{item.id}}" data-machineid="{{item.machineId}}">
-                  <image class="taocanListimg" src="{{imgdata}}/upload/recomendListImg.png"></image> 
-                  <image class="taocanListimgIcon" src="{{imgdata}}/upload/{{item.url}}"></image> 
+                  <image class="taocanListimg" src="{{imgdata}}/index/shouye/recomendListImg.png"></image> 
+                  <image class="taocanListimgIcon" src="{{imgdata}}/index/shouye/{{item.url}}"></image> 
                 </view>
                 <view class="caiming">{{item.foodName}}</view>
                 <view class="xiaoping clearfloat">
@@ -234,7 +228,7 @@
                   <view class="danjiaCtl fl">￥<text>{{item.selling}}</text>
                   </view>
                   <view class="addCtl fr" bindtap='addBuyCar' data-id="{{item.id}}" data-machineid="{{item.machineId}}">
-                    <image src="{{imgdata}}/upload/blAdd.png"></image>
+                    <image src="{{imgdata}}/index/shouye/blAdd.png"></image>
                   </view>
                 </view>
               </view>
@@ -247,15 +241,18 @@
     <view id='theid' class="gouYudingPingWrap" bindtouchmove='handleTouchmove' bindtouchstart='handleTouchstart'>
       <view class="tabWrap" style='padding-top: 20rpx;'>
         <view class="tabList {{currentTab==0?'active1':''}}" data-current="0" bindtap="todayClick">
-          <image src="{{imgdata}}/upload/jinrigou.png"></image>
+          <image wx:if="{{currentTab==0}}" src="{{imgdata}}/index/shouye/jinrigou.png"></image>
+          <image wx:else src="{{imgdata}}/index/shouye/jinrigou_no.png"></image>
           <text>今日购</text>
         </view>
         <view class="tabList {{currentTab==1?'active1':''}}" data-current="1" bindtap="prevOrderClick">
-          <image src="{{imgdata}}/upload/blYuding1.png"></image>
+          <image wx:if="{{currentTab==1}}" src="{{imgdata}}/index/shouye/blYuding.png"></image>
+          <image wx:else src="{{imgdata}}/index/shouye/blYuding_no.png"></image>
           <text>预定</text>
         </view>
         <view class="tabList {{currentTab==2?'active1':''}}" data-current="2" bindtap="assessClick">
-          <image src="{{imgdata}}/upload/pingjia1.png"></image>
+          <image wx:if="{{currentTab==2}}" src="{{imgdata}}/index/shouye/pingjia.png"></image>
+          <image wx:else src="{{imgdata}}/index/shouye/pingjia_no.png"></image>
           <text>评价</text>
         </view>
       </view>
@@ -302,7 +299,7 @@
                   </view>
                 </view>
                 <view class="ctnListAdd" bindtap='addBuyCar' data-id="{{currentItem.id}}" data-machineid="{{currentItem.machineId}}">
-                  <image src="{{imgdata}}/upload/blAdd.png"></image>
+                  <image src="{{imgdata}}/index/shouye/blAdd.png"></image>
                 </view>
               </view>
             </view>
@@ -345,7 +342,7 @@
             <view class="tabCtnR fr">
               <view class="tabCtnRList clearfloat">
                 <view class="ctnListL fl" bindtap='goMealDetail'>
-                  <image src="{{imgdata}}/upload/recomendListImg.png"></image>
+                  <image src="{{imgdata}}/index/shouye/recomendListImg.png"></image>
                 </view>
                 <view class="ctnListR fl">
                   <view class="ctnCaiming">鸡蛋炒饭</view>
@@ -372,12 +369,12 @@
                   </view>
                 </view>
                 <view class="ctnListAdd" bindtap='addBuyCar' data-id="1">
-                  <image src="{{imgdata}}/upload/blAdd.png"></image>
+                  <image src="{{imgdata}}/index/shouye/blAdd.png"></image>
                 </view>
               </view>
               <view class="tabCtnRList clearfloat">
                 <view class="ctnListL fl" bindtap='goMealDetail'>
-                  <image src="{{imgdata}}/upload/recomendListImg.png"></image>
+                  <image src="{{imgdata}}/index/shouye/recomendListImg.png"></image>
                 </view>
                 <view class="ctnListR fl">
                   <view class="ctnCaiming">鸡蛋炒饭</view>
@@ -404,12 +401,12 @@
                   </view>
                 </view>
                 <view class="ctnListAdd" bindtap='addBuyCar' data-id="1">
-                  <image src="{{imgdata}}/upload/blAdd.png"></image>
+                  <image src="{{imgdata}}/index/shouye/blAdd.png"></image>
                 </view>
               </view>
               <view class="tabCtnRList clearfloat">
                 <view class="ctnListL fl" data-id="{{item.id}}" data-machineid="{{item.machineId}}" bindtap='goMealDetail'>
-                  <image src="{{imgdata}}/upload/recomendListImg.png"></image>
+                  <image src="{{imgdata}}/index/shouye/recomendListImg.png"></image>
                 </view>
                 <view class="ctnListR fl">
                   <view class="ctnCaiming">鸡蛋炒饭</view>
@@ -436,12 +433,12 @@
                   </view>
                 </view>
                 <view class="ctnListAdd"  bindtap='addBuyCar' data-id="2">
-                  <image src="{{imgdata}}/upload/blAdd.png"></image>
+                  <image src="{{imgdata}}/index/shouye/blAdd.png"></image>
                 </view>
               </view>
               <view class="tabCtnRList clearfloat">
                 <view class="ctnListL fl" data-id="{{item.id}}" data-machineid="{{item.machineId}}" bindtap='goMealDetail'>
-                  <image src="{{imgdata}}/upload/recomendListImg.png"></image>
+                  <image src="{{imgdata}}/index/shouye/recomendListImg.png"></image>
                 </view>
                 <view class="ctnListR fl">
                   <view class="ctnCaiming">鸡蛋炒饭</view>
@@ -468,12 +465,12 @@
                   </view>
                 </view>
                 <view class="ctnListAdd"  bindtap='addBuyCar' data-id="2">
-                  <image src="{{imgdata}}/upload/blAdd.png"></image>
+                  <image src="{{imgdata}}/index/shouye/blAdd.png"></image>
                 </view>
               </view>
               <view class="tabCtnRList clearfloat">
                 <view class="ctnListL fl" data-id="{{item.id}}" data-machineid="{{item.machineId}}" bindtap='goMealDetail'>
-                  <image src="{{imgdata}}/upload/recomendListImg.png"></image>
+                  <image src="{{imgdata}}/index/shouye/recomendListImg.png"></image>
                 </view>
                 <view class="ctnListR fl">
                   <view class="ctnCaiming">鸡蛋炒饭</view>
@@ -500,12 +497,12 @@
                   </view>
                 </view>
                 <view class="ctnListAdd"  bindtap='addBuyCar' data-id="2">
-                  <image src="{{imgdata}}/upload/blAdd.png"></image>
+                  <image src="{{imgdata}}/index/shouye/blAdd.png"></image>
                 </view>
               </view>
               <view class="tabCtnRList clearfloat">
                 <view class="ctnListL fl" data-id="{{item.id}}" data-machineid="{{item.machineId}}" bindtap='goMealDetail'>
-                  <image src="{{imgdata}}/upload/recomendListImg.png"></image>
+                  <image src="{{imgdata}}/index/shouye/recomendListImg.png"></image>
                 </view>
                 <view class="ctnListR fl">
                   <view class="ctnCaiming">鸡蛋炒饭</view>
@@ -532,7 +529,7 @@
                   </view>
                 </view>
                 <view class="ctnListAdd"  bindtap='addBuyCar' data-id="2">
-                  <image src="{{imgdata}}/upload/blAdd.png"></image>
+                  <image src="{{imgdata}}/index/shouye/blAdd.png"></image>
                 </view>
               </view>
             </view>
@@ -551,11 +548,11 @@
                   <view class="goodsPWrap">
                     <view>商品评分</view>
                     <view class="goodsP">
-                      <image src="{{imgdata}}/upload/blXing.png"></image>
-                      <image src="{{imgdata}}/upload/blXing.png"></image>
-                      <image src="{{imgdata}}/upload/blXing.png"></image>
-                      <image src="{{imgdata}}/upload/blXing.png"></image>
-                      <image src="{{imgdata}}/upload/blXing.png"></image>
+                      <image src="{{imgdata}}/index/shouye/blXing.png"></image>
+                      <image src="{{imgdata}}/index/shouye/blXing.png"></image>
+                      <image src="{{imgdata}}/index/shouye/blXing.png"></image>
+                      <image src="{{imgdata}}/index/shouye/blXing.png"></image>
+                      <image src="{{imgdata}}/index/shouye/blXing.png"></image>
                     </view>
                     <view>
                       <text>5.0</text>
@@ -566,11 +563,11 @@
                   <view class="goodsPWrap">
                     <view>平台评价</view>
                     <view class="goodsP">
-                      <image src="{{imgdata}}/upload/blXing.png"></image>
-                      <image src="{{imgdata}}/upload/blXing.png"></image>
-                      <image src="{{imgdata}}/upload/blXing.png"></image>
-                      <image src="{{imgdata}}/upload/blXing.png"></image>
-                      <image src="{{imgdata}}/upload/blXing.png"></image>
+                      <image src="{{imgdata}}/index/shouye/blXing.png"></image>
+                      <image src="{{imgdata}}/index/shouye/blXing.png"></image>
+                      <image src="{{imgdata}}/index/shouye/blXing.png"></image>
+                      <image src="{{imgdata}}/index/shouye/blXing.png"></image>
+                      <image src="{{imgdata}}/index/shouye/blXing.png"></image>
                     </view>
                     <view>
                       <text>5.0</text>
@@ -610,7 +607,7 @@
               <view class="plList" wx:for="{{pinglunList}}" wx:key="index" wx:for-item="plitem">
                 <view class="touxiang">
                   <view class="txWrap">
-                    <image src="{{imgdata}}/upload/plTouXiang.png"></image>
+                    <image src="{{imgdata}}/index/shouye/plTouXiang.png"></image>
                   </view>
                 </view>
                 <view class="plInfo" data-id="{{plitem.id}}">
@@ -621,18 +618,18 @@
                   <view class="phoneTime">
                     <view class="phoneNum fl">鸡蛋炒蛋</view>
                     <view class="plTime fr">
-                      <image src="{{imgdata}}/upload/blXing.png"></image>
-                      <image src="{{imgdata}}/upload/blXing.png"></image>
-                      <image src="{{imgdata}}/upload/blXing.png"></image>
-                      <image src="{{imgdata}}/upload/blXing.png"></image>
-                      <image src="{{imgdata}}/upload/blXing.png"></image>
+                      <image src="{{imgdata}}/index/shouye/blXing.png"></image>
+                      <image src="{{imgdata}}/index/shouye/blXing.png"></image>
+                      <image src="{{imgdata}}/index/shouye/blXing.png"></image>
+                      <image src="{{imgdata}}/index/shouye/blXing.png"></image>
+                      <image src="{{imgdata}}/index/shouye/blXing.png"></image>
                     </view>
                   </view>
                   <view class="plImage">
-                    <image src="{{imgdata}}/upload/recomendListImg.png"></image>
-                    <image src="{{imgdata}}/upload/recomendListImg.png"></image>
-                    <image src="{{imgdata}}/upload/recomendListImg.png"></image>
-                    <image src="{{imgdata}}/upload/recomendListImg.png"></image>
+                    <image src="{{imgdata}}/index/shouye/recomendListImg.png"></image>
+                    <image src="{{imgdata}}/index/shouye/recomendListImg.png"></image>
+                    <image src="{{imgdata}}/index/shouye/recomendListImg.png"></image>
+                    <image src="{{imgdata}}/index/shouye/recomendListImg.png"></image>
                   </view>
                   <view class="plInfoDetail">
                     <text>{{plitem.content}}</text>
@@ -643,7 +640,7 @@
               <view class="plList">
                 <view class="touxiang">
                   <view class="txWrap">
-                    <image src="{{imgdata}}/upload/plTouXiang.png"></image>
+                    <image src="{{imgdata}}/index/shouye/plTouXiang.png"></image>
                   </view>
                 </view>
                 <view class="plInfo">
@@ -654,18 +651,18 @@
                   <view class="phoneTime">
                     <view class="phoneNum fl">鸡蛋炒蛋</view>
                     <view class="plTime fr">
-                      <image src="{{imgdata}}/upload/blXing.png"></image>
-                      <image src="{{imgdata}}/upload/blXing.png"></image>
-                      <image src="{{imgdata}}/upload/blXing.png"></image>
-                      <image src="{{imgdata}}/upload/blXing.png"></image>
-                      <image src="{{imgdata}}/upload/blXing.png"></image>
+                      <image src="{{imgdata}}/index/shouye/blXing.png"></image>
+                      <image src="{{imgdata}}/index/shouye/blXing.png"></image>
+                      <image src="{{imgdata}}/index/shouye/blXing.png"></image>
+                      <image src="{{imgdata}}/index/shouye/blXing.png"></image>
+                      <image src="{{imgdata}}/index/shouye/blXing.png"></image>
                     </view>
                   </view>
                   <view class="plImage">
-                    <image src="{{imgdata}}/upload/recomendListImg.png"></image>
-                    <image src="{{imgdata}}/upload/recomendListImg.png"></image>
-                    <image src="{{imgdata}}/upload/recomendListImg.png"></image>
-                    <image src="{{imgdata}}/upload/recomendListImg.png"></image>
+                    <image src="{{imgdata}}/index/shouye/recomendListImg.png"></image>
+                    <image src="{{imgdata}}/index/shouye/recomendListImg.png"></image>
+                    <image src="{{imgdata}}/index/shouye/recomendListImg.png"></image>
+                    <image src="{{imgdata}}/index/shouye/recomendListImg.png"></image>
                   </view>
                   <view class="plInfoDetail">
                     <text>餐品来的很快，符合我的胃口，五星好评</text>
@@ -718,7 +715,7 @@
   <view class='addgoods-guigepop' style='display:none;'>
     <view class='biglist1'>
       <view class='biglist1-left'>
-        <image class='meal-img' src='{{imgdata}}/upload/recomendListImg.png'></image>
+        <image class='meal-img' src='{{imgdata}}/index/shouye/recomendListImg.png'></image>
       </view>
       <view class='biglist1-right'>
         <view class='list1'>
@@ -733,7 +730,7 @@
           <text class='price-fuhao'>￥</text>
           <text class='zhe-price'>15.5</text>
           <text class='yuan-price'>18</text>
-          <image class='add-btn' src='{{imgdata}}/upload/blAdd.png'></image>
+          <image class='add-btn' src='{{imgdata}}/index/shouye/blAdd.png'></image>
         </view>
       </view>
     </view>
@@ -786,12 +783,12 @@
   <view class='addgoods-caiInfo' style='display:none;'>
     <view class='biglist1'>
       <view class='biglist1-left'>
-        <image class='meal-img' src='{{imgdata}}/upload/recomendListImg.png'></image>
+        <image class='meal-img' src='{{imgdata}}/index/shouye/recomendListImg.png'></image>
       </view>
       <view class='biglist1-right'>
         <view class='list1'>
           <text class='meal-name'>鸡蛋炒饭</text>
-          <image class='close-btn' src='{{imgdata}}/upload/closeBtn.png'></image>
+          <image class='close-btn' src='{{imgdata}}/index/shouye/closeBtn.png'></image>
         </view>
         <view class='yixuan'>
           <text>已选：</text>
@@ -801,7 +798,7 @@
           <text class='price-fuhao'>￥</text>
           <text class='zhe-price'>15.5</text>
           <text class='yuan-price'>18</text>
-          <image class='add-btn' src='{{imgdata}}/upload/blAdd.png'></image> 
+          <image class='add-btn' src='{{imgdata}}/index/shouye/blAdd.png'></image> 
         </view>
       </view>
     </view>
@@ -812,7 +809,7 @@
     <view class='yixuan-qingkong'>
       <text class='yixuan-name'>已选餐品</text>
       <view>
-        <image class='del-icon' src='{{imgdata}}/upload/delIcon.png'></image>
+        <image class='del-icon' src='{{imgdata}}/index/shouye/delIcon.png'></image>
         <text>清空</text>
       </view>
     </view>
@@ -830,7 +827,7 @@
     <view class='jiesuan-ctl' style='background:f7f7f7;'>
       <view class='jiesuan-ctl-left'>
         <view class='car-icon-wrap'>
-          <image class='car-icon' src='{{imgdata}}/upload/cf_nav3.png'></image>
+          <image class='car-icon' src='{{imgdata}}/index/shouye/cf_nav3.png'></image>
           <text class='car-icon-num'>1</text>
         </view>
         <text class='qiang-jie-icon' style='margin-left:30rpx;'>￥</text>
@@ -861,7 +858,7 @@
         <view>{{longitude}}</view>
         <!-- <block wx:for="{{recomTC}}" wx:key="{{index}}">
           <view class='contItem' bindtap='goMealDetail' data-id="{{item.id}}" data-machineid="{{item.machineId}}">
-            <image src="{{imgdata}}/upload/{{item.url}}"/> 
+            <image src="{{imgdata}}/index/shouye/{{item.url}}"/> 
             <view class='goodsName'>{{item.foodName}}</view>
           </view>
         </block> -->

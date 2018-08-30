@@ -28,21 +28,6 @@ Page({
     duration: 1000,
     circular: true,
     imgsDotBanner: [],
-    // imgsDotBanner: [
-    //   app.globalData.imgdata +'/upload/banner@2x.png',
-    //   app.globalData.imgdata +'/upload/banner@2x.png',
-    //   app.globalData.imgdata +'/upload/banner@2x.png',
-    // ],
-    // imgsDot: [{
-    //   url: app.globalData.imgdata +'/upload/indexDian.jpg'
-    //   },
-    //   {
-    //     url: app.globalData.imgdata +'/upload/indexDian.jpg'
-    //   },
-    //   {
-    //     url: app.globalData.imgdata +'/upload/indexDian.jpg'
-    //   }
-    // ],
     indicatorDotsCandan:true,
     caidanNav:[],
     remomendPack:[
@@ -121,34 +106,18 @@ Page({
       duration: e.detail.value
     })
   },
-  //广告轮播跳转
+  // 首页Banner
   getAllTCarouselFigureList:function(){
     var that = this;
-    wx.request({
-      url: app.globalData.baseUrl +'carouselFigure/getAllTCarouselFigureList.action',
-      method: "get",
-      data:{
-        id: this.data.firstRotoId,
-        status:'1'
-      },
-      header: { 'content-type': 'application/x-www-form-urlencoded' },
-      success: function (res) {
-        var lunboArr = res.data.data;
-        var imgarr = [];
-        var imgIdArr = [];
-        for (var i = 0; i < lunboArr.length;i++){
-          // imgarr.push(app.globalData.imgdataFan + lunboArr[i].photoUrl);
-          // imgIdArr.push{}
-          imgarr.push({
-            id: lunboArr[i].id,
-            imgurl: app.globalData.imgdataFan + lunboArr[i].photoUrl
-          })
-        }
-        that.setData({
-          imgsDotBanner: imgarr
-        })
-      }
+    app.fetch({
+      url: '/operate/adpos/get_advert_info?advertCode=20000001'
     })
+      .then((response) => {
+        console.info(response)
+        that.setData({
+          imgsDotBanner: response
+        })
+      })
   },
   // 点击关闭模态框
   closeModel:function(){
@@ -203,8 +172,8 @@ Page({
     // // this.todayBuy();
     // // 菜单
     // this.getMenuClass();
-    // //广告轮播
-    // // this.getAllTCarouselFigureList();
+    // 广告轮播
+    // this.getAllTCarouselFigureList();
   },
   goSearch: function(e){//跳转到搜索列表
     wx.navigateTo({
