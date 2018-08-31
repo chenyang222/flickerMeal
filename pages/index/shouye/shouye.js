@@ -5,15 +5,15 @@ var bmap = require('../../../utils/bmap-wx.min.js'); // 引入百度地图js
 var wxMarkerData = []; //定位成功回调对象  
 Page({
   data: {
+    imgdata: app.globalData.imgdata,
     ak: 'NPfvQSlaxLvtuBWm4YDVwecQNoTACuUY', // 填写申请到的ak
     latitude: '', // 纬度
     longitude: '',// 经度
+    currentCity: '',
+
 
     address: '', //地址
     newddata: '',
-    currentCity: '',
-    imgdata: app.globalData.imgdata,
-    imgdataFan: app.globalData.imgdataFan,
     currentTab: 0,
     motto: 'Hello World',
     userInfo: {},
@@ -79,8 +79,53 @@ Page({
     fixedFlag: false,//记录今日购、预定、评论的距离顶部高度0时固定定位
     lunboArrData:''//广告轮播
   },
+  onLoad: function (option) {
+    var that = this;
+    // 新建百度地图对象 
+    var BMap = new bmap.BMapWX({
+      ak: that.data.ak
+    });
+    var fail = function (data) {
+      console.log(data)
+    };
+    var success = function (data) {
+      console.info(data)
+      const posData = data.originalData.result;
+      that.setData({
+        latitude: posData.location.lat,
+        longitude: posData.location.lon,
+        currentCity: posData.formatted_address
+      });
+    }
+    // 发起POI检索请求 
+    BMap.regeocoding({
+      fail: fail,
+      success: success
+    });
+    
+    // this.setData({
+    //   fixedFlag: false,
+    //   boxTop: 0
+    // });
+    // //附近近期人
+    // this.nearbyRoboData();
+    // //热词（搜索下方热门餐品）
+    // this.hotwords();
+    // //今日够
+    // // this.todayBuy();
+    // // 菜单
+    // this.getMenuClass();
+    // 广告轮播
+    // this.getAllTCarouselFigureList();
+  },
+  //点击定位跳转
+  posiIn: function () {
+    wx.navigateTo({
+      url: '/pages/index/positionSele/positionSele'
+    })
+  },
   //滑动切换
-  swiperTab:function (e) {
+  swiperTab: function (e) {
     var that = this;
     that.setData({
       currentTba: e.detail.current
@@ -107,7 +152,7 @@ Page({
     })
   },
   // 首页Banner
-  getAllTCarouselFigureList:function(){
+  getAllTCarouselFigureList: function () {
     var that = this;
     app.fetch({
       url: '/operate/adpos/get_advert_info?advertCode=20000001'
@@ -120,12 +165,12 @@ Page({
       })
   },
   // 点击关闭模态框
-  closeModel:function(){
+  closeModel: function () {
     app.globalData.indexmodelstyle = 'display: none;'
-    this.setData({ modelstyle: app.globalData.indexmodelstyle});
+    this.setData({ modelstyle: app.globalData.indexmodelstyle });
   },
   //事件处理函数
-  bindViewTap: function() {
+  bindViewTap: function () {
     wx.navigateTo({
       url: '../logs/logs'
     })
@@ -134,47 +179,7 @@ Page({
     this.setData({
       currentSwiper: e.detail.current
     })
-  },
-  onLoad: function (option) {
-    var that = this;
-    // 新建百度地图对象 
-    var BMap = new bmap.BMapWX({
-      ak: that.data.ak
-    });
-    var fail = function (data) {
-      console.log(data)
-    };
-    var success = function (data) {
-      console.info(data)
-      wxMarkerData = data.wxMarkerData;
-      that.setData({
-        latitude: wxMarkerData[0].latitude
-      });
-      that.setData({
-        longitude: wxMarkerData[0].longitude
-      });
-    }
-    // 发起POI检索请求 
-    BMap.search({
-      fail: fail,
-      success: success
-    });
-    
-    // this.setData({
-    //   fixedFlag: false,
-    //   boxTop: 0
-    // });
-    // //附近近期人
-    // this.nearbyRoboData();
-    // //热词（搜索下方热门餐品）
-    // this.hotwords();
-    // //今日够
-    // // this.todayBuy();
-    // // 菜单
-    // this.getMenuClass();
-    // 广告轮播
-    this.getAllTCarouselFigureList();
-  },
+  },  
   goSearch: function(e){//跳转到搜索列表
     wx.navigateTo({
       url: '../hotWords/hotWords?name=' + e.currentTarget.dataset.name,
@@ -186,12 +191,7 @@ Page({
       url: '../mealDetail/mealDetail?id=' + e.currentTarget.dataset.id + '&machineid=' + e.currentTarget.dataset.machineid,
     })
   },
-  //点击定位跳转
-  posiIn:function(){
-    wx.navigateTo({
-      url: '/pages/index/positionSele/positionSele'
-    })
-  },
+
   // 获取菜单分类
   getMenuClass: function(res){
     const that = this;

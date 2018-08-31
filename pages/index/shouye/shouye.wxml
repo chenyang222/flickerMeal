@@ -8,10 +8,10 @@
         <text class="fl currentCity">{{currentCity}}</text>
         <image class="locaDetailSeleIcon fl" src="{{imgdata}}/index/shouye/zbl-indexHeaderSele.png"></image>
       </view>
-      <view class="juli fr">
+      <!-- <view class="juli fr">
         <text class="juliCar fr">外卖距您还有1.3km</text>
         <image class="juliCarIcon fr" src="{{imgdata}}/index/shouye/zbl-waimaiCar.png"></image>
-      </view>
+      </view> -->
     </view>
   </view>
   <!-- 搜索栏 -->

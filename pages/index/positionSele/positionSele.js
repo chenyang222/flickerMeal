@@ -1,6 +1,4 @@
 
-
-
 var app = getApp()
 var city = require('../../../utils/city.js');
 var bmap = require('../../../utils/bmap-wx.min.js');
