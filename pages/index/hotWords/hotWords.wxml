@@ -2,9 +2,8 @@
 <!-- <text>pages/index/newProductRecom/newProductRecom.wxml</text> -->
 <view class='car-container'>
   <view class='car-title'>
-    <image class='goback' bindtap='goIndex' src='{{imgdata}}/go_back.png'></image>
     <view class='search-kuang fl' bindtap='goSearch'>
-      <image class='search-img fl' src='{{imgdata}}/searchIcon.png'></image>
+      <image class='search-img fl' src='{{imgdata}}/index/search/searchIcon.png'></image>
       <input class='search-input' placeholder=''  value='果粒橙'/>
     </view>
   </view>

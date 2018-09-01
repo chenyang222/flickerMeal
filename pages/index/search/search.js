@@ -13,18 +13,13 @@ Page({
     wx.setNavigationBarTitle({
       title: '搜索'
     })
-    var userId = wx.getStorageSync('shancanuserid');
-    //console.log(options, userId);
-    /*
-    * 初始化搜索历史
-    * 1.获取最近10条搜索记录
-    */
-    this.getSearchHistoryLatest(that)
-
+    // 设置历史搜索
+    this.getSearchHistoryLatest();
     // 获取热门搜索
-    this.getHotSearch(that);
+    this.getHotSearch();
   },
-  bindKeyInput:function(e){//输入搜索内容
+  //输入搜索内容
+  bindKeyInput:function(e){
     if (e.detail.value.trim().length>0){
       this.setData({
         inputVal: e.detail.value,
@@ -36,12 +31,17 @@ Page({
       });
     }
   },
-  searchGoods: function(){//点击搜索时
+  //点击搜索时
+  searchGoods: function(){
     const that = this;
-    if (this.data.inputVal.trim()){
-      //todo
+    const searchVal = this.data.inputVal.trim();
+    let HistorySearchList = wx.getStorageSync('HistorySearchList') ? wx.getStorageSync('HistorySearchList') : [];
+    if (searchVal){
+      HistorySearchList.unshift(searchVal);
+      HistorySearchList = HistorySearchList.slice(0,9);
+      wx.setStorageSync('HistorySearchList', HistorySearchList);
       wx.navigateTo({
-        url: '../hotWords/hotWords?from=searchpage&name=' + this.data.inputVal,
+        url: '../hotWords/hotWords?from=searchpage&name=' + searchVal,
       })
     } else {
       wx.showToast({
@@ -52,58 +52,48 @@ Page({
       })
     }
   },
-  goIndex: function(e){//跳转首页
+  //跳转首页
+  goIndex: function(e){
     wx.switchTab({
       url: '../shouye/shouye',
     })
   },
-  getSearchHistoryLatest: function (that, userId) {//获取最近10条搜索记录
-    wx.request({
-      url: app.globalData.baseUrl + 'userFindHistory/queryUserFindHistoryList.action',
-      data: { userId: userId},
-      success: function(res){
-        console.log(res);
-        if(res.data.code == 0){
-          if (res.data.data && res.data.data.length>0){
-            that.setData({
-              searchListArr: res.data.data
-            });
-          }
-        }
-      }
-    })
+  //获取最近10条搜索记录
+  getSearchHistoryLatest: function () {
+    let HistorySearchList = wx.getStorageSync('HistorySearchList') ? wx.getStorageSync('HistorySearchList') : [];
+    this.setData({
+      searchListArr: HistorySearchList
+    });
   },
-  clearHistory:function(){//清空历史搜索
-    //todo
+  //清空历史搜索
+  clearHistory:function(){
+    let HistorySearchList = [];
+    wx.setStorageSync('HistorySearchList', HistorySearchList);
     this.setData({ searchListArr: []});
   },
-  clickSearchHistory: function(e){//点击搜索历史
+  //点击搜索历史
+  clickSearchHistory: function(e){
     console.log(e);
     this.setData({
       inputVal: e.currentTarget.dataset.name
     });
-    
   },
-  getHotSearch: function (that){//获取热门搜索
-    wx.request({
-      url: app.globalData.baseUrl + 'hostWord/getAllAppHotword.action',
-      method: 'POST',
-      data: {},
-      header: { 'content-type': 'application/x-www-form-urlencoded' },
-      success: function(res){
-        // console.log(res);
-        if(res.data.code == 1){
-          if(res.data.data && res.data.data.length>0){
-            that.setData({ HotSearch: res.data.data});
-          }
-        }
-      },
-      fail: function(){
-
-      }
+  //获取热门搜索
+  getHotSearch: function (){
+    const that = this;
+    app.fetch({
+      url: '/fastfood/foodmachine/keyword/rank/top/10'
     })
+      .then((response) => {
+        console.info(response)
+        that.setData({
+          HotSearch: response
+        });
+      })
   },
-  clickHotSearch: function (e) {//点击热门历史
+  //点击热门历史
+  clickHotSearch: function (e) {
+    console.info(e)
     this.setData({
       inputVal: e.currentTarget.dataset.name
     });

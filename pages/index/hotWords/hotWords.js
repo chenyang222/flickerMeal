@@ -15,11 +15,6 @@ Page({
     // 获取搜索列表
     that.getSearchGoods(that, searchName);
   },
-  goIndex: function(){
-    wx.switchTab({
-      url: '../shouye/shouye',
-    })
-  },
   goSearch: function(){
     if (optionsObj.from == "searchpage") {
       wx.navigateBack({

@@ -52,8 +52,8 @@ App({
   // 公共数据配置
   globalData: {
     userInfo: null,
-    // imgdata: '/images/img',//正常图片展示的地址
-    imgdata: 'https://shanchan.jergavin.com/wxapp/img',//正常图片展示的地址
+    imgdata: '/images/img',//正常图片展示的地址
+    // imgdata: 'https://shanchan.jergavin.com/wxapp/img',//正常图片展示的地址
     api: 'https://shanchan.jergavin.com', // 接口请求api
     addre: null,
     madichid:null,

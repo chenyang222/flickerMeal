@@ -3,9 +3,6 @@
 page{
   background-color: #f8f8f8;
 }
-.car-container{
- 
-}
 .car-title{
   padding: 25rpx;
   /* position: relative; */
@@ -17,13 +14,6 @@ page{
   width: 93%;
   height: 55rpx;
   border-bottom: 1px solid #f7f7f7;
-}
-.goback{
-  width:20rpx;
-  height:34rpx;  
-  position: absolute;
-  left: 25rpx;
-  top: 35rpx;
 }
 .search-kuang{
   background: #f3f0f0;

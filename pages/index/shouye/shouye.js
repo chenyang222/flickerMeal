@@ -116,7 +116,7 @@ Page({
     // // 菜单
     // this.getMenuClass();
     // 广告轮播
-    // this.getAllTCarouselFigureList();
+    this.getAllTCarouselFigureList();
   },
   //点击定位跳转
   posiIn: function () {
