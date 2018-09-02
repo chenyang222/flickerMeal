@@ -38,7 +38,7 @@
     </swiper>
   </view>
   <!-- 菜单导航 -->
-  <view class="caidanNav">
+  <!-- <view class="caidanNav">
     <swiper indicator-dots="{{indicatorDotsCandan}}" interval="{{interval}}" duration="{{duration}}" indicator-color="{{indicatorColor}}" indicator-active-color="{{indicatorActiveColor}}" style="height:330rpx;margin-top:20rpx;">
       <block wx:for="{{caidanNav}}" wx:for-index="index" wx:for-item="item" wx:key="{{index}}">
         <swiper-item style="width:25%;">
@@ -53,7 +53,7 @@
         </swiper-item>
       </block>
     </swiper>
-  </view>
+  </view> -->
   <!-- 活动 -->
   <view class="huodong">
     <view class="huodong4">

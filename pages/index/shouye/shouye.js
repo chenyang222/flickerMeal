@@ -3,6 +3,7 @@
 const app = getApp()
 var bmap = require('../../../utils/bmap-wx.min.js'); // 引入百度地图js
 var wxMarkerData = []; //定位成功回调对象  
+var cityCodeJson = require('../../../utils/cityCode.js'); // 引入cityJson.js
 Page({
   data: {
     imgdata: app.globalData.imgdata,
@@ -10,7 +11,7 @@ Page({
     latitude: '', // 纬度
     longitude: '',// 经度
     currentCity: '',
-
+    cityCodeJson: [], // city.js
 
     address: '', //地址
     newddata: '',
@@ -81,6 +82,32 @@ Page({
   },
   onLoad: function (option) {
     var that = this;
+    // 设置定位
+    this.setPosition();
+    // 广告轮播
+    this.getAllTCarouselFigureList();
+    // city.js 引入data
+    console.info(cityCodeJson.city)
+    this.setData({
+      cityCodeJson: cityCodeJson.city
+    })
+
+    // this.setData({
+    //   fixedFlag: false,
+    //   boxTop: 0
+    // });
+    // //附近近期人
+    // this.nearbyRoboData();
+    // //热词（搜索下方热门餐品）
+    // this.hotwords();
+    // //今日够
+    // // this.todayBuy();
+    // // 菜单
+    // this.getMenuClass();
+  },
+  // 定位设置
+  setPosition: function () {
+    var that = this;
     // 新建百度地图对象 
     var BMap = new bmap.BMapWX({
       ak: that.data.ak
@@ -96,33 +123,68 @@ Page({
         longitude: posData.location.lon,
         currentCity: posData.formatted_address
       });
+      var cityStrArr = [];
+      cityStrArr.push(posData.addressComponent.province);
+      cityStrArr.push(posData.addressComponent.city);
+      cityStrArr.push(posData.addressComponent.district);
+      console.info(cityStrArr)
+      that.getMachineByCityCode(cityStrArr);
     }
     // 发起POI检索请求 
     BMap.regeocoding({
       fail: fail,
       success: success
     });
-    
-    // this.setData({
-    //   fixedFlag: false,
-    //   boxTop: 0
-    // });
-    // //附近近期人
-    // this.nearbyRoboData();
-    // //热词（搜索下方热门餐品）
-    // this.hotwords();
-    // //今日够
-    // // this.todayBuy();
-    // // 菜单
-    // this.getMenuClass();
-    // 广告轮播
-    this.getAllTCarouselFigureList();
   },
   //点击定位跳转
   posiIn: function () {
     wx.navigateTo({
       url: '/pages/index/positionSele/positionSele'
     })
+  },
+  // 根据code获取机器
+  getMachineByCityCode: function (cityStrArr) {
+    console.info(cityStrArr, this.data.cityCodeJson)
+    var that = this;
+    var cityCodeJson = this.data.cityCodeJson;
+    var areaCode = [];
+    for (let i = 0; i < cityCodeJson.length; i++) {
+      if (cityStrArr[0] == cityCodeJson[i].name) {
+        areaCode.push(i);
+        if (cityStrArr[0] == '北京市') {
+          for (let j = 0; j < cityCodeJson[i].sub.length; j++) { 
+            if (cityStrArr[2] == cityCodeJson[i].sub[j].name) {
+              areaCode.push(j);
+            }
+          }
+        } else {
+          for (let j = 0; j < cityCodeJson[i].sub.length; j++) {
+            if (cityStrArr[1] == cityCodeJson[i].sub[j].name) {
+              areaCode.push(j);
+              for (let a = 0; a < cityCodeJson[i].sub[j].sub.length; a++) {
+                if (cityStrArr[2] == cityCodeJson[i].sub[j].sub[a].name) {
+                  areaCode.push(a);
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+    console.info(typeof areaCode.join(','))
+    app.fetch({
+      url: '/fastfood/foodmachine/findByAreaCode',
+      method: 'get',
+      data: {
+        areaCode: areaCode.join(',')
+      }
+    })
+      .then((response) => {
+        console.info(response)
+        // that.setData({
+
+        // })
+      })
   },
   //滑动切换
   swiperTab: function (e) {
@@ -160,9 +222,13 @@ Page({
       .then((response) => {
         console.info(response)
         that.setData({
-          imgsDotBanner: response
+          imgsDotBanner: response ? response : []
         })
       })
+  },
+  // 获取机器列表
+  getRotolList: function () {
+    
   },
   // 点击关闭模态框
   closeModel: function () {
