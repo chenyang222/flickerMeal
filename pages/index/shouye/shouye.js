@@ -87,7 +87,6 @@ Page({
     // 广告轮播
     this.getAllTCarouselFigureList();
     // city.js 引入data
-    console.info(cityCodeJson.city)
     this.setData({
       cityCodeJson: cityCodeJson.city
     })
@@ -171,7 +170,6 @@ Page({
         }
       }
     }
-    console.info(typeof areaCode.join(','))
     app.fetch({
       url: '/fastfood/foodmachine/findByAreaCode',
       method: 'get',

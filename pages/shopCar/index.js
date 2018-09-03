@@ -18,89 +18,35 @@ Page({
     totalMoney: 0
   },
   onLoad: function () {
-    //购物车列表
-    this.carList();
+    var that = this;
+    // var macId = 1;
+    app.fetch({
+      url: '/fastfood/shoppingcart/list/?macId=1'
+    })
+      .then((response) => {
+        console.info(response)
+        that.setData({
+          carListDataArr: response
+        })
+      })
   },
   onShow:function(){
     //购物车列表
-    this.carList();
+    // this.carList();
   },
   //购物车列表
   carList:function(){
     var that = this;
-    wx.getStorage({
-      key: 'token',
-      success: function (res) {
-        that.setData({
-          sessionid: res.data
-        })
-        if (res.data==undefined){
-          app.jumpLogin();
-        }
-        var madichid = app.globalData.madichid;//机器id
-        wx.request({
-          url: app.globalData.baseUrl + 'tCart/queryCartList.action', //仅为示例，并非真实的接口地址
-          method: 'GET',
-          data: {
-            machineId: madichid,
-            token: res.data
-          },
-          header: {
-            'content-type': 'application/json' // 默认值
-          },
-          success: function (res) { 
-            console.log(res);
-            if(res.data.code == 1){
-              wx.showToast({
-                title: '获取数据失败',
-                icon: 'none'
-              })
-
-              return;
-            }
-            var dataArr = res.data.data;
-            //判断是否超时重新登录
-            if (res.data.code==2){
-              wx.showToast({
-                title: res.data.msg,
-                icon: 'none',
-                duration: 1000
-              })
-              //如果没有登录跳转到登录页
-              app.jumpLogin();
-            }
-            var arr = [];
-            var totalMoney=0;
-            if(dataArr.length > 0) {
-              for (var i = 0; i < dataArr.length;i++){
-                arr.push(dataArr[i].id)
-                totalMoney += dataArr[i].food.selling * dataArr[i].foodCount
-              }
-              var arrStr = arr.join(',');
-
-              //购物车列表信息
-              that.setData({
-                carListDataArr: res.data.data,
-                madichInfo: res.data.machine,
-                delAllId: arrStr,
-                totalMoney: totalMoney
-              })
-
-            } else {
-              that.setData({
-                carListDataArr:[],
-                madichInfo: res.data.machine,
-                delAllId: '',
-                totalMoney: 0
-              })
-            }
-          }
-        })
-      },
-      fail:function(){
-        console.log('失败')
-      }
+    // var macId = 1;
+    app.fetch({
+      url: '/fastfood/shoppingcart/list/?macId=1'
     })
+      .then((response) => {
+        console.info(response)
+        that.setData({
+          carListDataArr: response
+        })
+      })
   },
   touchstart: function (e) {
     this.setData({
