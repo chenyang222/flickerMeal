@@ -9,7 +9,7 @@
 <view class='history-search'>
   <view class='history-search-title'>
     <text class='title-txt fl'>历史搜索</text>
-    <image bindtap='clearHistory' class='del-img fr' src='{{imgdata}}/index/search/delIcon.jpg'></image>
+    <image bindtap='clearHistory' class='del-img fr' src='{{imgdata}}/index/search/delIcon.png'></image>
   </view>
   <view class='history-list-wrap'>
     <block wx:if="{{searchListArr.length>0}}">

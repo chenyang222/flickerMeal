@@ -7,11 +7,19 @@ var cityCodeJson = require('../../../utils/cityCode.js'); // 引入cityJson.js
 Page({
   data: {
     imgdata: app.globalData.imgdata,
+
     ak: 'NPfvQSlaxLvtuBWm4YDVwecQNoTACuUY', // 填写申请到的ak
     latitude: '', // 纬度
     longitude: '',// 经度
     currentCity: '',
     cityCodeJson: [], // city.js
+
+    indicatorDotsCandan: true, //
+    interval: 5000,
+    duration: 1000,
+    indicatorColor: '#D5D5D5',
+    indicatorActiveColor: '#F1A101',
+    caidanNav: [],
 
     address: '', //地址
     newddata: '',
@@ -21,16 +29,15 @@ Page({
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
     currentSwiper: 0,
-    // indicatorDots: false,
-    indicatorColor: '#D5D5D5',
-    indicatorActiveColor: '#F1A101',
+    indicatorDots: false,
+    
+    
     autoplay: true,
-    interval: 5000,
-    duration: 1000,
+    
+    
     circular: true,
     imgsDotBanner: [],
-    indicatorDotsCandan:true,
-    caidanNav:[],
+    
     remomendPack:[
       {
         list: [
@@ -90,6 +97,8 @@ Page({
     this.setData({
       cityCodeJson: cityCodeJson.city
     })
+    // 菜单
+    this.getMenuClass();
 
     // this.setData({
     //   fixedFlag: false,
@@ -101,8 +110,7 @@ Page({
     // this.hotwords();
     // //今日够
     // // this.todayBuy();
-    // // 菜单
-    // this.getMenuClass();
+
   },
   // 定位设置
   setPosition: function () {
@@ -184,6 +192,72 @@ Page({
         // })
       })
   },
+  // 首页Banner
+  getAllTCarouselFigureList: function () {
+    var that = this;
+    app.fetch({
+      url: '/operate/adpos/get_advert_info',
+      data: {
+        advertCode: 20000001,
+        advertType: 2
+      }
+    })
+      .then((response) => {
+        console.info(response)
+        that.setData({
+          imgsDotBanner: response ? response : []
+        })
+      })
+  },
+  // 获取菜单分类
+  getMenuClass: function () {
+    let caidanNav = [{
+      list: [{
+        name: '每周菜谱',
+        id: '001',
+        photoUrl: '/index/shouye/mzcp.png'
+      }, {
+        name: '早餐',
+        id: '002',
+        photoUrl: '/index/shouye/zaoc.png'
+      }, {
+        name: '午餐',
+        id: '003',
+        photoUrl: '/index/shouye/wuc.png'
+      }, {
+        name: '晚餐',
+        id: '004',
+        photoUrl: '/index/shouye/wanc.png'
+      }, {
+        name: '外卖',
+        id: '005',
+        photoUrl: '/index/shouye/wm.png'
+      }, {
+        name: '预定',
+        id: '006',
+        photoUrl: '/index/shouye/yd.png'
+      }, {
+        name: '新品推荐',
+        id: '007',
+        photoUrl: '/index/shouye/xptj.png'
+      }, {
+        name: '热销推荐',
+        id: '008',
+        photoUrl: '/index/shouye/rxtj.png'
+      }, {
+        name: '机器推荐',
+        id: '009',
+        photoUrl: '/index/shouye/jqtj.png'
+      }, {
+        name: '闪餐story',
+        id: '010',
+        photoUrl: '/index/shouye/sc.png'
+      }]
+    }]
+    this.setData({
+      caidanNav: caidanNav
+    })
+  },
   //滑动切换
   swiperTab: function (e) {
     var that = this;
@@ -210,20 +284,7 @@ Page({
     this.setData({
       duration: e.detail.value
     })
-  },
-  // 首页Banner
-  getAllTCarouselFigureList: function () {
-    var that = this;
-    app.fetch({
-      url: '/operate/adpos/get_advert_info?advertCode=20000001'
-    })
-      .then((response) => {
-        console.info(response)
-        that.setData({
-          imgsDotBanner: response ? response : []
-        })
-      })
-  },
+  }, 
   // 获取机器列表
   getRotolList: function () {
     
@@ -253,35 +314,6 @@ Page({
     // console.log(e);data-machineid
     wx.navigateTo({
       url: '../mealDetail/mealDetail?id=' + e.currentTarget.dataset.id + '&machineid=' + e.currentTarget.dataset.machineid,
-    })
-  },
-
-  // 获取菜单分类
-  getMenuClass: function(res){
-    const that = this;
-    wx.request({
-      url: app.globalData.baseUrl + 'appType/gatAllAppType.action',
-      method: "POST",
-      header: { 'content-type': 'application/x-www-form-urlencoded' },
-      success: function(res){
-        // console.log(res);
-        if(res.data.code == 1){
-          if(res.data.data.length>0){
-            var caidanNavArr = [];
-            var swiperNum = Math.ceil(res.data.data.length / 10);
-            for (var j = 0; j < swiperNum; j++) {
-              caidanNavArr.push({list: []});
-              for (var i = j*10; i < (j+1)*10; i++) {
-                if (!res.data.data[i]) return;
-                caidanNavArr[j].list.push(res.data.data[i]);
-                that.setData({
-                  caidanNav: caidanNavArr
-                });
-              }
-            }
-          }  
-        }
-      }
     })
   },
   // 点击预定滚动到预定商品

@@ -13,7 +13,7 @@
     <view class='big-list'>
       <view class='new-product-title'>
         <view class='titleL'>
-          <image class='kefu-icon' src='{{imgdata}}/kefuIcon.png'></image>
+          <image class='kefu-icon' src='{{imgdata}}/index/search/kefuIcon.png'></image>
           <text class='jq-code'>闪餐机器人001</text>
           <text class='shop-name'>（霍营店）</text>
         </view>
@@ -23,13 +23,12 @@
       </view>
       <view class='small-list'>
         <view class="hotPushL fl">
-          <image class="hotPushImg" src="/images/hotPushImg.png"></image>
-          <image class="hotPushIcon" src="/images/hotPushIcon.png"></image>
+          <image class="hotPushImg" src="{{imgdata}}/hotPushImg.png"></image>
+          <image class="hotPushIcon" src="{{imgdata}}/index/search/hotPushIcon.png"></image>
         </view>
         <view class="hotPushR fl">
           <view class="dianNamePosi">
             <text>麻辣香锅加酸辣粉土豆丝加米</text>
-            <!-- <image src="/images/blFly.png" class="fly fr"></image> -->
           </view>
           <view class="psTime">
             <text>麻辣香锅加酸辣土豆粉加米</text>
@@ -49,35 +48,6 @@
           </view>
         </view>
       </view>
-      <view class='small-list'>
-        <view class="hotPushL fl">
-          <image class="hotPushImg" src="/images/hotPushImg.png"></image>
-          <image class="hotPushIcon" src="/images/hotPushIcon.png"></image>
-        </view>
-        <view class="hotPushR fl">
-          <view class="dianNamePosi">
-            <text>麻辣香锅加酸辣粉土豆丝加米</text>
-            <!-- <image src="/images/blFly.png" class="fly fr"></image> -->
-          </view>
-          <view class="psTime">
-            <text>麻辣香锅加酸辣土豆粉加米</text>
-          </view>
-          <view class='price-ctl'>
-            <view class='price'>
-              <view class='price-wrap'>
-                <text class='real-price'>
-                  <text>￥</text>
-                <text>19.5</text>
-                </text>
-              </view>
-            </view>
-            <view class='ctl-btn'>
-               购买
-            </view>
-          </view>
-        </view>
-      </view>
-      <!-- <view class='xuxian'></view> -->
     </view>
   </view>
 </view>

@@ -4,16 +4,14 @@ var optionsObj = {};
 Page({
   data: {
       imgdata: app.globalData.imgdata,
-      searchResultList: [],
-      pageSize: 10,
-      currentPage: 1
+      searchResultList: []
   },
   onLoad: function (options) {
     optionsObj = options;
-    const that = this;
     var searchName = options.name;
+    console.info(searchName)
     // 获取搜索列表
-    that.getSearchGoods(that, searchName);
+    this.getSearchGoods(searchName);
   },
   goSearch: function(){
     if (optionsObj.from == "searchpage") {
@@ -26,30 +24,18 @@ Page({
       })
     }
   },
-  getSearchGoods: function(that, search){
-    wx.request({
-      url: app.globalData.baseUrl + 'tFood/querySearchFoodList.action',
-      method: "POST",
-      header: { 'content-type': 'application/x-www-form-urlencoded' },
+  getSearchGoods: function (searchName){
+    const that = this;
+    app.fetch({
+      url: '/fastfood/foodmachine/keyword/search',
       data: {
-        iDisplayStart: that.data.currentPage,//起始条数
-        iDisplayLength: that.data.pageSize,//每页显示数量
-        foodName: search
-      },
-      success: function(res){
-        console.log(res);
-        if (res.data.aData && res.data.aData.length > 0){
-          that.setData({
-            searchResultList: res.data.aData
-          });
-        }
-      },
-      fail: function(){
-        wx.showToast({
-          title: '数据异常',
-          icon: 'none'
-        })
+        keyword: searchName
       }
     })
+      .then((response) => {
+          that.setData({
+            searchResultList: response
+          });
+      })
   }
 })

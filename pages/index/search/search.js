@@ -37,9 +37,17 @@ Page({
     const searchVal = this.data.inputVal.trim();
     let HistorySearchList = wx.getStorageSync('HistorySearchList') ? wx.getStorageSync('HistorySearchList') : [];
     if (searchVal){
-      HistorySearchList.unshift(searchVal);
-      HistorySearchList = HistorySearchList.slice(0,9);
-      wx.setStorageSync('HistorySearchList', HistorySearchList);
+      let isSetin = true;
+      for (let i = 0; i < HistorySearchList.length; i++) {
+        if (searchVal == HistorySearchList[i]) {
+          isSetin = false;
+        }
+      }
+      if (isSetin) {
+        HistorySearchList.unshift(searchVal);
+        HistorySearchList = HistorySearchList.slice(0, 9);
+        wx.setStorageSync('HistorySearchList', HistorySearchList);
+      }
       wx.navigateTo({
         url: '../hotWords/hotWords?from=searchpage&name=' + searchVal,
       })
@@ -73,9 +81,9 @@ Page({
   },
   //点击搜索历史
   clickSearchHistory: function(e){
-    console.log(e);
     this.setData({
-      inputVal: e.currentTarget.dataset.name
+      inputVal: e.currentTarget.dataset.name,
+      isSearch: true
     });
   },
   //获取热门搜索
@@ -93,9 +101,9 @@ Page({
   },
   //点击热门历史
   clickHotSearch: function (e) {
-    console.info(e)
     this.setData({
-      inputVal: e.currentTarget.dataset.name
+      inputVal: e.currentTarget.dataset.name,
+      isSearch: true
     });
   }
 })

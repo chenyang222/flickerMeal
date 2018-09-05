@@ -38,22 +38,22 @@
     </swiper>
   </view>
   <!-- 菜单导航 -->
-  <!-- <view class="caidanNav">
+  <view class="caidanNav">
     <swiper indicator-dots="{{indicatorDotsCandan}}" interval="{{interval}}" duration="{{duration}}" indicator-color="{{indicatorColor}}" indicator-active-color="{{indicatorActiveColor}}" style="height:330rpx;margin-top:20rpx;">
       <block wx:for="{{caidanNav}}" wx:for-index="index" wx:for-item="item" wx:key="{{index}}">
         <swiper-item style="width:25%;">
           <block wx:for="{{item.list}}" wx:for-item="items" wx:key="{{index}}">
             <view class="list" bindtap='toyuding' data-menuname="{{items.name}}">
               <navigator data-id="{{items.id}}" class='candan-url' url=''>  
-                <image src="{{items.photoUrl}}"></image> 
+                <image src="{{imgdata}}{{items.photoUrl}}"></image> 
                 <text>{{items.name}}</text>
-              </navigator>  
+              </navigator>
             </view>
           </block>
         </swiper-item>
       </block>
     </swiper>
-  </view> -->
+  </view>
   <!-- 活动 -->
   <view class="huodong">
     <view class="huodong4">
