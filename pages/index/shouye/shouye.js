@@ -164,6 +164,7 @@ Page({
               areaCode.push(j);
             }
           }
+          areaCode.push(0);
         } else {
           for (let j = 0; j < cityCodeJson[i].sub.length; j++) {
             if (cityStrArr[1] == cityCodeJson[i].sub[j].name) {
@@ -183,6 +184,7 @@ Page({
       method: 'get',
       data: {
         areaCode: areaCode.join(',')
+        // areaCode: '1,0,0'
       }
     })
       .then((response) => {
