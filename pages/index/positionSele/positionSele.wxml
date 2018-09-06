@@ -1,11 +1,6 @@
 
 <view class='car-container'>
   <view class='head-wrap'>
-    <view class='car-title'>
-      <image class='goback' src='{{imgdata}}/positionClose.png' bindtap='goback'></image>
-      <text class='sele-city-txt'>选择所在城市</text>
-    </view>
-    <view style='margin-top:50px;'></view>
     <view class='city-sele'>
       <view class='seleted-city'>
         <text class='area-name fl'>{{city}}</text>

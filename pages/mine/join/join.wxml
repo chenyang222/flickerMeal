@@ -1,5 +1,5 @@
 <!--pages/mine/join/join.wxml-->
 <!-- <text>pages/mine/join/join.wxml</text> -->
 <view class='join'>
-  <image mode='widthFix' src='{{imgdata}}/mine/join/join_bg.jpg'></image>
+  <image mode='widthFix' src='{{imgdata}}/join_bg.jpg'></image>
 </view>

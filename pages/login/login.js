@@ -32,10 +32,6 @@ Page({
   },
   onLoad: function () {
     var that = this;
-    // 设置微信小程序title
-    wx.setNavigationBarTitle({ 
-      title: '登陆'
-    })
   },
   // 获取验证码
   getIdentifyingCode: function () {

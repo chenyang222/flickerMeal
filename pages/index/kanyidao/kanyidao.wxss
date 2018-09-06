@@ -3,9 +3,6 @@
 page{
   background-color: #f8f8f8;
 }
-.car-container{
- 
-}
 .car-title{
   padding: 25rpx;
   /* position: relative; */
@@ -16,13 +13,6 @@ page{
   z-index: 999;
   width: 93%;
   border-bottom: 1px solid #f7f7f7;
-}
-.goback{
-  width:20rpx;
-  height:34rpx;  
-  position: absolute;
-  left: 25rpx;
-  top: 35rpx;
 }
 .car-title text{
   display: inline-block;
@@ -172,8 +162,8 @@ page{
   position: absolute;
   top: 5rpx;
   left: 0;
-  width:35rpx;
-  height:18rpx;
+  width:49rpx;
+  height:24rpx;
 }
 .hotPushR{
   width: 77%;

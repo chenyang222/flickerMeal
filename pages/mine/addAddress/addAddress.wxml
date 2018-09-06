@@ -29,7 +29,7 @@
             <view class="section" style="height:80rpx;">
             <picker mode="region" bindchange="bindRegionChange" value="{{areaCode}}" custom-item="{{customItem}}" style="height:80rpx;">
              <input id='chooseads' value='{{areaCode[0]}}  {{areaCode[1]}}  {{areaCode[2]}}'  style="height:80rpx;"></input>
-            <image class='chooseaddress' src='{{imgdata}}/mine/addAddress/cf_goright.png'></image>
+            <image class='chooseaddress' src='{{imgdata}}/cf_goright.png'></image>
               <view class="picker">
               </view>
             </picker>

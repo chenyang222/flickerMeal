@@ -8,11 +8,11 @@
       <view class='itemRight'>
         <view class='itemRightTitle'>{{item.name}}</view>
         <view class='term'>
-          <view class='imgs'><image src='{{imgdata}}/mine/coupon/cf_defalut.png'></image></view>
+          <view class='imgs'><image src='{{imgdata}}/cf_defalut.png'></image></view>
           <view class='termTitle'>满{{ item.useRestrict }}元可用</view>
         </view>
         <view class='term'>
-          <view class='imgs'><image src='{{imgdata}}/mine/coupon/cf_defalut.png'></image></view>
+          <view class='imgs'><image src='{{imgdata}}/cf_defalut.png'></image></view>
           <view class='termTitle'>{{item.createTime}}至{{ item.period }}</view>
         </view>
         <view class="state">未使用</view>

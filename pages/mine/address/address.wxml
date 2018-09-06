@@ -5,22 +5,22 @@
   <view class="content" >
       <view class="item">
       <view class='itemLeft'>
-        <image wx:if="{{item.defaultFlag == 0}}" src='{{imgdata}}/mine/address/cf_ditu.png'></image>
-        <image wx:if="{{item.defaultFlag == 1}}" src='{{imgdata}}/mine/address/cf_noDitu.png'></image>
+        <image wx:if="{{item.defaultFlag == 0}}" src='{{imgdata}}/cf_ditu.png'></image>
+        <image wx:if="{{item.defaultFlag == 1}}" src='{{imgdata}}/cf_noDitu.png'></image>
       </view>
       <view class='itemCenter'>
         <view class="itemCenterAddress"><text>{{item.address}}</text></view>
         <view class='itemCenterName'><text>{{item.consignee}}  </text><text>{{ item.mobile }}</text></view>
         <view class='itemCenterDefalut'>
           <view>
-            <image wx:if="{{item.defaultFlag == 0}}" src='{{imgdata}}/mine/address/cf_defalut.png' ></image>
-            <image wx:if="{{item.defaultFlag == 1}}" data-item="{{item}}" bindtap="setDef" src='{{imgdata}}/mine/address/cf_noDefalut.png' id="{{item.id}}"></image>
+            <image wx:if="{{item.defaultFlag == 0}}" src='{{imgdata}}/cf_defalut.png' ></image>
+            <image wx:if="{{item.defaultFlag == 1}}" data-item="{{item}}" bindtap="setDef" src='{{imgdata}}/cf_noDefalut.png' id="{{item.id}}"></image>
           </view>
           <view style='margin-left:8rpx;'><text>设为默认收货地址</text></view>
         </view>
       </view> 
       <view class='itemRight'>
-          <image id="{{item.id}}-{{item.consignee}}-{{item.mobile}}-{{item.areaCode}}-{{ item.address }}-{{item.defaultFlag}}-{{item.sex}}" src='{{imgdata}}/mine/address/cf_editAddress.png' bindtap='editAddress' ></image>
+          <image id="{{item.id}}-{{item.consignee}}-{{item.mobile}}-{{item.areaCode}}-{{ item.address }}-{{item.defaultFlag}}-{{item.sex}}" src='{{imgdata}}/cf_editAddress.png' bindtap='editAddress' ></image>
       </view> 
     </view>
   </view>

@@ -1,10 +1,4 @@
 <view class='car-container'>
-  <view class='car-title'>
-    <image bindtap='goBack' class='goback' src='{{imgdata}}/upload/go_back.png'></image>
-    <text>餐品详情</text>
-    <image class='share' src='{{imgdata}}/upload/shareHui.png'></image>
-  </view>
-  <view style='margin-top:51px;'></view>
   <!-- 轮播 -->
   <view class='lunbo'>
     <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" style='width:750rpx;height:360rpx;' indicator-color="#dbaf80" indicator-active-color="#333333">

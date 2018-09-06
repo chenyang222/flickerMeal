@@ -7,21 +7,21 @@
                 <view>头像</view>
                 <view>
                     <image src='{{userHeadImg}}'></image> 
-                    <image src='{{imgdata}}/mine/cf_goright.png'></image>
+                    <image src='{{imgdata}}/cf_goright.png'></image>
                 </view>
             </view>
             <view class='reviseitem' bindtap="nichshow">
                 <view>昵称</view>
                 <view>
                   <text> {{ usernickname }} </text> 
-                  <image src='{{imgdata}}/mine/cf_goright.png'></image> 
+                  <image src='{{imgdata}}/cf_goright.png'></image> 
                 </view>
             </view>
             <view class='reviseitem' bindtap="actionSheetTap">
                 <view>性别</view>
                 <view>
                      <text> {{ usersex }} </text> 
-                     <image src='{{imgdata}}/mine/cf_goright.png'></image> 
+                     <image src='{{imgdata}}/cf_goright.png'></image> 
                 </view>
             </view>
             <!--性别弹出层  -->
@@ -36,14 +36,14 @@
                 <view>手机号码</view>
                 <view>
                      <text> {{ userphone }} </text> 
-                     <!-- <image src='{{imgdata}}/mine/cf_goright.png'></image> -->
+                     <!-- <image src='{{imgdata}}/cf_goright.png'></image> -->
                 </view>
             </view>
             <!-- <view class='reviseitem'>
                 <view>微信号码</view>
                 <view>
                      <text>已绑定</text> 
-                     <image src='{{imgdata}}/mine/cf_goright.png'></image> 
+                     <image src='{{imgdata}}/cf_goright.png'></image> 
                 </view>
             </view> -->
             <!-- <view class='reviseitem'>

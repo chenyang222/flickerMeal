@@ -6,10 +6,5 @@ Page({
   onLoad: function (options) {
     //console.log(options);
   
-  },
-  goIndex: function(){
-    wx.switchTab({
-      url: '../shouye/shouye'
-    }); 
   }
 })

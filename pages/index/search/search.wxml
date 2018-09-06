@@ -1,6 +1,6 @@
 <view class='search-title'>
   <view class='search-kuang fl'>
-    <image class='search-img fl' src='{{imgdata}}/index/search/searchIcon.png'></image>
+    <image class='search-img fl' src='{{imgdata}}/searchIcon.png'></image>
     <input bindinput="bindKeyInput" value="{{inputVal}}" class='search-input' placeholder='搜索机器/餐品'/>
   </view>
   <view wx:if="{{!isSearch}}" class='cancel-btn fr' bindtap='goIndex'><text>取消</text></view>
@@ -9,7 +9,7 @@
 <view class='history-search'>
   <view class='history-search-title'>
     <text class='title-txt fl'>历史搜索</text>
-    <image bindtap='clearHistory' class='del-img fr' src='{{imgdata}}/index/search/delIcon.png'></image>
+    <image bindtap='clearHistory' class='del-img fr' src='{{imgdata}}/delIcon.png'></image>
   </view>
   <view class='history-list-wrap'>
     <block wx:if="{{searchListArr.length>0}}">

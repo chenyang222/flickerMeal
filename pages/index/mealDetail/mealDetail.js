@@ -38,11 +38,6 @@ Page({
       duration: e.detail.value
     })
   },
-  goBack: function(){
-    wx.navigateBack({
-      delta: 1
-    })
-  },
   onLoad: function(options){
     // console.log(options);
     this.setData({ options: options});

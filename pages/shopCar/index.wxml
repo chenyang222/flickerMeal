@@ -1,11 +1,6 @@
 <!--index.wxml-->
 <!-- <view wx:if="{{carListDataArr.length > 0}}"> -->
 <view class="container" wx:if="{{carListDataArr.length > 0}}">
-
-  <!-- <view class='car-title'>
-    <image class='goback' src='{{imgdata}}/upload/go_back.png'></image>
-    <text>购物车</text>
-  </view> -->
   <view class='order-name' bindtap='goIndex'>
     <text class='goname'>{{madichInfo.mName}}</text>
     <image class='goright' src='{{imgdata}}/upload/cf_goright.png'></image>

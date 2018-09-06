@@ -1,11 +1,6 @@
 <!--pages/index/newProductRecom/newProductRecom.wxml-->
 <!-- <text>pages/index/newProductRecom/newProductRecom.wxml</text> -->
 <view class='car-container'>
-  <view class='car-title'>
-    <image bindtap='goIndex' class='goback' src='{{imgdata}}/go_back.png'/>
-    <text>砍一刀</text>
-  </view>
-  <view style='margin-top:60px;'></view>
   <!-- 列表 -->
   <view class="hotPush">
     <view class='big-list'>
@@ -23,13 +18,12 @@
       </view>
       <view class='small-list'>
         <view class="hotPushL fl">
-          <image class="hotPushImg" src="/images/hotPushImg.png"></image>
-          <image class="hotPushIcon" src="/images/hotPushIcon.png"></image>
+          <image class="hotPushImg" src="{{imgdata}}/hotPushImg.png"></image>
+          <image class="hotPushIcon" src="{{imgdata}}/hotPushIcon.png"></image>
         </view>
         <view class="hotPushR fl">
           <view class="dianNamePosi">
             <text>麻辣香锅加酸辣粉土豆丝加米</text>
-            <!-- <image src="/images/blFly.png" class="fly fr"></image> -->
           </view>
           <view class="psTime">
             <text>仅剩2份</text>
@@ -75,13 +69,12 @@
       </view>
       <view class='small-list'>
         <view class="hotPushL fl">
-          <image class="hotPushImg" src="/images/hotPushImg.png"></image>
-          <image class="hotPushIcon" src="/images/hotPushIcon.png"></image>
+          <image class="hotPushImg" src="{{imgdata}}/hotPushImg.png"></image>
+          <image class="hotPushIcon" src="{{imgdata}}/hotPushIcon.png"></image>
         </view>
         <view class="hotPushR fl">
           <view class="dianNamePosi">
             <text>麻辣香锅加酸辣粉土豆丝加米</text>
-            <!-- <image src="/images/blFly.png" class="fly fr"></image> -->
           </view>
           <view class="psTime">
             <text>仅剩2份</text>
@@ -110,84 +103,6 @@
           </view>
         </view>
       </view>
-      <view class='xuxian'></view> 
-      <view class='small-list'>
-        <view class="hotPushL fl">
-          <image class="hotPushImg" src="/images/hotPushImg.png"></image>
-          <image class="hotPushIcon" src="/images/hotPushIcon.png"></image>
-        </view>
-        <view class="hotPushR fl">
-          <view class="dianNamePosi">
-            <text>麻辣香锅加酸辣粉土豆丝加米</text>
-            <!-- <image src="/images/blFly.png" class="fly fr"></image> -->
-          </view>
-          <view class="psTime">
-            <text>仅剩2份</text>
-          </view>
-          <view class="manjian">
-            <text class='mark-name'>新品</text>
-            <text class="manjianTxt">5折优惠</text>
-          </view>
-          <view class='jinfu-tiao'><progress percent="50" stroke-width="8.5" active-color='#FD5792'/></view>
-          <view class='price-ctl'>
-            <view class='price'>
-              <view class='price-wrap'>
-                <text class='real-price'>
-                  <text>￥</text>
-                <text>19.5</text>
-                </text>
-                <text class='yuan-price'>
-                  <text>￥</text>
-                <text>29.5</text>
-                </text>
-              </view>
-            </view>
-            <navigator class='ctl-btn' url="../kjPurchase/kjPurchase" hover-class="navigator-hover">
-              马上砍
-            </navigator>
-          </view>
-        </view>
-      </view>
-      <view class='xuxian'></view>
-      <view class='small-list'>
-        <view class="hotPushL fl">
-          <image class="hotPushImg" src="/images/hotPushImg.png"></image>
-          <image class="hotPushIcon" src="/images/hotPushIcon.png"></image>
-        </view>
-        <view class="hotPushR fl">
-          <view class="dianNamePosi">
-            <text>麻辣香锅加酸辣粉土豆丝加米</text>
-            <!-- <image src="/images/blFly.png" class="fly fr"></image> -->
-          </view>
-          <view class="psTime">
-            <text>仅剩2份</text>
-          </view>
-          <view class="manjian">
-            <text class='mark-name'>新品</text>
-            <text class="manjianTxt">5折优惠</text>
-          </view>
-          <view class='jinfu-tiao'><progress percent="50" stroke-width="8.5" active-color='#FD5792'/></view>
-          <view class='price-ctl'>
-            <view class='price'>
-              <view class='price-wrap'>
-                <text class='real-price'>
-                  <text>￥</text>
-                <text>19.5</text>
-                </text>
-                <text class='yuan-price'>
-                  <text>￥</text>
-                <text>29.5</text>
-                </text>
-              </view>
-            </view>
-            <navigator class='ctl-btn' url="../kjPurchase/kjPurchase" hover-class="navigator-hover">
-              马上砍
-            </navigator>
-          </view>
-        </view>
-      </view>
-      <!-- <view class='xuxian'></view>  -->
-      <!-- <view class='xuxian'></view> -->
     </view>
   </view>
 </view>

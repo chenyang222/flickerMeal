@@ -3,7 +3,7 @@
 <view class='car-container'>
   <view class='car-title'>
     <view class='search-kuang fl' bindtap='goSearch'>
-      <image class='search-img fl' src='{{imgdata}}/index/search/searchIcon.png'></image>
+      <image class='search-img fl' src='{{imgdata}}/searchIcon.png'></image>
       <input class='search-input' placeholder=''  value='果粒橙'/>
     </view>
   </view>
@@ -13,7 +13,7 @@
     <view class='big-list'>
       <view class='new-product-title'>
         <view class='titleL'>
-          <image class='kefu-icon' src='{{imgdata}}/index/search/kefuIcon.png'></image>
+          <image class='kefu-icon' src='{{imgdata}}/kefuIcon.png'></image>
           <text class='jq-code'>闪餐机器人001</text>
           <text class='shop-name'>（霍营店）</text>
         </view>
@@ -24,7 +24,7 @@
       <view class='small-list'>
         <view class="hotPushL fl">
           <image class="hotPushImg" src="{{imgdata}}/hotPushImg.png"></image>
-          <image class="hotPushIcon" src="{{imgdata}}/index/search/hotPushIcon.png"></image>
+          <image class="hotPushIcon" src="{{imgdata}}/hotPushIcon.png"></image>
         </view>
         <view class="hotPushR fl">
           <view class="dianNamePosi">

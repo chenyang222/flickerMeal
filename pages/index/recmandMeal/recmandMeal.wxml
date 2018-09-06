@@ -1,11 +1,6 @@
 <!--pages/index/newProductRecom/newProductRecom.wxml-->
 <!-- <text>pages/index/newProductRecom/newProductRecom.wxml</text> -->
 <view class='car-container'>
-  <!-- <view class='car-title'>
-    <image class='goback' src='{{imgdata}}/go_back.png'></image>
-    <text>推荐餐品</text>
-  </view> -->
-  <!-- <view style='margin-top:60px;'></view> -->
   <!-- 列表 -->
   <view class="hotPush">
     <view class='big-list'>

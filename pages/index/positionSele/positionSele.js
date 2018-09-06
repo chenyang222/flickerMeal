@@ -180,10 +180,5 @@ Page({
     },500)
     app.globalData.addre = this.data.newddata
   },
-  // 返回
-  goback:function(){
-    wx.navigateBack({
-      delta: 1
-    })
-  },
+  bindScroll: function () {},
 })

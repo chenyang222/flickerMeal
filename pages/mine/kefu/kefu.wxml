@@ -15,7 +15,7 @@
             </view>
             <view class='listright' bindtap='telphone' id="{{item}}">
                 <text id="{{item}}">{{item}}</text>
-                <image src='{{imgdata}}/mine/kefu/yh_phone.png' id="{{item}}"></image>
+                <image src='{{imgdata}}/yh_phone.png' id="{{item}}"></image>
             </view>
         </view>
 

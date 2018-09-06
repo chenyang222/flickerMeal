@@ -2,10 +2,6 @@
 <!-- <text>pages/order/index.wxml</text> -->
 
 <view class='order-container'>
-  <!-- 订单标题 -->
-  <view class='order-title'>
-    <text>订单</text>
-  </view>
   <!-- 切换 -->
   <view class="swiper-tab">
     <view class="swiper-tab-list {{currentTab==0 ? 'on' : ''}}" data-current="0" bindtap="swichNav">全部订单</view>

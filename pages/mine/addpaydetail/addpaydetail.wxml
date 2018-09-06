@@ -1,11 +1,6 @@
 <!--pages/mine/addpaydetail/addpaydetail.wxml-->
 <!-- <text>pages/mine/addpaydetail/addpaydetail.wxml</text> -->
 <view class='addpaydetail'>
-    <!-- <view class='car-title'>
-      <image class='goback' src='{{imgdata}}/go_back.png'></image>
-      <text>充值明细</text>
-    </view> -->
-
     <view class='fulllist'>
         <view class='fullitem'>
             <view class='itemleft'>

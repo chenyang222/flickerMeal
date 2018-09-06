@@ -2,7 +2,7 @@
 <!-- <text>pages/mine/pay/pay.wxml</text> -->
 <view class='join'>
     <view class='yueimg'>
-      <image mode='widthFix' src='{{imgdata}}/mine/pay/yh_yue.png'></image>
+      <image mode='widthFix' src='{{imgdata}}/yh_yue.png'></image>
       <view class='rechargeBox'>
         <view class='title'>账户余额</view>
         <view class='rechargerule'>

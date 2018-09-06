@@ -1,10 +1,6 @@
 <!--pages/mine/authorize/authorize.wxml-->
 <!-- <text>pages/mine/authorize/authorize.wxml</text> -->
 <view class='authorize'>
-    <!-- <view class='car-title'>
-      <image class='goback' src='{{imgdata}}/go_back.png'></image>
-      <text>闪餐授权</text>
-    </view> -->
     <image class='authorlogo' src='{{imgdata}}/yh_authorize.png'></image>
     <view class='wechart'>
       <image class='authorlogo' src='{{imgdata}}/yh_wechart.png'></image>
@@ -12,6 +8,5 @@
     </view>
     <view class='recharge' >授权并登录</view>
     <view class='publicmsg'><image src='{{imgdata}}/cf_defalut.png'></image><text>获取你的公开信息（昵称，头像等）</text></view>
-
     <view class='protocol'><text>授权后表明您已同意授权协议</text></view>
 </view>

@@ -14,6 +14,9 @@ Page({
     currentCity: '',
     cityCodeJson: [], // city.js
 
+    autoplay: true,
+    imgsDotBanner: [], // 轮播banner
+
     indicatorDotsCandan: true, //
     interval: 5000,
     duration: 1000,
@@ -31,12 +34,12 @@ Page({
     currentSwiper: 0,
     indicatorDots: false,
     
+    nearbyRoto1: {}, //附近的机器(第一个数据)
+    Rotos: [], // 机器列表
     
-    autoplay: true,
+    recomTC: '',  //推荐套餐
     
     
-    circular: true,
-    imgsDotBanner: [],
     
     remomendPack:[
       {
@@ -59,8 +62,6 @@ Page({
         ]
       }
     ],
-    //附近的机器(第一个数据)
-    nearbyRoto1:'',
     //附近的机器(剩余机器数据)
     nearbyRoto:'',
     //附近机器人弹窗状态
@@ -71,8 +72,6 @@ Page({
     hotwordNameArr:'',
     //第一个机器的id
     firstRotoId:'',
-    //推荐套餐
-    recomTC:'',
     todayBuy: [],//今日购
     todayBuyList: [],//今日购
     sessionid: '',//登录时sessionid也就是token
@@ -92,14 +91,17 @@ Page({
     // 设置定位
     this.setPosition();
     // 广告轮播
-    this.getAllTCarouselFigureList();
+    // this.getAllTCarouselFigureList();
     // city.js 引入data
     this.setData({
       cityCodeJson: cityCodeJson.city
     })
     // 菜单
     this.getMenuClass();
-
+    // 推荐餐品
+    this.getRecomtc();
+    // 今日够
+    this.todayBuy();
     // this.setData({
     //   fixedFlag: false,
     //   boxTop: 0
@@ -108,8 +110,6 @@ Page({
     // this.nearbyRoboData();
     // //热词（搜索下方热门餐品）
     // this.hotwords();
-    // //今日够
-    // // this.todayBuy();
 
   },
   // 定位设置
@@ -187,9 +187,26 @@ Page({
     })
       .then((response) => {
         console.info(response)
-        // that.setData({
-
-        // })
+        // 获取推荐机器人
+        that.setData({
+          nearbyRoto1: {
+            photoUrl: 'hotPushImg.png',
+            mName: '推荐第一机器人',
+            road: '田园风光雅苑',
+            salesCount: '11111'
+          },
+          Rotos: [{
+            photoUrl: 'hotPushImg.png',
+            mName: '推荐第一机器人',
+            road: '田园风光雅苑',
+            salesCount: '11111'
+          }, {
+            photoUrl: 'hotPushImg.png',
+            mName: '推荐第一机器人',
+            road: '田园风光雅苑',
+            salesCount: '11111'
+          }]
+        })
       })
   },
   // 首页Banner
@@ -215,49 +232,80 @@ Page({
       list: [{
         name: '每周菜谱',
         id: '001',
-        photoUrl: '/index/shouye/mzcp.png'
+        photoUrl: '/mzcp.png'
       }, {
         name: '早餐',
         id: '002',
-        photoUrl: '/index/shouye/zaoc.png'
+        photoUrl: '/zaoc.png'
       }, {
         name: '午餐',
         id: '003',
-        photoUrl: '/index/shouye/wuc.png'
+        photoUrl: '/wuc.png'
       }, {
         name: '晚餐',
         id: '004',
-        photoUrl: '/index/shouye/wanc.png'
+        photoUrl: '/wanc.png'
       }, {
         name: '外卖',
         id: '005',
-        photoUrl: '/index/shouye/wm.png'
+        photoUrl: '/wm.png'
       }, {
         name: '预定',
         id: '006',
-        photoUrl: '/index/shouye/yd.png'
+        photoUrl: '/yd.png'
       }, {
         name: '新品推荐',
         id: '007',
-        photoUrl: '/index/shouye/xptj.png'
+        photoUrl: '/xptj.png'
       }, {
         name: '热销推荐',
         id: '008',
-        photoUrl: '/index/shouye/rxtj.png'
+        photoUrl: '/rxtj.png'
       }, {
         name: '机器推荐',
         id: '009',
-        photoUrl: '/index/shouye/jqtj.png'
+        photoUrl: '/jqtj.png'
       }, {
         name: '闪餐story',
         id: '010',
-        photoUrl: '/index/shouye/sc.png'
+        photoUrl: '/sc.png'
       }]
     }]
     this.setData({
       caidanNav: caidanNav
     })
   },
+  // 获取推荐套餐
+  getRecomtc: function () {
+    let recomTC = [{
+        foodName: '煎饼套餐',
+        id: '001',
+        machineId: '001',
+        salesNum: '111',
+        praiseRate: '100',
+        selling: '21',
+        photoUrl: '/tt1.png'
+      }, {
+        foodName: '鸡蛋炒饭',
+        id: '002',
+        machineId: '002',
+        salesNum: '111',
+        praiseRate: '100',
+        selling: '16',
+        photoUrl: '/tt2.png'
+      }, {
+        foodName: '煎饼套餐',
+        id: '003',
+        machineId: '003',
+        salesNum: '111',
+        praiseRate: '100',
+        selling: '21',
+        photoUrl: '/tt1.png'
+      }]
+    this.setData({
+      recomTC: recomTC
+    })
+  },  
   //滑动切换
   swiperTab: function (e) {
     var that = this;
@@ -386,27 +434,6 @@ Page({
       prevOrdermealId: e.currentTarget.dataset.id
     });
   },
-  //首页专题及详细数据初始化
-  /*
-   initdata:function(){
-    wx.request({
-      url: app.globalData.baseUrl + 'appSendNews/queryAppSendNewsList.action', //仅为示例，并非真实的接口地址
-      data: {
-        id:''
-      },
-      header: {
-        'content-type': 'application/json' // 默认值
-      },
-      success: function (res) {
-        console.log(res.data)
-        wx.showToast({
-          title: res.data.msg,
-          icon: 'none'
-        })
-      }
-    })
-    },
-  */
   //附近机器人数据
   nearbyRoboData:function(){
     var that = this;
