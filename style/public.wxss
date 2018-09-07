@@ -10,3 +10,57 @@
 body{
   font-family:SourceHanSansCN-Normal;
 }
+.machine{
+  width: 90%;
+  padding: 3% 5%;
+  display: flex;
+  margin-top: 2%;
+  background-color: #ffffff;
+}
+.machine .machine-left{
+  width: 30%;
+  margin-right: 5%;
+  position: relative;
+}
+.machine .machine-left .machineImg{
+  width: 100%;
+}
+.machine .machine-left .machineIcon{
+  width: 75rpx;
+  height: 36rpx;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.machine .machine-right{
+  width: 65%;
+}
+.machine .machine-right .machineName{
+  display: flex;
+  justify-content: space-between;
+  height: 34rpx;
+  line-height: 34rpx;
+}
+.machine .machine-right .machineName text{
+  font-size: 24rpx;
+}
+.machine .machine-right .machineName .fly{
+  width: 35rpx;
+  height: 30rpx;
+  vertical-align: middle;
+}
+.machine .machine-right .manjian .manjianBox{
+  display: flex;
+  align-items: center;
+  margin-top: 15rpx;
+}
+.machine .machine-right .manjian .manjianBox image{
+  width: 50rpx;
+  height: 28rpx;
+  display: inline-block;
+  margin-right: 15rpx;
+}
+.machine .machine-right .manjian .manjianBox text{
+  font-size: 20rpx;
+  color:rgba(61,61,61,1);
+}

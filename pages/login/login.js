@@ -119,7 +119,7 @@ Page({
           // token data 处理
           app.handleToken(res.data)
           wx.reLaunch({
-            url: '/pages/index/shouye/shouye'
+            url: '/pages/index/machine/machine'
           })
         } else {
           wx.showToast({

@@ -8,10 +8,6 @@
         <text class="fl currentCity">{{currentCity}}</text>
         <image class="locaDetailSeleIcon fl" src="{{imgdata}}/zbl-indexHeaderSele.png"></image>
       </view>
-      <!-- <view class="juli fr">
-        <text class="juliCar fr">外卖距您还有1.3km</text>
-        <image class="juliCarIcon fr" src="{{imgdata}}/zbl-waimaiCar.png"></image>
-      </view> -->
     </view>
   </view>
   <!-- 搜索栏 -->
@@ -38,7 +34,7 @@
     </swiper>
   </view>
   <!-- 菜单导航 -->
-  <view class="caidanNav">
+  <view wx:if="{{caidanNav.length > 0}}" class="caidanNav">
     <swiper indicator-dots="{{indicatorDotsCandan}}" interval="{{interval}}" duration="{{duration}}" indicator-color="{{indicatorColor}}" indicator-active-color="{{indicatorActiveColor}}" style="height:330rpx;margin-top:20rpx;">
       <block wx:for="{{caidanNav}}" wx:for-index="index" wx:for-item="item" wx:key="{{index}}">
         <swiper-item style="width:25%;">
@@ -54,190 +50,56 @@
       </block>
     </swiper>
   </view>
-  <!-- 活动 -->
-  <view class="huodong">
-    <view class="huodong4">
-      <navigator class="huodong4List huodong4List1"  url="../kanyidao/kanyidao"  hover-class="other-navigator-hover">
-        <view class="huodong4ListLT">
-          <text class="listLT1">砍一刀</text>
-          <text class="listLT2">超值美味限时抢购</text>
-          <navigator url="">
-            <text class="listLT3">500人</text>
-            <text class="listLT4">正在抢></text>
-          </navigator>
+  <!-- 优惠券 -->
+  <view>
+    <view class="couponPart">
+      <view class='couponBox' wx:for="{{couponList}}" wx:for-item="item" wx:key="{{index}}" data-id='item.id'>
+        <image class='bg' mode='widthFix' src="{{imgdata}}/couponBg.png"></image>
+        <view class='couponPrice'>
+          <text class='price'>{{item.amount}}</text>
+          <text class='unit'>{{item.type == 0 ? '元' : '折'}}</text>
         </view>
-        <view class="huodong4ListRB">
-          <image src="{{imgdata}}/canpin1.png"></image>
-        </view>
-      </navigator>
-      <navigator class="huodong4List huodong4List2"  url="../discount/discount"  hover-class="other-navigator-hover">
-        <view class="huodong4ListLT">
-          <text class="listLT1">限时秒杀</text>
-          <text class="listLT2">超值美味限时秒杀</text>
-          <navigator url="">
-            <text class="listLT3"></text>
-            <text class="listLT4">立即抢购></text>
-          </navigator>
-        </view>
-        <view class="huodong4ListRB">
-          <image src="{{imgdata}}/canpin2.png"></image>
-        </view>
-      </navigator>
-      <navigator class="huodong4List huodong4List3"  url="../discount/discount"  hover-class="other-navigator-hover">
-        <view class="huodong4ListLT">
-          <text class="listLT1">一口价</text>
-          <text class="listLT2">超值美味最低价</text>
-          <navigator url="">
-            <text class="listLT3">500人</text>
-            <text class="listLT4">正在抢></text>
-          </navigator>
-        </view>
-        <view class="huodong4ListRB">
-          <image src="{{imgdata}}/canpin3.png"></image>
-        </view>
-      </navigator>
-      <navigator class="huodong4List huodong4List3" url="../discount/discount"  hover-class="other-navigator-hover">
-        <view class="huodong4ListLT">
-          <text class="listLT1">限时秒杀</text>
-          <text class="listLT2">超值美味限时秒杀</text>
-          <navigator url="">
-            <text class="listLT3"></text>
-            <text class="listLT4">立即抢购></text>
-          </navigator>
-        </view>
-        <view class="huodong4ListRB">
-          <image src="{{imgdata}}/canpin4.png"></image>
-        </view>
-      </navigator>
-    </view>
-    <!-- 活动红包 -->
-    <view class="huodong1">
-      <view class="huodong1List">
-        <view class="huodong1ListL fl">
-          <text class="numYuan">4</text>
-          <text class="danwei">元</text>
-        </view>
-        <view class="huodong1ListR fr">
-          <text class="hbType">开工红包</text>
-          <text class="lingquBtn">领取</text>
-        </view>
-      </view>
-      <view class="huodong1List">
-        <view class="huodong1ListL fl">
-          <text class="numYuan">4</text>
-          <text class="danwei">元</text>
-        </view>
-        <view class="huodong1ListR fr">
-          <text class="hbType">开工红包</text>
-          <text class="lingquBtn">领取</text>
-        </view>
-      </view>
-      <view class="huodong1List">
-        <view class="huodong1ListL fl">
-          <text class="numYuan">4</text>
-          <text class="danwei">元</text>
-        </view>
-        <view class="huodong1ListR fr">
-          <text class="hbType">开工红包</text>
-          <text class="lingquBtn">领取</text>
+        <view class='nameBtn'>
+          <text class='name'>{{item.name}}</text>
+          <text class='btn'>领取</text>
         </view>
       </view>
     </view>
-    <view class="keling">
+    <!-- <view class="isCanGet">
       <text>有8张优惠券可领</text>
       <image src="{{imgdata}}/youhuixiala.png"></image>
-    </view>
-  </view>
-  <!-- wrap -->
-    <!-- 热推 -->
-  <view class="ctnWrap">
+    </view> -->
+
     <view style="height:20rpx;background-color: #f8f8f8;"></view>
-    <view class="hotPush">
-      <view class="hotPushL fl">
-        <image class="hotPushImg" src="{{imgdata}}/{{nearbyRoto1.photoUrl}}"></image> 
-        <image class="hotPushIcon" src="{{imgdata}}/hotPushIcon.png"></image>
-      </view>
-      <view class="hotPushR fl">
-        <view class="dianNamePosi">{{nearbyRoto1.mName}}（{{nearbyRoto1.road}}）</view>
-        <view class="xingSale">
-          <image src="{{imgdata}}/blXing.png"></image>
-          <image src="{{imgdata}}/blXing.png"></image>
-          <image src="{{imgdata}}/blXing.png"></image>
-          <image src="{{imgdata}}/blXing.png"></image>
-          <image src="{{imgdata}}/blXing.png"></image>
-          <text>4.6</text>
-          <text>|</text>
-          <text>月售：{{nearbyRoto1.salesCount}}</text>
+
+    <!-- 推荐套餐 -->
+    <view class='recomendPart'>
+      <view class='recomentHeader'>
+        <view>
+          <image class="line" src="{{imgdata}}/blRecomendIcon.png"></image>
+          <text class="recomendTxt">推荐套餐</text>
         </view>
-        <!-- <view class="psTime">
-          <text>商家配送约23分钟</text>
-          <image src="{{imgdata}}/blDingwei.png" class="fly fr"></image>
-        </view> -->
-        <view class="manjian">
-          <image class="manjianIcon" src="{{imgdata}}/blmanjian.png"></image>
-          <text class="manjianTxt">满49减2，满60减12</text>
-          <image class="youhuixiala fr" src="{{imgdata}}/youhuixiala.png"></image>
-          <text class="youhuiNum fr">8个优惠</text>
-        </view>
-        <view class="otherJiQi" bindtap='nearbyRotoLa'>
-          <image class="dingWeiIcon fl" src="{{imgdata}}/blDingwei.png"></image>
-          <text class="otherJiQiTxt fl">附近还有{{nearbyRoto.length}}家闪餐机器</text>
-          <image class="otherJiQixiala fr" src="{{imgdata}}/youhuixiala.png"></image>
-          <view style='clear:both;'></view>
+        <view>
+          <navigator url="/pages/index/recmandMeal/recmandMeal" hover-class="navigator-hover">
+            <text class="moreTxt">更多</text>
+            <image class="moreIcon" src="{{imgdata}}/cf_goright.png"></image>
+          </navigator>
         </view>
       </view>
-      <view style='clear:both'></view>
-      <!-- 近机器弹窗 -->
-      <view class='nearByRotoPopWrap {{status}}'>
-        <view class='nearByRotoPop'>
-          <view class='rotoList' wx:for="{{Rotos}}" wx:key="{{index}}">
-            <span >{{item.mName}}（{{item.road}}）</span>
-            <span class="fr">2.0km</span>
-            <!-- <span>|</span>
-            <span>30分钟</span> -->
+      <view class='recomentContent'>
+        <view class='recomentBox' wx:for="{{recomTC}}" wx:for-item="item" wx:key="{{index}}">
+          <image class="picture" src="{{item.picture}}"></image>
+          <text class='reName'>{{item.name}}</text>
+          <view wx:if="{{item.hotNum}}" class="recomentNum">推荐指数
+<text>{{item.hotNum}}</text></view>
+          <view class='addGoods'>
+            <view class="price">￥<text>{{item.showPrice}}</text></view>
+            <image class='add' src="{{imgdata}}/blAdd.png"></image>
           </view>
         </view>
-        <view class='sanjiao' bindtap='nearbyRotoLahide'></view>
       </view>
     </view>
-    <!-- 推荐套餐 -->
-    <view style="height:20rpx;background-color: #f8f8f8;"></view>
-    <view class="recomendPack">
-      <view class="taocanTitle">
-        <image class="recomendIcon fl" src="{{imgdata}}/blRecomendIcon.png"></image>
-        <text class="recomendTxt fl">推荐套餐</text>
-        <image class="moreIcon fr" src="{{imgdata}}/cf_goright.png"></image>
-        <navigator url="/pages/index/recmandMeal/recmandMeal" hover-class="navigator-hover"><text class="moreTxt fr">更多</text></navigator>
-      </view>
-      <view>
-        <swiper indicator-dots="{{indicatorDots}}" interval="{{interval}}" duration="{{duration}}" style="">
-          <swiper-item>
-            <view class="listWrapWrap" wx:for="{{recomTC}}" wx:for-item="item" wx:key="{{index}}">
-              <view class="listWrap">
-                <view class="taocanListimgWrap" bindtap='goMealDetail' data-id="{{item.id}}" data-machineid="{{item.machineId}}">
-                  <image class="taocanListimgIcon" src="{{imgdata}}/hotPushIcon.png"></image> 
-                  <image class="taocanListimg" src="{{imgdata}}{{item.photoUrl}}"></image> 
-                </view>
-                <view class="caiming">{{item.foodName}}</view>
-                <view class="xiaoping clearfloat">
-                  <view class="monthSale fl">月销<text>{{item.salesNum}}</text>
-                  </view>
-                  <view wx:if="{{item.praiseRate}}" class="haoping fr">好评率<text>{{item.praiseRate}}%</text>
-                  </view>
-                </view>
-                <view class="jiaCtl clearfloat">
-                  <view class="danjiaCtl fl">￥<text>{{item.selling}}</text>
-                  </view>
-                  <view class="addCtl fr" bindtap='addBuyCar' data-id="{{item.id}}" data-machineid="{{item.machineId}}">
-                    <image src="{{imgdata}}/blAdd.png"></image>
-                  </view>
-                </view>
-              </view>
-            </view>
-          </swiper-item>
-        </swiper>
-      </view>
-    </view>
+
     <!-- 今日购、预定、评价 -->
     <view id='theid' class="gouYudingPingWrap" bindtouchmove='handleTouchmove' bindtouchstart='handleTouchstart'>
       <view class="tabWrap" style='padding-top: 20rpx;'>
@@ -680,38 +542,7 @@
   <view class="manjianPop">
     <text>满10减2，满20减4, 满40减5，满80减10, 满100减40</text>
   </view>
-  <!-- 底部 -->
-  <!-- <view class='footer'>
-    <view class='list'>
-      <view class='footer_item'>
-        <view class='footer_img'>
-          <image src='../../images/cf_nav1.png'></image>
-        </view>
-        <view class='footer_title'>点餐</view> 
-      </view>
-      <view class='footer_item'>
-      <view class='footer_img'>
-        <image src='../../images/cf_nav2.png'></image>
-      </view>
-      <view class='footer_title'>订单</view> 
-    </view>
-    <view class='footer_item'>
-      <view class='footer_img'>
-        <image src='../../images/cf_nav3.png'></image>
-      </view>
-      <view class='footer_title'>购物车</view> 
-    </view>
-    <view class='footer_item'>
-      <view class='footer_img'>
-        <image src='../../images/cf_nav4on.png'></image>
-      </view>
-      <view class='footer_title on'>我的</view> 
-    </view>
-    </view>
-  </view> -->
-
   <view class='pop' style='display:none;'></view>
-
   <!-- 点选规格弹窗 -->
   <view class='addgoods-guigepop' style='display:none;'>
     <view class='biglist1'>
@@ -855,8 +686,6 @@
     <view class='contDetail recomondgoods'>
       <view class='title'>品质生活，推荐美味</view>
       <view class='cont'>
-        <view>{{latitude}}</view>
-        <view>{{longitude}}</view>
         <!-- <block wx:for="{{recomTC}}" wx:key="{{index}}">
           <view class='contItem' bindtap='goMealDetail' data-id="{{item.id}}" data-machineid="{{item.machineId}}">
             <image src="{{imgdata}}/{{item.url}}"/> 

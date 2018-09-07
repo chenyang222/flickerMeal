@@ -10,9 +10,6 @@ Page({
   },
   onLoad: function (options) {
     const that = this;
-    wx.setNavigationBarTitle({
-      title: '搜索'
-    })
     // 设置历史搜索
     this.getSearchHistoryLatest();
     // 获取热门搜索

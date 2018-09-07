@@ -2,17 +2,13 @@
 //获取应用实例
 const app = getApp()
 var bmap = require('../../../utils/bmap-wx.min.js'); // 引入百度地图js
-var wxMarkerData = []; //定位成功回调对象  
-var cityCodeJson = require('../../../utils/cityCode.js'); // 引入cityJson.js
+var wxMarkerData = []; //定位成功回调对象
 Page({
   data: {
     imgdata: app.globalData.imgdata,
 
     ak: 'NPfvQSlaxLvtuBWm4YDVwecQNoTACuUY', // 填写申请到的ak
-    latitude: '', // 纬度
-    longitude: '',// 经度
     currentCity: '',
-    cityCodeJson: [], // city.js
 
     autoplay: true,
     imgsDotBanner: [], // 轮播banner
@@ -22,59 +18,26 @@ Page({
     duration: 1000,
     indicatorColor: '#D5D5D5',
     indicatorActiveColor: '#F1A101',
+
+    machineId: '', // 当前选择机器Id
+    couponList: [], // 优惠券
+
     caidanNav: [],
 
     address: '', //地址
     newddata: '',
     currentTab: 0,
-    motto: 'Hello World',
-    userInfo: {},
-    hasUserInfo: false,
-    canIUse: wx.canIUse('button.open-type.getUserInfo'),
     currentSwiper: 0,
     indicatorDots: false,
     
-    nearbyRoto1: {}, //附近的机器(第一个数据)
-    Rotos: [], // 机器列表
-    
     recomTC: '',  //推荐套餐
     
-    
-    
-    remomendPack:[
-      {
-        list: [
-          {
-            imgIcon: app.globalData.imgdata +'/upload/blShuangpin.png',
-            img: app.globalData.imgdata +'/upload/breakfast@2x.png',
-            txt: '鸡蛋炒饭',
-            monthSale:'300',
-            praise:'100%'
-          },
-          {
-            img: app.globalData.imgdata+'/wucan.png',
-            txt: '午餐'
-          },
-          {
-            img: app.globalData.imgdata+'/wancan.png',
-            txt: '晚餐'
-          }
-        ]
-      }
-    ],
-    //附近的机器(剩余机器数据)
-    nearbyRoto:'',
-    //附近机器人弹窗状态
-    status:'hide',
     //遮罩状态
     popStatus:'hide',
     //搜索下热词（餐品）
     hotwordNameArr:'',
-    //第一个机器的id
-    firstRotoId:'',
     todayBuy: [],//今日购
     todayBuyList: [],//今日购
-    sessionid: '',//登录时sessionid也就是token
     toView: '',
     styleStr: '',
     modelstyle: '',
@@ -83,33 +46,30 @@ Page({
     startY: 0,//记录touchstart时位置
     pinglunList: [],//评论列表
     boxTop: 0,//记录今日购、预定、评论的距离顶部高度0时固定定位
-    fixedFlag: false,//记录今日购、预定、评论的距离顶部高度0时固定定位
-    lunboArrData:''//广告轮播
+    fixedFlag: false//记录今日购、预定、评论的距离顶部高度0时固定定位
   },
   onLoad: function (option) {
-    var that = this;
     // 设置定位
     this.setPosition();
     // 广告轮播
     // this.getAllTCarouselFigureList();
-    // city.js 引入data
+    // 获取本地机器id
+    const machineId = wx.getStorageSync('machineId');
     this.setData({
-      cityCodeJson: cityCodeJson.city
+      machineId: machineId
     })
+    // 获取优惠券
+    this.getCoupon();
     // 菜单
     this.getMenuClass();
     // 推荐餐品
     this.getRecomtc();
     // 今日够
-    this.todayBuy();
+    // this.todayBuy();
     // this.setData({
     //   fixedFlag: false,
     //   boxTop: 0
     // });
-    // //附近近期人
-    // this.nearbyRoboData();
-    // //热词（搜索下方热门餐品）
-    // this.hotwords();
 
   },
   // 定位设置
@@ -123,19 +83,10 @@ Page({
       console.log(data)
     };
     var success = function (data) {
-      console.info(data)
       const posData = data.originalData.result;
       that.setData({
-        latitude: posData.location.lat,
-        longitude: posData.location.lon,
         currentCity: posData.formatted_address
       });
-      var cityStrArr = [];
-      cityStrArr.push(posData.addressComponent.province);
-      cityStrArr.push(posData.addressComponent.city);
-      cityStrArr.push(posData.addressComponent.district);
-      console.info(cityStrArr)
-      that.getMachineByCityCode(cityStrArr);
     }
     // 发起POI检索请求 
     BMap.regeocoding({
@@ -148,68 +99,6 @@ Page({
     wx.navigateTo({
       url: '/pages/index/positionSele/positionSele'
     })
-  },
-  // 根据code获取机器
-  getMachineByCityCode: function (cityStrArr) {
-    console.info(cityStrArr, this.data.cityCodeJson)
-    var that = this;
-    var cityCodeJson = this.data.cityCodeJson;
-    var areaCode = [];
-    for (let i = 0; i < cityCodeJson.length; i++) {
-      if (cityStrArr[0] == cityCodeJson[i].name) {
-        areaCode.push(i);
-        if (cityStrArr[0] == '北京市') {
-          for (let j = 0; j < cityCodeJson[i].sub.length; j++) { 
-            if (cityStrArr[2] == cityCodeJson[i].sub[j].name) {
-              areaCode.push(j);
-            }
-          }
-          areaCode.push(0);
-        } else {
-          for (let j = 0; j < cityCodeJson[i].sub.length; j++) {
-            if (cityStrArr[1] == cityCodeJson[i].sub[j].name) {
-              areaCode.push(j);
-              for (let a = 0; a < cityCodeJson[i].sub[j].sub.length; a++) {
-                if (cityStrArr[2] == cityCodeJson[i].sub[j].sub[a].name) {
-                  areaCode.push(a);
-                }
-              }
-            }
-          }
-        }
-      }
-    }
-    app.fetch({
-      url: '/fastfood/foodmachine/findByAreaCode',
-      method: 'get',
-      data: {
-        areaCode: areaCode.join(',')
-        // areaCode: '1,0,0'
-      }
-    })
-      .then((response) => {
-        console.info(response)
-        // 获取推荐机器人
-        that.setData({
-          nearbyRoto1: {
-            photoUrl: 'hotPushImg.png',
-            mName: '推荐第一机器人',
-            road: '田园风光雅苑',
-            salesCount: '11111'
-          },
-          Rotos: [{
-            photoUrl: 'hotPushImg.png',
-            mName: '推荐第一机器人',
-            road: '田园风光雅苑',
-            salesCount: '11111'
-          }, {
-            photoUrl: 'hotPushImg.png',
-            mName: '推荐第一机器人',
-            road: '田园风光雅苑',
-            salesCount: '11111'
-          }]
-        })
-      })
   },
   // 首页Banner
   getAllTCarouselFigureList: function () {
@@ -230,84 +119,68 @@ Page({
   },
   // 获取菜单分类
   getMenuClass: function () {
-    let caidanNav = [{
-      list: [{
-        name: '每周菜谱',
-        id: '001',
-        photoUrl: '/mzcp.png'
-      }, {
-        name: '早餐',
-        id: '002',
-        photoUrl: '/zaoc.png'
-      }, {
-        name: '午餐',
-        id: '003',
-        photoUrl: '/wuc.png'
-      }, {
-        name: '晚餐',
-        id: '004',
-        photoUrl: '/wanc.png'
-      }, {
-        name: '外卖',
-        id: '005',
-        photoUrl: '/wm.png'
-      }, {
-        name: '预定',
-        id: '006',
-        photoUrl: '/yd.png'
-      }, {
-        name: '新品推荐',
-        id: '007',
-        photoUrl: '/xptj.png'
-      }, {
-        name: '热销推荐',
-        id: '008',
-        photoUrl: '/rxtj.png'
-      }, {
-        name: '机器推荐',
-        id: '009',
-        photoUrl: '/jqtj.png'
-      }, {
-        name: '闪餐story',
-        id: '010',
-        photoUrl: '/sc.png'
-      }]
-    }]
+    // let caidanNav = [{
+    //   list: [ {
+    //     name: '早餐',
+    //     id: '002',
+    //     photoUrl: '/zaoc.png'
+    //   }, {
+    //     name: '午餐',
+    //     id: '003',
+    //     photoUrl: '/wuc.png'
+    //   }, {
+    //     name: '晚餐',
+    //     id: '004',
+    //     photoUrl: '/wanc.png'
+    //   }, {
+    //     name: '外卖',
+    //     id: '005',
+    //     photoUrl: '/wm.png'
+    //   },  {
+    //     name: '机器推荐',
+    //     id: '009',
+    //     photoUrl: '/jqtj.png'
+    //   }, {
+    //     name: '闪餐story',
+    //     id: '010',
+    //     photoUrl: '/sc.png'
+    //   }]
+    // }]
+    let caidanNav = [];
     this.setData({
       caidanNav: caidanNav
     })
   },
   // 获取推荐套餐
   getRecomtc: function () {
-    let recomTC = [{
-        foodName: '煎饼套餐',
-        id: '001',
-        machineId: '001',
-        salesNum: '111',
-        praiseRate: '100',
-        selling: '21',
-        photoUrl: '/tt1.png'
-      }, {
-        foodName: '鸡蛋炒饭',
-        id: '002',
-        machineId: '002',
-        salesNum: '111',
-        praiseRate: '100',
-        selling: '16',
-        photoUrl: '/tt2.png'
-      }, {
-        foodName: '煎饼套餐',
-        id: '003',
-        machineId: '003',
-        salesNum: '111',
-        praiseRate: '100',
-        selling: '21',
-        photoUrl: '/tt1.png'
-      }]
-    this.setData({
-      recomTC: recomTC
+    app.fetch({
+      url: '/fastfood/foodmachine/findProductByMacIdAndProductCatId',
+      data: {
+        macId: this.data.machineId
+      }
     })
-  },  
+      .then((response) => {
+        console.info(response, this)
+        this.setData({
+          recomTC: response.slice(0,3)
+        })
+      })
+  },
+  // 获取优惠券列表
+  getCoupon: function () {
+    app.fetch({
+      url: '/operate/coupon/findByMacId',
+      data: {
+        macId: this.data.machineId
+      }
+    })
+      .then((response) => {
+        console.info(response, this)
+        this.setData({
+          couponList: response.slice(0,3)
+        })
+      })
+  },
   //滑动切换
   swiperTab: function (e) {
     var that = this;
@@ -335,10 +208,6 @@ Page({
       duration: e.detail.value
     })
   }, 
-  // 获取机器列表
-  getRotolList: function () {
-    
-  },
   // 点击关闭模态框
   closeModel: function () {
     app.globalData.indexmodelstyle = 'display: none;'
@@ -435,114 +304,6 @@ Page({
     this.setData({
       prevOrdermealId: e.currentTarget.dataset.id
     });
-  },
-  //附近机器人数据
-  nearbyRoboData:function(){
-    var that = this;
-    wx.getLocation({
-      success: function(res) {
-        that.setData({
-          longitude: res.longitude,
-          latitude: res.latitude
-        });
-        wx.request({
-          url: app.globalData.baseUrl + 'machine/queryNearbyMachineList.action',
-          method:'GET',
-          data: {
-            longitude: that.data.longitude,
-            latitude: that.data.latitude
-          },
-          header: {
-            'content-type': 'application/json' // 默认值
-          },
-          success: function (res) {
-            // console.log(res,'------------');
-            var dataArr = res.data.data;
-            if(!dataArr || dataArr.length<=0) {
-              wx.showModal({
-                showCancel: false,
-                title: '温馨提示',
-                content: res.data.msg,
-              })
-              return
-            };
-            var obj1 = {};
-            var objOther = [];
-            for (var i = 0; i < dataArr.length;i++){
-              obj1 = dataArr[0];
-              if(i>=1){
-                objOther.push(dataArr[i])
-              }
-            }
-            that.setData({
-              nearbyRoto1:obj1,
-              nearbyRoto: objOther,
-              firstRotoId: obj1.id
-              
-            })
-            app.globalData.madichid=obj1.id
-            
-            // 今日购请求
-            wx.request({
-              url: app.globalData.baseUrl + 'tFood/queryJrgList.action',
-              method: 'POST',
-              data: {
-                id: that.data.firstRotoId,
-                token: wx.getStorageSync('token')
-              },
-              header: {'content-type': 'application/x-www-form-urlencoded'},
-              success: function (res) {
-                // console.log(res, '今日购');
-                var aDataArr = res.data.aData;
-                
-                that.setData({
-                  todayBuy: aDataArr,
-                  todayBuyList: aDataArr[0].foods
-                })
-                todayListArr = that.data.todayBuyList;
-              }
-            })
-            //推荐餐品
-            wx.request({
-              url: app.globalData.baseUrl + 'tFood/queryRecommendFoodList.action', 
-              method: 'GET',
-              data: {
-                id: that.data.firstRotoId,
-                iDisplayStart: 1,
-                iDisplayLength: 3
-              },
-              header: {
-                'content-type': 'application/json' // 默认值
-              },
-              success: function (res) {
-                var aDataArr = res.data.aData;
-                // console.log(res, '推荐');
-                that.setData({
-                  recomTC: aDataArr
-                })
-              }
-            })
-            // 商品评论请求
-            that.getEvaluateList(that);
-            that.getAllTCarouselFigureList();//广告轮播
-          }
-        })
-   
-      },
-    })
-  },
-  //附近机器下拉
-  nearbyRotoLa:function(){
-    this.setData({
-      status:'show',
-      popStatus:'show'
-    })
-  },
-  nearbyRotoLahide: function () {//附近机器下拉隐藏
-    this.setData({
-      status:'hide',
-      popStatus:'hide'
-    })
   },
   //热词列表
   hotwords:function(){
@@ -642,25 +403,12 @@ Page({
       }
     })
   },
-  // onShow: function () {
-  //   var query = wx.createSelectorQuery();
-  //   const that = this;
-  //   query.select('#theid').boundingClientRect();
-  //   query.exec(function (rect) {
-  //     that.setData({
-  //       boxTop: rect[0].top
-  //     });
-  //     console.log(that.data.boxTop,11);
-
-  //   })
-  // },
   onPageScroll: function (res) {//监听页面滚动
     const that = this;
     var query = wx.createSelectorQuery()
     query.select('#theid').boundingClientRect();
     query.select('#topContainer').boundingClientRect();
     query.exec(function (rect) {
-      
       if (rect[0].top <= (rect[1].height + 3)){
         that.setData({
           fixedFlag: true

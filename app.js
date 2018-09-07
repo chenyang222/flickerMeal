@@ -6,7 +6,7 @@ App({
     const oldDate = wx.getStorageSync("oldDate");
     if (token && !this.verifyToken(oldDate)) {
       wx.reLaunch({
-        url: '/pages/index/shouye/shouye'
+        url: '/pages/index/machine/machine'
       })
     } else {
       const that = this;
@@ -25,7 +25,7 @@ App({
                   // 正常进入
                   that.handleToken(res.data)
                   wx.reLaunch({
-                    url: '/pages/index/shouye/shouye'
+                    url: '/pages/index/machine/machine'
                   })
                 } else if (res.data.errcode == 40004) {
                   // 此账号当前尚未注册
@@ -51,14 +51,10 @@ App({
   },
   // 公共数据配置
   globalData: {
-    userInfo: null,
     // imgdata: '/images',//正常图片展示的地址
     imgdata: 'https://shanchan.jergavin.com/wxapp/images',//正常图片展示的地址
     api: 'https://shanchan.jergavin.com', // 接口请求api
-    addre: null,
-    madichid:null,
-    indexmodelstyle: 'display: block;',
-    openid: null
+    ak: 'NPfvQSlaxLvtuBWm4YDVwecQNoTACuUY' // 填写申请到的ak
   },
   //跳转登录页
   jumpLogin: function () {
@@ -70,7 +66,6 @@ App({
    *  token data处理
    */
   handleToken: function (data) {
-    wx.clearStorageSync();
     const token = data.data.access_token;
     const expires_in = data.data.expires_in;
     let timeStamp = new Date().getTime() + Number(expires_in * 1000);

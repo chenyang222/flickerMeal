@@ -1,5 +1,154 @@
 /**index.wxss**/
 @import "../../../style/public.wxss";
+/* 优惠券 */
+.couponPart{
+  width: 94%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.couponPart .couponBox{
+  width: 32%;
+  position: relative;
+}
+.couponPart .couponBox .bg{
+  width: 100%;
+}
+.couponPart .couponBox .couponPrice{
+  position: absolute;
+  bottom: 0%;
+  left: 2%;
+}
+.couponPart .couponBox .price{
+  font-size:60rpx;
+  font-family:FZLTDHJW--GB1-0;
+  color:rgba(254,254,252,1);
+}
+.couponPart .couponBox .unit{
+  font-size:21rpx;
+  font-family:PingFangSC-Medium;
+  color:rgba(254,254,252,1);
+  margin-left: 5rpx;
+}
+.couponPart .couponBox .nameBtn{
+  position: absolute;
+  top: 15%;
+  right: 2%;
+  display: flex;
+  flex-direction: column;
+}
+.couponPart .couponBox .name{
+  font-size:23rpx;
+  font-family:MFYueYuan_Noncommercial-Regular;
+  color:rgba(254,254,252,1);
+}
+.couponPart .couponBox .btn{
+  width:88rpx;
+  height:29rpx; 
+  font-size:20rpx;
+  font-family:SourceHanSansCN-Normal;
+  color:rgba(249,78,58,1);
+  background-color: rgba(254,254,252,1);
+  border-radius: 15rpx;
+  line-height: 29rpx;
+  text-align: center;
+  margin-top: 10rpx;
+}
+.isCanGet{
+  float: right;
+  text-align: right;
+  margin-right: 3%;
+  font-size:24rpx;
+  margin-bottom: 15rpx;
+  font-family:SourceHanSansCN-Normal;
+  color:rgba(102,102,102,1);
+  display: flex;
+  align-items: center;
+}
+.isCanGet image{
+  width:20rpx;
+  height:9rpx;
+  margin-left: 15rpx;
+  float: right; 
+}
+/* 推荐餐品 */
+.recomendPart{
+  width: 100%;
+  padding: 10rpx 0rpx;
+  background:rgba(255,255,255,1);
+}
+.recomendPart .recomentHeader{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+.recomendPart .recomentHeader view{
+  display: flex;
+  align-items: center;
+}
+.recomendPart .recomentHeader .line{
+  width:3rpx;
+  height:28rpx;
+  margin-left: 25rpx;
+  margin-right: 15rpx;
+}
+.recomendPart .recomentHeader .recomendTxt{
+  font-size:30rpx;
+  font-family:PingFangSC-Medium;
+  color:rgba(45,45,45,1);
+}
+.recomendPart .recomentHeader .moreTxt{
+  font-size:24rpx;
+  font-family:PingFangSC-Regular;
+  color:rgba(102,102,102,1);
+}
+.recomendPart .recomentHeader .moreIcon{
+  width:13rpx;
+  height:23rpx;
+  margin-left: 15rpx;
+  margin-right: 25rpx;
+}
+.recomendPart .recomentContent{
+  display: flex;
+  justify-content: space-around;
+}
+.recomendPart .recomentContent .recomentBox{
+  width: 29%;
+  padding: 2%;
+}
+.recomendPart .recomentContent .recomentBox .picture{
+  width:210rpx;
+  height:140rpx;
+  border-radius: 5rpx;
+}
+.recomendPart .recomentContent .recomentBox .reName{
+  font-size:28rpx;
+  font-family:PingFangSC-Medium;
+  color:rgba(45,45,45,1);
+  margin-top: 20rpx;
+}
+.recomendPart .recomentContent .recomentBox .recomentNum{
+  font-size:20rpx;
+  font-family:PingFangSC-Regular;
+  color:rgba(151,151,151,1);
+}
+.recomendPart .recomentContent .recomentBox .addGoods{
+  display: flex;
+  justify-content: space-between;
+}
+.recomendPart .recomentContent .recomentBox .price{
+  font-size:28rpx;
+  font-family:PingFangSC-Medium;
+  color:rgba(253,106,8,1);
+}
+.recomendPart .recomentContent .recomentBox .add{
+  width:33rpx;
+  height:33rpx;
+  display: block;
+  margin-right: 15rpx;
+}
+
 page{
   overflow-y: scroll;
 }
@@ -37,19 +186,6 @@ page{
   margin-top: 5rpx;
   margin-left: 5rpx;
   margin-right: 5rpx;
-}
-.container .head .locationWrap .juli{
-  color: #fff;
-}
-.juliCarIcon{
-  width: 34rpx;
-  height: 27rpx;
-  margin-top: 10rpx;
-}
-.juliCar{
-  font-size: 24rpx;
-  margin-top: 7rpx;
-  margin-left: 5rpx;
 }
 .search{
   width:702rpx;
@@ -146,179 +282,6 @@ swiper{
   text-align: center;
 }
 
-/* 活动 */
-.huodong4{
-  padding: 10rpx;
-  overflow: hidden;
-}
-.huodong4List{
-  position: relative;
-  float: left;
-  width:47%;
-  height:231rpx;
-  margin: 10rpx;
-  margin-top: -10rpx;
-  margin-bottom: 30rpx;
-  z-index: 0;
-  background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAVcAAADnCAIAAAAl7oKOAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyhpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNi1jMTM4IDc5LjE1OTgyNCwgMjAxNi8wOS8xNC0wMTowOTowMSAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIDIwMTcgKE1hY2ludG9zaCkiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6RjA0QURBMDgyQTU5MTFFODhEMTlDNDY2NUMwNUIxN0EiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6RjA0QURBMDkyQTU5MTFFODhEMTlDNDY2NUMwNUIxN0EiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDpGMDRBREEwNjJBNTkxMUU4OEQxOUM0NjY1QzA1QjE3QSIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDpGMDRBREEwNzJBNTkxMUU4OEQxOUM0NjY1QzA1QjE3QSIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PqXphBEAAAJYSURBVHja7NrBDYAwDARBgui/XH+dJvjtTAk8VieHMzMPEPb6BKACgAoAKgCoAKACgAoAKgCoAKACgAoAKgCoAKACgAoAKgCoAKACgAoAKgCoAKACgAoAKgCoAKACgAoAKgCoAKACgAoAKgCoAKACgAoAKgCoAKACgAoAKgCoAKACgAoAKgCoAKACgAoAKgCoAKACgAoAKgCoAKACgAoAKgCoAKACgAoAKgCoAKACgAoAKgCoAKACgAoAKgCoAKACgAoAKgCoAKACgAoAKgCoAKACgAoAKgCoAKACgAoAKgCoAKACgAoAKgCoAKACgAoAKgD85ttdXwFsAUAFABUAVABQAUAFABUAVAAo8dcQ2AKACgAqAKgAoAKACgAqAPT4XwBsAUAFABUAVABQAUAFgCIvhWALACoAqACgAoAKACoAFHkpBFsAUAFABQAVAFQAaPJGALYAoAKACgAqAKgA0OSNAGwBQAUAFQBUAFABoMkbAdgCgAoAKgCoAFDlOgi2AKACgAoAKgCoANDkjQBsAUAFABUAVACoch0EWwBQAUAFABUAqlwHwRYAVABQAUAFgCrXQbAFABUAVABQAaDKdRBsAUAFABUAutwFwBYAVABQAUAFgCrXQbAFABUAVABQAaDKdRBsAUAFABUAutwFwBYAVABQAUAFgCrXQbAFABUAVABQAaDKdRBsAUAFABUAutwFwBYAVABQAUAFgCrXQbAFABUAVABQAaDKdRBsAUAFABUAutwFwBYAVABQAUAFgCrXQbAFABUAVABQAaDKdRBsAaDtCjAAppBSlqIdRmYAAAAASUVORK5CYII=);
-}
-.huodong4List .huodong4ListLT{
-  display: flex;
-  flex-direction: column;
-  position: absolute;
-  left: 10rpx;
-  top: 10rpx;
-  z-index: 2;
-}
-.huodong4List1 .huodong4ListLT .listLT1{
-  color:rgba(254,107,18,1);
-  font-size: 34rpx;
-  font-family:FZLTDHJW--GB1-0;
-}
-.huodong4List1 .huodong4ListLT .listLT2{
-  font-size:25rpx;
-  font-family:SourceHanSansCN-Normal;
-}
-.huodong4List1 .huodong4ListLT .listLT3{
-  font-size:37rpx;
-  font-family:PingFangSC-Medium;
-  color:rgba(254,107,18,1);
-}
-.huodong4List1 .huodong4ListLT .listLT4{
-  font-size:22rpx;
-  font-family:PingFangSC-Medium;
-  color:rgba(117,117,117,1);
-}
-.huodong4List .huodong4ListRB{
-  position: absolute;
-  right: 0;
-  bottom: 0;
-  z-index: 1;
-}
-.huodong4List .huodong4ListRB image{
-  width:214rpx;
-  height:153rpx; 
-  display: block;
-}
-
-.huodong4List2 .huodong4ListLT .listLT1{
-  color:rgba(245,65,60,1);
-  font-size: 34rpx;
-  font-family:FZLTDHJW--GB1-0;
-}
-.huodong4List2 .huodong4ListLT .listLT2{
-  font-size:25rpx;
-  font-family:SourceHanSansCN-Normal;
-}
-.huodong4List2 .huodong4ListLT .listLT3{
-  font-size:37rpx;
-  font-family:PingFangSC-Medium;
-  color:rgba(254,107,18,1);
-}
-.huodong4List2 .huodong4ListLT .listLT4{
-  font-size:22rpx;
-  font-family:PingFangSC-Medium;
-  color:rgba(245,65,60,1);
-}
-
-.huodong4List3 .huodong4ListLT .listLT1{
-  color:rgba(66,187,248,1);
-  font-size: 34rpx;
-  font-family:FZLTDHJW--GB1-0;
-}
-.huodong4List3 .huodong4ListLT .listLT2{
-  font-size:25rpx;
-  font-family:SourceHanSansCN-Normal;
-}
-.huodong4List3 .huodong4ListLT .listLT3{
-  font-size:37rpx;
-  font-family:PingFangSC-Medium;
-  color:rgba(66,187,248,1);
-}
-.huodong4List3 .huodong4ListLT .listLT4{
-  font-size:22rpx;
-  font-family:PingFangSC-Medium;
-  color:rgba(117,117,117,1);
-}
-
-.huodong4List4 .huodong4ListLT .listLT1{
-  color:rgba(100,183,26,1);
-  font-size: 34rpx;
-  font-family:FZLTDHJW--GB1-0;
-}
-.huodong4List4 .huodong4ListLT .listLT2{
-  font-size:25rpx;
-  font-family:SourceHanSansCN-Normal;
-}
-.huodong4List4 .huodong4ListLT .listLT3{
-  font-size:37rpx;
-  font-family:PingFangSC-Medium;
-  color:rgba(100,183,26,1);
-}
-.huodong4List4 .huodong4ListLT .listLT4{
-  font-size:22rpx;
-  font-family:PingFangSC-Medium;
-  color:rgba(100,183,26,1);
-}
-
-.huodong1{
-  overflow: hidden;
-}
-.huodong1 .huodong1List{
-  float:left;
-  width:25%;
-  height: 72rpx;
-  margin-left:17rpx;
-  padding: 15rpx 20rpx;
-  background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOAAAABcCAMAAABA+0ndAAAA/1BMVEUAAAD0ZzX1Zjb0aDX0Zjb0aTX0ZzX5TznwfjH3Wzf4Vjj0ZzX5Tzr5Tjr1ZTX6TTrvgDDxeDL3Wzf3Wzf1ZTXwezHyczPzbDTxdDPwfjH5UTnycDTxdTL3WDj1YTb6TDrvgTDzbTTxczPzbzP4UznwfjH3Wjj3VjnweDLzbTT1XzfugzDybzTuhDD3Vzj4UjnxdjP4VTn6SjvugzD3WTjzazT5Tjr4VjjvfzH5TDrweTL1Yjb1YDfxdDP4UTn2Wzf4Uzn0ZzXvfjH5UDrzbjTxdzLwfDH0ZDbybzTvgTH2XTfycDTycjPwezLugjDxdjPxdTPvfTH2Xzf0aTX0aDVxqWnPAAAAMnRSTlMAAQ4oCAVcOTcvIxz95tfNzKyUZVY9MBNi59vaxLSgjIyKfE1BI/n39/Xt6ObaxaaVeUzPM4wAAAIqSURBVHja5dYHcuJAFATQnkESSCLnnJ0zOYOzcdp4/7MsGDGjvUL73aCrf/1qdMnhokvtAhCZsy6ps4zAlhHvUoob8MguJQml/kmoDi30SSgE7WBN6MDf4JqQv8H6iFAdilyPCK0lPGZ8RCluYkuECiNShZAA4nfU4rgjByHzv2jlpcBGrvBEqZCDx32i5EJJfBBKQMt8EMr4x/aEkH9sZyeEstCaE0JNKMbxhNCxAY9IPFJKCHxxy4+kyi6A69IPYqVr5LKJn7QS2Rw2QnNSITVk5pQyUMpzQmVorXdCLWiBd0IBf8A3Qv6A+TdCeSji/IXQucBe84VSEztm44FUwwTQapw80DpptNAnh6xV6tMqWVkAwuqTygvskCa0sCeifwhFBZT0X0JpaIFbQoHvFDB9SygNRUSfCfmejPVMycKOsKakLAHATkentKJpG6nqlFg1BcCozkhVDewkZ5SS2DNPZ4ROTSip34RS0OxXQjY055WQA629JNSGVlkSqkCxl5RseAKHPUqHAWxIJ9mjlXQkeuSQLPaIFZMA3MshqUsXX0RlSKki4DGOhoSODCg3Q0I30OwVof/G9oqQAy24IhSEdrUgdAXFXVBy4clFFpQiOWwImQrfkwqnpMA9OcTCA2LhGCCCkQGpSFBgy4wNKMVMeCTlmYYllNqYUA1acEwoCM0ZE3K+U4O1DqEaFDnuEBpLeIxYh1LMwJbZjnRIRdomUOxQK6JD7h+pQ+8pt/Oj/QAAAABJRU5ErkJggg==);
-  background-size: 100% 100%;
-}
-.huodong1 .huodong1List .huodong1ListL .numYuan{
-  font-size:73rpx;
-  font-family:FZLTDHJW--GB1-0;
-  color:rgba(254,254,252,1);
-}
-.huodong1 .huodong1List .huodong1ListL .danwei{
-  font-size:21rpx;
-  font-family:PingFangSC-Medium;
-  color:rgba(254,254,252,1);
-  margin-left: 5rpx;
-}
-.huodong1 .huodong1List .huodong1ListR{
-  display: flex;
-  flex-direction: column;
-}
-.huodong1 .huodong1List .huodong1ListR .hbType{
-  font-size:23rpx;
-  font-family:MFYueYuan_Noncommercial-Regular;
-  color:rgba(254,254,252,1);
-}
-.huodong1 .huodong1List .huodong1ListR .lingquBtn{
-  width:88rpx;
-  height:29rpx; 
-  font-size:20rpx;
-  font-family:SourceHanSansCN-Normal;
-  color:rgba(249,78,58,1);
-  background-color: rgba(254,254,252,1);
-  border-radius: 15rpx;
-  line-height: 29rpx;
-  text-align: center;
-  margin-top: 10rpx;
-}
-.keling{
-  text-align: right;
-  font-size:24rpx;
-  font-family:SourceHanSansCN-Normal;
-  color:rgba(102,102,102,1);
-  margin:0 20rpx;
-  
-}
-.keling image{
-  width:16rpx;
-  height:9rpx;
-  float: right; 
-  margin-top: 15rpx;
-}
 
 
 .ctnWrap{
@@ -424,84 +387,6 @@ swiper{
    width:16rpx;
    height:9rpx;
    margin-top: 10rpx;
-}
-
-.recomendPack{
-  padding: 20rpx 23rpx;
-  background:rgba(255,255,255,1);
-  overflow: hidden;
-}
-.recomendIcon{
-  width:3rpx;
-  height:28rpx;
-}
-.recomendTxt{
-  font-size:30rpx;
-  font-family:PingFangSC-Medium;
-  color:rgba(45,45,45,1);
-  margin-top: -6rpx;
-  margin-left: 15rpx;
-}
-.moreIcon{
-  width:13rpx;
-  height:23rpx; 
-}
-.moreTxt{
-  font-size:24rpx;
-  font-family:PingFangSC-Regular;
-  color:rgba(102,102,102,1);
-  margin-top: -6rpx;
-  margin-right: 15rpx;
-}
-.taocanTitle{
-  overflow: hidden;
-  margin-bottom: 20rpx;
-}
-.taocanListimgWrap{
-  position: relative;
-}
-.taocanListimg{
-  width:210rpx;
-  height:140rpx; 
-  border-radius: 5rpx;
-}
-.taocanListimgIcon{
-  width:57rpx;
-  height:27rpx;
-  position: absolute;
-  left: 0;
-  top: 5rpx;
-}
-.caiming{
-  font-size:28rpx;
-  font-family:PingFangSC-Medium;
-  color:rgba(45,45,45,1);
-  margin-top: 25rpx;
-}
-.xiaoping{
-  font-size:20rpx;
-  font-family:PingFangSC-Regular;
-  color:rgba(151,151,151,1);
-}
-.listWrapWrap{
-  width: 33%;
-  display: inline-block;
-}
-.listWrap{
-  width: 210rpx;
-  margin: auto;
-
-}
-.danjiaCtl{
-  font-size:28rpx;
-  font-family:PingFangSC-Medium;
-  color:rgba(253,106,8,1);
-}
-.addCtl image{
-  width:33rpx;
-  height:33rpx; 
-  display: block;
-  margin-top: 5rpx;
 }
 
 /* 今日购、预定、评价 */
@@ -634,44 +519,6 @@ swiper{
   padding: 10rpx;
   z-index: 999;
 }
-/**footer**/
-.footer{
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  width: 100%;
-  height: 98rpx;
-  background:rgba(255,255,255,1);
-  border-top: #eeeeee 1rpx solid;
-  z-index: 999;
-}
-.footer .list{
-  display: flex;
-  justify-content: space-around;
-}
-.footer .list .footer_item{
-  margin-top: 6rpx;
-  width: 100rpx;
-}
-.footer .list .footer_item .footer_img{
-  text-align: center;
-  height: 45rpx;
-}
-.footer .list .footer_item .footer_img image{
-  margin: 0 auto;
-  width: 45rpx;
-  height: 45rpx;
-}
-.footer .list .footer_item .footer_title{
-  text-align: center;
-  margin-top: 12rpx;
-  font-size: 19rpx;
-}
-.footer .list .footer_item .on{
-  color: #FFC240;
-}
-
 .swiper-tab{
   width: 100%;
   border-bottom: 2rpx solid #ccc;

@@ -1,6 +1,7 @@
 {
   "pages": [
     "pages/login/login",
+    "pages/index/machine/machine",
     "pages/index/shouye/shouye",
     "pages/index/hotWords/hotWords",
     "pages/index/newProductRecom/newProductRecom",
@@ -12,11 +13,9 @@
     "pages/index/indexLunboDetail/indexLunboDetail",
     "pages/index/kanMealDetail/kanMealDetail",
     "pages/index/kjPurchase/kjPurchase",
-    "pages/index/kanyidao/kanyidao",
     "pages/index/discount/discount",
     "pages/index/mealDetail/mealDetail",
     "pages/index/weekMenu/weekMenu",
-    "pages/index/machine/machine",
     "pages/mine/mine",
     "pages/mine/newphone/newphone",
     "pages/mine/address/address",

@@ -1,5 +1,3 @@
 {
-  "component": true,
-  "usingComponents": {},
-  "navigationBarBackgroundColor": "#333333"
+  "navigationBarTitleText": "搜索机器/餐品"
 }
