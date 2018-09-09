@@ -1,15 +1,15 @@
 const app = getApp();
+var utils = require('../../../utils/util.js');
 Page({
   data: {
     imgdata: app.globalData.imgdata,
-    couponArr: []
+    couponArr: [],
+    format: ['年', '月', '日', '时', '分', '秒']
   },
-  onLoad: function (options) {
-    //console.log(options);
-    wx.setNavigationBarTitle({
-      title: '优惠券'
-    })
-    var that = this;
+  onLoad: function () {
+    
+  },
+  onShow: function () {
     app.fetch({
       url: '/operate/coupon/findByUserId',
       method: 'post',
@@ -18,10 +18,15 @@ Page({
         flag: 0
       }
     }).then((response) => {
-      console.info(response)
-      // that.setData({
-      //   couponArr: response.list
-      // })
+      let couponArr = response;
+      for (let i = 0; i < couponArr.length; i++) {
+        couponArr[i].startTime = utils.formatTime(couponArr[i].createTime,this.data.format);
+        const endTime = Number(couponArr[i].createTime) + (couponArr[i].period * 86400000);
+        couponArr[i].endTime = utils.formatTime(endTime, this.data.format);
+      }
+      this.setData({
+        couponArr: response
+      })
     })
   }
 })

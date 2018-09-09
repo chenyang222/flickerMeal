@@ -7,7 +7,7 @@ Page({
     imgdata: app.globalData.imgdata,
     balance: '', // 用户余额
     score: '', // 用户积分
-    userHeadImg: app.globalData.imgdata + '/mine/cf_nologin.png', // 默认用户头像地址
+    userHeadImg: app.globalData.imgdata + '/cf_nologin.png', // 默认用户头像地址
     userName: '' // 用户昵称
   },
   onLoad:function () {},

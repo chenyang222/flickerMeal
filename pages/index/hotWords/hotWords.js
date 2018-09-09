@@ -3,8 +3,8 @@ var optionsObj = {};
 
 Page({
   data: {
-      imgdata: app.globalData.imgdata,
-      searchResultList: []
+    imgdata: app.globalData.imgdata,
+    machineList: []
   },
   onLoad: function (options) {
     optionsObj = options;
@@ -34,7 +34,7 @@ Page({
     })
       .then((response) => {
           that.setData({
-            searchResultList: response
+            machineList: response
           });
       })
   }

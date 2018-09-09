@@ -21,15 +21,10 @@ Page({
     ],
     isDefault: '' // 是否是默认地址
   },
-
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
-    wx.setNavigationBarTitle({
-      title: '新增地址'
-    })
-  },
+  onLoad: function (options) {},
   //姓名
   bindReplaceInput: function (e) {
     this.setData({

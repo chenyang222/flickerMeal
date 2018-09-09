@@ -1,9 +1,8 @@
 <!--index.wxml-->
 <!-- <view wx:if="{{carListDataArr.length > 0}}"> -->
 <view class="container" wx:if="{{carListDataArr.length > 0}}">
-  <view class='order-name' bindtap='goIndex'>
+  <view class='order-name'>
     <text class='goname'>{{madichInfo.mName}}</text>
-    <image class='goright' src='{{imgdata}}/upload/cf_goright.png'></image>
   </view>
   <view class="{{item.isTouchMove ? 'item-active' : 'item'}}" bindtouchstart='touchstart' bindtouchmove='touchmove' wx:for="{{carListDataArr}}" wx:key='index' data-index="{{index}}">
     <view class='txt'>
@@ -12,27 +11,27 @@
         <!-- list -->
         <view class='fan-list'>
           <view class='fan-img-wrap'>
-            <image class='fan-img' src='{{imgdata}}{{item.food.list.url}}'></image>
+            <image class='fan-img' src='{{item.picture}}'></image>
           </view>
           <view class='fan-name-price'>
             <view class='fan-name-price-list1'>
-              <text class='fan-name'>{{item.food.name}}</text>
+              <text class='fan-name'>{{item.name}}</text>
             </view>
             <view class='fan-name-price-list2'>
               <view class='fan-ctl'>
-                <image class='jian' data-foodid="{{item.foodId}}" data-foodnum="{{item.foodCount}}" src='{{imgdata}}/upload/jian.png' bindtap='jian'></image>
-                <text class='jiajian-num'>{{item.foodCount}}</text>
-                <image class='jia' src='{{imgdata}}/upload/jia.png' data-foodid="{{item.foodId}}" bindtap='jia'></image>
+                <image class='jian' data-cartId="{{item.cartId}}" data-buyNumber="{{item.buyNumber}}" src='{{imgdata}}/reduce.png' bindtap='reduce'></image>
+                <text class='jiajian-num'>{{item.buyNumber}}</text>
+                <image class='jia' src='{{imgdata}}/plus.png' data-cartId="{{item.cartId}}" data-buyNumber="{{item.buyNumber}}" bindtap='plus'></image>
               </view>
               <view class='fan-price'>￥
-                <text>{{item.food.selling}}</text>
+                <text>{{item.showPrice}}</text>
               </view>
             </view>
           </view>
         </view>
       </view>
     </view>
-    <view class='del' bindtap="del" data-index="{{index}}" data-id="{{item.id}}">删除</view>
+    <view class='del' bindtap="del" data-index="{{index}}" data-productCatId="{{item.productCatId}}">删除</view>
   </view>
   <view class='heji'>
     <view class='heji-left'>
@@ -42,18 +41,18 @@
       </view>
     </view>
     <view class='heji-right'>
-      <image class='del-icon' src='{{imgdata}}/upload/delIcon.png' bindtap="delAll"></image>
+      <image class='del-icon' src='{{imgdata}}/delIcon.png' bindtap="delAll"></image>
       <text class='jiesuan-btn' bindtap='toPay'>去结算</text>
     </view>
   </view>
 </view>
-<view wx:else class='car-kong' style='display:none;'>
+<view wx:else class='car-kong'>
   <view class='wujiesuan-wrap'>
-    <image class='wujiesuan' src='{{imgdata}}/upload/kongCar.png'></image>
+    <image class='wujiesuan' src='{{imgdata}}/kongCar.jpg'></image>
   </view>
-  <!-- <view class='wujiesuan-txt'>
+  <view class='wujiesuan-txt'>
     <text>暂无可结算的餐品</text>
-  </view> -->
+  </view>
 </view>
 <view class='pop' style='display:none;'></view>
 <!-- 抢购结算-》清空购物车弹窗 -->

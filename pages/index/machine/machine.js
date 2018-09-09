@@ -24,7 +24,15 @@ Page({
       ak: app.globalData.ak
     });
     var fail = function (data) {
-      console.log(data)
+      app.fetch({
+        url: '/fastfood/foodmachine/findByAreaCode'
+      })
+        .then((response) => {
+          // 获取推荐机器人
+          that.setData({
+            machineList: response
+          })
+        })
     };
     var success = function (data) {
       const posData = data.originalData.result;
@@ -73,7 +81,8 @@ Page({
       url: '/fastfood/foodmachine/findByAreaCode',
       method: 'get',
       data: {
-        areaCode: areaCode.join(',')
+        // areaCode: areaCode.join(',')
+        areaCode: '0,4,0'
       }
     })
       .then((response) => {

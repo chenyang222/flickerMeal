@@ -7,9 +7,12 @@
 .oh{
   overflow: hidden;
 }
+.clearfloat:after{display:block;clear:both;content:"";visibility:hidden;height:0}
+.clearfloat{zoom:1}
 body{
   font-family:SourceHanSansCN-Normal;
 }
+/* 机器列表 */
 .machine{
   width: 90%;
   padding: 3% 5%;
@@ -63,4 +66,73 @@ body{
 .machine .machine-right .manjian .manjianBox text{
   font-size: 20rpx;
   color:rgba(61,61,61,1);
+}
+/* 餐品列表 */
+.product{
+  width: 90%;
+  padding: 3% 5%;
+  display: flex;
+  margin-top: 2%;
+  background-color: #ffffff;
+}
+.product .product-left{
+  width: 30%;
+  margin-right: 5%;
+  position: relative;
+}
+.product .product-left .productImg{
+  width: 100%;
+}
+.product .product-left .productIcon{
+  width: 75rpx;
+  height: 36rpx;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.product .product-right{
+  width: 65%;
+}
+.product .product-right .productName{
+  display: flex;
+  justify-content: space-between;
+  height: 34rpx;
+  line-height: 34rpx;
+}
+.product .product-right .productName text{
+  font-size: 24rpx;
+}
+.product .product-right .productName .fly{
+  width: 35rpx;
+  height: 30rpx;
+  vertical-align: middle;
+}
+.product .product-right .intro{
+  margin-top: 15rpx;
+}
+.product .product-right .intro .recomentNum{
+  font-size:20rpx;
+  font-family:PingFangSC-Regular;
+  color:rgba(151,151,151,1);
+}
+.product .product-right .intro .addGoods{
+  margin-top: 15rpx;
+  display: flex;
+  justify-content: space-between;
+}
+.product .product-right .intro .price{
+  font-size:28rpx;
+  font-family:PingFangSC-Medium;
+  color:rgba(253,106,8,1);
+}
+.product .product-right .intro .add{
+  width:33rpx;
+  height:33rpx;
+  display: block;
+  margin-right: 15rpx;
+}
+/* 上下翻转 */
+.rotateY{
+  transform: rotateX(180deg);
+  transition: 1s;
 }

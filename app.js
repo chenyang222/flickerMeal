@@ -1,6 +1,22 @@
 //app.js
 App({
-  onLaunch: function () {
+  onLaunch: function () {},
+  // 公共数据配置
+  globalData: {
+    // imgdata: '/images',//正常图片展示的地址
+    imgdata: 'https://shanchan.jergavin.com/wxapp/images',//正常图片展示的地址
+    api: 'https://shanchan.jergavin.com', // 接口请求api
+    ak: 'NPfvQSlaxLvtuBWm4YDVwecQNoTACuUY', // 填写申请到的ak
+    openid: ''
+  },
+  //跳转登录页
+  jumpLogin: function () {
+    wx.redirectTo({
+      url: '/pages/login/login'
+    })
+  },
+  // 登陆
+  login: function () {
     // 本地存储获取token
     const token = wx.getStorageSync("token");
     const oldDate = wx.getStorageSync("oldDate");
@@ -49,19 +65,6 @@ App({
       });
     }
   },
-  // 公共数据配置
-  globalData: {
-    // imgdata: '/images',//正常图片展示的地址
-    imgdata: 'https://shanchan.jergavin.com/wxapp/images',//正常图片展示的地址
-    api: 'https://shanchan.jergavin.com', // 接口请求api
-    ak: 'NPfvQSlaxLvtuBWm4YDVwecQNoTACuUY' // 填写申请到的ak
-  },
-  //跳转登录页
-  jumpLogin: function () {
-    wx.redirectTo({
-      url: '/pages/login/login'
-    })
-  },
   /**
    *  token data处理
    */
@@ -99,6 +102,8 @@ App({
         duration: 1000,
         mask: true
       })
+      wx.setStorageSync('token', '');
+      wx.setStorageSync('oldDate', '');
       wx.reLaunch({
         url: '/pages/login/login'
       })
@@ -106,8 +111,13 @@ App({
     wx.showLoading({
       title: '加载中',
     })
+    let header = {};
     // header设置token
-    const header = {}
+    if (method == 'post') {
+      header = {
+        'content-type': 'application/x-www-form-urlencoded'
+      }
+    }
     if (token) {
       header["Authorization"] = token;
     }
@@ -130,6 +140,8 @@ App({
               duration: 1000,
               mask: true
             })
+            wx.setStorageSync('token', '');
+            wx.setStorageSync('oldDate', '');
             setTimeout(() => {
               wx.reLaunch({
                 url: '/pages/login/login'

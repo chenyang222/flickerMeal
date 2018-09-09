@@ -4,7 +4,6 @@
     "pages/index/machine/machine",
     "pages/index/shouye/shouye",
     "pages/index/hotWords/hotWords",
-    "pages/index/newProductRecom/newProductRecom",
     "pages/index/search/search",
     "pages/index/recmandMeal/recmandMeal",
     "pages/index/shancanStoryList/shancanStoryList",
@@ -79,16 +78,16 @@
         "selectedIconPath": "images/cf_nav1on.png"
       },
       {
-        "text": "订单",
-        "pagePath": "pages/order/index",
-        "iconPath": "images/cf_nav2.png",
-        "selectedIconPath": "images/cf_nav2on.png"
-      },
-      {
         "text": "购物车",
         "pagePath": "pages/shopCar/index",
         "iconPath": "images/cf_nav3.png",
         "selectedIconPath": "images/cf_nav3on.png"
+      },
+      {
+        "text": "订单",
+        "pagePath": "pages/order/index",
+        "iconPath": "images/cf_nav2.png",
+        "selectedIconPath": "images/cf_nav2on.png"
       },
       {
         "text": "我的",

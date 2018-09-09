@@ -6,11 +6,7 @@ const app = getApp();
       startX: 0, //开始坐标
       startY: 0
     },
-    onLoad: function () {
-      wx.setNavigationBarTitle({
-        title: '收货地址'
-      })
-    },
+    onLoad: function () {},
     addlist:function(){
       var that = this;
       app.fetch({

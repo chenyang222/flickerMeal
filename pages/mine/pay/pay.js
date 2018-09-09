@@ -10,11 +10,7 @@ Page({
     this.iftrue = true;
     console.log("kajs");
   },
-  onLoad: function (options) {
-    //console.log(options);
-    wx.setNavigationBarTitle({
-      title: '余额'
-    })
+  onShow: function () {
     app.fetch({
       url: '/account/user/info'
     })
@@ -24,5 +20,6 @@ Page({
           balance: util.toMoney(response.balance)
         })
       })
-  }
+  },  
+  onLoad: function (options) {}
 })

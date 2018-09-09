@@ -9,44 +9,25 @@
   </view>
   <view style='margin-top:60px;'></view>
   <!-- 列表 -->
-  <view class="hotPush">
-    <view class='big-list'>
-      <view class='new-product-title'>
-        <view class='titleL'>
-          <image class='kefu-icon' src='{{imgdata}}/kefuIcon.png'></image>
-          <text class='jq-code'>闪餐机器人001</text>
-          <text class='shop-name'>（霍营店）</text>
-        </view>
-        <view class='pingfen'>
-          <text>评分4.6</text>
-        </view>
+  <view class="machine" wx:for="{{machineList}}" wx:for-index="index" wx:for-item="item" wx:key="{{index}}">
+    <view class="machine-left">
+      <image class="machineImg" mode="widthFix" src="{{imgdata}}/hotPushImg.png"></image>
+      <!-- <image class="machineIcon" src="{{imgdata}}/hotPushIcon.png"></image> -->
+    </view>
+    <view class="machine-right">
+      <view class="machineName">
+        <text data-machineId='{{item.id}}' bindtap='setStorgeId'>{{item.name}}({{item.address}})</text>
+        <image src="{{imgdata}}/blDingwei.png" class="fly"></image>
       </view>
-      <view class='small-list'>
-        <view class="hotPushL fl">
-          <image class="hotPushImg" src="{{imgdata}}/hotPushImg.png"></image>
-          <image class="hotPushIcon" src="{{imgdata}}/hotPushIcon.png"></image>
+      <view class="manjian">
+        <!-- <view class='manjianBox'>
+          <image src="/images/blmanjian.png"></image>
+          <text>满49减2，满60减12</text>
         </view>
-        <view class="hotPushR fl">
-          <view class="dianNamePosi">
-            <text>麻辣香锅加酸辣粉土豆丝加米</text>
-          </view>
-          <view class="psTime">
-            <text>麻辣香锅加酸辣土豆粉加米</text>
-          </view>
-          <view class='price-ctl'>
-            <view class='price'>
-              <view class='price-wrap'>
-                <text class='real-price'>
-                  <text>￥</text>
-                  <text>19.5</text>
-                </text>
-              </view>
-            </view>
-            <view class='ctl-btn'>
-               购买
-            </view>
-          </view>
-        </view>
+        <view class='manjianBox'>
+          <image src="/images/blmanjian.png"></image>
+          <text>满49减2，满60减12</text>
+        </view> -->
       </view>
     </view>
   </view>

@@ -1,5 +1,4 @@
 <!--pages/mine/addpaydetail/addpaydetail.wxml-->
-<!-- <text>pages/mine/addpaydetail/addpaydetail.wxml</text> -->
 <view class='addpaydetail'>
     <view class='fulllist'>
         <view class='fullitem'>

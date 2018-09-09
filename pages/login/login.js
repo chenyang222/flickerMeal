@@ -30,8 +30,9 @@ Page({
     is_show: true, // 显示倒计时或者获取验证码
     code: '' // 登陆获取code
   },
-  onLoad: function () {
-    var that = this;
+  onLoad: function () {},
+  onShow: function () {
+    app.login();
   },
   // 获取验证码
   getIdentifyingCode: function () {

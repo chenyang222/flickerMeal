@@ -20,7 +20,9 @@ Page({
     indicatorActiveColor: '#F1A101',
 
     machineId: '', // 当前选择机器Id
+    isShouAllList: false, // 是否展示所有优惠券
     couponList: [], // 优惠券
+    couponAllList: [], // 所有优惠券
 
     caidanNav: [],
 
@@ -38,11 +40,17 @@ Page({
     hotwordNameArr:'',
     todayBuy: [],//今日购
     todayBuyList: [],//今日购
+    todaymealId: '0', //今日购餐品类型，默认是全部餐品
+
+    weekProductList: [], // 预定餐品列表
+    prevOrdermealId: '0', //预定餐品类型，默认是全部餐品
+
+    addToCar: false, // 添加到购物车
+
     toView: '',
     styleStr: '',
     modelstyle: '',
-    todaymealId: '0', //今日购餐品类型，默认是全部餐品
-    prevOrdermealId: '0', //预定餐品类型，默认是全部餐品
+    
     startY: 0,//记录touchstart时位置
     pinglunList: [],//评论列表
     boxTop: 0,//记录今日购、预定、评论的距离顶部高度0时固定定位
@@ -52,7 +60,7 @@ Page({
     // 设置定位
     this.setPosition();
     // 广告轮播
-    // this.getAllTCarouselFigureList();
+    this.getAllTCarouselFigureList();
     // 获取本地机器id
     const machineId = wx.getStorageSync('machineId');
     this.setData({
@@ -65,12 +73,31 @@ Page({
     // 推荐餐品
     this.getRecomtc();
     // 今日够
-    // this.todayBuy();
-    // this.setData({
-    //   fixedFlag: false,
-    //   boxTop: 0
-    // });
+    this.getTodayBuy();
+    this.setData({
+      fixedFlag: false,
+      boxTop: 0,
+      todayBuy: [{
+        typeName: '全部餐品',
+        id: '0'
+      },{
+        typeName: '新品上市',
+        id: '1'
+      },{
+        typeName: '推荐餐品',
+        id: '2'
+      }]
+    });
+    // 每周菜谱
+    this.getWeek();
+    // 获取所有活动列表
+    // app.fetch({
+    //   url: '/operate/activitys/list'
+    // })
+    //   .then((response) => {
+    //     console.info(response)
 
+    //   })
   },
   // 定位设置
   setPosition: function () {
@@ -175,9 +202,107 @@ Page({
       }
     })
       .then((response) => {
-        console.info(response, this)
         this.setData({
-          couponList: response.slice(0,3)
+          couponList: response.slice(0,3),
+          couponAllList: response
+        })
+      })
+  },
+  // 是否展示所有优惠券切换
+  showAllCoupon: function () {
+    this.setData({
+      isShouAllList: !this.data.isShouAllList
+    })
+  },
+  // 领取优惠券
+  getGoupon: function (e) {
+    const couponId = e.currentTarget.dataset.id;
+    const macId = this.data.machineId;
+    app.fetch({
+      url: '/operate/coupon/getByCouponId',
+      data: {
+        macId: macId,
+        couponId: couponId
+      }
+    })
+      .then((response) => {
+        console.info(response)
+        wx.showToast({
+          title: '领取成功',
+          icon: 'success',
+          duration: 1000
+        })
+      })  
+  },
+  // 获取今日购
+  getTodayBuy: function () {
+    app.fetch({
+      url: '/fastfood/foodmachine/findProductByMacIdAndProductCatId',
+      data: {
+        macId: this.data.machineId
+      }
+    })
+      .then((response) => {
+        this.setData({
+          todayBuyList: response
+        })
+      })
+  },
+  // 获取预定餐品列表
+  getWeek: function (e) {
+    const week = 1;
+    const macId = this.data.machineId;
+    app.fetch({
+      url: '/fastfood/foodmachine/findProductByMacIdAndWeek',
+      data: {
+        macId: macId,
+        week: week
+      }
+    })
+      .then((response) => {
+        this.setData({
+          weekProductList: response
+        })
+      })
+  },  
+  // 获取预定餐品列表
+  selectWeek: function (e) {
+    const week = e.currentTarget.dataset.week;
+    const macId = this.data.machineId;
+    app.fetch({
+      url: '/fastfood/foodmachine/findProductByMacIdAndWeek',
+      data: {
+        macId: macId,
+        week: week
+      }
+    })
+      .then((response) => {
+        this.setData({
+          weekProductList: response
+        })
+      })
+  },
+  //添加到购物车
+  addBuyCar: function (e) {
+    // this.setData({
+    //   addToCar: true
+    // })
+    const aisleId = e.currentTarget.dataset.aisleid;
+    const productId = e.currentTarget.dataset.productid;
+    const macId = this.data.machineId;
+    app.fetch({
+      url: '/fastfood/shoppingcart/add',
+      data: {
+        aisleId: aisleId,
+        productId: productId,
+        macId: macId
+      }
+    })
+      .then((response) => {
+        wx.showToast({
+          title: '已添加到购物车',
+          icon: 'success',
+          duration: 1000
         })
       })
   },
@@ -208,11 +333,6 @@ Page({
       duration: e.detail.value
     })
   }, 
-  // 点击关闭模态框
-  closeModel: function () {
-    app.globalData.indexmodelstyle = 'display: none;'
-    this.setData({ modelstyle: app.globalData.indexmodelstyle });
-  },
   //事件处理函数
   bindViewTap: function () {
     wx.navigateTo({
@@ -234,16 +354,6 @@ Page({
     wx.navigateTo({
       url: '../mealDetail/mealDetail?id=' + e.currentTarget.dataset.id + '&machineid=' + e.currentTarget.dataset.machineid,
     })
-  },
-  // 点击预定滚动到预定商品
-  toyuding: function (e){
-    if (e.currentTarget.dataset.menuname == "预定"){
-      this.setData({
-        styleStr: 'padding-top:220rpx;',
-        toView: 'todayShopping',
-        currentTab: 1
-      })
-    }
   },
   // 开始滑动
   handleTouchstart: function (event){
@@ -269,7 +379,6 @@ Page({
       currentTab: e.detail.current
     });
   },
-  
   //点击切换
   // 点击今日购
   todayClick: function(e){
@@ -291,16 +400,14 @@ Page({
   },
   // 点击今日购---餐品类型
   todaymealType: function(e){
-    const id = parseInt(e.currentTarget.dataset.id);
+    const id = e.currentTarget.dataset.id;
     this.setData({
-      todaymealId: id,
-      todayBuyList: this.data.todayBuy[id].foods
+      todaymealId: id
     });
-    todayListArr = this.data.todayBuyList;
   },
   // 点击预定---餐品类型
   prevOrdermealType: function(e){
-    // console.log(e.currentTarget.dataset.id)
+    console.log(e.currentTarget.dataset.id)
     this.setData({
       prevOrdermealId: e.currentTarget.dataset.id
     });
@@ -325,48 +432,6 @@ Page({
           hotwordNameArr: hotwordNameArr
         })
       }
-    })
-  },
-  //添加到购物车
-  addBuyCar:function(e){
-    // console.log(e);
-    var that = this;
-    var id = e.currentTarget.dataset.id;
-    var machineid = parseInt(e.currentTarget.dataset.machineid);
-    wx.getStorage({
-      key: 'token',
-      success: function(res) {
-        that.setData({
-          sessionid:res.data
-        })
-        wx.request({
-          url: app.globalData.baseUrl + 'tCart/addCart.action', 
-          method: 'POST',
-          data: {
-            foodId: id,
-            machineId: machineid,
-            foodCount: 1,
-            token: that.data.sessionid
-          },
-          header: { 'content-type': 'application/x-www-form-urlencoded' },
-          success: function (res) {
-            // console.log(res, '加入购物车');
-            if(res.data.code == 0){
-              wx.showToast({
-                title: res.data.msg,
-                icon: 'success',
-                duration: 1000
-              })
-            }
-          },
-          fail: function(){
-            wx.showToast({
-              title: '加入购物车失败',
-              icon: 'none'
-            })
-          }
-        })
-      },
     })
   },
   getEvaluateList: function (that){//获取评论列表
@@ -409,7 +474,7 @@ Page({
     query.select('#theid').boundingClientRect();
     query.select('#topContainer').boundingClientRect();
     query.exec(function (rect) {
-      if (rect[0].top <= (rect[1].height + 3)){
+      if (rect[0].top <= (rect[1].height + 85)){
         that.setData({
           fixedFlag: true
         });
@@ -417,7 +482,6 @@ Page({
         that.setData({
           fixedFlag: false
         });
-
       }
     });
   }

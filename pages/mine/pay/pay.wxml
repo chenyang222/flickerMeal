@@ -13,7 +13,7 @@
     <navigator class='recharge' url="../balance/balance">充值</navigator>
     <!-- <view class='rechargerule'>余额明细</view> -->
 
-    <view class='public_shade' wx:if="{{iftrue}}">
+    <!-- <view class='public_shade' wx:if="{{iftrue}}">
         <view class='public_center payshade'>
             <view class='headtitle'>
                 充值
@@ -24,5 +24,5 @@
                <text>确定</text>
             </view>
         </view>
-    </view>
+    </view> -->
 </view>

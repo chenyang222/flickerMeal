@@ -33,6 +33,7 @@
   font-size: 60rpx;
 }
 .recharge{
+  display: block;
   width: 700rpx;
   margin: 0 auto;
   height: 89rpx;

@@ -7,11 +7,6 @@ Page({
    */
   data: {
     imgdata: app.globalData.imgdata,
-    items: [
-      { name: 'sir', value: '微信支付' , checked: 'true'},
-      { name: 'ms', value: '支付宝支付', },
-      { name: 'ms', value: '充值码支付',}
-    ],
     payitems: [
       { name: '20元',},
       { name: '30元',},
@@ -20,51 +15,44 @@ Page({
       { name: '150元', },
       { name: '200元', }
     ],
-    payitem: '20元',
+    payitem: '20',
     tabArr: {
       curHdIndex: 0,
       curBdIndex: 0
     }, 
-    hiddensuccess: false
+    inputValue: ''
   },
-  radioChange: function (e) {
-    var that = this;
-    that.setData({
-      sex: e.detail.value,
-    })
-    console.log('radio发生change事件，携带value值为：', e.detail.value)
-  },//选择支付方式
   tabFun: function (e) {
     //获取触发事件组件的dataset属性  
     var _datasetId = e.target.dataset.id;
-    console.log(e.target);
-    console.log("----" + _datasetId + "----");
+    this.setData({
+      inputValue: ''
+    })
     if (_datasetId == 0){
       this.setData({
-        payitem: '20元'
+        payitem: '20'
       });
     } else if (_datasetId == 1){
       this.setData({
-        payitem: '30元'
+        payitem: '30'
       });
     } else if (_datasetId == 2){
       this.setData({
-        payitem: '50元'
+        payitem: '50'
       });
     } else if (_datasetId == 3) {
       this.setData({
-        payitem: '100元'
+        payitem: '100'
       });
     } else if (_datasetId == 4) {
       this.setData({
-        payitem: '150元'
+        payitem: '150'
       });
     }else{
       this.setData({
-        payitem: '200元'
+        payitem: '200'
       });
     }
-    console.log(this.data.payitem);
     var _obj = {};
     _obj.curHdIndex = _datasetId;
     _obj.curBdIndex = _datasetId;
@@ -74,18 +62,48 @@ Page({
   },
   pay:function(){
     var that = this;
-    that.setData({
-      hiddensuccess: true
+    const price = this.data.inputValue ? this.data.inputValue : this.data.payitem;
+    app.fetch({
+      url: '/recharge/wxpay/wechatapp/payment',
+      data: {
+        totalFee: price
+      }
     })
-    setTimeout(function () {
-      that.setData({
-        hiddensuccess: false
-      });
-    }, 2000);
+      .then((response) => {
+        console.info(response)
+        wx.requestPayment({
+          'timeStamp': response.timeStamp,
+          'nonceStr': response.nonceStr,
+          'package': response.package,
+          'signType': response.signType,
+          'paySign': response.paySign,
+          'success': function (res) {
+            wx.showToast({
+              title: '充值成功',
+              icon: 'none',
+              duration: 1000,
+              mask: true
+            })
+            wx.navigateTo({
+              url: "/pages/order/pay/pay",
+            })
+          },
+          'fail': function (res) {
+            wx.showToast({
+              title: '充值失败',
+              icon: 'none',
+              duration: 1000,
+              mask: true
+            })           
+          }
+        })
+      })
   },
-  onLoad: function (options) {
-    wx.setNavigationBarTitle({
-      title: '余额'
+  bindKeyInput: function (e) {
+    this.setData({
+      inputValue: e.detail.value
     })
+  },
+  onLoad: function () {
   },
 })

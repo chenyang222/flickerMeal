@@ -1,92 +1,90 @@
 //获取应用实例  
 var app = getApp()
+var utils = require('../../utils/util.js'); // 引入百度地图js
+// 倒计时
+var payTime = function(that) {
+  var date = new Date().getTime();
+  var data = that.data.orderList;
+  for (var i = 0; i < data.length; i++) {
+    const time = 20 * 60 - (date - data[i].createTime) / 1000;
+    if (time > 0) {
+      data[i].countDown = utils.sToMinutes(time);
+    } else {
+      data[i].countDown = '订单已取消';
+    }
+  }
+  that.setData({
+    orderList: data
+  })
+  setTimeout(function () {
+    payTime(that);
+  }, 1000);
+};
 Page({
   data: {
     imgdata: app.globalData.imgdata,
     winWidth: 0,
     winHeight: 0,
     currentTab: 0,// tab切换  
-    orderList: [],
-    orderStatus: '',//订单状态
+    orderList: []
   },
   onLoad: function () {
-    var that = this;
+    const that = this;
     /** 
      * 获取系统信息 
      */
     wx.getSystemInfo({
-
       success: function (res) {
         that.setData({
           winWidth: res.windowWidth,
           winHeight: res.windowHeight
         });
       }
-
     });
-    // 获取订单列表
-    this.getOrderList(that);
+    payTime(that)
   },
+  onShow: function () {
+    // 获取订单列表
+    this.getOrderList();
+  },  
   /** 
    * 滑动切换tab 
    */
   bindChange: function (e) {
-    var that = this;
-    that.setData({ currentTab: e.detail.current });
+    this.setData({ currentTab: e.detail.current });
 
   },
   /** 
    * 点击tab切换 
    */
   swichNav: function (e) {
-    var that = this;
-
     if (this.data.currentTab === e.currentTarget.dataset.current) {
       return false;
     } else {
-      that.setData({
+      this.setData({
         currentTab: e.target.dataset.current
       })
     }
-    //0已关闭，1待付款，2待退款，3待退货，4待发货，5已发货，6待取餐，7已完成，8已预订，9已取消,10已退货
-    if (e.currentTarget.dataset.current == 0){
-      that.setData({
-        orderStatus: ''
-      });
-    } else if (e.currentTarget.dataset.current == 1) {
-      that.setData({
-        orderStatus: 1
-      });
-    } else if (e.currentTarget.dataset.current == 2) {
-      that.setData({
-        orderStatus: 6
-      });
-    } else if (e.currentTarget.dataset.current == 3) {
-      that.setData({
-        orderStatus: 7
-      });
-    } else if (e.currentTarget.dataset.current == 4) {
-      that.setData({
-        orderStatus: ''
-      });
-    }
-    that.getOrderList(that);
   },
-  getOrderList: function(that){//获取订单列表
-    wx.request({
-      url: app.globalData.baseUrl + 'orderMgr/selectMachineOrderList.action',
-      data: {
-        uuid: wx.getStorageSync('shancanuserid'), //用户id
-        status: that.data.orderStatus
-      },
-      success: function(res){
-        console.log(res,'订单列表');
-        if(res.data.code == 0){
-          if (res.data.data.result && res.data.data.result.length > 0){
-            that.setData({ orderList: res.data.data.result});
-          }
-        }
-      }
+  //获取订单列表
+  getOrderList: function() {
+    var that = this;
+    app.fetch({
+      url: '/fastfood/foodorder/findOrderByUser'
+    })
+      .then((response) => {
+        this.setData({ 
+          orderList: response
+        });
+        payTime(that);
+      })
+  },
+  // 去付款
+  toPay: function (e) {
+    const orderNo = e.target.dataset.orderno;
+    console.info(orderNo)
+    wx.navigateTo({
+      url: "/pages/order/payment/payment?orderNo=" + orderNo,
     })
   }
-})  
+})

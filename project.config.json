@@ -37,7 +37,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 1,
+			"current": 3,
 			"list": [
 				{
 					"id": -1,
@@ -48,7 +48,19 @@
 				{
 					"id": -1,
 					"name": "1",
-					"pathName": "pages/mine/addAddress/addAddress"
+					"pathName": "pages/mine/addAddress/addAddress",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "test",
+					"pathName": "pages/shopCar/index",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "订单",
+					"pathName": "pages/order/index"
 				}
 			]
 		}
