@@ -24,7 +24,7 @@ const app = getApp();
       data.defaultFlag = 0;
       app.fetch({
         url: '/account/address/update',
-        method: 'get',
+        method: 'post',
         data: data
       })
         .then((response) => {
