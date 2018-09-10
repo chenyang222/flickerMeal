@@ -101,3 +101,15 @@
   margin-top: 10rpx;
   margin-left: 90rpx;
 }
+.yue-name{
+  font-size:30rpx;
+  font-family:SourceHanSansCN-Medium;
+  color:rgba(102,102,102,1);
+  margin-left:90rpx
+}
+.shengyu-wrap{
+  font-size:22rpx;
+  font-family:SourceHanSansCN-Medium;
+  color:rgba(245,65,60,1);
+  margin-left:90rpx
+}

@@ -68,16 +68,12 @@
   <view class='paymentMethod'>
     <view class='paymentMethodList'>
       <view class='balance'>
-        <view>
-          <image class='paymentMethodImg otherPaymentImg fl' src='{{imgdata}}/otherPaymentImg.png'></image>
+        <view class="fl">
+          <image class='paymentMethodImg otherPaymentImg' src='{{imgdata}}/otherPaymentImg.png'></image>
         </view>
-        <view style='margin-left:90rpx;'>
-          <view>
-            <text class='yue-name'>余额支付</text>
-          </view>
-          <view class='shengyu-tips'>
-             剩余余额：<text class='shengyu-wrap'>30</text>元
-          </view>
+        <view>
+          <text class='yue-name'>余额支付</text>
+          <text class='shengyu-wrap'>剩余余额：30元</text>
         </view>
       </view>
       <view>

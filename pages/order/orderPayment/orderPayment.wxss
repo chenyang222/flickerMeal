@@ -118,9 +118,6 @@ page {
   font-family:SourceHanSansCN-Bold;
   color:rgba(245,65,60,1);
 }
-.price-compaName{
-  /* margin-top: -10rpx; */
-}
 .price-wrap{
   line-height: 20rpx;
 }
