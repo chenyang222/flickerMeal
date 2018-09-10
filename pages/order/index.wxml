@@ -15,10 +15,9 @@
     <!-- 全部订单 -->
     <swiper-item>
       <view class='all-order' style="height:{{winHeight - 96}}px">
-        <!-- 去付款 -->
         <view class='order-list' wx:for="{{orderList}}" wx:for-item="item" wx:key="{{index}}">
           <view class='order-list-title'>
-            <view class='dian-info'>
+            <view data-orderNo="{{item.orderNo}}" bindtap='toOrderDetail' class='dian-info'>
               <image class='order-list-icon' src='{{imgdata}}/orderTitleIcon.png'></image>
               <text class='order-list-name'>{{item.orderNo}}</text>
               <image class='order-list-more' src='{{imgdata}}/cf_goright.png'></image>
@@ -33,7 +32,6 @@
             </view>            
             <!-- 剩余时间、去付款  -->
             <view wx:if="{{item.orderStatus == 0}}" class='shengTime'>
-              <text class='order-list-time-title'>剩余支付时间</text>
               <text class='time'>{{item.countDown}}</text>
             </view>
             <!-- 订单待取餐 -->
@@ -47,7 +45,7 @@
           </view>
           <view class='order-list-ctninfo'>
             <view class='row' wx:for="{{item.childs}}" wx:for-item="items" wx:key="{{indexItems}}">
-              <text class='fl'>剁椒鸡蛋盖饭</text>
+              <text class='fl'>{{items.productName}}</text>
               <text class='fr'>{{items.price}}X{{items.buyNumber}}</text>
             </view>
           </view>

@@ -27,7 +27,7 @@
       <block wx:for="{{imgsDotBanner}}" wx:key="{{index}}">
         <swiper-item>
           <navigator url="/pages/index/indexLunboDetail/indexLunboDetail?id={{item.advertId}}" hover-class="navigator-hover">
-            <image src="{{item.url}}" class="slide-image" width="750" height="244" />
+            <image mode="aspectFill" src="{{item.url}}" class="slide-image" width="750" height="244" />
           </navigator>
         </swiper-item>
       </block>
@@ -90,7 +90,7 @@
       <view class='recomentContent'>
         <view class='recomentBox' wx:for="{{recomTC}}" wx:for-item="item" wx:key="{{index}}">
           <image class="picture" src="{{item.picture}}"></image>
-          <text class='reName'>{{item.name}}</text>
+          <text class='reName'>{{item.productName}}</text>
           <view wx:if="{{item.hotNum}}" class="recomentNum">推荐指数
 <text>{{item.hotNum}}</text></view>
           <view class='addGoods'>
@@ -140,7 +140,7 @@
                 </view>
                 <view class="product-right">
                   <view class="productName">
-                    <text data-productId='{{item.id}}' bindtap='setStorgeId'>{{item.name}}</text>
+                    <text>{{item.productName}}</text>
                   </view>
                   <view class="intro">
                       <view wx:if="{{item.hotNum}}" class="recomentNum">推荐指数
@@ -194,7 +194,7 @@
                 </view>
                 <view class="product-right">
                   <view class="productName">
-                    <text data-productId='{{item.id}}' bindtap='setStorgeId'>{{item.name}}</text>
+                    <text>{{item.productName}}</text>
                   </view>
                   <view class="intro">
                       <view wx:if="{{item.hotNum}}" class="recomentNum">推荐指数

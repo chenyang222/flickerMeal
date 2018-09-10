@@ -1,0 +1,103 @@
+/* pages/order/orderDetail/orderDetail.wxss */
+@import "../../../style/public.wxss";
+.orderStatus{
+  width: 100%;
+  padding-top: 40rpx;
+  padding-bottom: 15rpx; 
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+}
+.orderStatus .title{
+  display: flex;
+  align-items: center;
+  justify-content:center;
+}
+.orderStatus image{
+  width: 10%;
+  margin-right: 25rpx;
+}
+.orderStatus .title text{
+  font-size: 55rpx;
+  color: #ff9e35;
+}
+.orderStatus .restTime{
+  width: 100%;
+  text-align: center;
+  color: #7c7c7c;
+  display: block;
+  font-size: 26rpx;
+  line-height: 100rpx;
+}
+.orderStatus .btns{
+  display: flex;
+  justify-content: space-around;
+}
+.orderStatus .btns navigator{
+  display: inline-block;
+  padding: 0 40rpx;
+  line-height: 89rpx;
+  height: 89rpx;
+  border-radius: 30rpx;
+  background-color: #ff9e35;
+  color: #ffffff;
+  text-align: center;
+  font-size: 35rpx;
+}
+
+.orderBody .product{
+  margin-top: 0;
+}
+.orderBody .addGoods{
+  display: flex;
+  justify-content: space-between;
+  font-size: 40rpx;
+}
+.orderBody .addGoods .price{
+  font-size: 40rpx !important;
+}
+.orderBody .productName{
+  color: #7c7c7c;
+}
+
+.orderBody .basic{
+  margin-top: 15rpx;
+  background-color: #ffffff;
+  padding: 25rpx;
+}
+.orderBody .basic .basic-left{
+  font-weight: bold;
+  line-height: 30rpx;
+  font-size: 22rpx;
+  margin-right: 35rpx;
+}
+.orderBody .basic .basic-right{
+  line-height: 30rpx;
+  font-size: 20rpx;
+  color: #7c7c7c;
+}
+
+.paymentMethodList{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 20rpx;
+  background-color: #f9f4f0;
+  margin-top: 10rpx;
+}
+.paymentMethodImg{
+  width:69rpx;
+  height:69rpx;
+}
+.selectedImg,.paymentNoSeleImg{
+  width:38rpx;
+  height:38rpx; 
+  margin-top: 15rpx;
+}
+.paymentMethodName{
+  font-size:30rpx;
+  font-family:SourceHanSansCN-Medium;
+  color:rgba(102,102,102,1);
+  margin-top: 10rpx;
+  margin-left: 90rpx;
+}

@@ -2,12 +2,12 @@
 <view class="container">
   <view class='order-detail-address-wrap'>
     <view class='order-address-icon-title-wrap'></view>
-    <view class='' style='margin:15rpx 0;'>
+    <!-- <view class='' style='margin:15rpx 0;'>
       <view class='order-detail-address-icon'></view>
       <text class='order-detail-address-name'>{{address}}</text>
-      <!-- <text class='order-juli'>5.0km</text> -->
-    </view>
-    <view class='name-phone'><text style='margin-right:150rpx;'>{{consignee}}（{{sex}}）</text><text>{{mobile}}</text></view>
+      <text class='order-juli'>5.0km</text>
+    </view> -->
+    <!-- <view class='name-phone'><text style='margin-right:150rpx;'>{{consignee}}（{{sex}}）</text><text>{{mobile}}</text></view> -->
   </view>
   <view class='address-fenge'></view>
   <view class='canpin-list-wrap'>
@@ -16,11 +16,11 @@
       <!-- list -->
       <view class='fan-list'>
         <view class='fan-img-wrap'>
-          <image class='fan-img' src='{{imgdata}}/upload/carFanImg.png'></image>
+          <image class='fan-img' src='{{item.productPic}}'></image>
         </view>
         <view class='fan-name-price'>
           <view class='fan-name-price-list1'>
-            <text class='fan-name'>鸡蛋炒饭套餐</text>
+            <text class='fan-name'>{{item.productName}}</text>
           </view>
           <view class='fan-name-price-list2'>
             <view class='fan-ctl'>

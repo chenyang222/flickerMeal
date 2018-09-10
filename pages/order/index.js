@@ -1,6 +1,6 @@
 //获取应用实例  
 var app = getApp()
-var utils = require('../../utils/util.js'); // 引入百度地图js
+var utils = require('../../utils/util.js');
 // 倒计时
 var payTime = function(that) {
   var date = new Date().getTime();
@@ -8,9 +8,10 @@ var payTime = function(that) {
   for (var i = 0; i < data.length; i++) {
     const time = 20 * 60 - (date - data[i].createTime) / 1000;
     if (time > 0) {
-      data[i].countDown = utils.sToMinutes(time);
+      data[i].countDown = '剩余支付时间' + utils.sToMinutes(time);
     } else {
       data[i].countDown = '订单已取消';
+      data[i].orderStatus = -1;
     }
   }
   that.setData({
@@ -82,9 +83,15 @@ Page({
   // 去付款
   toPay: function (e) {
     const orderNo = e.target.dataset.orderno;
-    console.info(orderNo)
     wx.navigateTo({
       url: "/pages/order/payment/payment?orderNo=" + orderNo,
+    })
+  },
+  // 查看订单
+  toOrderDetail: function (e) {
+    const orderNo = e.currentTarget.dataset.orderno;
+    wx.navigateTo({
+      url: "/pages/order/orderDetail/orderDetail?orderNo=" + orderNo,
     })
   }
 })

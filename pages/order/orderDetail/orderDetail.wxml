@@ -1,0 +1,116 @@
+<!--pages/order/orderDetail/orderDetail.wxml-->
+<!-- 订单状态 -->
+<view class='orderStatus'>
+  <!-- 待支付 -->
+  <view wx:if="{{orderStatus == 0}}">
+    <view class='title'>
+      <image mode="widthFix" src='{{imgdata}}/waitpay.png'></image>
+      <text>待支付</text>
+    </view>
+    <text class='restTime'>{{overTimeText}}</text>    
+  </view>
+  <!-- 超时取消 -->
+  <view wx:elif="{{orderStatus == -1}}">
+    <view class='title'>
+      <image mode="widthFix" src='{{imgdata}}/overtime.png'></image>
+      <text>订单超时取消</text>
+    </view>
+    <text class='restTime'>感谢您对闪餐支持，欢迎再次光临</text>    
+  </view>
+  <!-- 待取餐 -->
+  <view wx:elif="{{orderStatus == 1}}">
+    <view class='title'>
+      <image mode="widthFix" src='{{imgdata}}/waitget.png'></image>
+      <text>待取餐</text>
+    </view>
+    <view class='btns'>
+      <navigator url="">待取餐</navigator>
+      <navigator url="">联系客服</navigator>
+      <navigator url="">分享</navigator>
+    </view>
+  </view>
+  <!-- 订单已完成 -->
+  <view wx:elif="{{orderStatus == 2 || orderStatus == 3}}">
+    <view class='title'>
+      <image mode="widthFix" src='{{imgdata}}/close.png'></image>
+    </view>
+    <text class='restTime'>感谢您对闪餐支持，欢迎再次光临</text>
+    <view class='btns'>
+      <navigator url="">申请电子发票</navigator>
+      <navigator url="">评价</navigator>
+    </view>
+  </view>
+</view>
+
+<!-- 订单body -->
+
+<view class='orderBody'>
+  <!-- 餐品列表 -->
+  <view class='meals'>
+    <view class="product" wx:for="{{mealList}}" wx:for-index="index" wx:for-item="item" wx:key="{{index}}" wx:if="{{item.label == prevOrdermealId || prevOrdermealId == 0}}">
+      <view class="product-left">
+        <image class="productImg" mode="widthFix" src="{{item.productPic}}"></image>
+      </view>
+      <view class="product-right">
+        <view class="productName">
+          <text>{{item.productName}}</text>
+        </view>
+        <view class="intro">
+            <view class='addGoods'>
+              <text>X {{item.buyNumber}}</text>
+              <view class="price">￥<text>{{item.buyNumber * item.price}}</text></view>
+            </view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <!-- 支付方式选择 -->
+  <view class='paymentMethod'>
+    <view class='paymentMethodList'>
+      <view class='balance'>
+        <view>
+          <image class='paymentMethodImg otherPaymentImg fl' src='{{imgdata}}/otherPaymentImg.png'></image>
+        </view>
+        <view style='margin-left:90rpx;'>
+          <view>
+            <text class='yue-name'>余额支付</text>
+          </view>
+          <view class='shengyu-tips'>
+             剩余余额：<text class='shengyu-wrap'>30</text>元
+          </view>
+        </view>
+      </view>
+      <view>
+        <image class='paymentNoSeleImg fr' src='{{imgdata}}/paymentNoSeleImg.png'></image>
+      </view>
+    </view>
+    <view class='paymentMethodList'>
+      <view>
+        <image class='paymentMethodImg weixinImg fl' src='{{imgdata}}/weixinImg.png'></image>
+        <text class='paymentMethodName fl'>微信支付</text>
+      </view>
+      <view>
+        <image class='selectedImg fr' src='{{imgdata}}/paymentSeleImg.png'></image>
+      </view>
+    </view>
+  </view>
+  <!-- 订单信息(订单号，订单时间) -->
+  <view class='basic'>
+    <view wx:if="{{orderStatus == 1 || orderStatus == 2 || orderStatus == 3}}">
+        <view>
+          <text class="basic-left">订单号码:</text>
+          <text class="basic-right">{{orderNo}}</text>
+        </view>
+        <view>
+          <text class="basic-left">订单时间:</text>
+          <text class="basic-right">{{createTimeText}}</text>
+        </view>
+        <view>
+          <text class="basic-left">支付方式:</text>
+          <text class="basic-right">余额支付</text>
+          <!-- <text class="basic-right">{{payType}}</text> -->
+        </view>
+    </view>
+  </view>
+
+</view>

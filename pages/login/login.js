@@ -97,22 +97,22 @@ Page({
       return false;
     }
     // 验证码判断拦截
-    if (this.data.validateCode == '') {
-      wx.showToast({
-        title: '验证码不能为空',
-        icon: 'none',
-        duration: 1000,
-        mask: true
-      })
-      return false;
-    }
+    // if (this.data.validateCode == '') {
+    //   wx.showToast({
+    //     title: '验证码不能为空',
+    //     icon: 'none',
+    //     duration: 1000,
+    //     mask: true
+    //   })
+    //   return false;
+    // }
     const that = this;
     // 注册绑定
     wx.request({
       url: "https://shanchan.jergavin.com/oauth2/token/wechatApp/register",
       data: {
         mobile: that.data.phoneNum,
-        vfcode: that.data.validateCode,
+        // vfcode: that.data.validateCode,
         openid: app.globalData.openid
       },
       success: function (res) {

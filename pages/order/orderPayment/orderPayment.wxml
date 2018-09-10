@@ -25,11 +25,11 @@
   <view class='paymentMethod'>
     <view class='paymentMethodList'>
       <view>
-        <image class='paymentMethodImg weixinImg fl' src='{{imgdata}}/upload/weixinImg.png'></image>
+        <image class='paymentMethodImg weixinImg fl' src='{{imgdata}}/weixinImg.png'></image>
         <text class='paymentMethodName fl'>微信支付</text>
       </view>
       <view>
-        <image class='selectedImg fr' src='{{imgdata}}/upload/paymentSeleImg.png'></image>
+        <image class='selectedImg fr' src='{{imgdata}}/paymentSeleImg.png'></image>
       </view>
     </view>
     <view class='paymentMethodList'>
@@ -38,7 +38,7 @@
         <text class='paymentMethodName fl'>支付宝支付</text>
       </view>
       <view>
-        <image class='paymentNoSeleImg fr' src='{{imgdata}}/upload/paymentNoSeleImg.png'></image>
+        <image class='paymentNoSeleImg fr' src='{{imgdata}}/paymentNoSeleImg.png'></image>
       </view>
     </view>
     <view class='paymentMethodList'>
@@ -56,7 +56,7 @@
         </view>
       </view>
       <view>
-        <image class='paymentNoSeleImg fr' src='{{imgdata}}/upload/paymentNoSeleImg.png'></image>
+        <image class='paymentNoSeleImg fr' src='{{imgdata}}/paymentNoSeleImg.png'></image>
       </view>
     </view>
   </view>

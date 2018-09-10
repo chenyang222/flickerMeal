@@ -42,6 +42,7 @@
     "pages/order/peidaizhifu/peidaizhifu",
     "pages/order/waimaiPayment/waimaiPayment",
     "pages/order/payment/payment",
+    "pages/order/orderDetail/orderDetail",
     "pages/shopCar/index",
     "pages/mine/aboutus/aboutus",
     "pages/mine/softupdate/softupdate",
