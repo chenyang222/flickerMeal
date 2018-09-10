@@ -34,7 +34,11 @@ Page({
     orderStatus: '', // 当前订单状态
     overTimeText: '', // 倒计时
     mealList: [], // 餐品列表
-    createTimeText: '' // 订单创建时间
+    createTimeText: '', // 订单创建时间
+    payType: '', // 支付方式
+    total: 0, // 合计金额
+    takeFoodCode: '', // 取餐码
+    qrCode: '' // 取餐二维码
   },
 
   /**
@@ -44,6 +48,7 @@ Page({
     this.setData({
       orderNo: options.orderNo
     })
+    console.info(111)
     this.getOrder();
   },
   // 获取到订单信息
@@ -54,12 +59,26 @@ Page({
       .then((response) => {
         console.info(response)
         let createTimeText = utils.formatTime(response.createTime, this.data.format);
+        let payType;
+        if (response.payType == 0) {
+          payType = '积分兑换'
+        } else if (response.payType == 1){
+          payType = '微信支付'
+        } else if (response.payType == 2) {
+          payType = '余额支付'
+        }
         this.setData({
           orderStatus: response.orderStatus,
           mealList: response.childs,
-          createTimeText: createTimeText
+          createTimeText: createTimeText,
+          payType: payType ? payType : '',
+          total: response.orderAmount,
+          takeFoodCode: response.takeFoodCode ? response.takeFoodCode : '',
+          qrCode: response.qrCode ? response.qrCode : ''
         })
-        payTime(response.createTime, this)
+        if (response.orderStatus == 0) {
+          payTime(response.createTime, this)
+        }
       })
   },
   /**

@@ -136,3 +136,46 @@ body{
   transform: rotateX(180deg);
   transition: 1s;
 }
+
+/* 支付方式选择 */
+.paymentMethodList{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20rpx;
+  background-color: #f9f4f0;
+  margin-top: 10rpx;
+}
+.paymentMethodList .payBox{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.paymentMethodList .paymentMethodImg{
+  width:69rpx;
+  height:69rpx;
+  margin-right: 70rpx;
+}
+.paymentMethodList .selectedImg,.paymentMethodList .paymentNoSeleImg{
+  width:38rpx;
+  height:38rpx; 
+}
+.paymentMethodList .paymentMethodName{
+  font-size:30rpx;
+  font-family:SourceHanSansCN-Medium;
+  color:rgba(102,102,102,1);
+}
+.paymentMethodList .yue-name{
+  font-size:30rpx;
+  font-family:SourceHanSansCN-Medium;
+  color:rgba(102,102,102,1);
+  display: block;
+}
+.paymentMethodList .shengyu-wrap{
+  font-size:22rpx;
+  font-family:SourceHanSansCN-Medium;
+  color:rgba(245,65,60,1);
+  display: block;
+}

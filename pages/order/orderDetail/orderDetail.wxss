@@ -30,10 +30,11 @@
   line-height: 100rpx;
 }
 .orderStatus .btns{
+  margin-top: 30rpx;
   display: flex;
   justify-content: space-around;
 }
-.orderStatus .btns navigator{
+.orderStatus .btns navigator, .orderStatus .btns button{
   display: inline-block;
   padding: 0 40rpx;
   line-height: 89rpx;
@@ -43,10 +44,11 @@
   color: #ffffff;
   text-align: center;
   font-size: 35rpx;
+  margin: 0;
 }
 
 .orderBody .product{
-  margin-top: 0;
+  margin-top: 0rpx;
 }
 .orderBody .addGoods{
   display: flex;
@@ -59,11 +61,22 @@
 .orderBody .productName{
   color: #7c7c7c;
 }
+.orderBody .meals .total{
+  font-size:28rpx;
+  font-family:PingFangSC-Medium;
+  color:rgba(253,106,8,1);
+  font-weight: bold;
+  text-align: right;
+  display: block;
+  line-height: 35rpx;
+  background-color: #ffffff;
+  padding: 50rpx 5%;
+}
 
 .orderBody .basic{
   margin-top: 15rpx;
   background-color: #ffffff;
-  padding: 25rpx;
+  padding: 25rpx 5%;
 }
 .orderBody .basic .basic-left{
   font-weight: bold;
@@ -76,40 +89,22 @@
   font-size: 20rpx;
   color: #7c7c7c;
 }
+.orderBody .getFoodtwoCode{
+  width: 50%;
+  display: block;
+  margin: 0 auto;
+}
 
-.paymentMethodList{
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  padding: 20rpx;
-  background-color: #f9f4f0;
-  margin-top: 10rpx;
-}
-.paymentMethodImg{
-  width:69rpx;
-  height:69rpx;
-}
-.selectedImg,.paymentNoSeleImg{
-  width:38rpx;
-  height:38rpx; 
-  margin-top: 15rpx;
-}
-.paymentMethodName{
-  font-size:30rpx;
-  font-family:SourceHanSansCN-Medium;
-  color:rgba(102,102,102,1);
-  margin-top: 10rpx;
-  margin-left: 90rpx;
-}
-.yue-name{
-  font-size:30rpx;
-  font-family:SourceHanSansCN-Medium;
-  color:rgba(102,102,102,1);
-  margin-left:90rpx
-}
-.shengyu-wrap{
-  font-size:22rpx;
-  font-family:SourceHanSansCN-Medium;
-  color:rgba(245,65,60,1);
-  margin-left:90rpx
+
+.orderFooter .topay{
+  width: 80%;
+  margin: 30rpx auto;
+  display: block;
+  line-height: 89rpx;
+  height: 89rpx;
+  border-radius: 30rpx;
+  background-color: #ff9e35;
+  color: #ffffff;
+  text-align: center;
+  font-size: 35rpx;
 }

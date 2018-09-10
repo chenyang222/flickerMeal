@@ -167,6 +167,7 @@ Page({
     app.fetch({
       url: '/fastfood/foodorder/createOrderByShoppingCart?macId=' + macId,
       method: 'post',
+      requestBody: true,
       data: {
         macId: macId,
         body: JSON.stringify(childs)

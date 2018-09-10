@@ -6,12 +6,14 @@ var payTime = function(that) {
   var date = new Date().getTime();
   var data = that.data.orderList;
   for (var i = 0; i < data.length; i++) {
-    const time = 20 * 60 - (date - data[i].createTime) / 1000;
-    if (time > 0) {
-      data[i].countDown = '剩余支付时间' + utils.sToMinutes(time);
-    } else {
-      data[i].countDown = '订单已取消';
-      data[i].orderStatus = -1;
+    if (data[i].orderStatus == 0) {
+      const time = 20 * 60 - (date - data[i].createTime) / 1000;
+      if (time > 0) {
+        data[i].countDown = '剩余支付时间' + utils.sToMinutes(time);
+      } else {
+        data[i].countDown = '订单已取消';
+        data[i].orderStatus = -1;
+      }
     }
   }
   that.setData({

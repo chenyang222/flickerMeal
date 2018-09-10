@@ -1,5 +1,5 @@
 <!--pages/order/orderDetail/orderDetail.wxml-->
-<!-- 订单状态 -->
+<!-- 订单状态 订单状态 -2=已删除，-1=已取消，0=待支付，1=已支付，2=已取单，3=已评价-->
 <view class='orderStatus'>
   <!-- 待支付 -->
   <view wx:if="{{orderStatus == 0}}">
@@ -24,15 +24,16 @@
       <text>待取餐</text>
     </view>
     <view class='btns'>
-      <navigator url="">待取餐</navigator>
+      <navigator url="">代取餐</navigator>
       <navigator url="">联系客服</navigator>
-      <navigator url="">分享</navigator>
+      <button open-type='share'>分享</button>
     </view>
   </view>
   <!-- 订单已完成 -->
   <view wx:elif="{{orderStatus == 2 || orderStatus == 3}}">
     <view class='title'>
       <image mode="widthFix" src='{{imgdata}}/close.png'></image>
+      <text>订单已完成</text>
     </view>
     <text class='restTime'>感谢您对闪餐支持，欢迎再次光临</text>
     <view class='btns'>
@@ -47,7 +48,7 @@
 <view class='orderBody'>
   <!-- 餐品列表 -->
   <view class='meals'>
-    <view class="product" wx:for="{{mealList}}" wx:for-index="index" wx:for-item="item" wx:key="{{index}}" wx:if="{{item.label == prevOrdermealId || prevOrdermealId == 0}}">
+    <view class="product" wx:for="{{mealList}}" wx:for-index="index" wx:for-item="item" wx:key="{{index}}">
       <view class="product-left">
         <image class="productImg" mode="widthFix" src="{{item.productPic}}"></image>
       </view>
@@ -63,36 +64,13 @@
         </view>
       </view>
     </view>
-  </view>
-  <!-- 支付方式选择 -->
-  <view class='paymentMethod'>
-    <view class='paymentMethodList'>
-      <view class='balance'>
-        <view class="fl">
-          <image class='paymentMethodImg otherPaymentImg' src='{{imgdata}}/otherPaymentImg.png'></image>
-        </view>
-        <view>
-          <text class='yue-name'>余额支付</text>
-          <text class='shengyu-wrap'>剩余余额：30元</text>
-        </view>
-      </view>
-      <view>
-        <image class='paymentNoSeleImg fr' src='{{imgdata}}/paymentNoSeleImg.png'></image>
-      </view>
-    </view>
-    <view class='paymentMethodList'>
-      <view>
-        <image class='paymentMethodImg weixinImg fl' src='{{imgdata}}/weixinImg.png'></image>
-        <text class='paymentMethodName fl'>微信支付</text>
-      </view>
-      <view>
-        <image class='selectedImg fr' src='{{imgdata}}/paymentSeleImg.png'></image>
-      </view>
+    <view class='total' wx:if="{{orderStatus == 1 || orderStatus == 2 || orderStatus == 3}}"> 
+      <text>合计 ￥ {{total}}</text>
     </view>
   </view>
   <!-- 订单信息(订单号，订单时间) -->
   <view class='basic'>
-    <view wx:if="{{orderStatus == 1 || orderStatus == 2 || orderStatus == 3}}">
+    <view>
         <view>
           <text class="basic-left">订单号码:</text>
           <text class="basic-right">{{orderNo}}</text>
@@ -101,12 +79,26 @@
           <text class="basic-left">订单时间:</text>
           <text class="basic-right">{{createTimeText}}</text>
         </view>
-        <view>
+        <view wx:if="{{orderStatus == 1 || orderStatus == 2 || orderStatus == 3}}">
           <text class="basic-left">支付方式:</text>
-          <text class="basic-right">余额支付</text>
-          <!-- <text class="basic-right">{{payType}}</text> -->
+          <text class="basic-right">{{payType}}</text>
         </view>
+        <view wx:if="{{orderStatus == 1 || orderStatus == 2 || orderStatus == 3}}">
+          <text class="basic-left">发票信息:</text>
+          <text class="basic-right">个人</text>
+        </view>
+        <view wx:if="{{orderStatus == 1}}">
+          <text class="basic-left">取餐码:</text>
+          <text class="basic-right">  {{takeFoodCode}}</text>
+        </view>
+        <view wx:if="{{orderStatus == 1}}">
+          <text class="basic-left">取餐二维码:</text>
+        </view>
+        <image wx:if="{{orderStatus == 1}}" class='getFoodtwoCode' mode="widthFix" src='{{qrCode}}'></image>
     </view>
   </view>
+</view>
 
+<view class='orderFooter'>
+  <navigator wx:if="{{orderStatus == 0}}" class='topay' url="/pages/order/payment/payment?orderNo={{orderNo}}">支付</navigator>
 </view>

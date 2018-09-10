@@ -89,7 +89,7 @@ App({
     return true;
   },
   // 公共fetch配置
-  fetch: function ({ method = "GET", url, data = {} }) {
+  fetch: function ({ method = "GET", url, data = {}, requestBody }) {
     // 本地存储获取token
     const token = wx.getStorageSync("token");
     // token 日期
@@ -113,7 +113,7 @@ App({
     })
     let header = {};
     // header设置token
-    if (method == 'post') {
+    if (method == 'post' && requestBody) {
       header = {
         'content-type': 'application/x-www-form-urlencoded'
       }
