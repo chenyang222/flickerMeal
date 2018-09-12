@@ -37,7 +37,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 3,
+			"current": 5,
 			"list": [
 				{
 					"id": -1,
@@ -60,7 +60,20 @@
 				{
 					"id": -1,
 					"name": "订单",
-					"pathName": "pages/order/index"
+					"pathName": "pages/order/index",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "选择优惠券",
+					"pathName": "pages/order/selectCoupon/selectCoupon",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "我的",
+					"pathName": "pages/mine/mine",
+					"query": ""
 				}
 			]
 		}

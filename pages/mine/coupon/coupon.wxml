@@ -1,22 +1,25 @@
 <!--pages/mine/address/address.wxml-->
-<view class="container">
-  <view class="list">
-    <view class="item" wx:for="{{couponArr}}" wx:key="index" wx:for-item="item">
-      <view class='itemLeft'>
-        <view><text style='font-size:40rpx;color:#FFFFFF;'>¥</text><text style='font-size:71rpx;color:#FFFFFF;'>{{item.amount}}</text></view>  
+<view class='selectCoupon'>
+
+  <view class='couponListBox'  wx:for="{{couponArr}}" wx:key="index" wx:for-item="item">
+    <image mode='widthFix' class='couponbg' src='{{imgdata}}/orcouponbg.png'></image>
+    <view class='couponInfo'>
+      <view class='couponInfo-left'>
+        <text class='money'><text class='iconMoney'>￥</text>{{item.amount}}</text>
       </view>
-      <view class='itemRight'>
-        <view class='itemRightTitle'>{{item.name}}</view>
-        <view class='term'>
-          <view class='imgs'><image src='{{imgdata}}/cf_defalut.png'></image></view>
-          <view class='termTitle'>满{{ item.useRestrict }}元可用</view>
+      <view class='couponInfo-right'>
+        <view class='couponName'>{{item.name}}</view>
+        <view class='couponItem'>
+          <image mode='widthFix' class='default' src='{{imgdata}}/cf_defalut.png'></image>
+          <text>满{{item.useRestrict}}元可用</text>
         </view>
-        <view class='term'>
-          <view class='imgs'><image src='{{imgdata}}/cf_defalut.png'></image></view>
-          <view class='termTitle'>{{ item.startTime }} 至 {{ item.endTime }}</view>
+        <view class='couponItem'>
+          <image mode='widthFix' class='default' src='{{imgdata}}/cf_defalut.png'></image>
+          <text>{{item.startTime}}至 {{item.endTime}}</text>
         </view>
-        <view class="state">未使用</view>
+        <view class='couponCanUse'>未使用</view>
       </view>
     </view>
   </view>
+
 </view>

@@ -4,7 +4,7 @@ Page({
   data: {
     imgdata: app.globalData.imgdata,
     couponArr: [],
-    format: ['年', '月', '日', '时', '分', '秒']
+    format: ['-', '-', ' ', ':', ':', ' ']
   },
   onLoad: function () {
     

@@ -64,6 +64,20 @@
         </view>
       </view>
     </view>
+    <view wx:if="{{couponFee}}" class='message'>
+      <view>
+        <text class='message-left'>包装费</text>
+        <text class='message-right'>￥ 0</text>
+      </view>
+      <view>
+        <text class='message-left'>配送费</text>
+        <text class='message-right'>￥ 0</text>
+      </view>
+      <view>
+        <text class='message-left'>优惠券</text>
+        <text class='message-right'>￥ -{{couponFee}}</text>
+      </view>
+    </view>
     <view class='total' wx:if="{{orderStatus == 1 || orderStatus == 2 || orderStatus == 3}}"> 
       <text>合计 ￥ {{total}}</text>
     </view>

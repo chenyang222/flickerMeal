@@ -1,0 +1,38 @@
+<!--pages/order/selectCoupon/selectCoupon.wxml-->
+<!-- 选择不使用优惠券 -->
+<view class='notUseCoupon'>
+  <text>不使用优惠券</text>
+  <view class='selectBox'>
+    <image wx:if="{{select == 'nouse'}}" class='selectedImg' src='{{imgdata}}/paymentSeleImg.png'></image>    
+    <image data-select="nouse" bindtap='selectCoupon' wx:elif="{{select != 'nouse'}}" class='paymentNoSeleImg' src='{{imgdata}}/paymentNoSeleImg.png'></image>
+  </view>
+</view>
+<!-- 选择使用的优惠券 --> 
+<view class='selectCoupon'>
+
+  <view class='couponListBox' wx:for="{{couponList}}" wx:for-item="item" wx:key="{{index}}">
+    <image mode='widthFix' class='couponbg' src='{{imgdata}}/orcouponbg.png'></image>
+    <view class='couponInfo'>
+      <view class='couponInfo-left'>
+        <text class='money'><text class='iconMoney'>￥</text>{{item.amount}}</text>
+      </view>
+      <view class='couponInfo-right'>
+        <view class='couponName'>{{item.name}}</view>
+        <view class='couponItem'>
+          <image mode='widthFix' class='default' src='{{imgdata}}/cf_defalut.png'></image>
+          <text>满{{item.useRestrict}}元可用</text>
+        </view>
+        <!-- <view class='couponItem'>
+          <image mode='widthFix' class='default' src='{{imgdata}}/cf_defalut.png'></image>
+          <text>2018-02-03 至 2018-02-05</text>
+        </view> -->
+        <!-- <view class='couponCanUse'>未使用</view> -->
+        <view class='isUseCoupon'>
+          <image bindtap='selectCoupon' wx:if="{{select != item.couponId}}" data-select="{{item.id}}" bintap="selectCoupon" class='paymentNoSeleImg' src='{{imgdata}}/paymentNoSeleImg.png'></image>
+          <image wx:elif="{{select == item.id}}" class='selectedImg' src='{{imgdata}}/paymentSeleImg.png'></image>
+        </view>
+      </view>
+    </view>
+  </view>
+
+</view>

@@ -6,12 +6,14 @@
   margin: 0 auto;
   margin-top: 15rpx;
   display: flex;
-  justify-content: space-between;
+  /* justify-content: space-between; */
   flex-wrap: wrap;
 }
 .couponBox{
   width: 32%;
   position: relative;
+  margin-left:1.33%;
+
 }
 .couponBox .bg{
   width: 100%;
@@ -38,6 +40,8 @@
   right: 5%;
   display: flex;
   flex-direction: column;
+  align-items:flex-end;
+
 }
 .couponBox .name{
   font-size:21rpx;

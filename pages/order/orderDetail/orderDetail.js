@@ -38,7 +38,8 @@ Page({
     payType: '', // 支付方式
     total: 0, // 合计金额
     takeFoodCode: '', // 取餐码
-    qrCode: '' // 取餐二维码
+    qrCode: '', // 取餐二维码
+    couponFee: 0 // 优惠券
   },
 
   /**
@@ -67,14 +68,17 @@ Page({
         } else if (response.payType == 2) {
           payType = '余额支付'
         }
+        let couponFee = response.couponFee ? response.couponFee : 0;
+        let total = response.orderAmount - couponFee;
         this.setData({
           orderStatus: response.orderStatus,
           mealList: response.childs,
           createTimeText: createTimeText,
           payType: payType ? payType : '',
-          total: response.orderAmount,
+          total: total,
           takeFoodCode: response.takeFoodCode ? response.takeFoodCode : '',
-          qrCode: response.qrCode ? response.qrCode : ''
+          qrCode: response.qrCode ? response.qrCode : '',
+          couponFee: couponFee
         })
         if (response.orderStatus == 0) {
           payTime(response.createTime, this)

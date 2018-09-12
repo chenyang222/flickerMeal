@@ -1,20 +1,13 @@
 <!--pages/mine/setup/setup.wxml-->
-<!-- <text>pages/mine/setup/setup.wxml</text> -->
 <view class='permsg'>
-    <view class='revisemsg'>
-        <view class='reviselist'>
-            <!-- <navigator class='reviseitem' url="../msgsetup/msgsetup">
-                <view>消息设置</view>
-                <view>
-                     <image src='{{imgdata}}/cf_goright.png'></image> 
-                </view>
-            </navigator> -->
-            <navigator url="../aboutus/aboutus"  class='reviseitem'>
-              <view>关于我们</view>
-              <view>
-                    <image src='{{imgdata}}/cf_goright.png'></image> 
-              </view>
-            </navigator>
+  <view class='revisemsg'>
+    <view class='reviselist'>
+      <navigator url="../aboutus/aboutus"  class='reviseitem'>
+        <view>关于我们</view>
+        <view>
+          <image src='{{imgdata}}/cf_goright.png'></image> 
         </view>
+      </navigator>
     </view>
+  </view>
 </view>

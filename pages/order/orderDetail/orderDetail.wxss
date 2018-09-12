@@ -108,3 +108,25 @@
   text-align: center;
   font-size: 35rpx;
 }
+
+.orderBody .message{
+  margin-top: 15rpx;
+  background-color: #ffffff;
+  padding: 25rpx 5%;
+}
+.orderBody .message view{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+.orderBody .message .message-left{
+  font-weight: bold;
+  line-height: 30rpx;
+  font-size: 22rpx;
+  margin-right: 35rpx;
+}
+.orderBody .message .message-right{
+  line-height: 30rpx;
+  font-size: 20rpx;
+  color: #7c7c7c;
+}

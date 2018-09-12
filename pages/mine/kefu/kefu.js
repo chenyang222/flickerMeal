@@ -8,9 +8,6 @@ Page({
   onLoad: function (options) {
     //console.log(options);
     this.getphone();
-    wx.setNavigationBarTitle({
-      title: '我的客服'
-    })
   },
   nichshow: function () {
     this.setData({ flag: false })

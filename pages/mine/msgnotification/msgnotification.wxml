@@ -1,13 +1,6 @@
 <!--pages/mine/msgnotification/msgnotification.wxml-->
-<!-- <text>pages/mine/msgnotification/msgnotification.wxml</text> -->
 <view class='msgnotification'>
     <view class='msglist'>
-        <!-- <view class='msgitem'>
-            <text><text></text>您收到一张优惠券</text>
-            <text>您收到闪餐（东大街）送您的一张4元*代金券</text>
-            <text>请注意查收</text>
-            <text>2017／12／05</text>
-        </view> -->
         <view wx:for="{{msgArr}}" wx:key="index" class='msgitem'>
             <text><text></text>{{ item.title }}</text>
             <text>{{ item.content }}</text>

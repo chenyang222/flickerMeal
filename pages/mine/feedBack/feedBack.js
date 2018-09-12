@@ -23,9 +23,7 @@ Page({
     }
   },
   onLoad: function (options) {
-    wx.setNavigationBarTitle({
-      title: '反馈'
-    })
+
   },
   submitbtn:function(){
     var that = this;

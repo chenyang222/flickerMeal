@@ -1,10 +1,6 @@
 <!--pages/mine/store/store.wxml-->
-<!-- <text>pages/mine/store/store.wxml</text> -->
+
 <view class='store'>
-    <!-- <view class='car-title'>
-      <image class='goback' src='{{imgdata}}/go_back.png'></image>
-      <text>商城</text>
-    </view> -->
 
     <view class='integrate'>
         <text>当前可用积分</text>

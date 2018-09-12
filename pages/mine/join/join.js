@@ -4,9 +4,5 @@ Page({
       imgdata: app.globalData.imgdata,
   },
   onLoad: function (options) {
-    //console.log(options);
-    wx.setNavigationBarTitle({
-      title: '加 盟'
-    })
   }
 })

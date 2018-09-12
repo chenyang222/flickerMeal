@@ -158,7 +158,7 @@ body{
   height:69rpx;
   margin-right: 70rpx;
 }
-.paymentMethodList .selectedImg,.paymentMethodList .paymentNoSeleImg{
+.selectedImg, .paymentNoSeleImg{
   width:38rpx;
   height:38rpx; 
 }
@@ -178,4 +178,80 @@ body{
   font-family:SourceHanSansCN-Medium;
   color:rgba(245,65,60,1);
   display: block;
+}
+
+/* 我的优惠券，选择优惠券 */
+.selectCoupon{
+  width: 90%;
+  margin: 0 auto;
+}
+.selectCoupon .couponListBox{
+  width: 100%;
+  position: relative;
+  margin-top: 30rpx;
+}
+.selectCoupon .couponListBox .couponbg{
+  width: 100%;
+}
+.selectCoupon .couponListBox .couponInfo{
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+}
+.selectCoupon .couponListBox .couponInfo .couponInfo-left{
+  width: 33%;
+  height: 100%;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.selectCoupon .couponInfo-left .iconMoney{
+  font-size: 40rpx;
+}
+.selectCoupon .couponInfo-left .money{
+  font-size: 80rpx;
+  font-weight: bold;
+}
+.selectCoupon .couponListBox .couponInfo .couponInfo-right{
+  width: 67%;
+  height: 100%;
+  position: relative;
+}
+.selectCoupon .couponInfo-right .couponName{
+  font-weight: bold;
+  padding-left: 30rpx;
+  font-size: 30rpx;
+  margin-top: 30rpx;
+  margin-bottom: 20rpx;
+}
+.selectCoupon .couponItem{
+  display: flex;
+  align-items: center;
+  margin-top: 5rpx;
+}
+.selectCoupon .couponInfo-right .couponItem text{
+  padding-left: 15rpx;
+  font-size: 20rpx;
+}
+.selectCoupon .couponItem .default{
+  width: 20rpx;
+  height: 20rpx;
+  padding-left: 40rpx;
+}
+.selectCoupon .couponCanUse{
+  text-align: right;
+  font-size: 26rpx;
+  font-weight: bold;
+  color: #8e2c00;
+  padding-right: 30rpx;
+}
+.selectCoupon .isUseCoupon{
+  position: absolute;
+  top: 50%;
+  right: 30rpx;
+  margin-top: -19rpx;
 }

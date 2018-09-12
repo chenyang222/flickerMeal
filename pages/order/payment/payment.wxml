@@ -2,11 +2,6 @@
 <view class="container">
   <view class='order-detail-address-wrap'>
     <view class='order-address-icon-title-wrap'></view>
-    <!-- <view class='' style='margin:15rpx 0;'>
-      <view class='order-detail-address-icon'></view>
-      <text class='order-detail-address-name'>{{address}}</text>
-      <text class='order-juli'>5.0km</text>
-    </view> -->
     <!-- <view class='name-phone'><text style='margin-right:150rpx;'>{{consignee}}（{{sex}}）</text><text>{{mobile}}</text></view> -->
   </view>
   <view class='address-fenge'></view>
@@ -34,9 +29,16 @@
       </view>
     </view>
   </view>
+  <view class='coupon' bindtap='toSelectCoupon'>
+    <view>优惠券</view>
+    <view class='textImages'>
+      <text>{{couponSelect}}</text>
+      <image class='iconRight' src='{{imgdata}}/cf_goright.png'></image>
+    </view>
+  </view>
   <!-- 支付方式选择 -->
   <view class='paymentMethod'>
-    <view class='paymentMethodList' data-paytype='1' bindtap='selectPaytype'>
+    <view class='paymentMethodList' data-paytype='2' bindtap='selectPaytype'>
       <view class='payBox'>
         <view>
           <image class='paymentMethodImg' src='{{imgdata}}/otherPaymentImg.png'></image>
@@ -51,7 +53,7 @@
         <image wx:elif="{{payType == 2}}" class='selectedImg' src='{{imgdata}}/paymentSeleImg.png'></image>
       </view>
     </view>
-    <view class='paymentMethodList' data-paytype='2' bindtap='selectPaytype'>
+    <view class='paymentMethodList' data-paytype='1' bindtap='selectPaytype'>
       <view class='payBox'>
         <image class='paymentMethodImg' src='{{imgdata}}/weixinImg.png'></image>
         <text class='paymentMethodName'>微信支付</text>
@@ -73,25 +75,11 @@
       <text>10</text>
     </view>
   </view> -->
-  <!-- <view class='coupon'>
-    <view>优惠券</view>
-    <view>
-      <text class='coupon-num'>6</text>
-      <text>张可用</text>
-      <image class='zhankai fr' src='{{imgdata}}/upload/cf_goright.png'></image>
-    </view>
-  </view> -->
-   <!-- <view class='peisong'>
-    <view>选择配送</view>
-    <view>
-      <radio class='wx-radio-input' value="" checked=""/>
-    </view>
-  </view>  -->
   <view class='heji'>
     <view class='heji-left'>
       <text>合计</text>
       <view>￥
-        <text>{{payAmount}}</text>
+        <text>{{countAmountNum}}</text>
       </view>
       <!-- <text>已优惠10元</text> -->
     </view>

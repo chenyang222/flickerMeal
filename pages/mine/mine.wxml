@@ -1,11 +1,11 @@
 <!--mine.wxml-->
 <view class="container">
-  <view class="top">
+  <view class="top" style="background-image: url('{{imgdata}}/minebg.png')">
     <view class="header">
       <navigator url="../mine/msgnotification/msgnotification">
         <image src="{{imgdata}}/cf_msg.png"></image>
       </navigator>
-      <view class="topTitle">我 的</view>
+      <view class="topTitle">我  的</view>
       <navigator url="../mine/setup/setup">
         <image src="{{imgdata}}/cf_setting.png"></image>
       </navigator>

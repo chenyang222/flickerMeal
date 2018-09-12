@@ -1,10 +1,6 @@
 <!--pages/mine/recommend/recommend.wxml-->
 <!-- <text>pages/mine/recommend/recommend.wxml</text> -->
 <view class='recommend'>
-    <!-- <view class='car-title'>
-      <image class='goback' src='{{imgdata}}/go_back.png'></image>
-      <text>推荐有礼</text>
-    </view> -->
     <view class='recommendbg'>
         <view class='integral'>{{jired}}</view>
         <view class='atonce'>立即邀请</view>
