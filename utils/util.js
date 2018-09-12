@@ -24,7 +24,6 @@ function formatTime(number, format) {
   for (var i in returnArr) {
     str += returnArr[i] + formateArr[i]
   }
-  console.info(str)
   for (var i in returnArr) {
     str = str.replace(formateArr[i], format[i]);
   }

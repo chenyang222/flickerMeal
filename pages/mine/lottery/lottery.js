@@ -1,5 +1,6 @@
 // pages/mine/lottery/lottery.js
 const app = getApp();
+var utils = require('../../../utils/util.js');
 Page({
 
   /**
@@ -9,14 +10,20 @@ Page({
     imgdata: app.globalData.imgdata,
     animationData: {},
     clickBtnRotate: 0,
-    lotteryList: []
+    lotteryList: [],
+    recordList: [],
+    score: '',
+    start: false,
+    format: ['-', '-', ' ', ':', ':', ' ']
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    this.getScore();
     this.getLotteryList();
+    this.getRecordList();
   },
 
   /**
@@ -32,19 +39,72 @@ Page({
   onShow: function () {
     var animationRotate = wx.createAnimation({
       transformOrigin: "50% 61%",
-      duration: 5000,
+      duration: 7000,
       timingFunction: "ease",
       delay: 0
     })
     this.animationRotate = animationRotate;
   },
   btnAnimate: function () {
-    const newRotate = this.data.clickBtnRotate + 1800;
-    this.animationRotate.rotate(newRotate).step();
+    if (this.data.start && this.data.score >= 10) {
+      return
+    }
     this.setData({
-      clickBtnRotate: newRotate,
-      animationData: this.animationRotate.export()
+      start: true
     })
+    this.getScore();
+    let that = this;
+    const lotteryList = this.data.lotteryList;
+    app.fetch({
+      url: '/operate/prize/draw',
+      data: {
+        group: 'WX_APP_DZP'
+      }
+    })
+      .then((response) => {
+        // that.setData({
+        //   start: true
+        // })
+        let num;
+        for (let i = 0; i < lotteryList.length; i++) {
+          if (response.prizeId == lotteryList[i].id) {
+            num = i;
+          }
+        }
+        const newRotate = Math.ceil(that.data.clickBtnRotate / 360) * 360 + 3600 + 60 + (num + 1) * 60;
+        that.animationRotate.rotate(newRotate).step();
+        that.setData({
+          clickBtnRotate: newRotate,
+          animationData: that.animationRotate.export()
+        })
+        setTimeout(function(){
+          wx.showToast({
+            title: '恭喜您获得了' + response.name,
+            icon: 'none',
+            duration: 2000,
+            mask: true
+          })
+          setTimeout(function () {
+            that.getRecordList();
+            that.setData({
+              start: false
+            })
+          },1500)
+        },7000)
+      })
+
+  },
+  // 获取积分
+  getScore: function () {
+    app.fetch({
+      url: '/account/user/info'
+    })
+      .then((response) => {
+        console.info(response)
+        this.setData({
+          score: response.score
+        })
+      })
   },
   // 获取所有奖品列表
   getLotteryList: function () {
@@ -58,6 +118,25 @@ Page({
         console.info(response)
         this.setData({
           lotteryList: response
+        })
+      })
+  },
+  // 获取中奖纪录
+  getRecordList: function () {
+    app.fetch({
+      url: '/operate/prize/findLogByUserId',
+      data: {
+        status: 0
+      }
+    })
+      .then((response) => {
+        console.info(response)
+        let recordList = response;
+        for (let i = 0; i < recordList.length; i++) {
+          recordList[i].createTime = utils.formatTime(recordList[i].createTime, this.data.format);
+        }
+        this.setData({
+          recordList: recordList
         })
       })
   },

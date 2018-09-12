@@ -1,7 +1,7 @@
 <!--pages/mine/lottery/lottery.wxml-->
 <view class='lottery-topHeader'>
   <image mode='widthFix' src="{{imgdata}}/lotthead.png"></image>
-  <text>10000</text>
+  <text>{{score}}</text>
 </view>
 
 <view class='lottery-dialBody' style="background-image: url('{{imgdata}}/lottbg.png')">
@@ -10,15 +10,22 @@
   <view class='lotteryList'>
     <view class='lotteryBox' wx:for="{{lotteryList}}" wx:for-item="item" wx:key="{{index}}" style='transform: rotate({{ 30 + 60 * index}}deg) translate(130%)'>
       <view style='transform: rotate(90deg)'>
-        <text>奖品{{index}}</text>
-        <image src="{{imgdata}}/lottzp.png"></image>
+        <text>{{item.name}}</text>
+        <image mode='widthFix' src="{{item.icon}}"></image>
       </view>
     </view>
-    <!-- <view class='lotteryBox' style='transform: rotate(30deg) translate(130%)'>
-      <view style='transform: rotate(90deg)'>
-        <text>奖品1}</text>
-        <image src="{{imgdata}}/lottzp.png"></image>
-      </view>
-    </view> -->
+  </view>
+</view>
+
+<view class='winRecord' style="background-image: url('{{imgdata}}/lottbg.png')">
+  <image class='winRecordBorder' mode='widthFix' src="{{imgdata}}/lottborder.png"></image>
+  <view class='winRecordBox' wx:for="{{recordList}}" wx:for-item="item" wx:key="{{index}}">
+    <view class='winRecordBox-left'>
+      <image mode='widthFix' src="{{item.icon}}"></image>
+      <text>{{item.name}}</text>
+    </view>
+    <view class='winRecordBox-right'>
+      <text>2018-03-27 17:24:56</text>
+    </view>
   </view>
 </view>

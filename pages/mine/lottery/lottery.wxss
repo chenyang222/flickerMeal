@@ -33,6 +33,7 @@
   position: absolute;
   top: 29%;
   left: 38%;
+  z-index: 10;
 }
 
 
@@ -62,14 +63,46 @@
   position: absolute;
   top: 0;
   left: 0;
-  border: 1px solid #000;
 }
 .lotteryList .lotteryBox view text{
-  font-size: 28rpx;
+  font-size: 20rpx;
   color: #ff9e35;
   text-align: center;
+  margin-bottom: 30rpx;
 }
 .lotteryList .lotteryBox view image{
-  width: 40rpx;
-  height: 40rpx;
+  width: 80rpx;
+}
+
+.winRecord{
+  padding-bottom: 30rpx;
+}
+.winRecord .winRecordBorder{
+  width: 90%;
+  margin: 0 auto;
+  display: block;
+}
+.winRecord .winRecordBox{
+  width: 80%;
+  margin: 0 auto;
+  padding: 15rpx 5%;
+  display: flex;
+  justify-content: space-between;
+  background-color: #ffffff;
+  border-bottom: 1px solid #c9c9c9;
+}
+.winRecord .winRecordBox .winRecordBox-left{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.winRecord .winRecordBox .winRecordBox-left image{
+  width: 80rpx;
+}
+.winRecord .winRecordBox .winRecordBox-left text{
+  font-size: 26rpx;
+  margin-left: 15rpx;
+}
+.winRecord .winRecordBox .winRecordBox-right text{
+  font-size: 22rpx;
 }
