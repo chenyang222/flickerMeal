@@ -4,7 +4,7 @@
   <view class='car-title'>
     <view class='search-kuang fl' bindtap='goSearch'>
       <image class='search-img fl' src='{{imgdata}}/searchIcon.png'></image>
-      <input class='search-input' placeholder=''  value='果粒橙'/>
+      <input class='search-input' placeholder=''  value='{{searchName}}'/>
     </view>
   </view>
   <view style='margin-top:60px;'></view>

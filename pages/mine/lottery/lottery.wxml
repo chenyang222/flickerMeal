@@ -1,0 +1,24 @@
+<!--pages/mine/lottery/lottery.wxml-->
+<view class='lottery-topHeader'>
+  <image mode='widthFix' src="{{imgdata}}/lotthead.png"></image>
+  <text>10000</text>
+</view>
+
+<view class='lottery-dialBody' style="background-image: url('{{imgdata}}/lottbg.png')">
+  <image class='dial' mode='widthFix' src="{{imgdata}}/lottzp.png"></image>
+  <image bindtap='btnAnimate' animation="{{animationData}}" class='start' mode='widthFix' src="{{imgdata}}/lottbtn.png"></image>
+  <view class='lotteryList'>
+    <view class='lotteryBox' wx:for="{{lotteryList}}" wx:for-item="item" wx:key="{{index}}" style='transform: rotate({{ 30 + 60 * index}}deg) translate(130%)'>
+      <view style='transform: rotate(90deg)'>
+        <text>奖品{{index}}</text>
+        <image src="{{imgdata}}/lottzp.png"></image>
+      </view>
+    </view>
+    <!-- <view class='lotteryBox' style='transform: rotate(30deg) translate(130%)'>
+      <view style='transform: rotate(90deg)'>
+        <text>奖品1}</text>
+        <image src="{{imgdata}}/lottzp.png"></image>
+      </view>
+    </view> -->
+  </view>
+</view>

@@ -89,7 +89,7 @@ Page({
         wx.showToast({
           icon: "loading",
           title: "正在上传"
-        }),
+        })
         console.log(tempFilePaths[0])
         wx.uploadFile({
           url: 'https://shanchan.jergavin.com/account/user/upload/headimgurl',
@@ -103,7 +103,6 @@ Page({
             var data = res.data;
             console.info(JSON.parse(data))
             if (JSON.parse(data).errcode == 0) {
-              console.info(11)
               wx.showToast({
                 title: '头像上传成功',
                 icon: 'none',
@@ -116,7 +115,7 @@ Page({
                 title: JSON.parse(data).errmsg,
                 icon: 'none',
                 duration: 2000
-              })             
+              })
             }
           },
           fail: function () {

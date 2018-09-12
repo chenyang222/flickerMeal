@@ -95,7 +95,9 @@ Page({
   // 设置机器id
   setStorgeId: function (e) {
     const machineId = e.currentTarget.dataset.machineid;
+    const machineName = e.currentTarget.dataset.machinename;
     wx.setStorageSync('machineId', machineId)
+    wx.setStorageSync('machineName', machineName)
     wx.switchTab({
       url: '../shouye/shouye'
     });

@@ -1,14 +1,13 @@
 <!--pages/index/machine/machine.wxml-->
 <view>
   <!-- 列表 -->
-  <view class="machine" wx:for="{{machineList}}" wx:for-index="index" wx:for-item="item" wx:key="{{index}}">
+  <view data-machineId='{{item.id}}' data-machinename='{{item.name}}' bindtap='setStorgeId' class="machine" wx:for="{{machineList}}" wx:for-index="index" wx:for-item="item" wx:key="{{index}}">
     <view class="machine-left">
       <image class="machineImg" mode="widthFix" src="{{imgdata}}/hotPushImg.png"></image>
-      <!-- <image class="machineIcon" src="{{imgdata}}/hotPushIcon.png"></image> -->
     </view>
     <view class="machine-right">
       <view class="machineName">
-        <text data-machineId='{{item.id}}' bindtap='setStorgeId'>{{item.name}}({{item.address}})</text>
+        <text>{{item.name}}({{item.address}})</text>
         <image src="{{imgdata}}/blDingwei.png" class="fly"></image>
       </view>
       <view class="manjian">

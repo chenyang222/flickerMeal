@@ -30,7 +30,7 @@
     </view>
   </view>
   <!-- 订单已完成 -->
-  <view wx:elif="{{orderStatus == 2 || orderStatus == 3}}">
+  <view wx:elif="{{orderStatus == 2}}">
     <view class='title'>
       <image mode="widthFix" src='{{imgdata}}/close.png'></image>
       <text>订单已完成</text>
@@ -38,9 +38,20 @@
     <text class='restTime'>感谢您对闪餐支持，欢迎再次光临</text>
     <view class='btns'>
       <navigator url="">申请电子发票</navigator>
-      <navigator url="">评价</navigator>
+      <navigator url="/pages/order/evaluate/evaluate?orderNo={{orderNo}}">评价</navigator>
     </view>
   </view>
+  <!-- 订单已评价 -->
+  <view wx:elif="{{orderStatus == 3}}">
+    <view class='title'>
+      <image mode="widthFix" src='{{imgdata}}/close.png'></image>
+      <text>订单已完成</text>
+    </view>
+    <text class='restTime'>感谢您对闪餐支持，欢迎再次光临</text>
+    <view class='btns'>
+      <navigator url="">申请电子发票</navigator>
+    </view>
+  </view>  
 </view>
 
 <!-- 订单body -->
@@ -112,7 +123,6 @@
     </view>
   </view>
 </view>
-
 <view class='orderFooter'>
   <navigator wx:if="{{orderStatus == 0}}" class='topay' url="/pages/order/payment/payment?orderNo={{orderNo}}">支付</navigator>
 </view>

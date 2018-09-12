@@ -1,52 +1,45 @@
 <!--index.wxml-->
-<view class="container">
-  <view class='center-ctn'>
-    <view class='car-title'>
-      <image class='goback' src='{{imgdata}}/go_back.png'></image>
-      <text>评价</text>
+<view class='evaluate'>
+  <!-- 头部机器头像和名称 -->
+  <view class='evaluateHeader'>
+    <image class="machineImg" mode="widthFix" src="{{imgdata}}/hotPushImg.png"></image>
+    <text class='machineName'>{{machineName}}</text>
+  </view>
+  <!-- 商品质量评价 -->
+  <view class='massBox'>
+    <text>商品质量:</text>
+    <view>
+      <image data-index='{{index}}' data-starsType='plx'  bindtap='clickStars' wx:for="{{evaStars}}" wx:key="index" class="plx" src="{{imgdata}}/plx.png"></image>
+      <image data-index='{{index}}' data-starsType='noplx'  bindtap='clickStars' wx:for="{{5 - evaStars}}" wx:key="index" class="noplx" src="{{imgdata}}/noplx.png"></image>
     </view>
-    <view style='margin-top:200rpx;'></view>
-    <view class='compa-title'>
-      <view class='compa-wrap'>
-        <image class='compa-icon' src='{{imgdata}}/evaluate.png'></image>
-        <text class='compa-name'>DC000AXN(北京照明公司)</text>
-      </view>
-      <view class='xings'>
-        <image class='xing-list' src='{{imgdata}}/blXing.png'></image>
-        <image class='xing-list' src='{{imgdata}}/blXing.png'></image>
-        <image class='xing-list' src='{{imgdata}}/blXing.png'></image>
-        <image class='xing-list' src='{{imgdata}}/blXing.png'></image>
-        <image class='xing-list' src='{{imgdata}}/blXing.png'></image>
-      </view>
+  </view>
+  <!-- 评价内容 -->
+  <view class='textarea'>
+    <textarea bindinput="inputEva" placeholder="说说哪里满意，帮大家选择" />
+  </view>
+  <!-- 上传餐品图片 -->
+  <view class='uploadPic'>
+    <view class="allImgs">
+      <!-- 图片List -->
+      <block wx:for="{{imageList}}" wx:key="{{index}}">
+        <image bindtap="previewImage" mode="aspectFill" data-src='{{item}}' src='{{item}}'></image>
+      </block>
+      <!-- 点击上传 -->
+      <image class="clickAdd" bindtap="chooseImage" src='{{imgdata}}/add.png'></image>
     </view>
-    <view class='evaluate-list'>
-      <view class='evaluate-list1'>
-        <view class='meal-name'>春卷大饼卷</view>
-        <view class='xings'>
-          <image class='xing-list' src='{{imgdata}}/blXing.png'></image>
-          <image class='xing-list' src='{{imgdata}}/blXing.png'></image>
-          <image class='xing-list' src='{{imgdata}}/blXing.png'></image>
-          <image class='xing-list' src='{{imgdata}}/blXing.png'></image>
-          <image class='xing-list' src='{{imgdata}}/blXing.png'></image>
-        </view>
-      </view>
-      <view class='evaluate-list2'>
-        <view class='evaluate-img-wrap'>
-          <image class='evaluate-img' src='{{imgdata}}/evaluateImg.png'></image>
-          <image class='del-img' src='{{imgdata}}/evaluateImgDel.png'></image>
-        </view>
-        <view class='evaluate-img-wrap'>
-          <image class='evaluate-img' src='{{imgdata}}/evaluateImg.png'></image>
-          <image class='del-img' src='{{imgdata}}/evaluateImgDel.png'></image>
-        </view>
-        <text class='upload-img'></text>
-      </view>
-      <view class='evaluate-txt-wrap'>
-        <view class='evaluate-name'>评价</view>
-        <view class='evaluate-input-txt'><input value=''/></view>
+  </view>
+  <!-- 餐品列表 -->
+  <view class='meals'>
+    <view wx:for="{{mealsList}}" wx:for-item="item" wx:key="{{index}}" class='mealsBox'>
+      <text>{{item.name}}</text>
+      <view>
+        <image data-index='{{index}}' data-type='top' bindtap='clickFingers' wx:if="{{item.checked == '' || item.checked == false }}" class="fingers" src='{{imgdata}}/top.png'></image>
+        <image data-index='{{index}}' data-type='top' bindtap='clickFingers' wx:if="{{item.checked != '' && item.checked == true }}" class="fingers" src='{{imgdata}}/topclicked.png'></image>
+        <image data-index='{{index}}' data-type='bot' bindtap='clickFingers' wx:if="{{item.checked === '' || item.checked == true }}" class="fingers" src='{{imgdata}}/bot.png'></image>
+        <image data-index='{{index}}' data-type='bot' bindtap='clickFingers' wx:if="{{item.checked !== '' && item.checked == false }}" class="fingers" src='{{imgdata}}/botclicked.png'></image>
       </view>
     </view>
   </view>
-   <view class='submit-btn'>提交</view> 
+  <!-- 提交 -->
+  <button bindtap='subEvaluate' class='submit'>提交</button>
 </view>
-<view class='pop' style='display:none;'></view>

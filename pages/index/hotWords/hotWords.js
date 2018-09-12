@@ -4,12 +4,16 @@ var optionsObj = {};
 Page({
   data: {
     imgdata: app.globalData.imgdata,
-    machineList: []
+    machineList: [],
+    searchName: ''
   },
   onLoad: function (options) {
     optionsObj = options;
-    var searchName = options.name;
+    const searchName = options.name;
     console.info(searchName)
+    this.setData({
+      searchName: searchName
+    })
     // 获取搜索列表
     this.getSearchGoods(searchName);
   },

@@ -49,7 +49,6 @@ Page({
     this.setData({
       orderNo: options.orderNo
     })
-    console.info(111)
     this.getOrder();
   },
   // 获取到订单信息

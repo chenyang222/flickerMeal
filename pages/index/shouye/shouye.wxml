@@ -158,26 +158,10 @@
         <!-- 第二块 -->
         <swiper-item>
           <view style="{{fixedFlag?'height:790rpx;overflow-y:scroll':'height:790rpx;overflow-y:hidden'}}"> 
-            <view class="xingqi">
-              <view class="xingqiList" data-week='1' bindtap='selectWeek'>
-                <text class="zhou">星期一</text>
-                <text class="date">01-22</text>
-              </view>
-              <view class="xingqiList" data-week='2' bindtap='selectWeek'>
-                <text class="zhou">星期二</text>
-                <text class="date">01-22</text>
-              </view>
-              <view class="xingqiList" data-week='3' bindtap='selectWeek'>
-                <text class="zhou">星期三</text>
-                <text class="date">01-22</text>
-              </view>
-              <view class="xingqiList" data-week='4' bindtap='selectWeek'>
-                <text class="zhou">星期四</text>
-                <text class="date">01-22</text>
-              </view>
-              <view class="xingqiList" data-week='5' bindtap='selectWeek'>
-                <text class="zhou">星期五</text>
-                <text class="date">01-22</text>
+            <view class="xingqi"> 
+              <view class="xingqiList" wx:for="{{getWeekList}}" wx:for-item="item" wx:key="{{index}}" data-week='{{item.time}}'  bindtap='selectWeek'>
+                <!-- <text class="zhou">星期一</text> -->
+                <text class="date">{{item.time}}</text>
               </view>
             </view>
             <!-- 预定列表 -->
@@ -281,29 +265,22 @@
               <view class="plList" wx:for="{{pinglunList}}" wx:key="index" wx:for-item="plitem">
                 <view class="touxiang">
                   <view class="txWrap">
-                    <image src="{{imgdata}}/plTouXiang.png"></image>
+                    <image src="{{plitem.headimgurl}}"></image>
                   </view>
                 </view>
                 <view class="plInfo" data-id="{{plitem.id}}">
                   <view class="phoneTime">
-                    <view class="phoneNum fl">23412341341</view>
-                    <view class="plTime fr">{{plitem.addTime}}</view>
+                    <view class="phoneNum fl">{{plitem.nickname}}</view>
+                    <view class="plTime fr">{{plitem.createTime}}</view>
                   </view>
                   <view class="phoneTime">
-                    <view class="phoneNum fl">鸡蛋炒蛋</view>
+                    <view class="phoneNum fl">{{plitem.productName}}</view>
                     <view class="plTime fr">
-                      <image src="{{imgdata}}/blXing.png"></image>
-                      <image src="{{imgdata}}/blXing.png"></image>
-                      <image src="{{imgdata}}/blXing.png"></image>
-                      <image src="{{imgdata}}/blXing.png"></image>
-                      <image src="{{imgdata}}/blXing.png"></image>
+                      <image wx:for="{{plitem.star}}" wx:key="indext" wx:for-item="item" src="{{imgdata}}/blXing.png"></image>
                     </view>
                   </view>
                   <view class="plImage">
-                    <image src="{{imgdata}}/recomendListImg.png"></image>
-                    <image src="{{imgdata}}/recomendListImg.png"></image>
-                    <image src="{{imgdata}}/recomendListImg.png"></image>
-                    <image src="{{imgdata}}/recomendListImg.png"></image>
+                    <image wx:for="{{plitem.picImgs}}" wx:key="indext" wx:for-item="item" src="{{item.uri}}"></image>
                   </view>
                   <view class="plInfoDetail">
                     <text>{{plitem.content}}</text>
@@ -311,38 +288,6 @@
                 </view>
               </view>
 
-              <view class="plList">
-                <view class="touxiang">
-                  <view class="txWrap">
-                    <image src="{{imgdata}}/plTouXiang.png"></image>
-                  </view>
-                </view>
-                <view class="plInfo">
-                  <view class="phoneTime">
-                    <view class="phoneNum fl">23412341341</view>
-                    <view class="plTime fr">一分钟前</view>
-                  </view>
-                  <view class="phoneTime">
-                    <view class="phoneNum fl">鸡蛋炒蛋</view>
-                    <view class="plTime fr">
-                      <image src="{{imgdata}}/blXing.png"></image>
-                      <image src="{{imgdata}}/blXing.png"></image>
-                      <image src="{{imgdata}}/blXing.png"></image>
-                      <image src="{{imgdata}}/blXing.png"></image>
-                      <image src="{{imgdata}}/blXing.png"></image>
-                    </view>
-                  </view>
-                  <view class="plImage">
-                    <image src="{{imgdata}}/recomendListImg.png"></image>
-                    <image src="{{imgdata}}/recomendListImg.png"></image>
-                    <image src="{{imgdata}}/recomendListImg.png"></image>
-                    <image src="{{imgdata}}/recomendListImg.png"></image>
-                  </view>
-                  <view class="plInfoDetail">
-                    <text>餐品来的很快，符合我的胃口，五星好评</text>
-                  </view>
-                </view>
-              </view>
             </view>
           </view>
         </swiper-item>

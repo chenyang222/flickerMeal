@@ -1,6 +1,7 @@
 //index.js
 //获取应用实例
 const app = getApp()
+var utils = require('../../../utils/util.js');
 var bmap = require('../../../utils/bmap-wx.min.js'); // 引入百度地图js
 var wxMarkerData = []; //定位成功回调对象
 Page({
@@ -42,17 +43,21 @@ Page({
     todayBuyList: [],//今日购
     todaymealId: '0', //今日购餐品类型，默认是全部餐品
 
+    getWeekList: [], // 预定时间列表
     weekProductList: [], // 预定餐品列表
     prevOrdermealId: '0', //预定餐品类型，默认是全部餐品
 
     addToCar: false, // 添加到购物车
+
+    pinglunList: [],//评论列表
+    format: ['-', '-', ' ', ':', ':', ' '],
 
     toView: '',
     styleStr: '',
     modelstyle: '',
     
     startY: 0,//记录touchstart时位置
-    pinglunList: [],//评论列表
+
     boxTop: 0,//记录今日购、预定、评论的距离顶部高度0时固定定位
     fixedFlag: false//记录今日购、预定、评论的距离顶部高度0时固定定位
   },
@@ -88,6 +93,8 @@ Page({
         id: '2'
       }]
     });
+    // 获取预定时间列表
+    this.getWeekMessage();
     // 每周菜谱
     this.getWeek();
     // 获取所有活动列表
@@ -98,6 +105,8 @@ Page({
     //     console.info(response)
 
     //   })
+    // 获取机器评价
+    this.getMachineEva();
   },
   // 定位设置
   setPosition: function () {
@@ -248,6 +257,21 @@ Page({
         })
       })
   },
+  // 获取预定时间列表
+  getWeekMessage: function () {
+    const macId = this.data.machineId;
+    app.fetch({
+      url: '/fastfood/foodmachine/findAdvanceTimeByMacId',
+      data: {
+        macId: macId
+      }
+    })
+      .then((response) => {
+        this.setData({
+          getWeekList: response
+        })
+      })
+  },
   // 获取预定餐品列表
   getWeek: function (e) {
     const week = 1;
@@ -281,6 +305,22 @@ Page({
           weekProductList: response
         })
       })
+  },
+  // 获取当前机器评价
+  getMachineEva: function () {
+    const macId = this.data.machineId;
+    app.fetch({
+      url: '/fastfood/foodordercomment/findByMacId?macId=' + macId
+    })
+      .then((response) => {
+        let pinglunList = response;
+        for (let i = 0; i < pinglunList.length; i++ ) {
+          pinglunList[i].createTime = utils.formatTime(pinglunList[i].createTime, this.data.format)
+        }
+        this.setData({
+          pinglunList: pinglunList
+        })
+      })    
   },
   //添加到购物车
   addBuyCar: function (e) {

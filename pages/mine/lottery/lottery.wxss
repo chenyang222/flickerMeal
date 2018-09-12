@@ -1,0 +1,75 @@
+/* pages/mine/lottery/lottery.wxss */
+.lottery-topHeader{
+  width: 100%;
+  position: relative;
+}
+.lottery-topHeader image{
+  width: 100%;
+  display: block;
+}
+.lottery-topHeader text{
+  position: absolute;
+  top: 17%;
+  left: 37%;
+  font-size: 60rpx;
+  color: #ffffff;
+  transform: rotateZ(-5deg);
+  text-align: center;
+}
+
+.lottery-dialBody{
+  width: 100%;
+  background-repeat: repeat-y;
+  position: relative;
+}
+.lottery-dialBody .dial{
+  display: block;
+  width: 100%;
+  margin: 0 auto;
+  padding: 30rpx 0rpx;
+}
+.lottery-dialBody .start{
+  width:25%;
+  position: absolute;
+  top: 29%;
+  left: 38%;
+}
+
+
+.lotteryList{
+  width: 140rpx;
+  height: 140rpx;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-top: -70rpx;
+  margin-left: -70rpx;
+}
+.lotteryList .lotteryBox{
+  width: 140rpx;
+  height: 140rpx;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.lotteryList .lotteryBox view{
+  width: 140rpx;
+  height: 140rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  border: 1px solid #000;
+}
+.lotteryList .lotteryBox view text{
+  font-size: 28rpx;
+  color: #ff9e35;
+  text-align: center;
+}
+.lotteryList .lotteryBox view image{
+  width: 40rpx;
+  height: 40rpx;
+}

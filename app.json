@@ -38,7 +38,8 @@
     "pages/mine/setup/setup",
     "pages/mine/addAddress/addAddress",
     "pages/mine/editAddress/editAddress",
-    "pages/logs/logs"
+    "pages/logs/logs",
+    "pages/mine/lottery/lottery"
   ],
   "window": {
     "navigationBarBackgroundColor": "#ffffff",

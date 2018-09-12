@@ -116,7 +116,7 @@
         </view>
       </navigator>
 
-      <navigator class='item' url="../mine/feedBack/feedBack" id='theid'>
+      <navigator class='item' url="../mine/lottery/lottery" id='theid'>
         <view class='item_left'>
           <image src='{{imgdata}}/cf_jifenchoujiang.png'></image>
         </view>

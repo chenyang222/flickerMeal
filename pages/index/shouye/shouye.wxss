@@ -493,6 +493,7 @@ swiper{
   flex-direction: row;
   background-color: #f8f8f8;
   padding:30rpx 0;
+  flex-wrap: wrap;
 }
 .xingqi .xingqiList{
   display: flex;
@@ -500,7 +501,8 @@ swiper{
   font-size:29rpx;
   font-family:SourceHanSansCN-Regular;
   color:rgba(45,45,45,1);
-  width:20%;
+  width:25%;
+  margin-top: 15rpx;
 }
 .xingqi .xingqiList text{
   width: 100%;

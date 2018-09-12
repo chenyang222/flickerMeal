@@ -79,6 +79,7 @@ Page({
   //单个删除
   del: function (e) {
     var that = this;
+    console.info(e)
     var cartid = e.target.dataset.cartid;
     wx.showModal({
       title: '提示',
