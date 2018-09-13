@@ -89,7 +89,7 @@ App({
     return true;
   },
   // 公共fetch配置
-  fetch: function ({ method = "GET", url, data = {}, requestBody }) {
+  fetch: function ({ method = "GET", url, data = {}, requestBody, errFn }) {
     // 本地存储获取token
     const token = wx.getStorageSync("token");
     // token 日期
@@ -154,6 +154,7 @@ App({
               duration: 1000,
               mask: true
             })
+            if (errFn) errFn();
           }
         },
         fail: function (response) {

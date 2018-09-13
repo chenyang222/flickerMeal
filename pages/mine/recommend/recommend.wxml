@@ -3,8 +3,8 @@
 <view class='recommend'>
     <view class='recommendbg'>
         <view class='integral'>{{jired}}</view>
-        <view class='atonce'>立即邀请</view>
-        <view class='atoncecode'>hunz001</view>
+        <button class='atonce' open-type='share'>立即邀请</button>
+        <view class='atoncecode'>{{userId}}</view>
         <view class='success'>
             <view>成功推荐</view>
             <view>{{tuijian}}人</view>
@@ -20,7 +20,7 @@
             1、邀请好友，好友点击您发送的邀请链接，您将获得一定量的积分（重复点击只记录一次）
 2、邀请好友并成功注册成为闪餐用户您将获得一定量的积分。
 3、邀请奖励积分会在邀请成功或者点击链接之后的24小时内发送到您的账号，您可以在闪餐app-我的-积分中查看。
-4、您邀请的好友必须是闪餐的新用户，统一手机号，统一设备/统一支付宝账号是为同一用户。
+4、您邀请的好友必须是闪餐的新用户，统一手机号，统一设备是为同一用户。
 5、如有其他疑问请咨询闪餐客服。
         </view>
     </view>

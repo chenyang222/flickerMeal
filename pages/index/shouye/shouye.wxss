@@ -128,16 +128,21 @@
 }
 .recomendPart .recomentContent{
   display: flex;
-  justify-content: space-around;
 }
 .recomendPart .recomentContent .recomentBox{
   width: 29%;
   padding: 2%;
+  position: relative;
+  margin-left: 0.333%;
 }
 .recomendPart .recomentContent .recomentBox .picture{
   width:210rpx;
   height:140rpx;
   border-radius: 5rpx;
+}
+.recomendPart .recomentContent .recomentBox .productIcon{
+  top: 5%;
+  left: 5%;
 }
 .recomendPart .recomentContent .recomentBox .reName{
   font-size:28rpx;
@@ -491,9 +496,12 @@ swiper{
 .xingqi {
   display: flex;
   flex-direction: row;
+  justify-content: space-around;
   background-color: #f8f8f8;
   padding:30rpx 0;
-  flex-wrap: wrap;
+}
+.xingqi .weekActive{
+  background-color: #ffffff;
 }
 .xingqi .xingqiList{
   display: flex;
@@ -501,7 +509,8 @@ swiper{
   font-size:29rpx;
   font-family:SourceHanSansCN-Regular;
   color:rgba(45,45,45,1);
-  width:25%;
+  width:15%;
+  padding: 1%;
   margin-top: 15rpx;
 }
 .xingqi .xingqiList text{

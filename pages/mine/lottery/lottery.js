@@ -46,7 +46,7 @@ Page({
     this.animationRotate = animationRotate;
   },
   btnAnimate: function () {
-    if (this.data.start && this.data.score >= 10) {
+    if (this.data.start) {
       return
     }
     this.setData({
@@ -59,12 +59,15 @@ Page({
       url: '/operate/prize/draw',
       data: {
         group: 'WX_APP_DZP'
+      },
+      errFn: function () {
+        that.setData({
+          start: false
+        })
       }
     })
       .then((response) => {
-        // that.setData({
-        //   start: true
-        // })
+
         let num;
         for (let i = 0; i < lotteryList.length; i++) {
           if (response.prizeId == lotteryList[i].id) {

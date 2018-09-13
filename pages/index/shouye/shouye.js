@@ -37,15 +37,17 @@ Page({
     
     //遮罩状态
     popStatus:'hide',
-    //搜索下热词（餐品）
-    hotwordNameArr:'',
     todayBuy: [],//今日购
     todayBuyList: [],//今日购
-    todaymealId: '0', //今日购餐品类型，默认是全部餐品
 
+    nowSelectTime: '',
     getWeekList: [], // 预定时间列表
     weekProductList: [], // 预定餐品列表
-    prevOrdermealId: '0', //预定餐品类型，默认是全部餐品
+
+    todaymealId: '', //今日购餐品类型，默认是全部餐品
+    prevOrdermealId: '', //预定餐品类型，默认是全部餐品
+
+    leftMeaslList: [], // 左侧导航
 
     addToCar: false, // 添加到购物车
 
@@ -75,23 +77,15 @@ Page({
     this.getCoupon();
     // 菜单
     this.getMenuClass();
+    // 左侧餐品分类导航
+    this.getMachineMessage();
     // 推荐餐品
     this.getRecomtc();
     // 今日够
     this.getTodayBuy();
     this.setData({
       fixedFlag: false,
-      boxTop: 0,
-      todayBuy: [{
-        typeName: '全部餐品',
-        id: '0'
-      },{
-        typeName: '新品上市',
-        id: '1'
-      },{
-        typeName: '推荐餐品',
-        id: '2'
-      }]
+      boxTop: 0
     });
     // 获取预定时间列表
     this.getWeekMessage();
@@ -147,7 +141,6 @@ Page({
       }
     })
       .then((response) => {
-        console.info(response)
         that.setData({
           imgsDotBanner: response ? response : []
         })
@@ -196,7 +189,6 @@ Page({
       }
     })
       .then((response) => {
-        console.info(response, this)
         this.setData({
           recomTC: response.slice(0,3)
         })
@@ -243,6 +235,23 @@ Page({
         })
       })  
   },
+  // 获取餐品大类(左侧导航)
+  getMachineMessage: function () {
+    app.fetch({
+      url: '/fastfood/foodmachine/findProductCatByMacId',
+      data: {
+        macId: this.data.machineId
+      }
+    })
+      .then((response) => {
+        console.info(response)
+        this.setData({
+          leftMeaslList: response,
+          todaymealId: response.length > 0 ? response[0].id : '',
+          prevOrdermealId: response.length > 0 ? response[0].id : ''
+        })
+      })
+  },
   // 获取今日购
   getTodayBuy: function () {
     app.fetch({
@@ -259,28 +268,50 @@ Page({
   },
   // 获取预定时间列表
   getWeekMessage: function () {
-    const macId = this.data.machineId;
-    app.fetch({
-      url: '/fastfood/foodmachine/findAdvanceTimeByMacId',
-      data: {
-        macId: macId
+    const arr_week = ["星期日", "星期一", "星期二", "星期三", "星期四", "星期五", "星期六"];
+    const date = new Date();
+    const getTime = date.getTime();
+    let timeList = [];
+    for (let i = 0; i < 5; i++) {
+      date.setTime(getTime + 24 * 60 * 60 * 1000 * (i + 1))
+      const year = date.getFullYear();
+      let month = date.getMonth() + 1;
+      const day = date.getDate();
+      if (month < 10) month = '0' + month;
+      const weekDay = date.getDay();
+      let week;
+      for (let j = 0; j < arr_week.length; j++) {
+        if (weekDay == j) {
+          week = arr_week[j];
+          break;
+        }
       }
+      let obj = {};
+      obj.full = year + '-' + month + '-' + day;
+      obj.part = month + '-' + day;
+      obj.week = week;
+      timeList.push(obj)
+    }
+    this.setData({
+      nowSelectTime: timeList[0].full,
+      getWeekList: timeList
     })
-      .then((response) => {
-        this.setData({
-          getWeekList: response
-        })
-      })
   },
   // 获取预定餐品列表
   getWeek: function (e) {
-    const week = 1;
+    const date = new Date();
+    const getTime = date.getTime();
+    date.setTime(getTime + 24 * 60 * 60 * 1000);
+    let month = date.getMonth() + 1;
+    if (month < 10) month = '0' + month;
+    const nowSelectTime = date.getFullYear() + '-' + month + '-' + date.getDate();
+    console.info(nowSelectTime)
     const macId = this.data.machineId;
     app.fetch({
-      url: '/fastfood/foodmachine/findProductByMacIdAndWeek',
+      url: '/fastfood/foodmachine/findProductByMacIdAndAdTime',
       data: {
         macId: macId,
-        week: week
+        time: nowSelectTime
       }
     })
       .then((response) => {
@@ -288,16 +319,19 @@ Page({
           weekProductList: response
         })
       })
-  },  
+  },
   // 获取预定餐品列表
   selectWeek: function (e) {
-    const week = e.currentTarget.dataset.week;
+    const full = e.currentTarget.dataset.full;
     const macId = this.data.machineId;
+    this.setData({
+      nowSelectTime: full
+    })
     app.fetch({
-      url: '/fastfood/foodmachine/findProductByMacIdAndWeek',
+      url: '/fastfood/foodmachine/findProductByMacIdAndAdTime',
       data: {
         macId: macId,
-        week: week
+        time: full
       }
     })
       .then((response) => {
@@ -447,66 +481,9 @@ Page({
   },
   // 点击预定---餐品类型
   prevOrdermealType: function(e){
-    console.log(e.currentTarget.dataset.id)
     this.setData({
       prevOrdermealId: e.currentTarget.dataset.id
     });
-  },
-  //热词列表
-  hotwords:function(){
-    var that = this;
-    wx.request({
-
-      url: app.globalData.baseUrl + 'hostWord/getAllAppHotword.action',
-      method: 'POST',
-      data: {},
-      header: {'content-type': 'application/x-www-form-urlencoded'},
-      success: function (res) {
-        var dataArr = res.data.data;
-        if(!dataArr || dataArr.length<=0) return;
-        var hotwordNameArr = [];
-        for (var i = 0; i < dataArr.length;i++){
-          hotwordNameArr.push(dataArr[i]) ;
-        }
-        that.setData({
-          hotwordNameArr: hotwordNameArr
-        })
-      }
-    })
-  },
-  getEvaluateList: function (that){//获取评论列表
-    wx.request({
-      url: app.globalData.baseUrl + 'tFoodEvaluate/queryTfoodEvaluateList.action',
-      method: 'POST',
-      data: {
-        iDisplayStart: 1,//起始条数
-        iDisplayLength: 10,//每页显示数量
-        machineId: '1',
-        foodId: '1'
-      },
-      header: { 'content-type': 'application/x-www-form-urlencoded' },
-      success: function (res) {
-        // console.log(res,'评论列表');
-        if (res.data.aData && res.data.aData.length > 0){
-          for(var i = 0; i < res.data.aData.length;i++){
-            var item = res.data.aData[i];
-            var itemTime = new Date(item.addTime).getTime();
-            var nowTime = new Date().getTime();
-            if (nowTime-itemTime < 5000){
-              item.addTime = "五分钟之前";
-            } else {
-              item.addTime = util.formatTime(new Date(itemTime))
-            }
-          }
-          that.setData({
-            pinglunList: res.data.aData
-          });
-        }
-      },
-      fail: function(){
-        console.log('评论列表数据获取失败');
-      }
-    })
   },
   onPageScroll: function (res) {//监听页面滚动
     const that = this;

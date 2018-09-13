@@ -24,6 +24,7 @@ Page({
           userHeadImg: response.headimgurl ? response.headimgurl : this.data.userHeadImg,
           userName: response.nickname ? response.nickname : '闪餐' + response.userId
         })
+        wx.setStorageSync('userId', response.userId);
       })
   },
   /**

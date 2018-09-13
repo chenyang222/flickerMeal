@@ -90,6 +90,8 @@
       <view class='recomentContent'>
         <view class='recomentBox' wx:for="{{recomTC}}" wx:for-item="item" wx:key="{{index}}">
           <image class="picture" src="{{item.picture}}"></image>
+          <image wx:if="{{item.label == 2}}" class="productIcon" mode='widthFix' src="{{imgdata}}/hotPushIcon.png"></image>
+          <image wx:elif="{{item.label == 1}}" class="productIcon" mode='widthFix' src="{{imgdata}}/newmeal.png"></image>
           <text class='reName'>{{item.productName}}</text>
           <view wx:if="{{item.hotNum}}" class="recomentNum">推荐指数
 <text>{{item.hotNum}}</text></view>
@@ -127,16 +129,17 @@
           <view style="{{fixedFlag?'height:790rpx;overflow-y:scroll':'height:790rpx;overflow-y:hidden'}}">
             <!-- 侧边栏 -->
             <view class="tabCtnL fl">
-              <text wx:for="{{todayBuy}}" wx:key="index" wx:for-item="itemName"
+              <text wx:for="{{leftMeaslList}}" wx:key="index" wx:for-item="itemName"
                 class="{{todaymealId == itemName.id?'jinrigouTypeSele':''}}" data-id='{{itemName.id}}'
-                bindtap='todaymealType'>{{itemName.typeName}}</text>
+                bindtap='todaymealType'>{{itemName.name}}</text>
             </view>
             <!-- 商品列表 -->
             <view class="tabCtnR fr">
-              <view class="product" wx:for="{{todayBuyList}}" wx:for-index="index" wx:for-item="item" wx:key="{{index}}" wx:if="{{item.label == todaymealId || todaymealId == 0}}">
+              <view class="product" wx:for="{{todayBuyList}}" wx:for-index="index" wx:for-item="item" wx:key="{{index}}" wx:if="{{item.productCatId == todaymealId}}">
                 <view class="product-left">
                   <image class="productImg" mode="widthFix" src="{{item.picture}}"></image>
-                  <image class="productIcon" src="{{imgdata}}/hotPushIcon.png"></image>
+                  <image wx:if="{{item.label == 2}}" class="productIcon" mode='widthFix' src="{{imgdata}}/hotPushIcon.png"></image>
+                  <image wx:elif="{{item.label == 1}}" class="productIcon" mode='widthFix' src="{{imgdata}}/newmeal.png"></image>
                 </view>
                 <view class="product-right">
                   <view class="productName">
@@ -159,22 +162,21 @@
         <swiper-item>
           <view style="{{fixedFlag?'height:790rpx;overflow-y:scroll':'height:790rpx;overflow-y:hidden'}}"> 
             <view class="xingqi"> 
-              <view class="xingqiList" wx:for="{{getWeekList}}" wx:for-item="item" wx:key="{{index}}" data-week='{{item.time}}'  bindtap='selectWeek'>
-                <!-- <text class="zhou">星期一</text> -->
-                <text class="date">{{item.time}}</text>
+              <view class="{{nowSelectTime == item.full ? 'xingqiList weekActive' : 'xingqiList'}}" wx:for="{{getWeekList}}" wx:for-item="item" wx:key="{{index}}" data-week='{{item.week}}' data-full='{{item.full}}' bindtap='selectWeek'>
+                <text class="zhou">{{item.week}}</text>
+                <text class="date">{{item.part}}</text>
               </view>
             </view>
             <!-- 预定列表 -->
             <view class="tabCtnL fl">
-              <text class="{{prevOrdermealId == '0'?'jinrigouTypeSele':''}}" data-id='0' bindtap='prevOrdermealType'>全部餐品</text>
-              <text class="{{prevOrdermealId == '1'?'jinrigouTypeSele':''}}" data-id='1' bindtap='prevOrdermealType'>新品上市</text>
-              <text class="{{prevOrdermealId == '2'?'jinrigouTypeSele':''}}" data-id='2' bindtap='prevOrdermealType'>推荐餐品</text>
+              <text wx:for="{{leftMeaslList}}" wx:key="index" wx:for-item="itemName" class="{{prevOrdermealId == itemName.id ? 'jinrigouTypeSele' : '' }}" data-id='{{itemName.id}}' bindtap='prevOrdermealType'>{{itemName.name}}</text>
             </view>
             <view class="tabCtnR fr">
-              <view class="product" wx:for="{{weekProductList}}" wx:for-index="index" wx:for-item="item" wx:key="{{index}}" wx:if="{{item.label == prevOrdermealId || prevOrdermealId == 0}}">
+              <view class="product" wx:for="{{weekProductList}}" wx:for-index="index" wx:for-item="item" wx:key="{{index}}" wx:if="{{item.productCatId == prevOrdermealId}}">
                 <view class="product-left">
                   <image class="productImg" mode="widthFix" src="{{item.picture}}"></image>
-                  <image class="productIcon" src="{{imgdata}}/hotPushIcon.png"></image>
+                  <image wx:if="{{item.label == 2}}" class="productIcon" mode='widthFix' src="{{imgdata}}/hotPushIcon.png"></image>
+                  <image wx:elif="{{item.label == 1}}" class="productIcon" mode='widthFix' src="{{imgdata}}/newmeal.png"></image>
                 </view>
                 <view class="product-right">
                   <view class="productName">

@@ -28,9 +28,16 @@ Page({
     invitationCode: '', // 邀请码
     last_time: '', // 倒计时秒数
     is_show: true, // 显示倒计时或者获取验证码
-    code: '' // 登陆获取code
+    code: '', // 登陆获取code
+    inviter: ''
   },
-  onLoad: function () {},
+  onLoad: function (options) {
+    if (options.inviter) {
+      this.setData({
+        inviter: options.inviter
+      })
+    }
+  },
   onShow: function () {
     app.login();
   },
@@ -107,14 +114,23 @@ Page({
     //   return false;
     // }
     const that = this;
+    let data = {};
+    if (this.data.inviter) {
+      data = {
+        mobile: this.data.phoneNum,
+        openid: app.globalData.openid,
+        inviter: this.data.inviter
+      }
+    } else {
+      data = {
+        mobile: this.data.phoneNum,
+        openid: app.globalData.openid
+      }
+    }
     // 注册绑定
     wx.request({
       url: "https://shanchan.jergavin.com/oauth2/token/wechatApp/register",
-      data: {
-        mobile: that.data.phoneNum,
-        // vfcode: that.data.validateCode,
-        openid: app.globalData.openid
-      },
+      data: data,
       success: function (res) {
         if (res.data.errcode == 0) {
           // token data 处理

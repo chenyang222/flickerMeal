@@ -1,14 +1,51 @@
 const app = getApp();
 Page({
   data: {
-      imgdata: app.globalData.imgdata,
+    imgdata: app.globalData.imgdata,
+    userId: ''
+    
+  },
+  onShareAppMessage: function (res) {
+    const that = this;
+    if (res.from === 'button') {
+      // 来自页面内转发按钮
+      console.log(res.target)
+      const userId = wx.getStorageSync('userId');
+      return {
+        title: '闪餐',
+        path: '/pages/login/login?inviter=' + userId,
+        imageUrl: '/images/share.jpg',
+        success: function (res) {
+          if (res.errMsg == 'shareAppMessage:ok') {
+            // 转发成功
+            app.fetch({
+              url: '/account/user/share'
+            })
+              .then((response) => { })
+          }
+        },
+        fail: function (res) {
+          if (res.errMsg == 'shareAppMessage:fail cancel') {
+            // 用户取消
+          } else if (res.errMsg == 'shareAppMessage:fail') {
+            // 转发失败
+          }
+        },
+        complete: function () {
 
+        }
+      }
+    } else {
+      return {
+        title: '闪餐',
+        path: '/pages/login/login',
+        imageUrl: '/images/share.jpg'
+      }
+    }
   },
   onLoad: function (options) {
-    //console.log(options);
-    this.loadmsg();
-  },
-  loadmsg: function () {
-    var that = this;
-  },
+    this.setData({
+      userId: wx.getStorageSync('userId')
+    })
+  }
 })

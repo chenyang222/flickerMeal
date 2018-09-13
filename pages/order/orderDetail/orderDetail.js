@@ -41,7 +41,18 @@ Page({
     qrCode: '', // 取餐二维码
     couponFee: 0 // 优惠券
   },
-
+  onShareAppMessage: function (res) {
+    const that = this;
+    if (res.from === 'button') {
+      // 来自页面内转发按钮
+      console.log(res.target)
+    }
+    return {
+      title: '闪餐',
+      path: '/pages/login/login',
+      imageUrl: '/images/share.jpg'
+    }
+  },
   /**
    * 生命周期函数--监听页面加载
    */

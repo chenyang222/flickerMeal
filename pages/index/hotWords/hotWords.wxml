@@ -9,26 +9,50 @@
   </view>
   <view style='margin-top:60px;'></view>
   <!-- 列表 -->
-  <view class="machine" wx:for="{{machineList}}" wx:for-index="index" wx:for-item="item" wx:key="{{index}}">
-    <view class="machine-left">
-      <image class="machineImg" mode="widthFix" src="{{imgdata}}/hotPushImg.png"></image>
-      <!-- <image class="machineIcon" src="{{imgdata}}/hotPushIcon.png"></image> -->
-    </view>
-    <view class="machine-right">
-      <view class="machineName">
-        <text data-machineId='{{item.id}}' bindtap='setStorgeId'>{{item.name}}({{item.address}})</text>
-        <image src="{{imgdata}}/blDingwei.png" class="fly"></image>
+  <view class='searchList' wx:for="{{machineList}}" wx:for-index="index" wx:for-item="item" wx:key="{{index}}">
+    <view data-machineId='{{item.macId}}' data-machinename='{{item.name}}' bindtap='setStorgeId' class="machine">
+      <view class="machine-left">
+        <image class="machineImg" mode="widthFix" src="{{imgdata}}/hotPushImg.png"></image>
+        <!-- <image class="machineIcon" src="{{imgdata}}/hotPushIcon.png"></image> -->
       </view>
-      <view class="manjian">
-        <!-- <view class='manjianBox'>
-          <image src="/images/blmanjian.png"></image>
-          <text>满49减2，满60减12</text>
+      <view class="machine-right">
+        <view class="machineName">
+          <text>{{item.name}}({{item.address}})</text>
+          <image src="{{imgdata}}/blDingwei.png" class="fly"></image>
         </view>
-        <view class='manjianBox'>
-          <image src="/images/blmanjian.png"></image>
-          <text>满49减2，满60减12</text>
-        </view> -->
+        <view class="manjian">
+          <!-- <view class='manjianBox'>
+            <image src="/images/blmanjian.png"></image>
+            <text>满49减2，满60减12</text>
+          </view>
+          <view class='manjianBox'>
+            <image src="/images/blmanjian.png"></image>
+            <text>满49减2，满60减12</text>
+          </view> -->
+        </view>
       </view>
     </view>
+
+    <view class="product" wx:for="{{item.products}}" wx:for-index="index" wx:for-item="items" wx:key="{{index}}">
+      <view class="product-left">
+        <image class="productImg" mode="widthFix" src="{{items.picture}}"></image>
+        <image wx:if="{{items.label == 2}}" class="productIcon" mode='widthFix' src="{{imgdata}}/hotPushIcon.png"></image>
+        <image wx:elif="{{items.label == 1}}" class="productIcon" mode='widthFix' src="{{imgdata}}/newmeal.png"></image>
+      </view>
+      <view class="product-right">
+        <view class="productName">
+          <text>{{items.productName}}</text>
+        </view>
+        <view class="intro">
+            <view wx:if="{{items.hotNum}}" class="recomentNum">推荐指数
+    <text>{{items.hotNum}}</text></view>
+            <view class='addGoods'>
+              <view class="price">￥<text>{{items.showPrice}}</text></view>
+            </view>
+        </view>
+      </view>
+    </view>
+
   </view>
+
 </view>

@@ -83,9 +83,8 @@ body{
 .product .product-left .productImg{
   width: 100%;
 }
-.product .product-left .productIcon{
-  width: 75rpx;
-  height: 36rpx;
+.productIcon{
+  width: 69rpx;
   position: absolute;
   top: 0;
   left: 0;
