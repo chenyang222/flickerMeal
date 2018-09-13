@@ -2,8 +2,9 @@ const app = getApp();
 Page({
   data: {
     imgdata: app.globalData.imgdata,
-    userId: ''
-    
+    userId: '',
+    count: 0,
+    score: 0
   },
   onShareAppMessage: function (res) {
     const that = this;
@@ -47,5 +48,16 @@ Page({
     this.setData({
       userId: wx.getStorageSync('userId')
     })
+  },
+  onShow: function () {
+    app.fetch({
+      url: '/account/log/inviteInfo'
+    })
+      .then((response) => {
+        this.setData({
+          count: response.count,
+          score: response.score == null ? 0 : response.score
+        })
+      })
   }
 })

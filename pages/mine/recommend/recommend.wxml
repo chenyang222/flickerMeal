@@ -7,11 +7,11 @@
         <view class='atoncecode'>{{userId}}</view>
         <view class='success'>
             <view>成功推荐</view>
-            <view>{{tuijian}}人</view>
+            <view>{{count}}人</view>
         </view>
         <view class='success garden'>
             <view>累计获得积分</view>
-            <view>{{jifen}}分</view>
+            <view>{{score}}分</view>
         </view>
         <view class='actity'>
             活动规则
