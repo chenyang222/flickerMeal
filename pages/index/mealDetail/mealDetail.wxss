@@ -11,10 +11,9 @@ page{
   top:35rpx;
 }
 .lunbo{
-  width: 750rpx;
-  height: 360rpx;
+  width: 100%;
 }
-.slide-image{
+.lunbo image{
   width: 100%;
 }
 .car-icon{

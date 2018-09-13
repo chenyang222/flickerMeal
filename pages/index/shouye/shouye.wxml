@@ -89,14 +89,14 @@
       </view>
       <view class='recomentContent'>
         <view class='recomentBox' wx:for="{{recomTC}}" wx:for-item="item" wx:key="{{index}}">
-          <image class="picture" src="{{item.picture}}"></image>
+          <image data-item='{{item}}' bindtap='toMealDetail' class="picture" src="{{item.picture}}"></image>
           <image wx:if="{{item.label == 2}}" class="productIcon" mode='widthFix' src="{{imgdata}}/hotPushIcon.png"></image>
           <image wx:elif="{{item.label == 1}}" class="productIcon" mode='widthFix' src="{{imgdata}}/newmeal.png"></image>
           <text class='reName'>{{item.productName}}</text>
           <view wx:if="{{item.hotNum}}" class="recomentNum">推荐指数
 <text>{{item.hotNum}}</text></view>
           <view class='addGoods'>
-            <view class="price">￥<text>{{item.showPrice}}</text></view>
+            <view class="price">￥<text>{{item.price}}</text></view>
             <image class='add' bindtap='addBuyCar' data-aisleId='{{item.aisleId}}' data-productId='{{item.productId}}' src="{{imgdata}}/blAdd.png"></image>
           </view>
         </view>
@@ -137,7 +137,7 @@
             <view class="tabCtnR fr">
               <view class="product" wx:for="{{todayBuyList}}" wx:for-index="index" wx:for-item="item" wx:key="{{index}}" wx:if="{{item.productCatId == todaymealId}}">
                 <view class="product-left">
-                  <image class="productImg" mode="widthFix" src="{{item.picture}}"></image>
+                  <image data-item='{{item}}' bindtap='toMealDetail' mode='widthFix' class="productImg" src="{{item.picture}}"></image>
                   <image wx:if="{{item.label == 2}}" class="productIcon" mode='widthFix' src="{{imgdata}}/hotPushIcon.png"></image>
                   <image wx:elif="{{item.label == 1}}" class="productIcon" mode='widthFix' src="{{imgdata}}/newmeal.png"></image>
                 </view>
@@ -149,7 +149,7 @@
                       <view wx:if="{{item.hotNum}}" class="recomentNum">推荐指数
             <text>{{item.hotNum}}</text></view>
                       <view class='addGoods'>
-                        <view class="price">￥<text>{{item.showPrice}}</text></view>
+                        <view class="price">￥<text>{{item.price}}</text></view>
                         <image class='add' bindtap='addBuyCar' data-aisleId='{{item.aisleId}}' data-productId='{{item.productId}}' src="{{imgdata}}/blAdd.png"></image>
                       </view>
                   </view>
@@ -174,7 +174,7 @@
             <view class="tabCtnR fr">
               <view class="product" wx:for="{{weekProductList}}" wx:for-index="index" wx:for-item="item" wx:key="{{index}}" wx:if="{{item.productCatId == prevOrdermealId}}">
                 <view class="product-left">
-                  <image class="productImg" mode="widthFix" src="{{item.picture}}"></image>
+                  <image data-item='{{item}}' bindtap='toMealDetail' mode='widthFix' class="productImg" src="{{item.picture}}"></image>
                   <image wx:if="{{item.label == 2}}" class="productIcon" mode='widthFix' src="{{imgdata}}/hotPushIcon.png"></image>
                   <image wx:elif="{{item.label == 1}}" class="productIcon" mode='widthFix' src="{{imgdata}}/newmeal.png"></image>
                 </view>
@@ -186,7 +186,7 @@
                       <view wx:if="{{item.hotNum}}" class="recomentNum">推荐指数
             <text>{{item.hotNum}}</text></view>
                       <view class='addGoods'>
-                        <view class="price">￥<text>{{item.showPrice}}</text></view>
+                        <view class="price">￥<text>{{item.price}}</text></view>
                         <image class='add' bindtap='addBuyCar' data-aisleId='{{item.aisleId}}' data-productId='{{item.productId}}' src="{{imgdata}}/blAdd.png"></image>
                       </view>
                   </view>
@@ -198,7 +198,7 @@
         <!-- 第三块 -->
         <swiper-item>
           <view style="{{fixedFlag?'height:790rpx;overflow-y:scroll':'height:790rpx;overflow-y:hidden'}}">
-            <view class="zpWrap">
+            <!-- <view class="zpWrap">
               <view class="zhL">
                 <text class="pNum">4.85</text>
                 <text class="pTitle">综合评分</text>
@@ -235,8 +235,8 @@
                   </view>
                 </view>
               </view>
-            </view>
-            <view class="manyi">
+            </view> -->
+            <!-- <view class="manyi">
               <view class="manyiListWrap">
                 <view class="manyiList">
                   <text class="">全部</text>
@@ -261,7 +261,7 @@
                   <text class="manyiNum">(12345)</text>
                 </view>
               </view>
-            </view>
+            </view> -->
             <view class="plListWrap">
 
               <view class="plList" wx:for="{{pinglunList}}" wx:key="index" wx:for-item="plitem">

@@ -43,4 +43,12 @@ Page({
         })
       })
   },
+  // 跳转到餐品详情
+  toMealDetail: function (e) {
+    const item = JSON.stringify(e.currentTarget.dataset.item);
+    console.info(item)
+    wx.navigateTo({
+      url: '/pages/index/mealDetail/mealDetail?item=' + item,
+    })
+  }
 })

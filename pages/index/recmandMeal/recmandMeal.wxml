@@ -3,18 +3,19 @@
   <!-- 列表 -->
   <view class="product" wx:for="{{recomTC}}" wx:for-index="index" wx:for-item="item" wx:key="{{index}}">
     <view class="product-left">
-      <image class="productImg" mode="widthFix" src="{{item.picture}}"></image>
-      <image class="productIcon" src="{{imgdata}}/hotPushIcon.png"></image>
+      <image data-item='{{item}}' bindtap='toMealDetail' class="productImg" mode="widthFix" src="{{item.picture}}"></image>
+      <image wx:if="{{item.label == 2}}" class="productIcon" mode='widthFix' src="{{imgdata}}/hotPushIcon.png"></image>
+      <image wx:elif="{{item.label == 1}}" class="productIcon" mode='widthFix' src="{{imgdata}}/newmeal.png"></image>
     </view>
     <view class="product-right">
       <view class="productName">
-        <text data-productId='{{item.id}}' bindtap='setStorgeId'>{{item.name}}</text>
+        <text data-productId='{{item.id}}' bindtap='setStorgeId'>{{item.productName}}</text>
       </view>
       <view class="intro">
           <view wx:if="{{item.hotNum}}" class="recomentNum">推荐指数
 <text>{{item.hotNum}}</text></view>
           <view class='addGoods'>
-            <view class="price">￥<text>{{item.showPrice}}</text></view>
+            <view class="price">￥<text>{{item.price}}</text></view>
             <image class='add' bindtap='addBuyCar' data-aisleId='{{item.aisleId}}' data-productId='{{item.productId}}' src="{{imgdata}}/blAdd.png"></image>
           </view>
       </view>

@@ -74,6 +74,7 @@ body{
   display: flex;
   margin-top: 2%;
   background-color: #ffffff;
+  overflow:hidden;
 }
 .product .product-left{
   width: 30%;

@@ -47,7 +47,7 @@
             <view wx:if="{{items.hotNum}}" class="recomentNum">推荐指数
     <text>{{items.hotNum}}</text></view>
             <view class='addGoods'>
-              <view class="price">￥<text>{{items.showPrice}}</text></view>
+              <view class="price">￥<text>{{items.price}}</text></view>
             </view>
         </view>
       </view>

@@ -1,22 +1,16 @@
 <view class='car-container'>
   <!-- 轮播 -->
   <view class='lunbo'>
-    <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" style='width:750rpx;height:360rpx;' indicator-color="#dbaf80" indicator-active-color="#333333">
-      <block wx:for="{{foodInfo.Pictures}}" wx:key="index" wx:for-item="currentitem">
-        <swiper-item>
-          <image data-id="{{currentitem.id}}" src="{{imgdata}}{{currentitem.url}}" class="slide-image" width="355" height="150" />
-        </swiper-item>
-      </block>
-    </swiper>
+    <image mode='widthFix' src="{{foodInfo.picture}}"/>
   </view>
   <view class='addCar'>
     <view class='addCar-left'>
-      <view class='meal-name'>{{foodInfo.food.name}}</view>
+      <view class='meal-name'>{{foodInfo.productName}}</view>
       <view class='meal-price'>
-        <text class='money-icon'>￥</text><text class='zhe-price'>{{foodInfo.food.selling}}</text><text class='yuanjia'>{{foodInfo.food.original}}</text>
-      </view>     
+        <text class='money-icon'>￥</text><text class='zhe-price'>{{foodInfo.price}}</text>
+      </view>
     </view>
-    <view data-foodid = "{{foodInfo.food.id}}" bindtap='addBuyCar'>
+    <view data-productid = "{{foodInfo.productId}}" bindtap='addBuyCar'>
       <image class='car-icon'></image>
       <text class='addcar-btn'></text>
     </view>
@@ -27,87 +21,36 @@
         <text class='meal-title-icon'></text>
         <text class='meal-title-txt'>菜品描述</text>
       </view>
-      <view class='meal-title-detial-txt'>{{foodInfo.food.describes}}</view>
+      <view class='meal-title-detial-txt'>{{foodInfo.descr}}</view>
     </view>
     <view class='hexu'></view>
     <view class='caipin'>
       <text>菜品</text>
-      <text>{{foodInfo.food.name}}</text>
+      <text>{{foodInfo.productName}}</text>
     </view>
     <view class='shicai'>
       <text>食材</text>
-      <text>{{foodInfo.food.material}}</text>
+      <text>{{foodInfo.pMaterials}}</text>
     </view>
     <view class='caipin'>
       <text>餐品口味</text>
-      <text>微辣</text>
+      <text>{{foodInfo.keyword}}</text>
     </view>
     <view class='shicai'>
       <text>是否加热</text>
-      <text wx:if="{{foodInfo.food.isHeat == 1}}">加热</text>
+      <text wx:if="{{foodInfo.warmFlag == 1}}">加热</text>
       <text wx:else>不加热</text>
 
     </view>
     <view class='caipin'>
       <text>推荐指数</text>
       <view class='zhishu-xing'>
-        <block wx:if="{{foodInfo.food.isRecommend == 1}}">
-          <image src='{{imgdata}}/upload/blXing.png'></image>
-          <image src='{{imgdata}}/upload/blXing.png'></image>
-          <image src='{{imgdata}}/upload/blXing.png'></image>
-          <image src='{{imgdata}}/upload/blXing.png'></image>
-          <image src='{{imgdata}}/upload/blXing.png'></image>
-        </block>
-        <block wx:elif="{{foodInfo.food.isRecommend != 1}}">
-          <image src='{{imgdata}}/upload/blXing.png'></image>
-        </block>
+        <text>{{foodInfo.hotNum}}</text>
       </view>
     </view>
-    <view class='shicai'>
+    <!-- <view class='shicai'>
       <text>累计销量</text>
-      <text>{{foodInfo.food.salesNum}}</text>
-    </view>
-  </view>
-  <view class='meal-intro' style='margin-top:23rpx;'>
-    <view class='meal-detail'>
-      <view class='meal-title'>
-        <text class='meal-title-icon'></text>
-        <text class='meal-title-txt'>菜品评论</text>
-      </view>
-    </view>
-    <view class='hexu'></view>
-
-    <view wx:for="{{foodInfo.Evaluate}}" wx:key="{{index}}" class='ping-list'>
-      <view class='ping-list-img-wrap fl'>
-      <!-- 头像 -->
-        <image class='ping-list-img' src='{{imgdata}}{{item.user.photo}}'></image>
-      </view>
-      <view class='ping-list-right fl'>
-        <view class='list-row' style='padding:25rpx 0;'>
-          <text>{{item.user.phone}}</text> 
-          <text>{{item.addTime}}</text>
-        </view>
-        <view class='list-row'>
-          <text>{{foodInfo.food.name}}</text>
-          <view class='haoping-xing'>
-            <image src='{{imgdata}}/upload/blXing.png'></image>
-            <image src='{{imgdata}}/upload/blXing.png'></image>
-            <image src='{{imgdata}}/upload/blXing.png'></image>
-            <image src='{{imgdata}}/upload/blXing.png'></image>
-            <image src='{{imgdata}}/upload/blXing.png'></image>
-          </view>
-        </view>
-        <view class='list-row ping-img' style='margin-top:20rpx;'>
-        <!-- 评论图片 -->
-          <block wx:for="{{item.list}}" wx:key="index" wx:for-item="currentItem">
-            <image src='{{imgdata}}{{currentItem.url}}'></image>
-          </block>
-        </view>
-        <view class='list-row' style='padding:25rpx 0;'>
-          <text>{{item.content}}</text> 
-          <text class='zhankai-btn'>展开</text>
-        </view>
-      </view>
-    </view>
+      <text>{{foodInfo.hotNum}}</text>
+    </view> -->
   </view>
 </view>

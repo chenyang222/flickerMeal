@@ -354,7 +354,7 @@ Page({
         this.setData({
           pinglunList: pinglunList
         })
-      })    
+      })
   },
   //添加到购物车
   addBuyCar: function (e) {
@@ -379,6 +379,14 @@ Page({
           duration: 1000
         })
       })
+  },
+  // 跳转到餐品详情
+  toMealDetail: function (e) {
+    const item = JSON.stringify(e.currentTarget.dataset.item);
+    console.info(item)
+    wx.navigateTo({
+      url: '/pages/index/mealDetail/mealDetail?item=' + item,
+    })
   },
   //滑动切换
   swiperTab: function (e) {
@@ -421,12 +429,6 @@ Page({
   goSearch: function(e){//跳转到搜索列表
     wx.navigateTo({
       url: '../hotWords/hotWords?name=' + e.currentTarget.dataset.name,
-    })
-  },
-  goMealDetail:function(e){//跳转到商品详情
-    // console.log(e);data-machineid
-    wx.navigateTo({
-      url: '../mealDetail/mealDetail?id=' + e.currentTarget.dataset.id + '&machineid=' + e.currentTarget.dataset.machineid,
     })
   },
   // 开始滑动

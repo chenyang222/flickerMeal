@@ -37,7 +37,7 @@
     </view>
     <text class='restTime'>感谢您对闪餐支持，欢迎再次光临</text>
     <view class='btns'>
-      <navigator url="">申请电子发票</navigator>
+      <!-- <navigator url="">申请电子发票</navigator> -->
       <navigator url="/pages/order/evaluate/evaluate?orderNo={{orderNo}}">评价</navigator>
     </view>
   </view>
@@ -48,9 +48,9 @@
       <text>订单已完成</text>
     </view>
     <text class='restTime'>感谢您对闪餐支持，欢迎再次光临</text>
-    <view class='btns'>
+    <!-- <view class='btns'>
       <navigator url="">申请电子发票</navigator>
-    </view>
+    </view> -->
   </view>  
 </view>
 
@@ -108,10 +108,10 @@
           <text class="basic-left">支付方式:</text>
           <text class="basic-right">{{payType}}</text>
         </view>
-        <view wx:if="{{orderStatus == 1 || orderStatus == 2 || orderStatus == 3}}">
+        <!-- <view wx:if="{{orderStatus == 1 || orderStatus == 2 || orderStatus == 3}}">
           <text class="basic-left">发票信息:</text>
           <text class="basic-right">个人</text>
-        </view>
+        </view> -->
         <view wx:if="{{orderStatus == 1}}">
           <text class="basic-left">取餐码:</text>
           <text class="basic-right">  {{takeFoodCode}}</text>
