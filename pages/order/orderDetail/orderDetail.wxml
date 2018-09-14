@@ -104,6 +104,10 @@
           <text class="basic-left">订单时间:</text>
           <text class="basic-right">{{createTimeText}}</text>
         </view>
+        <view wx:if="{{takeFoodText}}">
+          <text class="basic-left">取餐时间:</text>
+          <text class="basic-right">{{takeFoodText}}</text>
+        </view>
         <view wx:if="{{orderStatus == 1 || orderStatus == 2 || orderStatus == 3}}">
           <text class="basic-left">支付方式:</text>
           <text class="basic-right">{{payType}}</text>
@@ -112,14 +116,14 @@
           <text class="basic-left">发票信息:</text>
           <text class="basic-right">个人</text>
         </view> -->
-        <view wx:if="{{orderStatus == 1}}">
+        <view wx:if="{{orderStatus == 1 && !takeFoodText}}">
           <text class="basic-left">取餐码:</text>
           <text class="basic-right">  {{takeFoodCode}}</text>
         </view>
-        <view wx:if="{{orderStatus == 1}}">
+        <view wx:if="{{orderStatus == 1 && !takeFoodText}}">
           <text class="basic-left">取餐二维码:</text>
         </view>
-        <image wx:if="{{orderStatus == 1}}" class='getFoodtwoCode' mode="widthFix" src='{{qrCode}}'></image>
+        <image wx:if="{{orderStatus == 1 && !takeFoodText}}" class='getFoodtwoCode' mode="widthFix" src='{{qrCode}}'></image>
     </view>
   </view>
 </view>

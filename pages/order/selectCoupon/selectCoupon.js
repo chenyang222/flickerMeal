@@ -27,7 +27,7 @@ Page({
       .then((response) => {
         let list = [];
         for (let i = 0; i < response.length; i++) {
-          if (options.payAmount >= response[i].useRestrict) {
+          if (options.payAmount >= response[i].useRestrict && response[i].use == 0) {
             list.push(response[i])
           }
         }

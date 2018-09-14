@@ -30,7 +30,7 @@ Page({
       .then((response) => {
         let totalMoney = 0;
         for (let i = 0; i < response.length;i++) {
-          totalMoney += response[i].buyNumber * response[i].showPrice * 100;
+          totalMoney += response[i].buyNumber * response[i].price * 100;
         }
         this.setData({
           carListDataArr: response,

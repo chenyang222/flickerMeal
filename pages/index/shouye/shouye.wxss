@@ -1186,3 +1186,28 @@ swiper{
 .boxRelative{
   position: relative;
 }
+
+.makeOrder{
+  width: 80%;
+  margin: 0rpx auto;
+  display: block;
+  line-height: 89rpx;
+  height: 89rpx;
+  border-radius: 30rpx;
+  background-color: #ff9e35;
+  color: #ffffff;
+  text-align: center;
+  font-size: 35rpx;
+}
+
+.jia {
+  width: 41rpx;
+  height: 41rpx;
+  float: left;
+}
+
+.jian {
+  width: 41rpx;
+  height: 41rpx;
+  float: left;
+}

@@ -24,7 +24,7 @@
                 <image class='jia' src='{{imgdata}}/plus.png' data-cartId="{{item.cartId}}" data-buyNumber="{{item.buyNumber}}" bindtap='plus'></image>
               </view>
               <view class='fan-price'>￥
-                <text>{{item.showPrice}}</text>
+                <text>{{item.price}}</text>
               </view>
             </view>
           </view>

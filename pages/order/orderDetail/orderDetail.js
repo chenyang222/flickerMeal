@@ -35,6 +35,7 @@ Page({
     overTimeText: '', // 倒计时
     mealList: [], // 餐品列表
     createTimeText: '', // 订单创建时间
+    takeFoodText: '',
     payType: '', // 支付方式
     total: 0, // 合计金额
     takeFoodCode: '', // 取餐码
@@ -46,11 +47,11 @@ Page({
     if (res.from === 'button') {
       // 来自页面内转发按钮
       console.log(res.target)
-    }
-    return {
-      title: '闪餐',
-      path: '/pages/login/login',
-      imageUrl: '/images/share.jpg'
+      return {
+        title: '闪餐',
+        path: '/pages/login/login',
+        imageUrl: '/images/share.jpg'
+      }
     }
   },
   /**
@@ -77,19 +78,27 @@ Page({
           payType = '微信支付'
         } else if (response.payType == 2) {
           payType = '余额支付'
+        } else if (response.payType == 3) {
+          payType = '抽奖兑换'
         }
         let couponFee = response.couponFee ? response.couponFee : 0;
-        let total = response.orderAmount - couponFee;
+        let date = new Date().getTime();
+        let takeFoodText = false;
+        if (response.takeFoodTime > date) {
+          takeFoodText = utils.formatTime(response.takeFoodTime, this.data.format);
+        }
         this.setData({
           orderStatus: response.orderStatus,
           mealList: response.childs,
           createTimeText: createTimeText,
           payType: payType ? payType : '',
-          total: total,
+          total: response.payAmount,
           takeFoodCode: response.takeFoodCode ? response.takeFoodCode : '',
           qrCode: response.qrCode ? response.qrCode : '',
-          couponFee: couponFee
+          couponFee: couponFee,
+          takeFoodText: takeFoodText
         })
+        console.info(this.data.takeFoodText)
         if (response.orderStatus == 0) {
           payTime(response.createTime, this)
         }
@@ -134,13 +143,6 @@ Page({
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
 
   }
 })

@@ -315,6 +315,9 @@ Page({
       }
     })
       .then((response) => {
+        for (let i = 0;i<response.length;i++) {
+          response[i].buyNumber = 0;
+        }
         this.setData({
           weekProductList: response
         })
@@ -335,6 +338,9 @@ Page({
       }
     })
       .then((response) => {
+        for (let i = 0; i < response.length; i++) {
+          response[i].buyNumber = 0;
+        }
         this.setData({
           weekProductList: response
         })
@@ -358,9 +364,6 @@ Page({
   },
   //添加到购物车
   addBuyCar: function (e) {
-    // this.setData({
-    //   addToCar: true
-    // })
     const aisleId = e.currentTarget.dataset.aisleid;
     const productId = e.currentTarget.dataset.productid;
     const macId = this.data.machineId;
@@ -503,5 +506,76 @@ Page({
         });
       }
     });
+  },
+  // 生成预定订单
+  makeOrder: function () {
+
+    const nowSelectTime = this.data.nowSelectTime; // 预定时间
+    const weekProductList = this.data.weekProductList; // 预定餐品
+    let childs = [];
+    for (let i = 0; i < weekProductList.length; i++) {
+      if (weekProductList[i].buyNumber > 0) {
+        let obj = {};
+        obj.macId = this.data.machineId;
+        obj.productId = weekProductList[i].productId;
+        obj.aisleId = weekProductList[i].aisleId;
+        obj.buyNumber = weekProductList[i].buyNumber;
+        childs.push(obj)
+      }
+    }
+    if (childs.length <= 0) {
+      return
+    }
+    
+    let data = {};
+    let body = {};
+    body.childs = childs;
+    body.takeFoodTime = nowSelectTime;
+    body.macId = this.data.machineId;
+    data.body = JSON.stringify(body);
+    console.info(data)
+
+    app.fetch({
+      url: '/fastfood/foodorder/createOrder',
+      method: 'post',
+      requestBody: true,
+      data: data
+    })
+      .then((response) => {
+        for (let i = 0; i < weekProductList.length; i++) {
+          weekProductList[i].buyNumber = 0;
+        }
+        this.setData({
+          weekProductList: weekProductList
+        })
+        const orderNo = response.orderNo;
+        wx.navigateTo({
+          url: "/pages/order/payment/payment?orderNo=" + orderNo,
+        })
+      })
+  },
+  editShoppingNum: function (id, num) {
+    const weekProductList = this.data.weekProductList; // 预定餐品
+    for (let i = 0; i < weekProductList.length; i++) {
+      if (id == weekProductList[i].productId) {
+        weekProductList[i].buyNumber = num;
+      }
+    }
+    this.setData({
+      weekProductList: weekProductList
+    })
+  },  
+  //减
+  reduce: function (e) {
+    if (e.currentTarget.dataset.buynumber <= 0) {
+      return;
+    }
+    let num = e.currentTarget.dataset.buynumber - 1;
+    this.editShoppingNum(e.currentTarget.dataset.productid, num);
+  },
+  //加
+  plus: function (e) {
+    let num = e.currentTarget.dataset.buynumber + 1;
+    this.editShoppingNum(e.currentTarget.dataset.productid, num)
   }
 })

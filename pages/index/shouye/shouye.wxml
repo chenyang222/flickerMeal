@@ -172,6 +172,7 @@
               <text wx:for="{{leftMeaslList}}" wx:key="index" wx:for-item="itemName" class="{{prevOrdermealId == itemName.id ? 'jinrigouTypeSele' : '' }}" data-id='{{itemName.id}}' bindtap='prevOrdermealType'>{{itemName.name}}</text>
             </view>
             <view class="tabCtnR fr">
+              <button class='makeOrder' bindtap='makeOrder'>生成预定订单</button>
               <view class="product" wx:for="{{weekProductList}}" wx:for-index="index" wx:for-item="item" wx:key="{{index}}" wx:if="{{item.productCatId == prevOrdermealId}}">
                 <view class="product-left">
                   <image data-item='{{item}}' bindtap='toMealDetail' mode='widthFix' class="productImg" src="{{item.picture}}"></image>
@@ -187,7 +188,9 @@
             <text>{{item.hotNum}}</text></view>
                       <view class='addGoods'>
                         <view class="price">￥<text>{{item.price}}</text></view>
-                        <image class='add' bindtap='addBuyCar' data-aisleId='{{item.aisleId}}' data-productId='{{item.productId}}' src="{{imgdata}}/blAdd.png"></image>
+                        <image class='jian' data-productId="{{item.productId}}" data-buyNumber="{{item.buyNumber}}" src='{{imgdata}}/reduce.png' bindtap='reduce'></image>
+                        <text class='jiajian-num'>{{item.buyNumber}}</text>
+                        <image class='jia' src='{{imgdata}}/plus.png' data-productId="{{item.productId}}" data-buyNumber="{{item.buyNumber}}" bindtap='plus'></image>
                       </view>
                   </view>
                 </view>

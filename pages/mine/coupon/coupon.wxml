@@ -17,7 +17,8 @@
           <image mode='widthFix' class='default' src='{{imgdata}}/cf_defalut.png'></image>
           <text>{{item.startTime}}至 {{item.endTime}}</text>
         </view>
-        <view class='couponCanUse'>未使用</view>
+        <view wx:if="{{item.use == 0}}" class='couponCanUse'>未使用</view>
+        <view wx:elif="{{item.use == 1}}" class='couponCanUse'>已使用</view>
       </view>
     </view>
   </view>

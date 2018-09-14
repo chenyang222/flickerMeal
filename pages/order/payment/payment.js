@@ -24,7 +24,7 @@ Page({
       if (this.data.couponSelectId == this.data.couponList[i].id) {
         amount = this.data.couponList[i].amount;
       }
-      if (this.data.payAmount >= this.data.couponList[i].useRestrict) {
+      if (this.data.payAmount >= this.data.couponList[i].useRestrict && this.data.couponList[i].use == 0) {
         length++;
       }
     }
@@ -36,7 +36,7 @@ Page({
     } else {
       this.setData({
         couponSelect: '-￥ ' + amount,
-        countAmountNum: this.data.payAmount - amount
+        countAmountNum: (this.data.payAmount - amount) < 0 ? '0' : this.data.payAmount - amount
       })
     }
   },
@@ -112,7 +112,7 @@ Page({
                   let length = 0;
                   let list = [];
                   for (let i = 0; i < data.length; i++) {
-                    if (response.orderAmount >= data[i].useRestrict) {
+                    if (response.orderAmount >= data[i].useRestrict && data[i].use == 0) {
                       length++;
                       list.push(data[i])
                     }
@@ -147,7 +147,7 @@ Page({
       orderNo: orderNo,
       couponId: couponId == 'nouse' ? '' : couponId
     }
-    if (this.data.payType == 2) {
+    if (this.data.payType == 2 || this.data.countAmountNum == 0) {
       // 余额支付
       app.fetch({
         url: '/fastfood/foodorder/balancePayForOrder',
