@@ -386,9 +386,9 @@ Page({
   // 跳转到餐品详情
   toMealDetail: function (e) {
     const item = JSON.stringify(e.currentTarget.dataset.item);
-    console.info(item)
+    const cpType = e.currentTarget.dataset.type ? e.currentTarget.dataset.type : '';
     wx.navigateTo({
-      url: '/pages/index/mealDetail/mealDetail?item=' + item,
+      url: '/pages/index/mealDetail/mealDetail?item=' + item + '&type=' + cpType,
     })
   },
   //滑动切换

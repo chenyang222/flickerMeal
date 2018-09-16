@@ -10,7 +10,7 @@
         <text class='money-icon'>￥</text><text class='zhe-price'>{{foodInfo.price}}</text>
       </view>
     </view>
-    <view data-productid = "{{foodInfo.productId}}" bindtap='addBuyCar'>
+    <view wx:if="{{cpType != 'yd'}}" data-productid = "{{foodInfo.productId}}" data-aisleid = "{{foodInfo.aisleId}}" bindtap='addBuyCar'>
       <image class='car-icon'></image>
       <text class='addcar-btn'></text>
     </view>

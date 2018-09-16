@@ -175,7 +175,7 @@
               <button class='makeOrder' bindtap='makeOrder'>生成预定订单</button>
               <view class="product" wx:for="{{weekProductList}}" wx:for-index="index" wx:for-item="item" wx:key="{{index}}" wx:if="{{item.productCatId == prevOrdermealId}}">
                 <view class="product-left">
-                  <image data-item='{{item}}' bindtap='toMealDetail' mode='widthFix' class="productImg" src="{{item.picture}}"></image>
+                  <image data-item='{{item}}' data-type='yd' bindtap='toMealDetail' mode='widthFix' class="productImg" src="{{item.picture}}"></image>
                   <image wx:if="{{item.label == 2}}" class="productIcon" mode='widthFix' src="{{imgdata}}/hotPushIcon.png"></image>
                   <image wx:elif="{{item.label == 1}}" class="productIcon" mode='widthFix' src="{{imgdata}}/newmeal.png"></image>
                 </view>

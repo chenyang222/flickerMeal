@@ -5,13 +5,30 @@ Page({
     foodInfo: {}//餐品信息
   },
   onLoad: function(options){
-    console.log(options.item);
     this.setData({ 
-      foodInfo: JSON.parse(options.item)
+      foodInfo: JSON.parse(options.item),
+      cpType: options.type
     })
   },
-  addBuyCar: function (e) {//添加到购物车
-    var that = this;
-
+  //添加到购物车
+  addBuyCar: function (e) {
+    const aisleId = e.currentTarget.dataset.aisleid;
+    const productId = e.currentTarget.dataset.productid;
+    const macId = wx.getStorageSync('machineId');
+    app.fetch({
+      url: '/fastfood/shoppingcart/add',
+      data: {
+        aisleId: aisleId,
+        productId: productId,
+        macId: macId
+      }
+    })
+      .then((response) => {
+        wx.showToast({
+          title: '已添加到购物车',
+          icon: 'success',
+          duration: 1000
+        })
+      })
   }
 })

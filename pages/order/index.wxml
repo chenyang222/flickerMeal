@@ -177,7 +177,7 @@
     <swiper-item>
       <view class='all-order' style="height:{{winHeight - 96}}px">
         <!-- 去付款 -->
-        <view class='order-list' wx:for="{{orderList}}" wx:for-item="item" wx:key="{{index}}" wx:if="{{item.orderStatus == 2}}">
+        <view class='order-list' wx:for="{{orderList}}" wx:for-item="item" wx:key="{{index}}" wx:if="{{item.orderStatus == 2 || item.orderStatus == 3}}">
           <view class='order-list-title'>
             <view data-orderNo="{{item.orderNo}}" bindtap='toOrderDetail' class='dian-info'>
               <image class='order-list-icon' src='{{imgdata}}/orderTitleIcon.png'></image>
@@ -231,7 +231,7 @@
     <swiper-item>
       <view class='all-order' style="height:{{winHeight - 96}}px">
         <!-- 去付款 -->
-        <view class='order-list' wx:for="{{orderList}}" wx:for-item="item" wx:key="{{index}}" wx:if="{{item.orderStatus == 3}}">
+        <view class='order-list' wx:for="{{orderList}}" wx:for-item="item" wx:key="{{index}}" wx:if="{{item.orderStatus == 4}}">
           <view class='order-list-title'>
             <view data-orderNo="{{item.orderNo}}" bindtap='toOrderDetail' class='dian-info'>
               <image class='order-list-icon' src='{{imgdata}}/orderTitleIcon.png'></image>
