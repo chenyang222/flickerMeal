@@ -28,7 +28,7 @@
         </view> -->
         <!-- <view class='couponCanUse'>未使用</view> -->
         <view class='isUseCoupon'>
-          <image bindtap='selectCoupon' wx:if="{{select != item.couponId}}" data-select="{{item.id}}" bintap="selectCoupon" class='paymentNoSeleImg' src='{{imgdata}}/paymentNoSeleImg.png'></image>
+          <image bindtap='selectCoupon' wx:if="{{select != item.couponId}}" data-select="{{item.id}}" class='paymentNoSeleImg' src='{{imgdata}}/paymentNoSeleImg.png'></image>
           <image wx:elif="{{select == item.id}}" class='selectedImg' src='{{imgdata}}/paymentSeleImg.png'></image>
         </view>
       </view>

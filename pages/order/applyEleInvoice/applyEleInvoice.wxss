@@ -1,0 +1,58 @@
+/* pages/order/applyEleInvoice/applyEleInvoice.wxss */
+.addInvoiceForm{
+  margin-top: 15rpx;
+  background-color: #ffffff;
+}
+.form-column{
+  display: flex;
+  padding: 15rpx 30rpx;
+  border-bottom: 1px solid #c7c7c738; 
+}
+.form-left{
+  width: 15%;
+  display: flex;
+  align-items: center;
+}
+.form-right{
+  width: 85%;
+}
+.form-left text{
+  font-size: 28rpx;
+}
+.form-right text{
+  font-size: 28rpx;
+  color: #c7c7c7;
+  border-radius: 20rpx;
+  display: inline-block;
+  padding: 5rpx 30rpx;
+  margin-right: 30rpx;
+}
+.form-right .active{
+  border: 1px solid #ff9e35;
+  color: #ff9e35;
+  border-radius: 20rpx;
+}
+
+.form-right input{
+  font-size: 28rpx;
+  width: 100%;
+}
+
+.warn{
+  font-size: 28rpx;
+  color: #c7c7c7;
+  padding-left: 30rpx;
+}
+
+.saveEleInvoice{
+  width: 80%;
+  margin: 30rpx auto;
+  display: block;
+  line-height: 89rpx;
+  height: 89rpx;
+  border-radius: 30rpx;
+  background-color: #ff9e35;
+  color: #ffffff;
+  text-align: center;
+  font-size: 35rpx;
+}

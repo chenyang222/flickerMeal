@@ -1,0 +1,36 @@
+/* pages/order/selectEleInvoice/selectEleInvoice.wxss */
+.warn{
+  font-size: 28rpx;
+  color: #c7c7c7;
+  padding-left: 30rpx;
+}
+.addEleInvoice{
+  width: 80%;
+  margin: 30rpx auto;
+  display: block;
+  line-height: 89rpx;
+  height: 89rpx;
+  border-radius: 30rpx;
+  background-color: #ff9e35;
+  color: #ffffff;
+  text-align: center;
+  font-size: 35rpx;
+}
+
+.invoiceListBox{
+  margin-top: 15rpx;
+  background-color: #ffffff;
+  padding: 30rpx;
+  font-size: 26rpx;
+  position: relative;
+}
+.invoiceListBox view{
+  margin-top: 15rpx;
+}
+
+.invoiceListBox .selectBox{
+  position: absolute;
+  top: 50%;
+  right: 30rpx;
+  margin-top: -19rpx;
+}

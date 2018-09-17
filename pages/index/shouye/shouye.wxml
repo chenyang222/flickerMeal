@@ -73,6 +73,31 @@
 
     <view style="height:40rpx;background-color: #f8f8f8;"></view>
 
+    <!-- 机器列表 -->
+    <view>
+      <!-- 列表 -->
+      <view data-machineId='{{item.id}}' data-machinename='{{item.name}}' bindtap='setStorgeId' class="machine" wx:for="{{isShouAllMachine ? machineAllList : machineList}}" wx:for-index="index" wx:for-item="item" wx:key="{{index}}">
+        <view class="machine-left">
+          <image class="machineImg" mode="widthFix" src="{{imgdata}}/hotPushImg.png"></image>
+        </view>
+        <view class="machine-right">
+          <view class="machineName">
+            <text>{{item.name}}({{item.address}})</text>
+            <image src="{{imgdata}}/blDingwei.png" class="fly"></image>
+          </view>
+        </view>
+      </view>
+
+      <view bindtap='showAllMachine' class="isCanGet">
+        <text>附近还有{{machineList.length - 1 > 0 ? machineList.length - 1 : 0}}个闪餐机器</text>
+        <image wx:if='{{isShouAllMachine}}' src="{{imgdata}}/youhuixiala.png"></image>
+        <image wx:else class='rotateY' src="{{imgdata}}/youhuixiala.png"></image>
+      </view>
+
+    </view>
+
+    <!--  -->
+
     <!-- 推荐套餐 -->
     <view class='recomendPart'>
       <view class='recomentHeader'>

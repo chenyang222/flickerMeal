@@ -37,7 +37,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 6,
+			"current": 8,
 			"list": [
 				{
 					"id": -1,
@@ -78,7 +78,19 @@
 				{
 					"id": -1,
 					"name": "积分抽奖",
-					"pathName": "pages/mine/lottery/lottery"
+					"pathName": "pages/mine/lottery/lottery",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "申请电子发票",
+					"pathName": "pages/order/applyEleInvoice/applyEleInvoice",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "选择电子发票",
+					"pathName": "pages/order/selectEleInvoice/selectEleInvoice"
 				}
 			]
 		}

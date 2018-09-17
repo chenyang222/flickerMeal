@@ -35,7 +35,9 @@
     "pages/mine/addAddress/addAddress",
     "pages/mine/editAddress/editAddress",
     "pages/logs/logs",
-    "pages/mine/lottery/lottery"
+    "pages/mine/lottery/lottery",
+    "pages/order/applyEleInvoice/applyEleInvoice",
+    "pages/order/selectEleInvoice/selectEleInvoice"
   ],
   "window": {
     "navigationBarBackgroundColor": "#ffffff",
