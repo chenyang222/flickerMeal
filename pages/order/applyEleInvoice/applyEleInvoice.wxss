@@ -1,4 +1,5 @@
 /* pages/order/applyEleInvoice/applyEleInvoice.wxss */
+@import "../../../style/public.wxss";
 .addInvoiceForm{
   margin-top: 15rpx;
   background-color: #ffffff;

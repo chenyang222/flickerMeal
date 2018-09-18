@@ -5,8 +5,8 @@
       <text>类型</text>
     </view>
     <view class='form-right'>
-      <text data-sType='0' bindtap='selectType' class="{{invoiceType == 0 ? 'active' : ''}}">单位</text>
-      <text data-sType='1' bindtap='selectType' class="{{invoiceType == 1 ? 'active' : ''}}">个人</text>
+      <text data-sType='1' bindtap='selectType' class="{{invoiceType == 1 ? 'active' : ''}}">单位</text>
+      <text data-sType='0' bindtap='selectType' class="{{invoiceType == 0 ? 'active' : ''}}">个人</text>
     </view>
   </view>
 
@@ -15,25 +15,25 @@
       <text>抬头</text>
     </view>
     <view class='form-right'>
-      <input placeholder="请填写准确的抬头名称" />
-    </view>
-  </view>
-
-  <view wx:if="{{invoiceType == 0}}" class='form-column'>
-    <view class='form-left'>
-      <text>税号</text>
-    </view>
-    <view class='form-right'>
-      <input placeholder="请填写税号或社会信用代码" />
+      <input bindinput='inputRise' placeholder="请填写准确的抬头名称" />
     </view>
   </view>
 
   <view wx:if="{{invoiceType == 1}}" class='form-column'>
     <view class='form-left'>
+      <text>税号</text>
+    </view>
+    <view class='form-right'>
+      <input bindinput='inputDuty' placeholder="请填写税号或社会信用代码" />
+    </view>
+  </view>
+
+  <view class='form-column'>
+    <view class='form-left'>
       <text>邮箱</text>
     </view>
     <view class='form-right'>
-      <input placeholder="请输入接收电子发票邮箱" />
+      <input bindinput='inputEmail' placeholder="请输入接收电子发票邮箱" />
     </view>
   </view>
 
@@ -43,4 +43,4 @@
   <text class='warn'>可咨询公司财务部门获得税号或社会信用代码</text>
 </view>
 
-<button class='saveEleInvoice'>保存</button>
+<button bindtap='saveEleInvoice' class='saveEleInvoice'>保存</button>

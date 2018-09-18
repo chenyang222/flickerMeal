@@ -95,5 +95,50 @@ Page({
     wx.navigateTo({
       url: "/pages/order/orderDetail/orderDetail?orderNo=" + orderNo,
     })
+  },
+  // 再来一单
+  makeOther: function (e) {
+    const item = e.currentTarget.dataset.item;
+    console.info(item)
+    const macId = wx.getStorageSync('machineId');
+    const weekProductList = item.childs; // 预定餐品
+    let childs = [];
+    for (let i = 0; i < weekProductList.length; i++) {
+      if (weekProductList[i].buyNumber > 0) {
+        let obj = {};
+        obj.macId = macId;
+        obj.productId = weekProductList[i].productId;
+        obj.aisleId = weekProductList[i].aisleId;
+        obj.buyNumber = weekProductList[i].buyNumber;
+        childs.push(obj)
+      }
+    }
+
+    let data = {};
+    let body = {};
+    body.childs = childs;
+    body.macId = macId;
+    data.body = JSON.stringify(body);
+    console.info(data)
+
+    app.fetch({
+      url: '/fastfood/foodorder/createOrder',
+      method: 'post',
+      requestBody: true,
+      data: data
+    })
+      .then((response) => {
+        const orderNo = response.orderNo;
+        wx.navigateTo({
+          url: "/pages/order/payment/payment?orderNo=" + orderNo,
+        })
+      })
+  },
+  // 申请电子发票
+  applyEleInvoice: function (e) {
+    const orderNo = e.target.dataset.orderno;
+    wx.navigateTo({
+      url: "/pages/order/selectEleInvoice/selectEleInvoice?orderNo=" + orderNo,
+    })
   }
 })

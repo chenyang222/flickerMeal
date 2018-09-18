@@ -11,12 +11,12 @@
       <image class="fl" src="{{imgdata}}/phone.png"></image>
       <input class="fl" placeholder="请输入手机号码" type="text" bindinput='phoneVal' value="{{phoneNum}}"></input>
     </view>
-    <!-- <view>
+    <view>
       <image class="fl" src="{{imgdata}}/pass.png"></image>
       <input class="fl" placeholder="请输入验证码" type="text" value='{{validateCode}}' bindinput='vlidataVal'></input>
      <text class="yzm fr {{is_show?'show':'hide'}}" bindtap="getIdentifyingCode">获取验证码</text>
       <text class="yzm fr {{is_show?'hide':'show'}}" style='border:1px solid #ccc;color:#ccc'>{{last_time}}</text>
-    </view> -->
+    </view>
     <!-- <view>
       <image class="fl" src="{{imgdata}}/pass/yqm.png"></image>
       <input class="fl" placeholder="请输入邀请码（选填）" type="text" value='{{invitationCode}}' bindinput='yaoqingCodeVal'></input>

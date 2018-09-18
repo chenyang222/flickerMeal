@@ -1,23 +1,22 @@
 <!--pages/order/selectEleInvoice/selectEleInvoice.wxml-->
 <view>
   
-  <!-- <view wx:if="{{invoiceList == 0}}">
+  <view wx:if="{{invoiceList == 0}}">
     <text class='warn'>暂无发票信息，您可点击新增发票</text>
-  </view> -->
+  </view>
   
   <view class='invoice'>
-    <view class='invoiceListBox'>
-      <view>单位</view>
-      <view>抬头 : 12312312321312</view>
-      <view>税号 : ffwefd123123</view>
-      <view>邮箱 : 351424947@qq.com</view>
+    <view class='invoiceListBox' data-item='{{item}}' bindtap="selectInvoice" wx:for="{{invoiceList}}" wx:for-item="item" wx:key="{{index}}">
+      <view>{{item.flag == 1 ? '单位' : '个人'}}</view>
+      <view>抬头 : {{item.title}}</view>
+      <view wx:if="{{item.flag == 1}}">税号 : {{item.ird}}</view>
+      <view>邮箱 : {{item.email}}</view>
       <view class='selectBox'>
-        <image wx:if="{{selectInvoice != index}}" data-selectInvoice="{{item.id}}" bintap="selectInvoice" class='paymentNoSeleImg' src='{{imgdata}}/paymentNoSeleImg.png'></image>
-        <image wx:elif="{{selectInvoice == index}}" class='selectedImg' src='{{imgdata}}/paymentSeleImg.png'></image>
+        <image data-id="{{item.id}}" bindtap="deleteInvoice" class='paymentNoSeleImg' src='{{imgdata}}/reduce.png'></image>
       </view>
     </view>
   </view>
 
 </view>
 
-<button class='addEleInvoice'>新增发票</button>
+<button bindtap='toAddInvoice' class='addEleInvoice'>新增发票</button>

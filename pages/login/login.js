@@ -104,27 +104,29 @@ Page({
       return false;
     }
     // 验证码判断拦截
-    // if (this.data.validateCode == '') {
-    //   wx.showToast({
-    //     title: '验证码不能为空',
-    //     icon: 'none',
-    //     duration: 1000,
-    //     mask: true
-    //   })
-    //   return false;
-    // }
+    if (this.data.validateCode == '') {
+      wx.showToast({
+        title: '验证码不能为空',
+        icon: 'none',
+        duration: 1000,
+        mask: true
+      })
+      return false;
+    }
     const that = this;
     let data = {};
     if (this.data.inviter) {
       data = {
         mobile: this.data.phoneNum,
         openid: app.globalData.openid,
-        inviter: this.data.inviter
+        inviter: this.data.inviter,
+        vfcode: this.data.validateCode
       }
     } else {
       data = {
         mobile: this.data.phoneNum,
-        openid: app.globalData.openid
+        openid: app.globalData.openid,
+        vfcode: this.data.validateCode
       }
     }
     // 注册绑定
