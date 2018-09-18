@@ -1,7 +1,45 @@
 /* pages/mine/join/join.wxss */
 .join{
   width: 100%;
+  position: relative;
 }
 .join image{
   width: 100%;
+}
+.join-content{
+  width: 90%;
+  margin: 0 auto;
+  position: absolute;
+  top: 45%;
+  left: 5%;
+}
+.join-content view{
+  text-indent: 30rpx;
+}
+.join-content view text{
+  font-size: 24rpx;
+  line-height: 32rpx;
+}
+.join-content input{
+  padding-left: 15rpx;
+  font-size: 28rpx;
+  line-height: 50rpx;
+  height: 50rpx;
+  margin-top: 30rpx;
+  border-radius: 15rpx;
+  background-color: #ebe9e9;
+  display: block;
+}
+
+.joinBtn{
+  width: 80%;
+  margin: 15rpx auto;
+  display: block;
+  line-height: 89rpx;
+  height: 89rpx;
+  border-radius: 30rpx;
+  background-color: #ff9e35;
+  color: #ffffff;
+  text-align: center;
+  font-size: 35rpx;
 }

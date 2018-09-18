@@ -66,7 +66,8 @@ Page({
     boxTop: 0,//记录今日购、预定、评论的距离顶部高度0时固定定位
     fixedFlag: false//记录今日购、预定、评论的距离顶部高度0时固定定位
   },
-  onLoad: function (option) {
+  onLoad: function (option) {},
+  onShow: function () {
     // 设置定位
     this.setPosition();
     // 广告轮播

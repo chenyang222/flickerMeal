@@ -1,5 +1,16 @@
 <!--pages/mine/join/join.wxml-->
 <!-- <text>pages/mine/join/join.wxml</text> -->
 <view class='join'>
-  <image mode='widthFix' src='{{imgdata}}/join_bg.jpg'></image>
+  <image mode='widthFix' src='{{imgdata}}/join_bg.png'></image>
+  <view class='join-content'>
+    <view>
+      <text>闪餐邀请你一起关注科技，引领行业，影响世界。您可以填写下表或者拨打我们的加盟热线： 400-011098</text>
+    </view>
+    <input bindinput='inputName' placeholder="请输入您的姓名" />
+    <input bindinput='inputPhone' placeholder="请输入公司电话" />
+    <input bindinput='inputPosition' placeholder="请输入公司职位" />
+    <input bindinput='inputCompany' placeholder="请输入公司名称" />
+    <input bindinput='inputAddress' placeholder="请输入公司地址" />
+  </view>
+  <button bindtap='joinBtn' class='joinBtn'>提交</button>
 </view>
