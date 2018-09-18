@@ -59,7 +59,7 @@ Page({
     let data = {};
     data.orderNo = this.data.orderNo;
     data.invoiceFlag = item.flag;
-    data.invoiceEamil = item.email;
+    data.invoiceEmail = item.email;
     data.invoiceTitle = item.title;
     if (item.flag == 1) {
       data.invoiceIRD = item.ird;
